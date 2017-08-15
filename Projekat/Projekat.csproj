@@ -215,6 +215,37 @@
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\simplebar.css" />
     <Content Include="Content\css\stil.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\back-strelica.png" />
+    <Content Include="Content\img\cikica.png" />
+    <Content Include="Content\img\GIFicon.png" />
+    <Content Include="Content\img\JPGicon.png" />
+    <Content Include="Content\img\komentarisi.png" />
+    <Content Include="Content\img\lupa.png" />
+    <Content Include="Content\img\mat.png" />
+    <Content Include="Content\img\MP4icon.png" />
+    <Content Include="Content\img\novavest.png" />
+    <Content Include="Content\img\novine-svetlije.png" />
+    <Content Include="Content\img\Novine.png" />
+    <Content Include="Content\img\obrisi.png" />
+    <Content Include="Content\img\PDFicon.png" />
+    <Content Include="Content\img\plus.png" />
+    <Content Include="Content\img\PNGicon.png" />
+    <Content Include="Content\img\PRIMER.png" />
+    <Content Include="Content\img\prof-slika.png" />
+    <Content Include="Content\img\profesor.png" />
+    <Content Include="Content\img\RARicon.png" />
+    <Content Include="Content\img\RTFicon.png" />
+    <Content Include="Content\img\tri-tacke.png" />
+    <Content Include="Content\img\trougao-breadcrumbs.png" />
+    <Content Include="Content\img\TXTicon.png" />
+    <Content Include="Content\img\ucenik.png" />
+    <Content Include="Content\img\upload.png" />
+    <Content Include="Content\img\upload2.png" />
+    <Content Include="Content\img\uredi.png" />
+    <Content Include="Content\img\ZIPicon.png" />
+    <Content Include="Content\img\zvono-plus.png" />
+    <Content Include="Content\img\zvono.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -226,6 +257,22 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\NotoSans-Bold.ttf" />
+    <Content Include="Content\fonts\NotoSans-Regular.ttf" />
+    <Content Include="Content\fonts\OpenSans-Bold.ttf" />
+    <Content Include="Content\fonts\OpenSans-ExtraBold.ttf" />
+    <Content Include="Content\fonts\OpenSans-Light.ttf" />
+    <Content Include="Content\fonts\OpenSans-Regular.ttf" />
+    <Content Include="Content\fonts\OpenSans-SemiBold.ttf" />
+    <Content Include="Content\fonts\Roboto-Black.ttf" />
+    <Content Include="Content\fonts\Roboto-Bold.ttf" />
+    <Content Include="Content\fonts\Roboto-Light.ttf" />
+    <Content Include="Content\fonts\Roboto-Medium.ttf" />
+    <Content Include="Content\fonts\Roboto-Regular.ttf" />
+    <Content Include="Content\fonts\Roboto-Thin.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -277,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
