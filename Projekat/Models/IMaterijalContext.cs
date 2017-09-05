@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projekat.Models
 {
-    interface IMaterijalContext
+    public interface IMaterijalContext
     {
         IQueryable<MaterijalModel> materijali { get; }
         IQueryable<PredmetModel> predmeti { get; }
