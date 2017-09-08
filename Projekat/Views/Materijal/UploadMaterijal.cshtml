@@ -1,0 +1,36 @@
+﻿@model Projekat.Models.MaterijalModel
+@{
+    ViewBag.Title = "UploadMaterijal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/js")  @*Sluzi za postavljanje imena fajla kada isti bude izabran.*@
+
+<style>
+    .file {
+        visibility: hidden;
+        position: absolute;
+    }
+</style>
+
+<div id="sredina">
+    @using (Html.BeginForm("UploadMaterijal", "UploadMaterijal", FormMethod.Post, new { enctype = "multipart/form-data", id = "postavkaMat" }))
+    {
+        <input type="file" name="file" id="file" class="inputfile" />
+        <label for="file" id="izaberi-materijal"><img src="~/Content/img/upload2.png" alt="Izaberite Dokument"> <span id="filename">Izaberite dokument...</span></label>
+
+        <label for="materijalNaslov">Naslov</label>
+        <input id="materijalNaslov" type="text">
+
+        <label for="opis">Opis</label>
+        @Html.TextAreaFor(model => model.materijalOpis, new { placeholder = @"Your Placeholder Text" });
+
+        <button type="submit" id="postavi">
+            POSTAVI
+        </button>
+
+    }
+</div>
+

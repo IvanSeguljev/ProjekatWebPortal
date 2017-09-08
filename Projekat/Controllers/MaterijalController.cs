@@ -52,20 +52,20 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult UploadMaterijal()
         {
-            List<PredmetModel> predmeti;
-            predmeti = context.predmeti.ToList();
-            MaterijalViewModel ViewModel = new MaterijalViewModel();
-            //MaterijalModel model = new MaterijalModel();
-            ViewModel.predmetiLista = predmeti;
+            //List<PredmetModel> predmeti;
+            //  predmeti = context.predmeti.ToList(); 
+            //   MaterijalViewModel ViewModel = new MaterijalViewModel();
+            //  ViewModel.predmetiLista = predmeti;
+         /*Kad se doda predmet koristicemo viewModel*/
+            MaterijalModel model = new MaterijalModel();
 
 
-            return View("UploadMaterijal", ViewModel);
+            return View("UploadMaterijal", model);
         }
 
         [HttpPost]
         public ActionResult UploadMaterijal(MaterijalViewModel ViewModel, HttpPostedFileBase file, MaterijalViewModel model/*, string hiddenPredmet*/)
         {
-
 
             // PredmetModel predmet = new PredmetModel();
 

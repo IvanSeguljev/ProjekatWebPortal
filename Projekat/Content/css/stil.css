@@ -28,14 +28,21 @@ body{
   src: url("../fonts/Roboto-Bold.ttf");
 }
 
+.clear-fix::after{
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
 body{
   font-family: 'roboto-regular';
 }
 
 
 /*EDITOVANJE FRAMEWORKA ZA SCROLLBAR*/
-.simplebar-track{
-    z-index:20000;
+div.LeftBar div.simplebar-track{
+    z-index:20000 !important;
 }
 
 
@@ -174,7 +181,7 @@ body{
     left:0;
     top:0;
     background-color: #e21b22;
-    z-index:1100;
+    z-index:10;
 }
 
 #Ime{
@@ -574,7 +581,7 @@ a#novi-materijal:hover{
   -webkit-box-shadow: 0px 0px 42px 11px rgba(0,0,0,0.22);
   -moz-box-shadow: 0px 0px 42px 11px rgba(0,0,0,0.22);
   box-shadow: 0px 0px 42px 11px rgba(0,0,0,0.22);*/
-  transform: scale(1.1);
+  transform: translate(-100%,-100%) scale(1.1);
   box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),  0 4px 15px 0 rgba(0,0,0,0.15);
 }
 
@@ -763,3 +770,105 @@ button#postavi:hover{
         width: calc(100% - 70px);;
     }
 }*/
+
+/*PREDMETI*/
+
+.kartica-predmet{
+    width: 325px;
+    height: 155px;
+    border-radius: 2px;
+    background-color: #fff;
+    float: left;
+    margin: 0 40px 40px 0;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
+    /*position: relative;*/
+}
+
+ .kartica-predmet::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.kartica-predmet a.naziv-predmeta-na-kartici{
+    font-family: 'roboto-regular';
+    font-size: 24px;
+    color: #000;
+    margin: 22px 25px 15px 25px;
+    display:block;
+    height: 75px;
+
+    overflow: hidden;
+    /*white-space: nowrap;
+    
+    text-overflow: ellipsis;*/
+}
+
+div.kontrole{
+    width:100%;
+    height:41px;
+    display:block;
+    border-top:1px solid #e0e0e0;
+    /*position: absolute;
+    bottom: 0;*/
+}
+
+div.kontrole a.predmet-kontrole{
+    float:right;
+    font-size: 14px;
+    font-family: 'roboto-medium';
+    margin: 10px 25px 10px 0;
+    color: #000;
+}
+
+div.kontrole a.predmet-kontrole:first-child{
+    color:#505050;
+}
+
+.kartica-predmet a, .kartica-smer a{
+    transition: all 1s cubic-bezier(.08,.73,.08,.9);
+}
+
+.kartica-predmet a:hover,.kartica-smer a:hover{
+    text-decoration: none;
+}
+
+.kartica-predmet a.predmet-kontrole:focus, .kartica-smer a.predmet-kontrole:focus{
+    color:#e21b22;
+    text-decoration: none;
+}
+
+/*div.kontrole a.predmet-kontrole:hover{
+     transform: scale(1.03);
+}*/
+
+
+
+/*KARTICA SMER*/
+
+.kartica-smer{
+    width: 325px;
+    height: 235px;
+    border-radius: 2px;
+    background-color: #fff;
+    float: left;
+    margin: 0 40px 40px 0;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
+    /*position: relative;*/
+}
+
+a.naziv-smera-na-kartici{
+    font-family: 'roboto-regular';
+    font-size: 40px;
+    line-height: 1.2em;
+    color: #000;
+    margin: 18px 25px 18px 25px;
+    display:block;
+    height: 158px;
+
+    overflow: hidden;
+}

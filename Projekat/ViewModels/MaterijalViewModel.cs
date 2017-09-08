@@ -13,6 +13,7 @@ namespace Projekat.ViewModels
         public MaterijalModel materijal { get; set; }
 
 
+
         public PredmetModel predmet { get; set; }
         public IEnumerable<PredmetModel> predmetiLista { get; set; }
 
