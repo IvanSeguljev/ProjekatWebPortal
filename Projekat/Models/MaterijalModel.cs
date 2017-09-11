@@ -32,9 +32,9 @@ namespace Projekat.Models
 
 
         //public string UserName { get; set; }
-        public PredmetModel Predmet { get; set; }
+     //   public PredmetModel Predmet { get; set; }
 
-        public int predmetId { get; set; }
+      //  public int predmetId { get; set; }
 
 
         public string materijalEkstenzija { get; set; }

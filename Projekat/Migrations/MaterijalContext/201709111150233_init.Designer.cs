@@ -7,13 +7,13 @@ namespace Projekat.Migrations.MaterijalContext
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class DodajSmerPredmetPredmetPoSmeru : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DodajSmerPredmetPredmetPoSmeru));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708180835555_Dodaj SmerPredmetPredmetPoSmeru"; }
+            get { return "201709111150233_init"; }
         }
         
         string IMigrationMetadata.Source

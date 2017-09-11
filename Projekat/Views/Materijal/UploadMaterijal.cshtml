@@ -16,7 +16,7 @@
 </style>
 
 <div id="sredina">
-    @using (Html.BeginForm("UploadMaterijal", "UploadMaterijal", FormMethod.Post, new { enctype = "multipart/form-data", id = "postavkaMat" }))
+    @using (Html.BeginForm("UploadMaterijal", "Materijal", FormMethod.Post, new { enctype = "multipart/form-data", id = "postavkaMat" }))
     {
         <input type="file" name="file" id="file" class="inputfile" />
         <label for="file" id="izaberi-materijal"><img src="~/Content/img/upload2.png" alt="Izaberite Dokument"> <span id="filename">Izaberite dokument...</span></label>

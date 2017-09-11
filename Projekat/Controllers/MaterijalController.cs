@@ -64,10 +64,12 @@ namespace Projekat.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadMaterijal(MaterijalViewModel ViewModel, HttpPostedFileBase file, MaterijalViewModel model/*, string hiddenPredmet*/)
+        public ActionResult UploadMaterijal(MaterijalModel materijal, HttpPostedFileBase file, MaterijalModel model/*, string hiddenPredmet*/)
         {
 
             // PredmetModel predmet = new PredmetModel();
+
+            context = new MaterijalContext();
 
             if (ModelState.IsValid)
             {
@@ -75,26 +77,25 @@ namespace Projekat.Controllers
                 {
                     string nazivFajla = Path.GetFileName(file.FileName);
 
-                    ViewModel.materijal.fileMimeType = file.ContentType;
-                    ViewModel.materijal.materijalFile = new byte[file.ContentLength];
-                    file.InputStream.Read(ViewModel.materijal.materijalFile, 0, file.ContentLength);
-                    ViewModel.materijal.materijalNaziv = nazivFajla;
-                    ViewModel.materijal.materijalEkstenzija = Path.GetExtension(nazivFajla);
-                    ViewModel.materijal.materijalOpis = model.materijal.materijalOpis;
-                    ViewModel.materijal.predmetId = model.materijal.predmetId;     //predmet id prop
+                    materijal.fileMimeType = file.ContentType;
+                    materijal.materijalFile = new byte[file.ContentLength];
+                    file.InputStream.Read(materijal.materijalFile, 0, file.ContentLength);
+                    materijal.materijalNaziv = nazivFajla;
+                    materijal.materijalEkstenzija = Path.GetExtension(nazivFajla);
+                    materijal.materijalOpis = model.materijalOpis;
 
                 }
 
                 ViewBag.Message = "Uspešno ste postavili materijal!";
-                context.Add<MaterijalModel>(ViewModel.materijal);
+                context.Add<MaterijalModel>(materijal);
                 context.SaveChanges();
-                return RedirectToAction("UploadMaterijal", "UploadMaterijal");
+                return RedirectToAction("UploadMaterijal", "Materijal");
                 // return View("UploadMaterijal", ViewModel);
             }
             else
             {
                 ViewBag.Message = "Postavljanje materijala nije uspelo!";
-                return RedirectToAction("UploadMaterijal", "UploadMaterijal");
+                return RedirectToAction("UploadMaterijal", "Materijal");
 
                 // return View("UploadMaterijal", ViewModel);
             }
@@ -128,9 +129,18 @@ namespace Projekat.Controllers
         //[Route("UploadMaterijal/DeleteConfirmed/{id:int}")]
         public ActionResult DeleteConfirmed(int id)
         {
-            MaterijalModel materijal = context.pronadjiMaterijalPoId(id);
-            context.Delete<MaterijalModel>(materijal);
-            context.SaveChanges();
+            try
+            {
+                MaterijalModel materijal = context.pronadjiMaterijalPoId(id);
+                context.Delete<MaterijalModel>(materijal);
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                
+               
+            }
+            
 
             return RedirectToAction("MaterijaliPrikaz");
         }

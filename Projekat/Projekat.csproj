@@ -205,9 +205,17 @@
     </Compile>
     <Compile Include="Migrations\ApplicationDbContext\DefaultConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\MaterijalContext\201708180835555_Dodaj SmerPredmetPredmetPoSmeru.cs" />
-    <Compile Include="Migrations\MaterijalContext\201708180835555_Dodaj SmerPredmetPredmetPoSmeru.Designer.cs">
-      <DependentUpon>201708180835555_Dodaj SmerPredmetPredmetPoSmeru.cs</DependentUpon>
+    <Compile Include="Migrations\MaterijalContext\201709111150233_init.cs" />
+    <Compile Include="Migrations\MaterijalContext\201709111150233_init.Designer.cs">
+      <DependentUpon>201709111150233_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201709111203510_init -f.cs" />
+    <Compile Include="Migrations\MaterijalContext\201709111203510_init -f.Designer.cs">
+      <DependentUpon>201709111203510_init -f.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201709111229536_reseedPKValues.cs" />
+    <Compile Include="Migrations\MaterijalContext\201709111229536_reseedPKValues.Designer.cs">
+      <DependentUpon>201709111229536_reseedPKValues.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -361,8 +369,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201708180835555_Dodaj SmerPredmetPredmetPoSmeru.resx">
-      <DependentUpon>201708180835555_Dodaj SmerPredmetPredmetPoSmeru.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201709111150233_init.resx">
+      <DependentUpon>201709111150233_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201709111203510_init -f.resx">
+      <DependentUpon>201709111203510_init -f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201709111229536_reseedPKValues.resx">
+      <DependentUpon>201709111229536_reseedPKValues.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
