@@ -68,14 +68,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Obrišite materijal?</h4>
+                    <h4 class="modal-title">Modal Header</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Da li ste sigurni da želite da obrišete <span>Modeli baza prvi deo@*ubaci ime mat*@</span>?</p>
+                    <p>Da li ste sigurni da želite da obrišete <span></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Potvrdi</button>
-                    <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -85,11 +85,13 @@
                     $delete = $(this);
 
                     var id = $delete.parent().parent().parent().parent().attr('id');
-                    console.log(id);
+                    var ime = $('.kartica').find('h2').html();
+
+                    $('.modal-body span').replaceWith(ime);
 
                     $('button.btn-default:first').click(function () {
                         $.ajax({
-                            
+
                             //url: "/ControllerName/ActionName",
                             url: '@Url.Action("DeleteConfirmed", "Materijal")' + "/?id=" + id,
                             method: 'post',
