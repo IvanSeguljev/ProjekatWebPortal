@@ -1,6 +1,7 @@
-﻿$(document).ready(function () {
+﻿//document.getElementById('file').onchange = uploadOnChange;
+onload = function () {
     document.getElementsByClassName('inputfile')[0].onchange = uploadOnChange;
-    console.log('dwadawdaw');
+    console.log(document.getElementsByClassName('inputfile')[0].value);
     function uploadOnChange() {
         var filename = this.value;
         var lastIndex = filename.lastIndexOf("\\");
@@ -9,4 +10,5 @@
         }
         document.getElementById('filename').innerHTML = filename;
     }
-});
+
+}
