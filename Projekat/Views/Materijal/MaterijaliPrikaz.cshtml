@@ -89,10 +89,14 @@
 
                     $('button.btn-default:first').click(function () {
                         $.ajax({
+                            
                             //url: "/ControllerName/ActionName",
                             url: '@Url.Action("DeleteConfirmed", "Materijal")' + "/?id=" + id,
-                            method: 'get',
+                            method: 'post',
                             //data:{id:id},
+                            complete: function () {
+                                location.reload();
+                            }
                         });
                         $delete.parent().parent().parent().parent().remove();
                     });

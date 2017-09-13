@@ -124,21 +124,21 @@ namespace Projekat.Controllers
             return View("Delete", materijal);
         }
 
-        [HttpGet]
+        [HttpPost]
         //[ActionName("Delete")]
         //[Route("UploadMaterijal/DeleteConfirmed/{id:int}")]
         public ActionResult DeleteConfirmed(int id)
         {
+            MaterijalModel materijal;
             try
             {
-                MaterijalModel materijal = context.pronadjiMaterijalPoId(id);
+                materijal = context.pronadjiMaterijalPoId(id);
                 context.Delete<MaterijalModel>(materijal);
                 context.SaveChanges();
             }
             catch (Exception)
             {
-                
-               
+              
             }
             
 
