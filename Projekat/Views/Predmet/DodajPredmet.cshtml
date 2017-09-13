@@ -1,0 +1,11 @@
+﻿@model Projekat.ViewModels.DodajPremetViewModel
+@{
+    ViewBag.Title = "DodajPredmet";
+}
+
+<h2>DodajPredmet</h2>
+
+@Html.BeginForm("akcija","kontroler")
+@Html.DropDownListFor(m => m.smer, new SelectList(Model.smerovi, "smerId", "smerNaziv"))
+@Html.TextBoxFor(m=>m.predmet.predmetNaziv)
+@Html.TextBoxFor(m => m.predmet.predmetOpis)

@@ -9,7 +9,7 @@
 @using (Html.BeginForm("DodajSmer", "Smer",FormMethod.Post))
 {
     @Html.TextBoxFor(m => m.smerNaziv);
-    @Html.TextBoxFor(m => m.smerOpis);
+    @Html.TextAreaFor(m => m.smerOpis);
 
     <button type="submit"> POSTAVI! </button>
 
