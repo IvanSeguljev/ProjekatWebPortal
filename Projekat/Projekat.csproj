@@ -199,6 +199,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MaterijalController.cs" />
+    <Compile Include="Controllers\PredmetController.cs" />
     <Compile Include="Controllers\SmerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -230,6 +231,7 @@
     <Compile Include="Models\SmerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DodajPremetViewModel.cs" />
     <Compile Include="ViewModels\MaterijalViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +314,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\uploadNaziv.js" />
+    <Content Include="Scripts\uploadNaziv2.js" />
     <Content Include="Scripts\VracanjeID.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
@@ -353,6 +356,8 @@
     <Content Include="Views\Materijal\MaterijaliPrikaz.cshtml" />
     <Content Include="Views\Materijal\UploadMaterijal.cshtml" />
     <Content Include="Views\Smer\SmeroviPrikaz.cshtml" />
+    <Content Include="Views\Smer\DodajSmer.cshtml" />
+    <Content Include="Views\Predmet\DodajPredmet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,5 +37,24 @@ namespace Projekat.Controllers
 
             return View("SmeroviPrikaz", smer);
         }
+
+        [HttpGet]
+        public ActionResult DodajSmer()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+
+        public ActionResult DodajSmer(SmerModel smer)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add<SmerModel>(smer);
+                context.SaveChanges();
+            }
+            return View();
+        }
     }
 }
