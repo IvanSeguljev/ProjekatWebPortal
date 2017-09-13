@@ -16,9 +16,12 @@ namespace Projekat
 
             //dodato za upload fajla
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
-                        "~/Scripts/uploadNaziv.js",
                         "~/Scripts/hamburger.js",
                         "~/Scripts/VracanjeID.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/jsFile").Include(
+                        "~/Scripts/uploadNaziv.js"
                         ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
