@@ -1,0 +1,18 @@
+﻿@model Projekat.Models.SmerModel
+@{
+    ViewBag.Title = "DodajSmer";
+}
+
+<h2>DodajSmer</h2>
+
+
+@using (Html.BeginForm("DodajSmer", "Smer",FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.smerNaziv);
+    @Html.TextBoxFor(m => m.smerOpis);
+
+    <button type="submit"> POSTAVI! </button>
+
+ }
+
+

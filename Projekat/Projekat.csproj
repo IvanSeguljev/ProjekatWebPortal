@@ -353,6 +353,7 @@
     <Content Include="Views\Materijal\MaterijaliPrikaz.cshtml" />
     <Content Include="Views\Materijal\UploadMaterijal.cshtml" />
     <Content Include="Views\Smer\SmeroviPrikaz.cshtml" />
+    <Content Include="Views\Smer\DodajSmer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
