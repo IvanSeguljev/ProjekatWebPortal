@@ -71,7 +71,7 @@
                     <h4 class="modal-title">Modal Header</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Da li ste sigurni da želite da obrišete <span></span>?</p>
+                    <p>Da li ste sigurni da želite da obrišete <span>@*ubaci ime mat*@</span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Potvrdi</button>
@@ -85,9 +85,7 @@
                     $delete = $(this);
 
                     var id = $delete.parent().parent().parent().parent().attr('id');
-                    var ime = $('.kartica').find('h2').html();
-
-                    $('.modal-body span').replaceWith(ime);
+                    console.log(id);
 
                     $('button.btn-default:first').click(function () {
                         $.ajax({
