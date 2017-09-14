@@ -27,16 +27,40 @@ namespace Projekat.Controllers
             viewModel.smerovi = context.smerovi.ToList();
 
 
-            
-            return View("DodajPredmet",viewModel);
+
+            return View("DodajPredmet", viewModel);
         }
 
         [HttpPost]
-        public ActionResult Action(DodajPremetViewModel viewModel)
+        public ActionResult DodajPredmet(DodajPremetViewModel viewModel)
         {
 
-            //samo dodaj u bazu podatke
-            return View();
+            context = new MaterijalContext();
+
+            try
+            {
+                context.Add<PredmetModel>(viewModel.predmet);
+
+                context.Add<PremetPoSmeru>(new PremetPoSmeru
+                {
+                    predmetId = viewModel.predmet.predmetId,
+                    smerId = viewModel.smer.smerId
+                });
+                context.SaveChanges();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+
+
+
+            return RedirectToAction("DodajPredmet", "Predmet");
         }
 
 
