@@ -983,3 +983,10 @@ a.naziv-smera-na-kartici{
 }
 
 /*MODAL KRAJ*/
+
+#banana {
+    z-index: 1000000;
+    display: none;
+    position: fixed;
+    bottom: 20%;
+}
