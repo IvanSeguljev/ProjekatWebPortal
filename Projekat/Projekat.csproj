@@ -218,6 +218,14 @@
     <Compile Include="Migrations\MaterijalContext\201709111229536_reseedPKValues.Designer.cs">
       <DependentUpon>201709111229536_reseedPKValues.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\MaterijalContext\201709141016009_seedovanjeSmerova.cs" />
+    <Compile Include="Migrations\MaterijalContext\201709141016009_seedovanjeSmerova.Designer.cs">
+      <DependentUpon>201709141016009_seedovanjeSmerova.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201709141026097_seedovanjePredmeta.cs" />
+    <Compile Include="Migrations\MaterijalContext\201709141026097_seedovanjePredmeta.Designer.cs">
+      <DependentUpon>201709141026097_seedovanjePredmeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -258,6 +266,7 @@
     <Content Include="Content\img\PDFicon.png" />
     <Content Include="Content\img\plus.png" />
     <Content Include="Content\img\PNGicon.png" />
+    <Content Include="Content\img\potvrdaBrisanjaGIFGOTOV.gif" />
     <Content Include="Content\img\PRIMER.png" />
     <Content Include="Content\img\prof-slika.png" />
     <Content Include="Content\img\profesor.png" />
@@ -358,6 +367,7 @@
     <Content Include="Views\Smer\SmeroviPrikaz.cshtml" />
     <Content Include="Views\Smer\DodajSmer.cshtml" />
     <Content Include="Views\Predmet\DodajPredmet.cshtml" />
+    <Content Include="Views\Predmet\PredmetiPrikaz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -382,6 +392,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201709111229536_reseedPKValues.resx">
       <DependentUpon>201709111229536_reseedPKValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201709141016009_seedovanjeSmerova.resx">
+      <DependentUpon>201709141016009_seedovanjeSmerova.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201709141026097_seedovanjePredmeta.resx">
+      <DependentUpon>201709141026097_seedovanjePredmeta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

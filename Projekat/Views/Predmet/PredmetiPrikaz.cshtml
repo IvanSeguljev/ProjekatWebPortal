@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Projekat.Models.PredmetModel>
+@{
+    ViewBag.Title = "PredmetiPrikaz";
+}
+
+<h2>PredmetiPrikaz</h2>
+
+
+@foreach(var predmet in Model)
+{
+
+    <p>@predmet.predmetNaziv</p>
+}
+

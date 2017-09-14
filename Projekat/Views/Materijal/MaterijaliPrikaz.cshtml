@@ -12,7 +12,7 @@
     <a id="novi-materijal" href="@Url.Action("UploadMaterijal", "Materijal")">
         <img src="~/Content/img/upload.png" alt="Novi materijal">
     </a>
-    <img id="banana" src="~/Content/img/banana.gif" />
+    <img id="banana" src="~/Content/img/potvrdaBrisanjaGIFGOTOV.gif" />
     @foreach (var materijal in Model)
     {
         //using (Html.BeginForm("Delete", "UploadMaterijal", new { id = materijal.materijalId }))
@@ -99,8 +99,8 @@
                             //data:{id:id},
                             complete: function () {
                                 $delete.parent().parent().parent().parent().remove();
-                                $('#banana').css('display', 'block').attr('src', '').attr('src', '../../Content/img/banana.gif');
-                                setTimeout(function () { location.reload() }, 1000);
+                                $('#banana').css('display', 'block').attr('src', '').attr('src', '../../Content/img/potvrdaBrisanjaGIFGOTOV.gif');
+                                setTimeout(function () { location.reload() }, 2000);
                                 
                             }
                         });

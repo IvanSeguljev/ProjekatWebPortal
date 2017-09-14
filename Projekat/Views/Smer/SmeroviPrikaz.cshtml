@@ -34,7 +34,8 @@
             <div class="kontrole clear-fix">
                 <a href="#">Edit</a>
                 <a class="predmet-kontrole" href="#">OPIS</a>
-                <a class="predmet-kontrole" tabindex="1" href="#">PREDMETI</a>
+                @Html.ActionLink("PREDMETI","PredmetiPrikaz","Predmet",new { id = smer.smerId},new { @class = "predmet-kontrole" })
+             @*   <a class="predmet-kontrole" tabindex="1" href="#">PREDMETI</a>*@
             </div>
         </div>
 
