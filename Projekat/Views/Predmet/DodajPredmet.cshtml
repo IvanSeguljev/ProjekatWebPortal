@@ -5,7 +5,16 @@
 
 <h2>DodajPredmet</h2>
 
-@Html.BeginForm("akcija","kontroler")
-@Html.DropDownListFor(m => m.smer, new SelectList(Model.smerovi, "smerId", "smerNaziv"))
-@Html.TextBoxFor(m=>m.predmet.predmetNaziv)
+@using (Html.BeginForm("DodajPredmet", "Predmet", FormMethod.Post))
+{
+
+@Html.DropDownListFor(m => m.smer.smerId, new SelectList(Model.smerovi, "smerId", "smerNaziv"))
+@Html.TextBoxFor(m => m.predmet.predmetNaziv)
 @Html.TextBoxFor(m => m.predmet.predmetOpis)
+
+
+<input type="submit" name="submitPredmet" value="Dodaj predmet" />
+
+
+}
+
