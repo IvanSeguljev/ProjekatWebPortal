@@ -4,9 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/bundles/js")
+@*
+    nije potrebno rendoerovati skripte jer se nalaze u layoutu pre render body-ja
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")*@
 
 <div id="sredina">
     <a id="novi-materijal" href="@Url.Action("UploadMaterijal", "Materijal")">
@@ -80,36 +82,40 @@
                 </div>
             </div>
         </div>
-        <script>
-            $(document).ready(function () {
-                $(".brisi").click(function () {
-                    $delete = $(this);
 
-                    var id = $delete.parent().parent().parent().parent().attr('id');
-                    var ime = $('.kartica').find('h2').html();
+    </div>
 
-                    $('.modal-body span').replaceWith(ime);
+    <script>
+        $(document).ready(function () {
+            $(".brisi").click(function () {
+                $delete = $(this);
 
-                    $('button.btn-default:first').click(function () {
-                        $.ajax({
+                var id = $delete.parent().parent().parent().parent().attr('id');
 
-                            //url: "/ControllerName/ActionName",
-                            url: '@Url.Action("DeleteConfirmed", "Materijal")' + "/?id=" + id,
-                            method: 'post',
-                            //data:{id:id},
-                            complete: function () {
-                                $delete.parent().parent().parent().parent().remove();
-                                $('#banana').css('display', 'block').attr('src', '').attr('src', '../../Content/img/banana.gif');
-                                setTimeout(function () { location.reload() }, 1000);
-                                
-                            }
-                        });
-                       
+                var ime = $delete.parent().parent().parent().find('h2').text();
+
+                console.log(id);
+                console.log(ime);
+
+                $('.modal-body span').text(ime);
+
+                $('button.btn-default:first').click(function () {
+                    $.ajax({
+                        //url: "/ControllerName/ActionName",
+                        url: '@Url.Action("DeleteConfirmed", "Materijal")' + "/?id=" + id,
+                        method: 'post',
+                        //data:{id:id},
+                        complete: function () {
+                            $delete.parent().parent().parent().parent().remove();
+                            $('#banana').css('display', 'block').attr('src', '').attr('src', '../../Content/img/banana.gif');
+                            setTimeout(function () { location.reload() }, 1000);
+                        }
                     });
+
                 });
             });
-        </script>
-    </div>
+        });
+    </script>
 </div>
 
-@Scripts.Render("~/Scripts/kontroleRespMaterijaliPrikaz.js")
+@Scripts.Render("~/Scripts/kontroleRespMaterijaliPrikaz.js")    

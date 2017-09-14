@@ -990,3 +990,9 @@ a.naziv-smera-na-kartici{
     position: fixed;
     bottom: 20%;
 }
+
+.opisSmera {
+    opacity: 0;
+    height: 1px;
+    width: 1px;
+}

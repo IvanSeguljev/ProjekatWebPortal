@@ -141,14 +141,16 @@
         <img id="gornjeOpcije" src="~/Content/img/tri-tacke.png" alt="opcije">
     </div>
 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/js")
+
     @RenderBody()  @*Sluzi za prikaz odgovarajuceg viewa koji koristi ovaj layout.*@
     @*<hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Web Portal</p>
         </footer>*@
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/js")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
