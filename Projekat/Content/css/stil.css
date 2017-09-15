@@ -942,6 +942,12 @@ a.naziv-smera-na-kartici{
     margin-left: 10px;
 }
 
+#kantaModalSlika{
+    width: 200px;
+    display: block;
+    margin: 0 auto 24px auto;
+}
+
 .btn{
     height: 45px;
     color: #fff;
