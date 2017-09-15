@@ -1,4 +1,4 @@
-﻿@model Projekat.Models.MaterijalModel
+﻿@model Projekat.ViewModels.MaterijalUploadViewModel
 @{
     ViewBag.Title = "UploadMaterijal";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -27,7 +27,9 @@
 
         <label for="opis">Opis</label>
         
-        @Html.TextAreaFor(model => model.materijalOpis, new { placeholder = @"Your Placeholder Text" });
+        @Html.TextAreaFor(model => model.Materijal.materijalOpis,2,20, new { placeholder = @"Your Placeholder Text",id=@"materijalOpis" })
+        @Html.DropDownListFor(m => m.Materijal.predmetId,new SelectList(Model.Predmeti,"predmetId","predmetNaziv"))
+
 
         <button type="submit" id="postavi">
             POSTAVI

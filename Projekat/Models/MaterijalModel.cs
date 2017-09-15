@@ -67,5 +67,11 @@ namespace Projekat.Models
                 else return "Err";
             }
         }
+
+        public PredmetModel PredmetModel { get; set; }
+
+       [ForeignKey("PredmetModel")]
+        public int predmetId { get; set; }
+
     }
 }

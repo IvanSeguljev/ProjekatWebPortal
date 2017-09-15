@@ -63,16 +63,26 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult PredmetiPrikaz (int id)
         {
-
-             context = new MaterijalContext();
+            context = new MaterijalContext();
             List<PremetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
             List<PredmetModel> model = new List<PredmetModel>();
             List<PredmetModel> tempPredmet = context.predmeti.ToList();
-
-            foreach(PremetPoSmeru ps in poSmeru)
+            try
             {
-                model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
+                
+
+                foreach (PremetPoSmeru ps in poSmeru)
+                {
+                    model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
+                }
+
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+             
 
 
            

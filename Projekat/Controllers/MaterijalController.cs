@@ -32,13 +32,13 @@ namespace Projekat.Controllers
         }
 
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(int number = 0)
+        public ActionResult MaterijaliPrikaz(int number = 0,int id = 0)
         {
             List<MaterijalModel> materijali;
             materijali = context.materijali.ToList();
             if (number == 0)
             {
-                materijali = context.materijali.ToList();
+                materijali = context.materijali.Where(m => m.predmetId == id).ToList();
             }
             else
             {
@@ -52,15 +52,15 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult UploadMaterijal()
         {
-            //List<PredmetModel> predmeti;
-            //  predmeti = context.predmeti.ToList(); 
-            //   MaterijalViewModel ViewModel = new MaterijalViewModel();
-            //  ViewModel.predmetiLista = predmeti;
-         /*Kad se doda predmet koristicemo viewModel*/
-            MaterijalModel model = new MaterijalModel();
+            context = new MaterijalContext();
+           
+            MaterijalUploadViewModel viewModel = new MaterijalUploadViewModel
+            {
+                Predmeti = context.predmeti.ToList()
+            };
 
 
-            return View("UploadMaterijal", model);
+            return View("UploadMaterijal", viewModel);
         }
 
         [HttpPost]
