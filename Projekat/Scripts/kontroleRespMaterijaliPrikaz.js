@@ -72,6 +72,13 @@
     //kraj kartica responsive
 
 
+    //OTVARANJE ZATVARANJE NAPREDNE PRETRAGE
+    $('#lupaPretragaToggle').click(function () {
+        //$('#naprednaPretraga').toggle("blind");
+        $('#naprednaPretraga').toggle("blind", 200);
+    });
+
+
     //trigger resiza da bi se resize funkcija za kartice runovala
     $(window).trigger('resize');
 });

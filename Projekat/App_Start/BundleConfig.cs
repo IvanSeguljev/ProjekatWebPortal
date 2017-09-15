@@ -29,7 +29,8 @@ namespace Projekat
 
             bundles.Add(new ScriptBundle("~/bundles/materijal").Include(
                         "~/Scripts/kontroleRespMaterijaliPrikaz.js",
-                        "~/Scripts/brisanjeMaterijala.js"
+                        "~/Scripts/brisanjeMaterijala.js",
+                        "~/Scripts/jquery-ui.min.js"
                         ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

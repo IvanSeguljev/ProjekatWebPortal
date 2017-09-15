@@ -258,6 +258,7 @@
     <Content Include="Content\img\kantaPotvrdaBrisanjaModal.png" />
     <Content Include="Content\img\komentarisi.png" />
     <Content Include="Content\img\lupa.png" />
+    <Content Include="Content\img\lupaPretraga.png" />
     <Content Include="Content\img\mat.png" />
     <Content Include="Content\img\MP4icon.png" />
     <Content Include="Content\img\novavest.png" />
@@ -316,6 +317,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

@@ -13,6 +13,20 @@
         <img src="~/Content/img/upload.png" alt="Novi materijal">
     </a>
     <img id="banana" src="~/Content/img/potvrdaBrisanjaGIFGOTOV.gif" />
+
+
+    <div id="naprednaPretraga">
+
+        <select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select> 
+
+    </div>
+
+
     @foreach (var materijal in Model)
     {
         //using (Html.BeginForm("Delete", "UploadMaterijal", new { id = materijal.materijalId }))
