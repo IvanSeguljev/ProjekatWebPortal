@@ -44,7 +44,7 @@ namespace Projekat.Controllers
                 context.Add<PremetPoSmeru>(new PremetPoSmeru
                 {
                     predmetId = viewModel.predmet.predmetId,
-                    smerId = viewModel.smer.smerId,
+                    smerId = viewModel.smer.smerId
                 });
                 context.SaveChanges();
 

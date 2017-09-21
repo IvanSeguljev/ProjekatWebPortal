@@ -7,7 +7,7 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/bundles/js")  @*Sluzi za postavljanje imena fajla kada isti bude izabran.*@
-@Scripts.Render("~/bundles/jsFile") 
+@Scripts.Render("~/bundles/jsFile")
 
 <style>
     .file {
@@ -26,9 +26,9 @@
         <input id="materijalNaslov" type="text">
 
         <label for="opis">Opis</label>
-        
-        @Html.TextAreaFor(model => model.Materijal.materijalOpis,2,20, new { placeholder = @"Your Placeholder Text",id=@"materijalOpis" })
-        @Html.DropDownListFor(m => m.Materijal.predmetId,new SelectList(Model.Predmeti,"predmetId","predmetNaziv"))
+
+        @Html.TextAreaFor(model => model.Materijal.materijalOpis, 2, 20, new { placeholder = @"Your Placeholder Text", id = @"materijalOpis" })
+        @Html.DropDownListFor(m => m.Materijal.predmetId, new SelectList(Model.Predmeti, "predmetId", "predmetNaziv"))
         @Html.DropDownListFor(m => m.Materijal.tipMaterijalId, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"))
 
 
@@ -44,3 +44,17 @@
 
 </div>
 
+
+<script>
+    $(document).ready(function () {
+        var data = sessionStorage.getItem('upload');
+        if (data) {
+            $('#snackbar').css('display', 'block');
+            sessionStorage.removeItem('kantica');
+        }
+    });
+    $('#postavi').click(function () {
+        sessionStorage.setItem('upload', true);
+        location.reload();
+    });
+</script>
