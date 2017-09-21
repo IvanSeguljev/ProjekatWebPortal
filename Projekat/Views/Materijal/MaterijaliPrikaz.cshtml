@@ -22,7 +22,7 @@
             <option value="saab">Saab</option>
             <option value="mercedes">Mercedes</option>
             <option value="audi">Audi</option>
-        </select> 
+        </select>
 
     </div>
 
@@ -101,33 +101,40 @@
 <script>
 
     $(document).ready(function () {
-    $(".brisi").click(function () {
-        $delete = $(this);
 
-        var id = $delete.parent().parent().parent().parent().attr('id');
-        var ime = $delete.parent().parent().parent().find('h2').text();
+        var data = sessionStorage.getItem('kantica');
+        if (data) {
+            $('#banana').css('display', 'block').attr('src', '').attr('src', '../../Content/img/potvrdaBrisanjaGIFGOTOV.gif');
+            setTimeout(function () { $('#banana').css('display', 'none') }, 2000);
+            sessionStorage.removeItem('kantica');
+        }
 
-        console.log(id);
-        $('.modal-body span').text(ime);
+        $(".brisi").click(function () {
+            $delete = $(this);
 
-        $('button.btn-default:first').click(function () {
-            $.ajax({
-                //url: "/ControllerName/ActionName",
-                url: '@Url.Action("DeleteConfirmed", "Materijal")' + "/?id=" + id,
-                method: 'post',
-                //data:{id:id},
-                complete: function () {
-                    $delete.parent().parent().parent().parent().remove();
-                    $('#banana').css('display', 'block').attr('src', '').attr('src', '../../Content/img/potvrdaBrisanjaGIFGOTOV.gif');
-                    setTimeout(function () { location.reload() }, 2000);
+            var id = $delete.parent().parent().parent().parent().attr('id');
+            var ime = $delete.parent().parent().parent().find('h2').text();
 
-                }
+            console.log(id);
+            $('.modal-body span').text(ime);
+
+            $('button.btn-default:first').click(function () {
+                $.ajax({
+                    //url: "/ControllerName/ActionName",
+                    url: '@Url.Action("DeleteConfirmed", "Materijal")' + "/?id=" + id,
+                    method: 'post',
+                    //data:{id:id},
+                    complete: function () {
+                        $delete.parent().parent().parent().parent().remove();
+                        sessionStorage.setItem('kantica', true);
+                        location.reload();
+                    }
+                });
+
             });
-
         });
-    });
 
-});
+    });
 </script>
 
 @Scripts.Render("~/bundles/materijal")

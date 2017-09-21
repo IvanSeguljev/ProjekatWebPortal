@@ -26,25 +26,35 @@
 
     @foreach (var predmet in Model)
     {
-
-
-
         <div class="kartica-predmet clear-fix">
             <a class="naziv-predmeta-na-kartici" href="#">@predmet.predmetNaziv</a>
             <div class="kontrole clear-fix">
-                <a class="predmet-kontrole" href="#">OPIS</a>
+                <a class="predmet-kontrole opis" href="#" data-toggle="modal" data-target="#opisModal">OPIS</a>
                 @Html.ActionLink("MATERIJALI", "MaterijaliPrikaz", "Materijal", new { id = predmet.predmetId }, new { @class = "predmet-kontrole", tabindex = predmet.predmetId })
+            </div>
+            <div class="opisPredmeta" style="display:none"><p>@predmet.predmetOpis</p></div>
+        </div>
+    }
 
-
+    <div class="modal fade" id="opisModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Opis predmeta <span>   </span></h4>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
+                </div>
             </div>
         </div>
-
-
-
-
-
-    }
+    </div>
 
 </div>
 
+@Scripts.Render("~/Scripts/modalOpisPredmet.js")
 
