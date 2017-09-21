@@ -29,6 +29,7 @@
         
         @Html.TextAreaFor(model => model.Materijal.materijalOpis,2,20, new { placeholder = @"Your Placeholder Text",id=@"materijalOpis" })
         @Html.DropDownListFor(m => m.Materijal.predmetId,new SelectList(Model.Predmeti,"predmetId","predmetNaziv"))
+        @Html.DropDownListFor(m => m.Materijal.tipMaterijalId, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"))
 
 
         <button type="submit" id="postavi">

@@ -53,10 +53,11 @@ namespace Projekat.Controllers
         public ActionResult UploadMaterijal()
         {
             context = new MaterijalContext();
-           
+
             MaterijalUploadViewModel viewModel = new MaterijalUploadViewModel
             {
-                Predmeti = context.predmeti.ToList()
+                Predmeti = context.predmeti.ToList(),
+                tipoviMaterijala = context.tipMaterijala.ToList()
             };
 
 

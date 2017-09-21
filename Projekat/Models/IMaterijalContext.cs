@@ -12,6 +12,7 @@ namespace Projekat.Models
         IQueryable<PredmetModel> predmeti { get; }
         IQueryable<SmerModel> smerovi { get; }
         IQueryable<PremetPoSmeru> predmetiPoSmeru { get; }
+        IQueryable<TipMaterijalModel> tipMaterijala { get; }
 
         int SaveChanges();
 
