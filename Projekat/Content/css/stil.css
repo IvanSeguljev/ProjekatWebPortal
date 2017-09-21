@@ -968,9 +968,9 @@ a.naziv-smera-na-kartici{
 }
 
 #kantaModalSlika{
-    width: 200px;
+    width: 133px;
     display: block;
-    margin: 0 auto 24px auto;
+    margin: 35px auto 45px auto;
 }
 
 .btn{
@@ -1006,7 +1006,7 @@ a.naziv-smera-na-kartici{
 }
 
 .btn-sekundarni:hover{
-    background-color: transparent;
+    background-color: #f3f3f3;
     color: #dc4a4f;
     box-shadow: none;
     border: none;
