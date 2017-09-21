@@ -8,13 +8,13 @@
     <h2>DodajPredmet</h2>
 
 
-    @using (Html.BeginForm("DodajPredmet", "Predmet", FormMethod.Post))
+    @using (Html.BeginForm("DodajPredmet", "Predmet", FormMethod.Post, new { @class = "predmetForma", @id = "predmetForma" }))
     {
 
         @Html.DropDownListFor(m => m.smer.smerId, new SelectList(Model.smerovi, "smerId", "smerNaziv"))
-        @Html.TextBoxFor(m => m.predmet.predmetNaziv)
-        @Html.TextBoxFor(m => m.predmet.predmetOpis)
 
+        @Html.TextBoxFor(m => m.predmet.predmetNaziv, new { @Name = "predmetNaziv" })
+        @Html.TextBoxFor(m => m.predmet.predmetOpis, new { @Name = "predmetOpis"})
 
         <input type="submit" name="submitPredmet" value="Dodaj predmet" />
 
@@ -22,3 +22,5 @@
     }
 </div>
 
+@Scripts.Render("~/Scripts/jquery.validate.min.js")
+@Scripts.Render("~/Scripts/validacijaNovogPredmeta.js")
