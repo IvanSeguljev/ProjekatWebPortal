@@ -394,6 +394,10 @@ div#sredina::after{
   clear:both;
 }
 
+.sredina-upload-mat{
+    padding:45px 45px 0 45px !important;
+}
+
 div.kartica{
   width: calc(50% - 55px);
   border-radius:2px;
@@ -968,9 +972,9 @@ a.naziv-smera-na-kartici{
 }
 
 #kantaModalSlika{
-    width: 200px;
+    width: 133px;
     display: block;
-    margin: 0 auto 24px auto;
+    margin: 35px auto 45px auto;
 }
 
 .btn{
@@ -1006,7 +1010,7 @@ a.naziv-smera-na-kartici{
 }
 
 .btn-sekundarni:hover{
-    background-color: transparent;
+    background-color: #f3f3f3;
     color: #dc4a4f;
     box-shadow: none;
     border: none;
@@ -1055,4 +1059,34 @@ div.kartica-smer .kontrola-ikonica{
 
 div.kartica-smer .kontrola-ikonica:first-child{
     padding-left: 26px;
+}
+
+
+/*snackbar pocetak*/
+
+#snackbar{
+    width:280px;
+    height:50px;
+    margin:150px auto 5px auto;
+    background-color:#323232;
+    border-radius:2px;
+    box-sizing:border-box; 
+    animation: iskakanjeSaDna 4s cubic-bezier(.04,.69,.21,.99) 1 forwards;
+    display:none;
+}
+
+@keyframes iskakanjeSaDna {
+    0%   {transform: translate(0px, 50px); opacity:0;}
+    12%  {transform: translate(0px, 0); opacity:1;}
+    88%  {transform: translate(0px, 0); opacity:1;}
+    100% {transform: translate(0px, 50px); opacity:0;}
+}
+
+#snackbar p{
+    color:#fff;
+    font-size:14px;
+    font-family:'roboto-regular';
+    padding-left:25px;
+    padding-top:16px;
+    box-sizing:border-box;
 }
