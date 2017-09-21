@@ -16,7 +16,7 @@
     }
 </style>
 
-<div id="sredina">
+<div id="sredina" class="sredina-upload-mat">
     @using (Html.BeginForm("UploadMaterijal", "Materijal", FormMethod.Post, new { enctype = "multipart/form-data", id = "postavkaMat" }))
     {
         <input type="file" name="file" id="file" class="inputfile" />
@@ -37,5 +37,10 @@
         </button>
 
     }
+
+
+    <div id="snackbar"><p>Materijal uspešno postavljen!</p></div>
+
+
 </div>
 
