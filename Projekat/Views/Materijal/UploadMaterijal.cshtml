@@ -20,7 +20,7 @@
     @using (Html.BeginForm("UploadMaterijal", "Materijal", FormMethod.Post, new { enctype = "multipart/form-data", id = "postavkaMat" }))
     {
         <input type="file" name="file" id="file" class="inputfile" />
-        <label for="file" id="izaberi-materijal"><img src="~/Content/img/upload2.png" alt="Izaberite Dokument"> <span id="filename">Izaberite dokument...</span></label>
+        <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Dokument"> Izaberite dokument...</span></span> </label>
 
         <label for="materijalNaslov">Naslov</label>
         <input id="materijalNaslov" type="text">
