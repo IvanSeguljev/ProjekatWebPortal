@@ -1,12 +1,13 @@
 ﻿$(document).ready(function () {
     console.log('aa');
-    $('#predmetForma').validate({
+    $('#smerForma').validate({
         rules: {
-            predmetNaziv: {
+            smerNaziv: {
                 required: true,
+                minlength: 5,
                 maxlength: 255
             },
-            predmetOpis: {
+            smerOpis: {
                 required: true,
                 minlength: 5,
                 maxlength: 1000
@@ -14,11 +15,12 @@
         },
 
         messages: {
-            predmetNaziv: {
+            smerNaziv: {
                 required: "Polje naziv je obavezno.",
+                minlength: "Polje naziv mora sadržati najmanje 5 karaktera.",
                 maxlength: "Polje naziv može sadržati najviše 255 karaktera."
             },
-            predmetOpis: {
+            smerOpis: {
                 required: "Polje opis je obavezno.",
                 minlength: "Polje opis mora sadržati najmanje 5 karaktera.",
                 maxlength: "Polje opis može sadržati najviše 1000 karaktera."

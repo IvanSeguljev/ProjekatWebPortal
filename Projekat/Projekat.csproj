@@ -335,6 +335,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\uploadNaziv.js" />
     <Content Include="Scripts\validacijaNovogPredmeta.js" />
+    <Content Include="Scripts\validacijaNovogSmera.js" />
     <Content Include="Scripts\VracanjeID.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
