@@ -32,7 +32,7 @@ namespace Projekat.Controllers
         }
 
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(int number = 0,int id = 0)
+        public ActionResult MaterijaliPrikaz(int number = 0, int id = 0)
         {
             List<MaterijalModel> materijali;
             materijali = context.materijali.ToList();
@@ -46,7 +46,8 @@ namespace Projekat.Controllers
             else
             {
                 materijali = (from p in context.materijali
-                              select p).Take(number).ToList();
+                              where p.tipMaterijalId == number && p.predmetId == id
+                              select p).ToList();
             }
 
             return View("MaterijaliPrikaz", materijali);
@@ -142,17 +143,18 @@ namespace Projekat.Controllers
             }
             catch (Exception)
             {
-              
+
             }
-            
+
             return RedirectToAction("MaterijaliPrikaz");
         }
+
 
 
         public ActionResult SortirajPoTipuMaterijala(int id)
         {
             context = new MaterijalContext();
-            List < MaterijalModel > model = context.materijali.Where(m => m.tipMaterijalId == id).ToList();
+            List<MaterijalModel> model = context.materijali.Where(m => m.tipMaterijalId == id).ToList();
 
 
             return View("MaterijaliPrikaz", model);
