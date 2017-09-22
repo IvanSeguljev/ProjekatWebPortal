@@ -6,15 +6,17 @@
 <h2>DodajSmer</h2>
 
 
-@using (Html.BeginForm("DodajSmer", "Smer",FormMethod.Post, new { @class = "smerForma", @id = "smerForma" }))
-{
-    @Html.TextBoxFor(m => m.smerNaziv, new { @Name = "smerNaziv" });
-    @Html.TextAreaFor(m => m.smerOpis, new { @Name = "smerOpis" });
+<div id="sredina">
+    @using (Html.BeginForm("DodajSmer", "Smer", FormMethod.Post, new { @class = "smerForma", @id = "smerForma" }))
+    {
+        @Html.TextBoxFor(m => m.smerNaziv, new { @name = "smerNaziv" });
+        @Html.TextAreaFor(m => m.smerOpis, new { @name = "smerOpis" });
 
-    <button type="submit"> POSTAVI! </button>
+        <button type="submit"> POSTAVI! </button>
 
- }
+    }
 
+</div>
 
 @Scripts.Render("~/Scripts/jquery.validate.min.js")
 @Scripts.Render("~/Scripts/validacijaNovogSmera.js")
