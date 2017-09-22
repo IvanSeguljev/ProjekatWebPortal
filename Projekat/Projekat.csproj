@@ -318,6 +318,7 @@
     <Content Include="Content\fonts\Roboto-Thin.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\brisanjeMaterijala.js" />
+    <Content Include="Scripts\customDropdown.js" />
     <Content Include="Scripts\hamburger.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
