@@ -338,6 +338,8 @@ div#gornjaNavigacija{
   margin-left:338px;
   /*PRIVREMENO RESENJE SA OVERFLOWOM*/
   overflow:hidden;
+  transform: translate(0, 0);
+  z-index:99;
   transition: .3s ease-in-out;
 }
 
@@ -701,7 +703,7 @@ input#materijalNaslov{
   font-size: 18px;
   border:1px solid #fff;
   border-bottom:1px solid #9e9e9e;
-  transition: all .1s cease;
+  transition: all .1s ease;
 }
 
 input#materijalNaslov:focus, textarea#materijalOpis:focus{
@@ -1038,14 +1040,16 @@ a.naziv-smera-na-kartici{
     margin-top:-45px;
     margin-left:-69px;
     margin-bottom:45px;
-    display:none;
+    padding:9px;
+    /*display:block;*/
     -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
     -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
     box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
-    transition: all .3s cubic-bezier(.11,1.75,1,-1.14);
-
-    
+    transform: translate(0, -65px);
+    transition: all .3s cubic-bezier(0,.69,.24,.98); 
 }
+
+
 
 
 
@@ -1072,6 +1076,9 @@ div.kartica-smer .kontrola-ikonica:first-child{
     border-radius:2px;
     box-sizing:border-box; 
     animation: iskakanjeSaDna 4s cubic-bezier(.04,.69,.21,.99) 1 forwards;
+    /*position:fixed;
+    bottom:50px;
+    left:50%;*/
     display:none;
 }
 
@@ -1096,7 +1103,7 @@ div.kartica-smer .kontrola-ikonica:first-child{
 /*CUSTOM DROPDOWNOVI POCETAK*/
 
 .customDropdown{
-    /*display:none;*/
+    display:none;
 }
 
 .customSelect{
@@ -1163,6 +1170,14 @@ div.kartica-smer .kontrola-ikonica:first-child{
   float:right;
   margin-top: 9px;
     margin-left: 23px;
+    transition:0.2s all;
+}
+
+.rotate {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
 }
 
 

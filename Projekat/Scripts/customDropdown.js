@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
     
+    brojKlikovaNaLupu = 0;
+
     $(".customDropdown").each(function () {
         var customSelect = '<div class="customSelect" id="trenutnoPravim"> <div class="izabraniUselectu"> <span>' +
             $(this).find("option:selected").text() + '</span> <div class="trougao"></div> </div> <ul class="customLista"></ul> </div>';
@@ -17,6 +19,16 @@
         //$(this).find($('option')).toArray().each(function () {
         //    $(this).next().find($('ul.customLista')).append(($('<li></li>').text($(this).text())));
         //});
+        
+        var lista = $('.customLista li');
+
+        
+
+       /* $.each(lista, function (index) {
+            if ($('.customLista li')[index].css('width') > $('.customLista').css('width')) {
+                $('.customLista').css('width') = lista[index].css('width');
+            }
+        });*/
 
         $('#trenutnoPravim').removeAttr('id');
     });
@@ -32,18 +44,35 @@
 
 
     $("#lupaPretragaToggle").click(function () {
-        var sirinaListe = parseFloat($(".customSelect").css('width'));
-        console.log(sirinaListe);
-        $(".customSelect").css('width', sirinaListe + 2 + 'px');
-        console.log($(".customSelect").css('width'));
-        $('.customLista').css('width', sirinaListe + 2 + 'px');
+        if (brojKlikovaNaLupu < 1){
+        //console.log(sirinaListe);
+        //$(".customSelect").css('width', sirinaListe + 2 + 'px');
+        //console.log($(".customSelect").css('width'));
+        //$('.customLista').css('width', sirinaListe + 'px');
+
+
+        $(".customLista").each(function () {
+            var sirinaListe = parseFloat($(this).css('width'));
+
+            console.log(sirinaListe + " ovo je sirinaListe");
+
+            $(this).css("width", sirinaListe + 32 + "px");
+            $(this).parent().css("width", $(this).css("width"));
+        }
+
+        );
+        }
+        brojKlikovaNaLupu = 2;
     });
 
 
     $(".customSelect").click(function () {
         $(this).find($('.customLista')).slideToggle(200);
+        $(this).find($(".izabraniUselectu .trougao")).toggleClass("rotate");
     });
 
+
+    
 
     $(".customSelect li").click(function () {
         var kliknutiTekst = $(this).text();
@@ -53,6 +82,10 @@
             return $(this).text() === kliknutiTekst;
         }).prop('selected', true));
         //$(this).parent().parent().prev().val(kliknutiTekst);
+        //var sirinaListe = parseFloat($(".customSelect").css('width'));
+        //$('.customLista').css('width', sirinaListe + 'px');
+        
+
     });
 
 
