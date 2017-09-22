@@ -39,7 +39,10 @@ namespace Projekat.Controllers
             if (number == 0)
             {
                 materijali = context.materijali.Where(m => m.predmetId == id).ToList();
-            }
+            } /*Ovde treba dodati da se kao parametar prosledjuje i id tipa pa onda
+            ako taj broj nije nula raditi oba filtriranja a ako jeste onda samo filtriranje po predmetu!
+            EZ AF!
+            */
             else
             {
                 materijali = (from p in context.materijali
@@ -53,10 +56,11 @@ namespace Projekat.Controllers
         public ActionResult UploadMaterijal()
         {
             context = new MaterijalContext();
-           
+
             MaterijalUploadViewModel viewModel = new MaterijalUploadViewModel
             {
-                Predmeti = context.predmeti.ToList()
+                Predmeti = context.predmeti.ToList(),
+                tipoviMaterijala = context.tipMaterijala.ToList()
             };
 
 
@@ -142,6 +146,17 @@ namespace Projekat.Controllers
             }
             
             return RedirectToAction("MaterijaliPrikaz");
+        }
+
+
+        public ActionResult SortirajPoTipuMaterijala(int id)
+        {
+            context = new MaterijalContext();
+            List < MaterijalModel > model = context.materijali.Where(m => m.tipMaterijalId == id).ToList();
+
+
+            return View("MaterijaliPrikaz", model);
+
         }
     }
 }

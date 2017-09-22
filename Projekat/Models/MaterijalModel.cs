@@ -73,5 +73,11 @@ namespace Projekat.Models
        [ForeignKey("PredmetModel")]
         public int predmetId { get; set; }
 
+        public TipMaterijalModel TipMaterijalModel { get; set; }
+
+
+        [ForeignKey("TipMaterijalModel")]
+        public int tipMaterijalId { get; set; }
+
     }
 }

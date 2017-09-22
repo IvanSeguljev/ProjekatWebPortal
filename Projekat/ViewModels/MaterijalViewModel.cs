@@ -17,6 +17,10 @@ namespace Projekat.ViewModels
         public PredmetModel predmet { get; set; }
         public IEnumerable<PredmetModel> predmetiLista { get; set; }
 
+
+
+       
+
         //public string materijalNaziv { get; set; }
         //public HttpPostedFileBase File { get; set; }
     }

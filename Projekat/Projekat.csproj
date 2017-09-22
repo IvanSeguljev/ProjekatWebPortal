@@ -230,6 +230,14 @@
     <Compile Include="Migrations\MaterijalContext\201709151053229_PredmetFKnaMaterijalModelu.Designer.cs">
       <DependentUpon>201709151053229_PredmetFKnaMaterijalModelu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.cs" />
+    <Compile Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.Designer.cs">
+      <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201709211213413_test.cs" />
+    <Compile Include="Migrations\MaterijalContext\201709211213413_test.Designer.cs">
+      <DependentUpon>201709211213413_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -241,6 +249,7 @@
     <Compile Include="Models\PredmetModel.cs" />
     <Compile Include="Models\PremetPoSmeru.cs" />
     <Compile Include="Models\SmerModel.cs" />
+    <Compile Include="Models\TipMaterijalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DodajPremetViewModel.cs" />
@@ -414,6 +423,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201709151053229_PredmetFKnaMaterijalModelu.resx">
       <DependentUpon>201709151053229_PredmetFKnaMaterijalModelu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.resx">
+      <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201709211213413_test.resx">
+      <DependentUpon>201709211213413_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

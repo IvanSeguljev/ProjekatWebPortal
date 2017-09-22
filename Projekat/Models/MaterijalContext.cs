@@ -12,12 +12,20 @@ namespace Projekat.Models
         public DbSet<PredmetModel> predmeti { get; set; }
         public DbSet<SmerModel> smerovi { get; set; }
         public DbSet<PremetPoSmeru> predmetiPoSmeru { get; set; }
+        public DbSet<TipMaterijalModel> tipMaterijala { get; set; }
 
         IQueryable<MaterijalModel> IMaterijalContext.materijali
         {
             get { return materijali; }
 
         }
+
+        IQueryable<TipMaterijalModel> IMaterijalContext.tipMaterijala
+        {
+            get { return tipMaterijala; }
+            
+        }
+
 
         IQueryable<PredmetModel> IMaterijalContext.predmeti
         {
@@ -57,6 +65,7 @@ namespace Projekat.Models
             return materijal;
         }
 
+       
         int IMaterijalContext.SaveChanges()
         {
 

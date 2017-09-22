@@ -13,8 +13,8 @@
 
         @Html.DropDownListFor(m => m.smer.smerId, new SelectList(Model.smerovi, "smerId", "smerNaziv"))
 
-        @Html.TextBoxFor(m => m.predmet.predmetNaziv, new { @Name = "predmetNaziv" })
-        @Html.TextBoxFor(m => m.predmet.predmetOpis, new { @Name = "predmetOpis"})
+        @Html.TextBoxFor(m => m.predmet.predmetNaziv, new { @name = "predmetNaziv" })
+        @Html.TextBoxFor(m => m.predmet.predmetOpis, new { @name = "predmetOpis"}) //Ne diraj NAME NIKAKO!
 
         <input type="submit" name="submitPredmet" value="Dodaj predmet" />
 
