@@ -1090,3 +1090,81 @@ div.kartica-smer .kontrola-ikonica:first-child{
     padding-top:16px;
     box-sizing:border-box;
 }
+
+/*snackbar KRAJ*/
+
+/*CUSTOM DROPDOWNOVI POCETAK*/
+
+.customDropdown{
+    /*display:none;*/
+}
+
+.customSelect{
+    font-family: 'roboto-regular';
+    font-size:15px;
+    letter-spacing:0.005em;
+    color:#000;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    display:inline-block;
+    position:relative;
+
+}
+
+.customLista{
+    display:none;
+    position:absolute;
+    padding:8px 0;
+    font-family: 'roboto-regular';
+    font-size:15px;
+    letter-spacing:0.005em;
+    background-color:#fafafa;
+    color:#000;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    padding: 8px 0;
+    margin-bottom:0;
+  
+}
+
+.customLista li{
+    height:32px;
+    line-height: 32px;
+    padding: 0 24px;
+    cursor:pointer;
+}
+
+.customLista li:hover{
+    background-color:#eeeeee;
+}
+
+.izabraniUselectu{
+    border-radius: 2px 2px 0 0;
+    border-bottom:#e3e3e3;
+    cursor:pointer;
+    padding: 14px 23px;
+    background-color:#fafafa;
+    height: 47px;
+}
+
+.izabraniUselectu span{
+    display:inline-block;
+}
+
+.trougao {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #4c4c4c;
+  display:inline-block;
+  float:right;
+  margin-top: 9px;
+    margin-left: 23px;
+}
+
+
+
+/*CUSTOM DROPDOWNOVI KRAJ*/

@@ -17,12 +17,37 @@
 
     <div id="naprednaPretraga">
 
-        <select>
+        <select class="customDropdown">
             <option value="volvo">Volvo</option>
             <option value="saab">Saab</option>
             <option value="mercedes">Mercedes</option>
             <option value="audi">Audi</option>
         </select>
+
+        <select class="customDropdown">
+            <option value="asas">LEL</option>
+            <option value="sadfdfab">EEE</option>
+            <option value="medfdfrcedes">lero</option>
+            <option value="audfdfdi">Adsdudi</option>
+        </select>
+
+        @*<div class="customSelect">
+            <div class="izabraniUselectu">
+                <span>Tip materijala</span>
+
+                <div class="trougao">
+                </div>
+
+            </div>
+            
+            <ul class="customLista">
+                <li>Tip materijala</li>
+                <li>Volvo</li>
+                <li>Saab</li>
+                <li>Mercedes</li>
+                <li>Audi</li>
+            </ul>
+        </div>*@
 
     </div>
     
@@ -139,3 +164,4 @@
 </script>
 
 @Scripts.Render("~/bundles/materijal")
+@Scripts.Render("~/Scripts/customDropdown.js")
