@@ -17,17 +17,17 @@
 </style>
 
 <div id="sredina" class="sredina-upload-mat">
-    @using (Html.BeginForm("UploadMaterijal", "Materijal", FormMethod.Post, new { enctype = "multipart/form-data", id = "postavkaMat" }))
+    @using (Html.BeginForm("UploadMaterijal", "Materijal", FormMethod.Post, new { @enctype = "multipart/form-data", @id = "postavkaMat" }))
     {
         <input type="file" name="file" id="file" class="inputfile" />
         <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Dokument"> Izaberite dokument...</span></span> </label>
 
         <label for="materijalNaslov">Naslov</label>
-        <input id="materijalNaslov" type="text">
+        <input id="materijalNaslov" type="text" name="materijalNaslov">
 
         <label for="opis">Opis</label>
 
-        @Html.TextAreaFor(model => model.Materijal.materijalOpis, 2, 20, new { placeholder = @"Your Placeholder Text", id = @"materijalOpis" })
+        @Html.TextAreaFor(model => model.Materijal.materijalOpis, 2, 20, new { @placeholder = @"Dodajte opis", @id = @"materijalOpis", @name="materijalOpis" })
         @Html.DropDownListFor(m => m.Materijal.predmetId, new SelectList(Model.Predmeti, "predmetId", "predmetNaziv"))
         @Html.DropDownListFor(m => m.Materijal.tipMaterijalId, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"))
 
@@ -44,19 +44,6 @@
 
 </div>
 
-
-<script>
-    $(document).ready(function () {
-        var data = sessionStorage.getItem('upload');
-        if (data) {
-            $('#snackbar').css('display', 'block');
-            sessionStorage.removeItem('kantica');
-        }
-    });
-    $('#postavi').click(function () {
-        sessionStorage.setItem('upload', true);
-        location.reload();
-    });
-</script>
-
 @Scripts.Render("~/Scripts/hamburger.js")
+@Scripts.Render("~/Scripts/jquery.validate.min.js")
+@Scripts.Render("~/Scripts/uploadMaterijal.js")
