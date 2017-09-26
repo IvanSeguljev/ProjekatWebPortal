@@ -20,21 +20,34 @@
     <div id="naprednaPretraga">
 
         <select class="select2" multiple="multiple" name="select2">
-            <option value="Domaci">Domaci</option>
-            <option value="Predavanje">Predavanje</option>
-            <option value="Vezbe">Vezbe</option>
-            <option value="Primeri">Primeri</option>
+            <optgroup label="Tip materijala">
+                <option value="Domaci">Domaci</option>
+                <option value="Predavanje">Predavanje</option>
+                <option value="Vezbe">Vezbe</option>
+                <option value="Primeri">Primeri</option>
+            </optgroup>
         </select>
 
         <select class="select2" multiple="multiple" name="select2">
-            <option value="pdf">pdf</option>
-            <option value="jpg">jpg</option>
-            <option value="gif">gif</option>
-            <option value="png">png</option>
-            <option value="rtf">rtf</option>
-            <option value="txt">txt</option>
-            <option value="docx">docx</option>
-            <option value="mp4">mp4</option>
+            
+            <optgroup label="Tekstualno">
+                <option value="pdf">pdf</option>
+                <option value="docx">docx</option>
+                <option value="rtf">rtf</option>
+                <option value="txt">txt</option>
+
+            </optgroup>
+            
+            <optgroup label="Slike">
+                <option value="jpg">jpg</option>
+                <option value="gif">gif</option>
+                <option value="png">png</option>
+            </optgroup>
+            
+            <optgroup label="Ostalo">
+                <option value="mp4">mp4</option>
+            </optgroup>
+                
 
         </select>
 
