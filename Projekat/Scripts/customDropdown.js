@@ -36,7 +36,12 @@
 
 
 
+    $('.select2').select2({
+        width: "auto",
+        placeholder: "Filter pretrage",
 
+        
+    });
 
 
 

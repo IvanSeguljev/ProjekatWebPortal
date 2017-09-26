@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<Projekat.Models.MaterijalModel>
 @{
     ViewBag.Title = "MaterijaliPrikaz";
+    @Styles.Render("~/Content/select2")
+    @Styles.Render("~/Content/select2izgled")
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/js")*@
+
 
 <div id="sredina">
     <a id="novi-materijal" href="@Url.Action("UploadMaterijal", "Materijal")">
@@ -17,18 +20,36 @@
 
     <div id="naprednaPretraga">
 
-        <select class="customDropdown">
-            <option value="tip">Tip</option>
-            <option value="saab">Domaćoi</option>
-            <option value="mercedes">MercedesESES</option>
-            <option value="audi">Audi</option>
+        <select class="select2" multiple="multiple" name="select2">
+            <optgroup label="Tip materijala">
+                <option value="Domaci">Domaci</option>
+                <option value="Predavanje">Predavanje</option>
+                <option value="Vezbe">Vezbe</option>
+                <option value="Primeri">Primeri</option>
+            </optgroup>
         </select>
 
-        <select class="customDropdown">
-            <option value="asas">LEL</option>
-            <option value="sadfdfab">EEE</option>
-            <option value="medfdfrcedes">lero</option>
-            <option value="audfdfdi">Ad</option>
+        <select class="select2" multiple="multiple" name="select2">
+            
+            <optgroup label="Tekstualno">
+                <option value="pdf">pdf</option>
+                <option value="docx">docx</option>
+                <option value="rtf">rtf</option>
+                <option value="txt">txt</option>
+
+            </optgroup>
+            
+            <optgroup label="Slike">
+                <option value="jpg">jpg</option>
+                <option value="gif">gif</option>
+                <option value="png">png</option>
+            </optgroup>
+            
+            <optgroup label="Ostalo">
+                <option value="mp4">mp4</option>
+            </optgroup>
+                
+
         </select>
 
         @*<div class="customSelect">
@@ -93,7 +114,16 @@
                     <a class="preuzmi" href="@Url.Action("DownloadMaterijal", "Materijal", new { id = materijal.materijalId })">preuzmi</a>
                 </div>
             </div>
-            <div class="karticaFormat">
+           
+            
+             @*<select class="js-example-basic-single" name="state" multiple="multiple">
+                <option value="AL">Alabama</option>
+                
+                <option value="WY">Wyoming</option>
+            </select>*@
+           
+            
+             <div class="karticaFormat">
                 <a href="#">
                     <img src="@Url.Content(materijal.ImgPath)" alt="preuzmi-PDF">
                 </a>
@@ -163,5 +193,7 @@
     });
 </script>
 
+
 @Scripts.Render("~/bundles/materijal")
+@Scripts.Render("~/Scripts/select2.min.js")
 @Scripts.Render("~/Scripts/customDropdown.js")

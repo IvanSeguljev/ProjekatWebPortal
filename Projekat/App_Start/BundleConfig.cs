@@ -52,6 +52,12 @@ namespace Projekat
                       "~/Content/css/stil.css",
                       "~/Content/css/simplebar.css"
                       ));
+            bundles.Add(new StyleBundle("~/Content/select2").Include(
+                      "~/Content/css/select2.min.css"
+                      ));
+            bundles.Add(new StyleBundle("~/Content/select2izgled").Include(
+                      "~/Content/css/select2izgled.css"
+                      ));
         }
     }
 }

@@ -262,6 +262,8 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\izgled.css" />
     <Content Include="Content\css\reset.css" />
+    <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\select2izgled.css" />
     <Content Include="Content\css\simplebar.css" />
     <Content Include="Content\css\stil.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -338,11 +340,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\kontroleRespMaterijaliPrikaz.js" />
+    <Content Include="Scripts\labeli.js" />
     <Content Include="Scripts\modalOpisPredmet.js" />
     <Content Include="Scripts\modalOpisSmer.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\uploadNaziv.js" />
     <Content Include="Scripts\uploadMaterijal.js" />
     <Content Include="Scripts\validacijaNovogPredmeta.js" />
