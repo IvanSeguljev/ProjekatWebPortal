@@ -28,21 +28,19 @@
 
     @foreach (var smer in Model.smerovi)
     {
-
-        <div class="kartica-smer clear-fix">
+        <div class="kartica-smer clear-fix"  id=@smer.smerId>
             <a class="naziv-smera-na-kartici" href="#">@smer.smerNaziv</a>
             <div class="kontrole clear-fix">
-                <a href="#" class="kontrola-ikonica"><img src="~/Content/img/uredi.png" alt="uredi" /></a>
+                <a href="#" class="kontrola-ikonica edit" data-toggle="modal" data-target="#editModal"><img src="~/Content/img/uredi.png" alt="uredi" /></a>
                 <a class="predmet-kontrole opis" href="#" data-toggle="modal" data-target="#opisModal">OPIS</a>
                 @Html.ActionLink("PREDMETI", "PredmetiPrikaz", "Predmet", new { id = smer.smerId }, new { @class = "predmet-kontrole" })
                 @*   <a class="predmet-kontrole" tabindex="1" href="#">PREDMETI</a>*@
             </div>
             <div class="opisSmera" style="display:none"><p>@smer.smerOpis</p></div>
         </div>
-
     }
 
-    <div class="modal fade" id="opisModal" role="dialog">
+    <div class="modal modal-opis fade" id="opisModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -51,7 +49,31 @@
                     <h4 class="modal-title">Opis smera <span>   </span></h4>
                 </div>
                 <div class="modal-body">
-                    <p></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button value="Potvrdi" class="btn btn-default" data-dismiss="modal">DAW</button>
+                    <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-edit fade" id="editModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Uređivanje smera <span>   </span></h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("UploadMaterijal", "Materijal", FormMethod.Post, new { @id = "editSmera" }))
+                    {
+                        @Html.HiddenFor(s=>s.smerId, new { @id = @"smerId", @name = "smerId" })
+                        @Html.TextBoxFor(s => s.smerNaziv, new { @id = @"smerNaziv", @name = "smerNaziv" })
+                        @Html.TextAreaFor(s => s.smerOpis, new { @id = @"smerOpis", @name = "smerOpis" })
+                    }
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
