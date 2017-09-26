@@ -1179,6 +1179,10 @@ div.kartica-smer .kontrola-ikonica:first-child{
 
 }
 
+.select2-container{
+    min-width:100px;
+}
+
 .customLista{
     display:none;
     position:absolute;
