@@ -1244,15 +1244,4 @@ div.kartica-smer .kontrola-ikonica:first-child{
     -o-transform: rotate(180deg);
 }
 
-
-/*custom dropdown milos pocetak*/
-.select2-container--default .select2-selection--multiple .select2-selection__choice{
-    border-radius: 16px;
-    padding: 5px 14px;
-}
-
-select2-selection__choice__remove{
-    padding-right: 7px;
-}
-/*cusstom droopdown milos kraj*/
 /*CUSTOM DROPDOWNOVI KRAJ*/
