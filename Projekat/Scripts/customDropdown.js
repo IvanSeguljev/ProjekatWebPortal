@@ -37,8 +37,9 @@
 
 
     $('.select2').select2({
-        width: "180px",
-        placeholder:"Filter pretrage"
+        width: "auto",
+        placeholder: "Filter pretrage",
+
         
     });
 
