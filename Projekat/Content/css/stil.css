@@ -1039,12 +1039,12 @@ a.naziv-smera-na-kartici{
     height:65px;
     margin-top:-45px;
     margin-left:-69px;
-    margin-bottom:45px;
+    margin-bottom:0;
     padding:9px;
     /*display:block;*/
-    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
-    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
-    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
+    -webkit-box-shadow: 4px 0px 4px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: 4px 0px 4px 0px rgba(0,0,0,0.26);
+    box-shadow: 4px 0px 4px 0px rgba(0,0,0,0.26);
     transform: translate(0, -65px);
     transition: all .3s cubic-bezier(0,.69,.24,.98); 
 }
