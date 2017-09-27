@@ -2,11 +2,13 @@
     console.log('Skripta radi');
 
     var data = sessionStorage.getItem('edited');
-
     if (data) {
-        alert('ok');
+        //$('#snackbar').css('display', 'block');
         sessionStorage.clear();
     }
+    else
+        //$('#snackbar').css('display', 'none');
+
 
     $('.opis').click(function () {
         $opis = $(this);
