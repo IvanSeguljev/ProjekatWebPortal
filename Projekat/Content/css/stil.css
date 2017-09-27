@@ -1139,6 +1139,8 @@ div.kartica-smer .kontrola-ikonica:first-child{
     /*position:fixed;
     bottom:50px;
     left:50%;*/
+    padding-left:25px;
+    padding-top:16px;
     display:none;
 }
 
@@ -1149,13 +1151,26 @@ div.kartica-smer .kontrola-ikonica:first-child{
     100% {transform: translate(0px, 50px); opacity:0;}
 }
 
-#snackbar p{
+#snackbar span{
     color:#fff;
     font-size:14px;
     font-family:'roboto-regular';
-    padding-left:25px;
-    padding-top:16px;
+    
     box-sizing:border-box;
+}
+
+#snackbar button{
+    background-color:transparent;
+    border:none;
+    display: inline-block;
+    color:#4CAF50;
+    font-size:15px;
+    text-align:center;
+    float:right;
+    margin-right:20px;
+    font-weight:500;
+    
+    font-family:roboto-regular;
 }
 
 /*snackbar KRAJ*/
