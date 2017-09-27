@@ -20,7 +20,7 @@
 
     <div id="naprednaPretraga">
 
-        <select class="select2" multiple="multiple" name="select2">
+        <select class="select2materijali" multiple="multiple" name="materijali">
             <optgroup label="Tip materijala">
                 <option value="Domaci">Domaci</option>
                 <option value="Predavanje">Predavanje</option>
@@ -29,7 +29,7 @@
             </optgroup>
         </select>
 
-        <select class="select2" multiple="multiple" name="select2">
+        <select class="select2formati" multiple="multiple" name="formati">
             
             <optgroup label="Tekstualno">
                 <option value="pdf">pdf</option>
@@ -52,7 +52,12 @@
 
         </select>
 
-        @*<div class="customSelect">
+        <select class="select2_datum" name="starost">
+            <option>Od novijeg ka starijem</option>
+            <option>Od starijeg ka novijem</option>
+           
+        </select>
+                @*<div class="customSelect">
             <div class="izabraniUselectu">
                 <span>Tip materijala</span>
 
@@ -60,7 +65,7 @@
                 </div>
 
             </div>
-            
+
             <ul class="customLista">
                 <li>Tip materijala</li>
                 <li>Volvo</li>
