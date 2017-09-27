@@ -1,6 +1,13 @@
 ﻿$(document).ready(function () {
     console.log('Skripta radi');
 
+    var data = sessionStorage.getItem('edited');
+
+    if(data) {
+        alert('ok');
+        sessionStorage.clear();
+    }
+
     $('.opis').click(function () {
         $opis = $(this);
         var smerNaziv = $opis.parent().parent().find("a[class='naziv-smera-na-kartici']").text();
@@ -26,6 +33,15 @@
         $(".modal-edit .modal-body input[name='smerId']").val(smerId);
         $(".modal-edit .modal-body input[name='smerNaziv']").val(smerNaziv);
         $(".modal-edit .modal-body textarea[name='smerOpis']").val(smerOpis);
+    });
+
+    $('#submitEdit').click(function () {
+        $.ajax({
+            method: 'POST', //razmotriti metod jer je u pitanju edit smera
+            complete: function() {
+                sessionStorage.setItem('edited', true);
+            }
+        });
     });
 });
 

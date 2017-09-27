@@ -68,15 +68,23 @@
                     <h4 class="modal-title">Uređivanje smera <span>   </span></h4>
                 </div>
                 <div class="modal-body">
-                    @using (Html.BeginForm("UploadMaterijal", "Materijal", FormMethod.Post, new { @id = "editSmera" }))
+                    @using (Html.BeginForm("SmeroviPrikaz", "Smer", FormMethod.Post, new { @id = "editSmera" }))
                     {
                         @Html.HiddenFor(s=>s.smerId, new { @id = @"smerId", @name = "smerId" })
+
                         @Html.TextBoxFor(s => s.smerNaziv, new { @id = @"smerNaziv", @name = "smerNaziv" })
+
                         @Html.TextAreaFor(s => s.smerOpis, new { @id = @"smerOpis", @name = "smerOpis" })
+
+                        <button  class="btn btn-default" type="submit" id="submitEdit">
+                            Potvrdi promene
+                        </button>
+                        <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
                     }
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
+
+                    
                 </div>
             </div>
         </div>
