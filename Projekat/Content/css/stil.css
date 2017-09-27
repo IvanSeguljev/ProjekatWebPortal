@@ -1136,9 +1136,9 @@ div.kartica-smer .kontrola-ikonica:first-child{
     border-radius:2px;
     box-sizing:border-box; 
     animation: iskakanjeSaDna 4s cubic-bezier(.04,.69,.21,.99) 1 forwards;
-    /*position:fixed;
+    position:fixed;
     bottom:50px;
-    left:50%;*/
+    left:50%;
     padding-left:25px;
     padding-top:16px;
     display:none;
