@@ -35,14 +35,36 @@
 
 
 
-
-    $('.select2').select2({
+    var formati;
+    $('.select2formati').select2({
         width: "auto",
-        placeholder: "Filter pretrage",
-
-        
+        placeholder: "Filter pretrage",        
     });
 
+    var materijali;
+    $('.select2materijali').select2({
+        width: "auto",
+        placeholder: "Filter pretrage",
+    });
+
+    var datum;
+    $('.select2_datum').select2({
+        width: "auto",
+        minimumResultsForSearch: Infinity
+    });
+
+    $('.select2formati').on("change", function () {
+        formati = $(this).val();
+        console.log(formati);
+    })
+    $('.select2materijali').on("change", function () {
+        materijali = $(this).val();
+        console.log(materijali);
+    })
+    $('.select2_datum').on("change", function () {
+        datum = $(this).val();
+        console.log(datum);
+    })
 
 
 
