@@ -3,11 +3,11 @@
 
     var data = sessionStorage.getItem('edited');
     if (data) {
-        //$('#snackbar').css('display', 'block');
+        $('#snackbar').css('display', 'block');
         sessionStorage.clear();
     }
     else
-        //$('#snackbar').css('display', 'none');
+        $('#snackbar').css('display', 'none');
 
 
     $('.opis').click(function () {
