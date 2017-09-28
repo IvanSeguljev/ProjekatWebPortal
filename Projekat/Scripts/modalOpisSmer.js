@@ -18,7 +18,7 @@
         console.log(smerNaziv);
         console.log(smerOpis);
         $('.modal-opis .modal-header span').text(smerNaziv);
-        $('.modal-opis .modal-body p').text(smerOpis);
+        $('.modal-opis .modal-body pre').text(smerOpis);
     });
 
     $('.edit').click(function () {
@@ -40,6 +40,14 @@
     $('#submitEdit').click(function () {
         $.ajax({
             method: 'POST', //razmotriti metod jer je u pitanju edit smera
+            url: '/Smer/EditSmer',
+            data: {
+                smerId: smerId,
+                smerNaziv: smerNaziv,
+                smerOpis: smerOpis
+            },
+            contentType: 'application/json; charset=utf-8',
+            datatype: 'json',
             complete: function() {
                 sessionStorage.setItem('edited', true);
             }

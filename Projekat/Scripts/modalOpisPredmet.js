@@ -20,7 +20,7 @@
         console.log(predmetOpis);
 
         $('.modal-header span').text(predmetNaziv);
-        $('.modal-body p').text(predmetOpis);
+        $('.modal-body pre').text(predmetOpis);
     });
 
     $('.edit').click(function () {
@@ -41,7 +41,15 @@
 
     $('#submitEdit').click(function () {
         $.ajax({
-            method: 'POST', //razmotriti metod jer je u pitanju edit smera
+            method: 'POST', //razmotriti metod jer je u pitanju edit predmeta
+            url: '/Predmet/EditPredmet',
+            data: {
+                predmetId: predmetId,
+                predmetNaziv: predmetNaziv,
+                predmetOpis: predmetOpis
+            },
+            contentType: 'application/json; charset=utf-8',
+            datatype: 'json',
             complete: function () {
                 sessionStorage.setItem('edited', true);
             }
