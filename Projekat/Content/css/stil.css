@@ -607,7 +607,7 @@ a#novi-materijal:hover{
 
 
 
-/*FORMA ZA POSTAVKU MATERIJALA*/
+/*FORMA ZA POSTAVKU MATERIJALA I SMEROVA*/
 
 .inputfile {
 	width: 0.1px;
@@ -679,7 +679,7 @@ span#filename span{
     /*width: 305px;*/
 }
 
-form#postavkaMat{
+form#postavkaMat, form#smerForma, #predmetForma{
   background-color:#fff;
   width: 600px;
   height: auto;
@@ -691,7 +691,9 @@ form#postavkaMat{
   box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
 }
 
-input#materijalNaslov{
+
+
+input#materijalNaslov, input#smerNaziv, input#predmet_predmetNaziv{
     display: block;
     margin: 0 70px;
     /*min-width: 253px;*/
@@ -709,7 +711,7 @@ input#materijalNaslov{
     margin: 0px 70px 0 70px;
 }
 
-.matDesignLabel {
+.matDesignLabel, .smerDesignLabel {
     display: block;
     margin: 0 0 0 75px;
     font-family: 'roboto-regular';
@@ -729,13 +731,13 @@ input#materijalNaslov{
 	transform: translate(0, 10px);
 }
 
-input#materijalNaslov:focus, textarea#materijalOpis:focus{
+input#materijalNaslov:focus, textarea#materijalOpis:focus, input#smerNaziv:focus, textarea#smerOpis{
   background-color:#fff;
   /*border-bottom: 2px solid #e45459;*/
   border-radius:3px;
 }
 
-textarea#materijalOpis{
+textarea#materijalOpis, textarea#smerOpis, textarea#predmet_predmetOpis{
     display: block;
     margin: 35px 70px 70px 70px;
     min-width: 460px;
