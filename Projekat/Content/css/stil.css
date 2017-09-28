@@ -882,6 +882,15 @@ button#postavi:hover{
     /*position: relative;*/
 }
 
+div.kartica-predmet .kontrola-ikonica{
+    padding: 8px 7px 8px 7px;
+    display: inline-block;
+}
+
+div.kartica-predmet .kontrola-ikonica:first-child{
+    padding-left: 26px;
+}
+
  .kartica-predmet::after{
   content:"";
   display:block;

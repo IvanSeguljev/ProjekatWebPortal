@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     console.log('aa');
-    $('#smerForma').validate({
+    $("#editSmera").validate({
         rules: {
             smerNaziv: {
                 required: true,
@@ -12,8 +12,8 @@
                 minlength: 5,
                 maxlength: 1000
             }
-        },
 
+        },
         messages: {
             smerNaziv: {
                 required: "Polje naziv je obavezno.",
@@ -25,7 +25,7 @@
                 minlength: "Polje opis mora sadržati najmanje 5 karaktera.",
                 maxlength: "Polje opis može sadržati najviše 1000 karaktera."
             }
-        }
-    }); 
 
+        }
+    })
 });
