@@ -1,5 +1,12 @@
 ﻿$(document).ready(function () {
-    console.log('aa');
+    var data = sessionStorage.getItem('upload');
+    if (data) {
+        $('#snackbar').css('display', 'block');
+        sessionStorage.removeItem('upload');
+    }
+    else
+        $('#snackbar').css('display', 'none');
+
     $('#smerForma').validate({
         rules: {
             smerNaziv: {
@@ -25,7 +32,12 @@
                 minlength: "Polje opis mora sadržati najmanje 5 karaktera.",
                 maxlength: "Polje opis može sadržati najviše 1000 karaktera."
             }
+        },
+        submitHandler: function (forma) {
+            sessionStorage.setItem('upload', true);
+            forma.submit();
         }
+
     }); 
 
 });
