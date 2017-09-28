@@ -72,9 +72,9 @@
                     {
                         @Html.HiddenFor(s=>s.smerId, new { @id = @"smerId", @name = "smerId" })
 
-                        @Html.TextBoxFor(s => s.smerNaziv, new { @id = @"smerNaziv", @name = "smerNaziv" })
+                        @Html.TextBoxFor(s => s.smerNaziv, new { @id = @"smerNazivEdit", @name = "smerNaziv" })
 
-                        @Html.TextAreaFor(s => s.smerOpis, new { @id = @"smerOpis", @name = "smerOpis" })
+                        @Html.TextAreaFor(s => s.smerOpis, new { @id = @"smerOpisEdit", @name = "smerOpis" })
 
                         <button  class="btn btn-default" type="submit" id="submitEdit">
                             Potvrdi promene
