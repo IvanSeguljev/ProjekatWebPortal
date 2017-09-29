@@ -35,10 +35,11 @@
 
 
 
+    
     var formati;
     $('.select2formati').select2({
         width: "auto",
-        placeholder: "Filter pretrage",        
+        placeholder: "Filter pretrage",
     });
 
     var materijali;
@@ -50,7 +51,8 @@
     var datum;
     $('.select2_datum').select2({
         width: "auto",
-        minimumResultsForSearch: Infinity
+        minimumResultsForSearch: Infinity,
+
     });
 
     $('.select2formati').on("change", function () {
@@ -67,7 +69,7 @@
     })
 
 
-
+    
 
 
     $("#lupaPretragaToggle").click(function () {

@@ -28,8 +28,10 @@
         <label for="opis" class="matDesignLabel">Opis</label>
 
         @Html.TextAreaFor(model => model.Materijal.materijalOpis, 2, 20, new { @id = @"materijalOpis", @name="materijalOpis" })
-        @Html.DropDownListFor(m => m.Materijal.predmetId, new SelectList(Model.Predmeti, "predmetId", "predmetNaziv"))
-        @Html.DropDownListFor(m => m.Materijal.tipMaterijalId, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"))
+        <div id="dropDownovi">
+            @Html.DropDownListFor(m => m.Materijal.predmetId, new SelectList(Model.Predmeti, "predmetId", "predmetNaziv"), new { @class = "customDropdown" })
+            @Html.DropDownListFor(m => m.Materijal.tipMaterijalId, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"), new { @class = "customDropdown" })
+        </div>
 
 
         <button type="submit" id="postavi">
@@ -46,5 +48,7 @@
 
 @Scripts.Render("~/Scripts/hamburger.js")
 @Scripts.Render("~/Scripts/labeli.js")
+
 @Scripts.Render("~/Scripts/jquery.validate.min.js")
 @Scripts.Render("~/Scripts/uploadMaterijal.js")
+@Scripts.Render("~/Scripts/smerPredmetDropdown.js")
