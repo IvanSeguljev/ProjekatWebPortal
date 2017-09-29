@@ -1,6 +1,10 @@
 ﻿$(document).ready(function () {
-    var data = sessionStorage.getItem('upload');
-    if (data) {
+
+
+
+
+    var isUploaded = sessionStorage.getItem('upload');
+    if (isUploaded) {
         $('#snackbar').css('display', 'block');
         sessionStorage.removeItem('upload');
     }

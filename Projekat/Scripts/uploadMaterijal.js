@@ -1,7 +1,17 @@
 ﻿$(document).ready(function () {
 
+    var predmetId = sessionStorage.getItem('predmetId');
+
+    if (predmetId != undefined)
+        $("#Materijal_predmetId").val(predmetId);
+    else
+        $("#Materijal_predmetId").val($('#Materijal_predmetId option').first().val());
+
+
+    var isUploaded = sessionStorage.getItem('upload');
     var data = sessionStorage.getItem('upload');
-    if (data) {
+
+    if (isUploaded) {
         $('#snackbar').css('display', 'block');
         sessionStorage.removeItem('upload');
     }
