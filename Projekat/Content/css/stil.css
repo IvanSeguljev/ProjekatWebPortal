@@ -731,6 +731,11 @@ input#materijalNaslov, input#smerNaziv, input#predmet_predmetNaziv{
 	transform: translate(0, 10px);
 }
 
+label.error{
+    color:#e21b22;
+    margin-left:72px;
+}
+
 input#materijalNaslov:focus, textarea#materijalOpis:focus, input#smerNaziv:focus, textarea#smerOpis{
   background-color:#fff;
   /*border-bottom: 2px solid #e45459;*/
@@ -827,7 +832,7 @@ button#postavi {
   -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  margin-left:239px;
+  margin-left:244px;
   transition: all 1s cubic-bezier(.08,.73,.08,.9);
 }
 
