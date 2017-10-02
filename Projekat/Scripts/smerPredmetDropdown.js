@@ -30,6 +30,8 @@
 
         $(this).css("width", sirinaListe + 42 + "px");
         $(this).parent().css("width", $(this).css("width"));
+        $(this).parent().css("max-width", "200px");
+        $(this).css("max-width", "200px");
     });
 
     $(".customSelect").click(function () {

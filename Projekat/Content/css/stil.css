@@ -691,7 +691,10 @@ form#postavkaMat, form#smerForma, #predmetForma{
   box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.26);
 }
 
-
+#predmetForma h2{
+    text-align:center;
+    padding:20px 0;
+}
 
 input#materijalNaslov, input#smerNaziv, input#predmet_predmetNaziv{
     display: block;
@@ -740,6 +743,10 @@ input#materijalNaslov:focus, textarea#materijalOpis:focus, input#smerNaziv:focus
   background-color:#fff;
   /*border-bottom: 2px solid #e45459;*/
   border-radius:3px;
+}
+
+#smerOpisEdit {
+    margin-bottom:15px;
 }
 
 textarea#materijalOpis, textarea#smerOpis, textarea#predmet_predmetOpis{
@@ -1210,6 +1217,16 @@ div.kartica-smer .kontrola-ikonica:first-child{
 
 }
 
+#dropDownovi {
+    text-align: center;
+}
+
+.customLista li{
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
 #postavkaMat #dropDownovi{
     text-align:center;
     margin:0 auto;    
@@ -1279,11 +1296,13 @@ div.kartica-smer .kontrola-ikonica:first-child{
     cursor:pointer;
     padding: 14px 23px;
     background-color:#fafafa;
-    height: 47px;
+    position:relative;
 }
 
 .izabraniUselectu span{
     display:inline-block;
+    max-width:150px;
+    
 }
 
 .trougao {
@@ -1293,10 +1312,14 @@ div.kartica-smer .kontrola-ikonica:first-child{
   border-right: 5px solid transparent;
   border-top: 5px solid #4c4c4c;
   display:inline-block;
-  float:right;
+  /*float:right;
   margin-top: 9px;
-    margin-left: 23px;
+    margin-left: 23px;*/
     transition:0.2s all;
+    position:absolute;
+    right:15px;
+    top:47%;
+
 }
 
 .rotate {
