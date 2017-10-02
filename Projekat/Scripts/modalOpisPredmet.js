@@ -1,6 +1,14 @@
 ﻿$(document).ready(function () {
     console.log('Skripta radi');
 
+    $('.getMaterijali').click(function (e) {
+        $predmetMat = $(this);
+
+        var predmetId = $predmetMat.parent().parent().attr('id');
+
+        sessionStorage.setItem('predmetId', predmetId);
+    });
+
     var data = sessionStorage.getItem('edited');
     if (data) {
         $('#snackbar').css('display', 'block');

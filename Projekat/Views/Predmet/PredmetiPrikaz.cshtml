@@ -27,12 +27,12 @@
 
     @foreach (var predmet in Model)
     {
-        <div class="kartica-predmet clear-fix">
+        <div class="kartica-predmet clear-fix" id="@predmet.predmetId">
             <a class="naziv-predmeta-na-kartici" href="#">@predmet.predmetNaziv</a>
             <div class="kontrole clear-fix">
                 <a href="#" class="kontrola-ikonica edit" data-toggle="modal" data-target="#editModal"><img src="~/Content/img/uredi.png" alt="uredi" /></a>
                 <a class="predmet-kontrole opis" href="#" data-toggle="modal" data-target="#opisModal">OPIS</a>
-                @Html.ActionLink("MATERIJALI", "MaterijaliPrikaz", "Materijal", new { id = predmet.predmetId }, new { @class = "predmet-kontrole", tabindex = predmet.predmetId })
+                @Html.ActionLink("MATERIJALI", "MaterijaliPrikaz", "Materijal", new { id = predmet.predmetId }, new { @class = "predmet-kontrole getMaterijali", tabindex = predmet.predmetId })
             </div>
             <div class="opisPredmeta" style="display:none"><p>@predmet.predmetOpis</p></div>
         </div>
