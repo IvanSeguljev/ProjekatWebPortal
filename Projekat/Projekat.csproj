@@ -234,13 +234,9 @@
     <Compile Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.Designer.cs">
       <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\MaterijalContext\201709211213413_test.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709211213413_test.Designer.cs">
-      <DependentUpon>201709211213413_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201710021134367_PredmetListaFix.cs" />
-    <Compile Include="Migrations\MaterijalContext\201710021134367_PredmetListaFix.Designer.cs">
-      <DependentUpon>201710021134367_PredmetListaFix.cs</DependentUpon>
+    <Compile Include="Migrations\MaterijalContext\201710021232532_MaterijalNaslovFix.cs" />
+    <Compile Include="Migrations\MaterijalContext\201710021232532_MaterijalNaslovFix.Designer.cs">
+      <DependentUpon>201710021232532_MaterijalNaslovFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -442,11 +438,8 @@
     <EmbeddedResource Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.resx">
       <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201709211213413_test.resx">
-      <DependentUpon>201709211213413_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201710021134367_PredmetListaFix.resx">
-      <DependentUpon>201710021134367_PredmetListaFix.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201710021232532_MaterijalNaslovFix.resx">
+      <DependentUpon>201710021232532_MaterijalNaslovFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
