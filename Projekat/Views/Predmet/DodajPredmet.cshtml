@@ -11,21 +11,23 @@
     @using (Html.BeginForm("DodajPredmet", "Predmet", FormMethod.Post, new { @class = "predmetForma", @id = "predmetForma" }))
     {
         <h2>Novi predmet</h2>
+        <div id="dropDownovi">
+            @Html.DropDownListFor(m => m.smer.smerId, new SelectList(Model.smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
+            </div>
+            <label class="matDesignLabel" for="predmet_predmetNaziv">Naziv predmeta</label>
+            @Html.TextBoxFor(m => m.predmet.predmetNaziv, new { @name = "predmetNaziv" })
+            <label for="predmet_predmetOpis" class="matDesignLabel">Opis</label>
+            @Html.TextAreaFor(m => m.predmet.predmetOpis, new { @name = "predmetOpis" }) //Ne diraj NAME NIKAKO!
 
-        @Html.DropDownListFor(m => m.smer.smerId, new SelectList(Model.smerovi, "smerId", "smerNaziv"))
-        <label class="matDesignLabel" for="predmet_predmetNaziv">Naziv predmeta</label>
-        @Html.TextBoxFor(m => m.predmet.predmetNaziv, new { @name = "predmetNaziv" })
-        <label for="predmet_predmetOpis" class="matDesignLabel">Opis</label>
-        @Html.TextAreaFor(m => m.predmet.predmetOpis, new { @name = "predmetOpis"}) //Ne diraj NAME NIKAKO!
-
-        <button type="submit" id="postavi" name="submitPredmet" >Dodaj predmet</button>
+            <button type="submit" id="postavi" name="submitPredmet">Dodaj predmet</button>
 
 
-    }
+            }
 
-    <div id="snackbar"><span>Predmet uspešno dodat!</span></div>
-</div>
+            <div id="snackbar"><span>Predmet uspešno dodat!</span></div>
+        </div>
 
 @Scripts.Render("~/Scripts/labeli.js")
 @Scripts.Render("~/Scripts/jquery.validate.min.js")
 @Scripts.Render("~/Scripts/validacijaNovogPredmeta.js")
+@Scripts.Render("~/Scripts/smerPredmetDropdown.js")

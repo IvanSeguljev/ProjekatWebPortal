@@ -23,6 +23,7 @@
 
     console.log(sessionStorage);
     $('#postavkaMat').validate({
+
         rules: {
             materijalNaslov: {
                 required: true
@@ -33,7 +34,7 @@
             file: {
                 required: true,
                 fileType: {
-                    types: ["pdf", "rar", "jpg", "gif", "png", "zip", "rtf", "mp4", "text"]
+                    types: ["pdf|rar|jpg|gif|png|zip|rtf|mp4|text"]
                 },
                 maxFileSize: {
                     "unit": "KB",
@@ -58,6 +59,15 @@
                 maxFileSize: "Fajl ne sme biti veći od 5MB",
                 minFileSize: "Fajl ne sme biti manji od 1KB"
             }
+        },
+        errorPlacement: function (error, element) {
+            if (element.attr("name") == "file") {
+                error.insertAfter(element.next());
+            }
+            else {
+                error.insertAfter(element);
+            }
+            
         },
         submitHandler: function (forma) {
             sessionStorage.setItem('upload', true);
