@@ -29,6 +29,20 @@
             },
             "Materijal.materijalOpis": {
                 required: true
+            },
+            file: {
+                required: true,
+                fileType: {
+                    types: ["pdf", "rar", "jpg", "gif", "png", "zip", "rtf", "mp4", "text"]
+                },
+                maxFileSize: {
+                    "unit": "KB",
+                    "size": 5000
+                },
+                minFileSize: {
+                    "unit": "KB",
+                    "size": "1"
+                }
             }
         },
         messages: {
@@ -37,13 +51,24 @@
             },
             "Materijal.materijalOpis": {
                 required: "Polje opis je obavezno."
+            },
+            file: {
+                required: "Morate odabrati fajl.",
+                fileType: "Pogrešan format fajla.",
+                maxFileSize: "Fajl ne sme biti veći od 5MB",
+                minFileSize: "Fajl ne sme biti manji od 1KB"
             }
         },
         submitHandler: function (forma) {
             sessionStorage.setItem('upload', true);
             forma.submit();
         }
-
     });
+        
+    //$.validator.addMethod('filesize', function (value, element, param) {
+    //    return this.optional(element) || (element.files[0].size <= param)
+    //}, 'File size must be less than {0}');
+
+
 
 });
