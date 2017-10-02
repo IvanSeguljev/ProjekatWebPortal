@@ -23,7 +23,7 @@
         <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Dokument"> Izaberite dokument...</span></span> </label>
 
         <label class="matDesignLabel" for="materijalNaslov">Naslov</label>
-        <input id="materijalNaslov" type="text" name="materijalNaslov" autocomplete="off">
+        @Html.TextBoxFor(m => m.Materijal.materijalNaslov, new { @name = "materijalNaslov" })
 
         <label for="opis" class="matDesignLabel">Opis</label>
 

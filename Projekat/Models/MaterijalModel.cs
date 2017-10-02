@@ -40,6 +40,7 @@ namespace Projekat.Models
         public string materijalEkstenzija { get; set; }
 
         public string materijalNaziv { get; set; }
+        public string materijalNaslov { get; set; }
 
         public string ImgPath
         {

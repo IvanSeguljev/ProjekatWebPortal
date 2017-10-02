@@ -238,6 +238,10 @@
     <Compile Include="Migrations\MaterijalContext\201709211213413_test.Designer.cs">
       <DependentUpon>201709211213413_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\MaterijalContext\201710021134367_PredmetListaFix.cs" />
+    <Compile Include="Migrations\MaterijalContext\201710021134367_PredmetListaFix.Designer.cs">
+      <DependentUpon>201710021134367_PredmetListaFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -255,6 +259,7 @@
     <Compile Include="ViewModels\DodajPremetViewModel.cs" />
     <Compile Include="ViewModels\MaterijalUploadViewModel.cs" />
     <Compile Include="ViewModels\MaterijalViewModel.cs" />
+    <Compile Include="ViewModels\PredmetPoSmeruViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap-flatly.css" />
@@ -352,6 +357,7 @@
     <Content Include="Scripts\smerPredmetDropdown.js" />
     <Content Include="Scripts\uploadNaziv.js" />
     <Content Include="Scripts\uploadMaterijal.js" />
+    <Content Include="Scripts\validacijaEditPredmeta.js" />
     <Content Include="Scripts\validacijaEditSmera.js" />
     <Content Include="Scripts\validacijaNovogPredmeta.js" />
     <Content Include="Scripts\validacijaNovogSmera.js" />
@@ -438,6 +444,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201709211213413_test.resx">
       <DependentUpon>201709211213413_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201710021134367_PredmetListaFix.resx">
+      <DependentUpon>201710021134367_PredmetListaFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

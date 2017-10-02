@@ -56,23 +56,6 @@
             <option>Od starijeg ka novijem</option>
            
         </select>
-                @*<div class="customSelect">
-            <div class="izabraniUselectu">
-                <span>Tip materijala</span>
-
-                <div class="trougao">
-                </div>
-
-            </div>
-
-            <ul class="customLista">
-                <li>Tip materijala</li>
-                <li>Volvo</li>
-                <li>Saab</li>
-                <li>Mercedes</li>
-                <li>Audi</li>
-            </ul>
-        </div>*@
 
     </div>
     
@@ -86,13 +69,13 @@
         <div class="kartica" id=@materijal.materijalId>
             <div class="karticaTekts">
                 <h2>
-                    @materijal.materijalNaziv
+                    @materijal.materijalNaslov
                 </h2>
                 <p class="postavio">
                     Jovana Nikolić / Administrator / 4 Komentara
                 </p>
                 <p class="opis">
-                    At vero eos et accusamus et iusto odio dignissimos ducimus molestias excepturi sint... raduju svakoj novoj aktivnosti i poseti deci i ljudima kojima je pomoć neophodna.
+                    @materijal.materijalOpis
                 </p>
                 <div class="kontrole">
                     <div class="triTackeKontrole" tabindex="1">

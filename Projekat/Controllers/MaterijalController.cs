@@ -87,13 +87,14 @@ namespace Projekat.Controllers
                     file.InputStream.Read(materijal.materijalFile, 0, file.ContentLength);
                     materijal.materijalNaziv = nazivFajla;
                     materijal.materijalEkstenzija = Path.GetExtension(nazivFajla);
-                    materijal.materijalOpis = model.materijalOpis;
-
+                    model.materijalOpis = materijal.materijalOpis;
+                    model.materijalNaslov = materijal.materijalNaslov;
+                    context.Add<MaterijalModel>(materijal);
+                    context.SaveChanges();
                 }
 
                 ViewBag.Message = "Uspešno ste postavili materijal!";
-                context.Add<MaterijalModel>(materijal);
-                context.SaveChanges();
+                
                 return RedirectToAction("UploadMaterijal", "Materijal");
                 // return View("UploadMaterijal", ViewModel);
             }

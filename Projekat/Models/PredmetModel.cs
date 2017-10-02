@@ -16,5 +16,7 @@ namespace Projekat.Models
         public int predmetId { get; set; }
         public string predmetNaziv { get; set; }
         public string predmetOpis { get; set; }
+
+        public IEnumerable<PredmetModel> predmeti { get; set; }
     }
 }

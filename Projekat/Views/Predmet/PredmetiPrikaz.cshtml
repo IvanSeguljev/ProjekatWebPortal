@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Projekat.Models.PredmetModel>
+﻿@model Projekat.ViewModels.PredmetPoSmeruViewModel
 
 @{
     ViewBag.Title = "PredmetiPrikaz";
@@ -25,7 +25,7 @@
         </svg>
     </a>
 
-    @foreach (var predmet in Model)
+    @foreach (var predmet in Model.predmeti)
     {
         <div class="kartica-predmet clear-fix" id="@predmet.predmetId">
             <a class="naziv-predmeta-na-kartici" href="#">@predmet.predmetNaziv</a>
@@ -67,16 +67,16 @@
                 <div class="modal-body">
                     @using (Html.BeginForm("PredmetiPrikaz", "Predmet", FormMethod.Post, new { @id = "editPredmeta" }))
                     {
-                        @*@Html.HiddenFor(s => s.smerId, new { @id = @"predmetId", @name = "predmetId" })
+                        @Html.HiddenFor(p => p.predmet.predmetId, new { @id = @"predmetId", @name = "predmetId" })
 
-                        @Html.TextBoxFor(s => s.smerNaziv, new { @id = @"predmetNaziv", @name = "predmetNaziv" })
+                        @Html.TextBoxFor(p => p.predmet.predmetNaziv, new { @id = @"predmetNaziv", @name = "predmetNaziv" })
 
-                        @Html.TextAreaFor(s => s.smerOpis, new { @id = @"predmetOpis", @name = "predmetOpis" })*@
+                        @Html.TextAreaFor(p => p.predmet.predmetOpis, new { @id = @"predmetOpis", @name = "predmetOpis" })
 
                         <button class="btn btn-default" type="submit" id="submitEdit">
                             Potvrdi promene
                         </button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
+                        <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
                     }
                 </div>
                 <div class="modal-footer">
@@ -90,4 +90,6 @@
 </div>
 
 @Scripts.Render("~/Scripts/modalOpisPredmet.js")
+@Scripts.Render("~/Scripts/jquery.validate.min.js")
+@Scripts.Render("~/Scripts/validacijaEditPredmeta.js")
 
