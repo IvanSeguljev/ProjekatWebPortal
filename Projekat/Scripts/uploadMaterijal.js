@@ -33,9 +33,9 @@
             },
             file: {
                 required: true,
-                fileType: {
-                    types: ["pdf|rar|jpg|gif|png|zip|rtf|mp4|text"]
-                },
+                
+                    extension: "jpeg|png|jpg|pdf|mp4|rtf|txt|text|gif|rar|zip"
+                ,
                 maxFileSize: {
                     "unit": "KB",
                     "size": 5000
@@ -55,7 +55,7 @@
             },
             file: {
                 required: "Morate odabrati fajl.",
-                fileType: "Pogrešan format fajla.",
+                extension: "Pogrešan format fajla.",
                 maxFileSize: "Fajl ne sme biti veći od 5MB",
                 minFileSize: "Fajl ne sme biti manji od 1KB"
             }

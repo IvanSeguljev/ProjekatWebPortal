@@ -696,7 +696,7 @@ form#postavkaMat, form#smerForma, #predmetForma{
     padding:20px 0;
 }
 
-input#materijalNaslov, input#smerNaziv, input#predmet_predmetNaziv{
+input#Materijal_materijalNaslov, input#smerNaziv, input#predmet_predmetNaziv{
     display: block;
     margin: 0 70px;
     /*min-width: 253px;*/
