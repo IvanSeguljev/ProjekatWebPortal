@@ -25,7 +25,7 @@
     $('#postavkaMat').validate({
 
         rules: {
-            materijalNaslov: {
+            "Materijal.materijalNaslov": {
                 required: true
             },
             "Materijal.materijalOpis": {
@@ -47,7 +47,7 @@
             }
         },
         messages: {
-            materijalNaslov: {
+            "Materijal.materijalNaslov": {
                 required: "Polje naslov je obavezno."
             },
             "Materijal.materijalOpis": {
