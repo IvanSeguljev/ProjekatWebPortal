@@ -42,9 +42,9 @@
         console.log(predmetOpis);
 
         $('.modal-edit .modal-header span').text(predmetNaziv);
-        $(".modal-edit .modal-body input[name='smerId']").val(predmetId);
-        $(".modal-edit .modal-body input[name='smerNaziv']").val(predmetNaziv);
-        $(".modal-edit .modal-body textarea[name='smerOpis']").val(predmetOpis);
+        $(".modal-edit .modal-body input[name='predmetId']").val(predmetId);
+        $(".modal-edit .modal-body input[name='predmet.predmetNaziv']").val(predmetNaziv);
+        $(".modal-edit .modal-body textarea[name='predmet.predmetOpis']").val(predmetOpis);
     });
 
     $('#submitEdit').click(function () {

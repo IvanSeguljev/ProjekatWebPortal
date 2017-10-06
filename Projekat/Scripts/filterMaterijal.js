@@ -5,7 +5,7 @@
         if(true){
             $.ajax({
                 method: 'POST',
-                url: 'Materijal/MaterijaliPrikaz',
+                url: ''/*'Materijal/MaterijaliPrikaz'*/,
                 data: {
 
                 }
