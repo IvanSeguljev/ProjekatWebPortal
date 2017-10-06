@@ -48,11 +48,28 @@ namespace Projekat.Controllers
         [HttpPost]
 
         public ActionResult DodajSmer(SmerModel smer)
-        {
+        {   
             if (ModelState.IsValid)
             {
-                context.Add<SmerModel>(smer);
-                context.SaveChanges();
+                if (smer.smerId == 0)
+                {
+                    context.Add<SmerModel>(smer);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    var smerInDb = context.smerovi.Single(o => o.smerId == smer.smerId);
+
+                    smerInDb.smerNaziv = smer.smerNaziv;
+                    smerInDb.smerOpis = smer.smerOpis;
+
+                    context.SaveChanges();
+                }
+
+
+                return RedirectToAction("DodajSmer");
+
+
             }
             return View();
         }
