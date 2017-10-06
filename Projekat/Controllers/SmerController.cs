@@ -67,7 +67,7 @@ namespace Projekat.Controllers
                 }
 
 
-                return RedirectToAction("DodajSmer");
+                return RedirectToAction("SmeroviPrikaz");
 
 
             }
