@@ -3,7 +3,7 @@
 
     var data = sessionStorage.getItem('edited');
 
-    if(data) {
+    if (data) {
         $('#snackbar').css('display', 'block');
         sessionStorage.clear();
     }
@@ -40,16 +40,15 @@
     $('#submitEdit').click(function () {
         $.ajax({
             method: 'POST', //razmotriti metod jer je u pitanju edit smera
-            url: '/Smer/EditSmer',
+            url: '/Smer/DodajSmer',
             data: {
                 smerId: smerId,
                 smerNaziv: smerNaziv,
                 smerOpis: smerOpis
             },
-            contentType: 'application/json; charset=utf-8',
-            datatype: 'json',
-            complete: function() {
+            complete: function () {
                 sessionStorage.setItem('edited', true);
+                location.reload();
             }
         });
     });

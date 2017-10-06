@@ -68,7 +68,7 @@
                     <h4 class="modal-title">Uređivanje smera <span>   </span></h4>
                 </div>
                 <div class="modal-body">
-                    @using (Html.BeginForm("SmeroviPrikaz", "Smer", FormMethod.Post, new { @id = "editSmera" }))
+                    @using (Html.BeginForm("DodajSmer", "Smer", FormMethod.Post, new { @id = "editSmera" }))
                     {
                         @Html.HiddenFor(s=>s.smerId, new { @id = @"smerId", @name = "smerId" })
 
