@@ -1,6 +1,5 @@
 ﻿$(document).ready(function () {
     document.getElementsByClassName('inputfile')[0].onchange = uploadOnChange;
-    //console.log('dwadawdaw');
 
     function uploadOnChange() {
         var filename = this.value;

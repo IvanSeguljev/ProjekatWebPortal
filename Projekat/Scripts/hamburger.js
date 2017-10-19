@@ -1,26 +1,4 @@
-﻿//$(document).ready(function () {
-//    $('.hamburger-menu-toggle').click(function () {
-//        console.log('YAHHOOOOOOO');
-//        $('#LeftBar').toggle('slide',{direction:'left'}, 400);
-//    });
-
-//});
-
-//$(document).ready(function () {
-//    $(".hamburger-menu-toggle").click(function (event) {
-//        event.preventDefault();
-//        if ($("#LeftBar").attr('width') === "0") {
-//            ("#LeftBar").width(338);
-//        } else {
-//            ("#LeftBar").width(0);
-//        }
-
-
-//    });
-//});
-
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     $('.LeftBar:first').css("position", "fixed");
 
@@ -35,11 +13,7 @@ $(document).ready(function () {
             $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "70px" });
         }
         else if (sirinaNava == -338) {
-            //$('#gornjaNavigacija').css({ 'transition': '1s', 'margin-left': "338px", });
-            //$('#gornjaNavigacija').css({ 'width':'-='+"338px"});
             $('#gornjaNavigacija').removeAttr("style");
-            //stara metoda
-            //$('#sredina').css({ 'width': '-=' + "338px" });
             $('#sredina').removeAttr("style");
             $('.LeftBar:first').css({ 'width': "338px" });
             $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "29px" });
@@ -49,11 +23,7 @@ $(document).ready(function () {
     //ako ne radi brisi sve ispod mene osim dve poslednje zagrade
 
 
-    //var gornjaNavigacijaSirina = $('#gornjaNavigacija').width();
-
     window.onresize = function () {
-
-        //gornjaNavigacijaSirina = $('#gornjaNavigacija').width();
 
         if ($('#gornjaNavigacija').width() < 680) {
             console.log('nav je manji od 680px');

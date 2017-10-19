@@ -57,17 +57,6 @@
             $(window).trigger('resize');
         }, 300);
     });
-    //window.onresize = function () {
-
-    //    if (sredinaSirina < 450) {
-    //        $('.karticaFormat').css({ 'display': 'none', 'overflow': 'hidden' });
-    //        $('.karticaTekts').css("width", "100%");
-    //    } else if (sredinaSirina > 450) {
-    //        $('.karticaFormat').removeAttr("style");
-    //        $('.karticaTekts').removeAttr("style");
-    //    }
-
-    //}
 
     //kraj kartica responsive
 

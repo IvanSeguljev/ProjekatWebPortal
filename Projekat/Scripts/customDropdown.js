@@ -13,28 +13,12 @@
 
         $.each(arrayLijeva, function () {
             $('#trenutnoPravim ul.customLista').append(($('<li></li>').text($(this).text())));
-            //console.log($(this).next().find($('li')));
         });
 
-        //$(this).find($('option')).toArray().each(function () {
-        //    $(this).next().find($('ul.customLista')).append(($('<li></li>').text($(this).text())));
-        //});
-        
         var lista = $('.customLista li');
-
-        
-
-       /* $.each(lista, function (index) {
-            if ($('.customLista li')[index].css('width') > $('.customLista').css('width')) {
-                $('.customLista').css('width') = lista[index].css('width');
-            }
-        });*/
 
         $('#trenutnoPravim').removeAttr('id');
     });
-
-
-
     
     var formati;
     $('.select2formati').select2({
@@ -69,16 +53,9 @@
     })
 
 
-    
-
 
     $("#lupaPretragaToggle").click(function () {
         if (brojKlikovaNaLupu < 1){
-        //console.log(sirinaListe);
-        //$(".customSelect").css('width', sirinaListe + 2 + 'px');
-        //console.log($(".customSelect").css('width'));
-        //$('.customLista').css('width', sirinaListe + 'px');
-
 
         $(".customLista").each(function () {
             var sirinaListe = parseFloat($(this).css('width'));
@@ -106,21 +83,10 @@
     $(".customSelect li").click(function () {
         var kliknutiTekst = $(this).text();
         $(this).parent().siblings("div").find('span').text($(this).text());
-        //$(this).parent().parent().prev().find($("option").removeAttr('selected'));
         $(this).parent().parent().prev().find($("option").filter(function () {
             return $(this).text() === kliknutiTekst;
         }).prop('selected', true));
-        //$(this).parent().parent().prev().val(kliknutiTekst);
-        //var sirinaListe = parseFloat($(".customSelect").css('width'));
-        //$('.customLista').css('width', sirinaListe + 'px');
-        
 
     });
-
-
-
-
-
-
 
 });
