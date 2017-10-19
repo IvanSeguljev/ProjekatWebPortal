@@ -1,7 +1,10 @@
 ﻿$(document).ready(function () {
 
 
-
+    $('.select2smerovi').select2({
+        width: "auto",
+        placeholder: "Odaberite smerove",
+    });
 
     var isUploaded = sessionStorage.getItem('upload');
     if (isUploaded) {
@@ -13,6 +16,9 @@
 
     $('#predmetForma').validate({
         rules: {
+            "smer.smerId" : {
+                required: true
+            },
             "predmet.predmetNaziv": {
                 required: true,
                 maxlength: 255
@@ -25,6 +31,9 @@
         },
 
         messages: {
+            "smer.smerId": {
+                required: "Morate odabrati barem jedan smer."
+            },
             "predmet.predmetNaziv": {
                 required: "Polje naziv je obavezno.",
                 maxlength: "Polje naziv može sadržati najviše 255 karaktera."

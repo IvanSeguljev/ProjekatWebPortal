@@ -49,17 +49,16 @@
 
     $('#submitEdit').click(function () {
         $.ajax({
-            method: 'POST', //razmotriti metod jer je u pitanju edit predmeta
-            url: '/Predmet/EditPredmet',
+            method: 'POST', //razmotriti metod jer je u pitanju edit smera
+            url: '/Predmet/DodajPredmet',
             data: {
                 predmetId: predmetId,
                 predmetNaziv: predmetNaziv,
                 predmetOpis: predmetOpis
             },
-            contentType: 'application/json; charset=utf-8',
-            datatype: 'json',
             complete: function () {
                 sessionStorage.setItem('edited', true);
+                location.reload();
             }
         });
     });
