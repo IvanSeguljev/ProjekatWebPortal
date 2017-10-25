@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
-    var data = sessionStorage.getItem('upload');
+    var data = sessionStorage.getItem('uploadSmer');
     if (data) {
         $('#snackbar').css('display', 'block');
-        sessionStorage.removeItem('upload');
+        sessionStorage.removeItem('uploadSmer');
     }
     else
         $('#snackbar').css('display', 'none');
@@ -34,7 +34,7 @@
             }
         },
         submitHandler: function (forma) {
-            sessionStorage.setItem('upload', true);
+            sessionStorage.setItem('uploadSmer', true);
             forma.submit();
         }
 

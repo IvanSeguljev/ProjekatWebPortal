@@ -50,8 +50,6 @@
         //$(this).parent().parent().prev().val(kliknutiTekst);
         //var sirinaListe = parseFloat($(".customSelect").css('width'));
         //$('.customLista').css('width', sirinaListe + 'px');
-
-
     });
 
 

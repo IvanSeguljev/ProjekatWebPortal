@@ -1,15 +1,14 @@
 ﻿$(document).ready(function () {
 
-
     $('.select2smerovi').select2({
         width: "auto",
         placeholder: "Odaberite smerove",
     });
 
-    var isUploaded = sessionStorage.getItem('upload');
+    var isUploaded = sessionStorage.getItem('uploadPredmet');
     if (isUploaded) {
         $('#snackbar').css('display', 'block');
-        sessionStorage.removeItem('upload');
+        sessionStorage.removeItem('uploadPredmet');
     }
     else
         $('#snackbar').css('display', 'none');
@@ -45,7 +44,7 @@
             }
         },
         submitHandler: function (forma) {
-            sessionStorage.setItem('upload', true);
+            sessionStorage.setItem('uploadPredmet', true);
             forma.submit();
         }
 
