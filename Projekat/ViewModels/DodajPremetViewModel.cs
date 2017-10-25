@@ -8,9 +8,9 @@ namespace Projekat.ViewModels
 {
     public class DodajPremetViewModel
     {
-        public IEnumerable<SmerModel> smerovi { get; set; }
+        public IEnumerable<SmerModel> smerovi { get; set; } //Za citanje
         public PredmetModel predmet { get; set; }
 
-        public SmerModel smer { get; set; }
+        public List<int> smerIds { get; set; } // << TEMP >> OVO CE KASNIJE BITI LISTA INTOVA!
     }
 }

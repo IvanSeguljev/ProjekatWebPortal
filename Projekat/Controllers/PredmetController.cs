@@ -41,11 +41,16 @@ namespace Projekat.Controllers
             {
                 context.Add<PredmetModel>(viewModel.predmet);
 
-                context.Add<PremetPoSmeru>(new PremetPoSmeru
+                foreach (int n in viewModel.smerIds)
                 {
-                    predmetId = viewModel.predmet.predmetId,
-                    smerId = viewModel.smer.smerId
-                });
+
+                    context.Add<PremetPoSmeru>(new PremetPoSmeru
+                    {
+                        predmetId = viewModel.predmet.predmetId,
+                        smerId = n
+                        //smerId = viewModel.smer.smerId
+                    });
+                }
                 context.SaveChanges();
 
             }
