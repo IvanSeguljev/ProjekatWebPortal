@@ -1341,10 +1341,3 @@ pre {
     color:initial;
 }
 
-.select2-container--default .select2-selection--multiple .select2-selection__rendered li{
-    list-style: none;
-    max-width: 220px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}

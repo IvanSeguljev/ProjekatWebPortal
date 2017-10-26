@@ -12,7 +12,7 @@
     {
         <h2>Novi predmet</h2>
         <div id="dropDownovi">
-            @Html.DropDownListFor(m => m.smer.smerId, new SelectList(Model.smerovi, "smerId", "smerNaziv"), new { @class = "select2smerovi", @multiple = "multiple" })
+            @Html.DropDownListFor(m => m.smerIds, new SelectList(Model.smerovi, "smerId", "smerNaziv"), new { @class = "select2smerovi", @multiple = "multiple" })
             </div>
             <label class="matDesignLabel" for="predmet_predmetNaziv">Naziv predmeta</label>
             @Html.TextBoxFor(m => m.predmet.predmetNaziv, new { @name = "predmetNaziv" })
