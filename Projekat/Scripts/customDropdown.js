@@ -23,13 +23,13 @@
     var formati;
     $('.select2formati').select2({
         width: "auto",
-        placeholder: "Filter pretrage",
+        placeholder: "Format materijala",
     });
 
     var materijali;
     $('.select2materijali').select2({
         width: "auto",
-        placeholder: "Filter pretrage",
+        placeholder: "Tip materijala",
     });
 
     var datum;
@@ -88,5 +88,10 @@
         }).prop('selected', true));
 
     });
+
+    $('.select2materijali').on('change', function() {
+        console.log("YAHOO");
+    });
+
 
 });

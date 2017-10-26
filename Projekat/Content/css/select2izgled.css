@@ -26,10 +26,14 @@
     text-overflow: ellipsis;
 }
 
-/*.select2-container--default.select2-container--focus .select2-selection--multiple{
+.select2-container--default.select2-container--focus .select2-selection--multiple{
     border-bottom:2px solid #757575;
-}*/
+}
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice{
     margin-right:12px;
+}
+
+.select2-container .select2-selection--multiple{
+    height: 43px;
 }
