@@ -353,7 +353,6 @@
     <Content Include="Scripts\smerPredmetDropdown.js" />
     <Content Include="Scripts\uploadNaziv.js" />
     <Content Include="Scripts\uploadMaterijal.js" />
-    <Content Include="Scripts\uploadPredmet.js" />
     <Content Include="Scripts\validacijaEditPredmeta.js" />
     <Content Include="Scripts\validacijaEditSmera.js" />
     <Content Include="Scripts\validacijaNovogPredmeta.js" />
