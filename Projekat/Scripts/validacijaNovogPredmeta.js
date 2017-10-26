@@ -5,6 +5,10 @@
         placeholder: "Odaberite smerove",
     });
 
+    $('.select2smerovi').on('select2:select', function (e) {
+        alert($('li .select2-selection__choice').attr('title'));
+    });
+
     var isUploaded = sessionStorage.getItem('uploadPredmet');
     if (isUploaded) {
         $('#snackbar').css('display', 'block');
