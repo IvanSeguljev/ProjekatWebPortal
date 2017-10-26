@@ -14,5 +14,17 @@
         }
     });
 
+    $('.select2_datum').change(function () {
+        alert($("select[name='filterStarijeNovije']").val());
+   
+        $.ajax({
+            method: 'POST',
+            url: '',
+            data: {
+
+            }
+        });
+    });
+
 
 });
