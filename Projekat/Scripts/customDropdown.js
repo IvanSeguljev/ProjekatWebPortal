@@ -29,7 +29,7 @@
     var materijali;
     $('.select2materijali').select2({
         width: "auto",
-        placeholder: "Tip materijala",
+        //placeholder: "Tip materijala",
     });
 
     var datum;
@@ -89,9 +89,39 @@
 
     });
 
-    $('.select2materijali').on('change', function() {
-        console.log("YAHOO");
+    $('.select2materijali').on('select2:unselect', function () {
+        //console.log("YAHOO");
+        $(this).delay(800).select2("close");
     });
 
+ 
+    $('.select2-hidden-accessible').change(function () {
+        if($(this).val()!==null){
+            $(this).prev().css({ "font-size": "14px", "transform": "translate(106%, -24px)" });
+            //$(this).next().css("margin-top", "6px");
+            $(this).next().find("span.select2-selection--multiple").css("height", "50px");
+            $(this).next().find(".select2-selection__rendered").css({ "margin-top": "7px", "height": "43px", "margin-bottom": "0" });
+            //$(this).next().find(".select2-search__field").css({ "margin-top": "0", "height": "30px", "margin-bottom": "22px" });
+           
+            $(this).next().find(".select2-search__field").css({ "margin-top": "7px", "height": "30px", "margin-bottom": "3px" });
+            console.log("pun");
+            console.log($(this).val());
+        }
+        else {
+            $(this).prev().css({ "font-size": "16px", "transform": "translate(106%,-4px)" });
+            //$(this).next().css("margin-top", "0");
+            //$(this).next().filter("span.select2-selection--multiple").css("height", "20px");
+            //console.log($(this).next().filter("span.select2-selection--multiple"));
+            $(this).next().find("span.select2-selection--multiple").css("height", "20px");
+            $(this).next().find(".select2-selection__rendered").css({ "margin-top": "0", "height": "30px", "margin-bottom": "5px" });
+            
+            $(this).next().find(".select2-search__field").css({ "margin-top": "22px", "height": "30px", "margin-bottom": "0" });
+
+            console.log("prazan");
+            console.log($(this).val());
+         
+        }
+
+    });
 
 });
