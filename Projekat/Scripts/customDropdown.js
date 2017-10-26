@@ -11,8 +11,8 @@
 
         var arrayLijeva = $(this).find($('option')).toArray();
 
-        $.each(arrayLijeva, function () {
-            $('#trenutnoPravim ul.customLista').append(($('<li></li>').text($(this).text())));
+        $.each(arrayLijeva, function (index, value) {
+            $('#trenutnoPravim ul.customLista').append(($("<li id='" + arrayLijeva[index].getAttribute('id') + "'></li>").text($(this).text())));
         });
 
         var lista = $('.customLista li');
@@ -47,12 +47,27 @@
         materijali = $(this).val();
         console.log(materijali);
     })
-    $('.select2_datum').on("change", function () {
-        datum = $(this).val();
-        console.log(datum);
-    })
+    $(".customLista li").on("click", function () {
+        var datum = $(this);
+        sort = datum.attr('id');
 
+        if (sort === "opadajuce")  sort = 'opadajuce';
+        else if(sort === "rastuce")  sort = 'rastuce';
+        else sort = ''
 
+        if (sort !== '') {
+            $.ajax({
+                method: 'GET',
+                url: '/Materijal/MaterijalPrikaz',
+                data: {
+                    sort: sort
+                },
+                success: function (data) {
+                    alert('ok');
+                }
+            });
+        }
+    });
 
     $("#lupaPretragaToggle").click(function () {
         if (brojKlikovaNaLupu < 1){
