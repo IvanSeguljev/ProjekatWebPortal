@@ -10,7 +10,6 @@ namespace Projekat.ViewModels
     {
         public IEnumerable<SmerModel> smerovi { get; set; } //Za citanje
         public PredmetModel predmet { get; set; }
-
-        public List<int> smerIds { get; set; } // << TEMP >> OVO CE KASNIJE BITI LISTA INTOVA!
+        public List<int> smerIds { get; set; } //Za upisivanje u bazu
     }
 }
