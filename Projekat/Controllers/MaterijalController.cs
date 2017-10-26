@@ -50,6 +50,10 @@ namespace Projekat.Controllers
                               select p).ToList();
             }
 
+
+
+            
+
             return View("MaterijaliPrikaz", materijali);
         }
 
