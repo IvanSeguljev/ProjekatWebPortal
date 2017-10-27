@@ -66,13 +66,12 @@
             $.ajax({
                 method: 'GET',
                 url: '/Materijal/MaterijaliPrikaz',
-                contentType: 'application/json; charset=UTF-8',
                 data: {
                     id: query,
                     sort: sort
                 },
                 success: function (data) {
-                    $('#sredina').html(data);
+                    console.log(data);
                 }
             });
         }
