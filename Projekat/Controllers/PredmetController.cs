@@ -51,6 +51,7 @@ namespace Projekat.Controllers
                         //smerId = viewModel.smer.smerId
                     });
                 }
+              
                 context.SaveChanges();
 
             }
@@ -66,7 +67,7 @@ namespace Projekat.Controllers
 
         //GET: /Predmet/PredmetiPrikaz
         [HttpGet]
-        public ActionResult PredmetiPrikaz (int id)
+        public ActionResult PredmetiPrikaz (int id, string sort)
         {
             context = new MaterijalContext();   
             List<PremetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
@@ -78,20 +79,25 @@ namespace Projekat.Controllers
                 model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
             }
 
+            if(sort == "opadajuci")
+            {
+                model.Reverse();
+            }
+
             PredmetPoSmeruViewModel predmetiPoSmeru = new PredmetPoSmeruViewModel
             {
                 predmeti = model
             };
             
-            try
-            {
+            //try
+            //{
                 
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
            
             return View("PredmetiPrikaz", predmetiPoSmeru);
         }
