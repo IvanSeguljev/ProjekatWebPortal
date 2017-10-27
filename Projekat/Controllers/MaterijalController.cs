@@ -53,11 +53,17 @@ namespace Projekat.Controllers
                               select p).ToList();
             }
 
+
+
             if(sort == "opadajuce")
             {
                 materijali.Reverse();
-                return Json(materijali);
+                return Json(materijali,JsonRequestBehavior.AllowGet);
 
+            }
+            else if(sort =="rastuce")
+            {
+                return Json(materijali, JsonRequestBehavior.AllowGet);
             }
             vm = new MaterijaliNaprednaPretragaViewModel
             {
