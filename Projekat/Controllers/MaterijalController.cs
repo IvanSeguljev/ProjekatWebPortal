@@ -37,9 +37,6 @@ namespace Projekat.Controllers
         {
             MaterijaliNaprednaPretragaViewModel vm;
 
-           
-            
-
             List<MaterijalModel> materijali;
             materijali = context.materijali.ToList();
             if (number == 0)
@@ -67,11 +64,6 @@ namespace Projekat.Controllers
                 materijali = materijali,
                 naprednaPretragaSelektovani = ""
             };
-
-
-
-
-
 
             return View("MaterijaliPrikaz", vm);
         }

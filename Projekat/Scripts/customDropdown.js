@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    
+
     brojKlikovaNaLupu = 0;
 
     $(".customDropdown").each(function () {
@@ -19,7 +19,7 @@
 
         $('#trenutnoPravim').removeAttr('id');
     });
-    
+
     var formati;
     $('.select2formati').select2({
         width: "auto",
@@ -47,42 +47,47 @@
         materijali = $(this).val();
         console.log(materijali);
     })
+
+    
     $(".customLista li").on("click", function () {
+        var url = window.location.href;
+        var args = url.split('/');
+
+        query = args[args.length -1];
+
         var datum = $(this);
         sort = datum.attr('id');
 
-        if (sort === "opadajuce")  sort = 'opadajuce';
-        else if(sort === "rastuce")  sort = 'rastuce';
+        if (sort === "opadajuce") sort = 'opadajuce';
+        else if (sort === "rastuce") sort = 'rastuce';
         else sort = ''
 
         if (sort !== '') {
             $.ajax({
                 method: 'GET',
                 url: '/Materijal/MaterijaliPrikaz',
+                contentType: 'application/json; charset=UTF-8',
                 data: {
-                    id: 12,
+                    id: query,
                     sort: sort
                 },
                 success: function (data) {
-                   console.log('ok');
+                    $('#sredina').html(data);
                 }
             });
         }
     });
 
     $("#lupaPretragaToggle").click(function () {
-        if (brojKlikovaNaLupu < 1){
+        if (brojKlikovaNaLupu < 1) {
+            $(".customLista").each(function () {
+                var sirinaListe = parseFloat($(this).css('width'));
 
-        $(".customLista").each(function () {
-            var sirinaListe = parseFloat($(this).css('width'));
+                console.log(sirinaListe + " ovo je sirinaListe");
 
-            console.log(sirinaListe + " ovo je sirinaListe");
-
-            $(this).css("width", sirinaListe + 32 + "px");
-            $(this).parent().css("width", $(this).css("width"));
-        }
-
-        );
+                $(this).css("width", sirinaListe + 32 + "px");
+                $(this).parent().css("width", $(this).css("width"));
+            });
         }
         brojKlikovaNaLupu = 2;
     });
@@ -94,7 +99,7 @@
     });
 
 
-    
+
 
     $(".customSelect li").click(function () {
         var kliknutiTekst = $(this).text();
@@ -110,15 +115,15 @@
         $(this).delay(800).select2("close");
     });
 
- 
+
     $('.select2-hidden-accessible').change(function () {
-        if($(this).val()!==null){
+        if ($(this).val() !== null) {
             $(this).prev().css({ "font-size": "14px", "transform": "translate(106%, -24px)" });
             //$(this).next().css("margin-top", "6px");
             $(this).next().find("span.select2-selection--multiple").css("height", "50px");
             $(this).next().find(".select2-selection__rendered").css({ "margin-top": "7px", "height": "43px", "margin-bottom": "0" });
             //$(this).next().find(".select2-search__field").css({ "margin-top": "0", "height": "30px", "margin-bottom": "22px" });
-           
+
             $(this).next().find(".select2-search__field").css({ "margin-top": "7px", "height": "30px", "margin-bottom": "3px" });
             console.log("pun");
             console.log($(this).val());
@@ -130,12 +135,12 @@
             //console.log($(this).next().filter("span.select2-selection--multiple"));
             $(this).next().find("span.select2-selection--multiple").css("height", "20px");
             $(this).next().find(".select2-selection__rendered").css({ "margin-top": "0", "height": "30px", "margin-bottom": "5px" });
-            
+
             $(this).next().find(".select2-search__field").css({ "margin-top": "22px", "height": "30px", "margin-bottom": "0" });
 
             console.log("prazan");
             console.log($(this).val());
-         
+
         }
 
     });
