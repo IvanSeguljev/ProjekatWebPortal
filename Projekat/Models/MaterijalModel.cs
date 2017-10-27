@@ -55,7 +55,7 @@ namespace Projekat.Models
                 else if (this.materijalEkstenzija == ".jpg")
                     return "~/Content/img/JPGicon.png";
                 else if (this.materijalEkstenzija == ".gif")
-                    return "~/Content/img/GIF2icon.png";
+                    return "~/Content/img/GIFicon.png";
                 else if (this.materijalEkstenzija == ".png")
                     return "~/Content/img/PNGicon.png";
                 else if (this.materijalEkstenzija == ".zip")
