@@ -30,28 +30,32 @@
 
 
         @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
-        <select class="select2formati" multiple="multiple" name="formati">
-            
-            <optgroup label="Tekstualno">
-                <option value="pdf">pdf</option>
-                <option value="docx">docx</option>
-                <option value="rtf">rtf</option>
-                <option value="txt">txt</option>
 
-            </optgroup>
-            
-            <optgroup label="Slike">
-                <option value="jpg">jpg</option>
-                <option value="gif">gif</option>
-                <option value="png">png</option>
-            </optgroup>
-            
-            <optgroup label="Ostalo">
-                <option value="mp4">mp4</option>
-            </optgroup>
-                
+    @*  @Html.DropDownListFor(m => m.naprednaPretragaSelektovani, new SelectList(Model.materijali), new { @class = "select2formati", @multiple = "multiple", @name ="formati" })*@
 
-        </select>
+       <select class="select2formati" multiple="multiple" name="formati">
+
+        <optgroup label="Tekstualno">
+            <option value="pdf">pdf</option>
+            <option value="docx">docx</option>
+            <option value="rtf">rtf</option>
+            <option value="txt">txt</option>
+
+        </optgroup>
+
+        <optgroup label="Slike">
+            <option value="jpg">jpg</option>
+            <option value="gif">gif</option>
+            <option value="png">png</option>
+        </optgroup>
+
+        <optgroup label="Ostalo">
+            <option value="mp4">mp4</option>
+        </optgroup>
+
+
+    </select>
+    
         @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
         <select class="customDropdown datum" name="filterStarijeNovije">
             <option id="opadajuce">Od novijeg ka starijem</option>
