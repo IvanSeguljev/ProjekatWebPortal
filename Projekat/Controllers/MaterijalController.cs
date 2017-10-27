@@ -32,7 +32,7 @@ namespace Projekat.Controllers
         }
 
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(int number = 0, int id = 0)
+        public ActionResult MaterijaliPrikaz(string sort,int number = 0, int id = 0)
         {
             List<MaterijalModel> materijali;
             materijali = context.materijali.ToList();
@@ -48,6 +48,12 @@ namespace Projekat.Controllers
                 materijali = (from p in context.materijali
                               where p.tipMaterijalId == number && p.predmetId == id
                               select p).ToList();
+            }
+
+            if(sort == "opadajuce")
+            {
+                materijali.Reverse();
+
             }
 
 

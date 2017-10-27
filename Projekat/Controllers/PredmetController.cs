@@ -67,7 +67,7 @@ namespace Projekat.Controllers
 
         //GET: /Predmet/PredmetiPrikaz
         [HttpGet]
-        public ActionResult PredmetiPrikaz (int id, string sort)
+        public ActionResult PredmetiPrikaz (int id)
         {
             context = new MaterijalContext();   
             List<PremetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
@@ -79,10 +79,7 @@ namespace Projekat.Controllers
                 model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
             }
 
-            if(sort == "opadajuce")
-            {
-                model.Reverse();
-            }
+           
 
             PredmetPoSmeruViewModel predmetiPoSmeru = new PredmetPoSmeruViewModel
             {

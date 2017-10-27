@@ -58,12 +58,13 @@
         if (sort !== '') {
             $.ajax({
                 method: 'GET',
-                url: '/Materijal/MaterijaliPrikaz/21',
+                url: '/Materijal/MaterijaliPrikaz',
                 data: {
+                    id: 12,
                     sort: sort
                 },
                 success: function (data) {
-                    alert('ok');
+                   console.log('ok');
                 }
             });
         }
