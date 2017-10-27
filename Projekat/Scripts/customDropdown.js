@@ -58,7 +58,7 @@
         if (sort !== '') {
             $.ajax({
                 method: 'GET',
-                url: '/Materijal/MaterijalPrikaz',
+                url: '/Materijal/MaterijaliPrikaz/21',
                 data: {
                     sort: sort
                 },
