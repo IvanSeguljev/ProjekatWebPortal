@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    
+
     brojKlikovaNaLupu = 0;
 
     $(".customDropdown").each(function () {
@@ -19,7 +19,7 @@
 
         $('#trenutnoPravim').removeAttr('id');
     });
-    
+
     var formati;
     $('.select2formati').select2({
         width: "auto",
@@ -47,41 +47,46 @@
         materijali = $(this).val();
         console.log(materijali);
     })
+
+    
     $(".customLista li").on("click", function () {
+        var url = window.location.href;
+        var args = url.split('/');
+
+        query = args[args.length -1];
+
         var datum = $(this);
         sort = datum.attr('id');
 
-        if (sort === "opadajuce")  sort = 'opadajuce';
-        else if(sort === "rastuce")  sort = 'rastuce';
+        if (sort === "opadajuce") sort = 'opadajuce';
+        else if (sort === "rastuce") sort = 'rastuce';
         else sort = ''
 
         if (sort !== '') {
             $.ajax({
                 method: 'GET',
-                url: '/Materijal/MaterijalPrikaz',
+                url: '/Materijal/MaterijaliPrikaz',
                 data: {
+                    id: query,
                     sort: sort
                 },
                 success: function (data) {
-                    //alert('ok');
+                    console.log(data);
                 }
             });
         }
     });
 
     $("#lupaPretragaToggle").click(function () {
-        if (brojKlikovaNaLupu < 1){
+        if (brojKlikovaNaLupu < 1) {
+            $(".customLista").each(function () {
+                var sirinaListe = parseFloat($(this).css('width'));
 
-        $(".customLista").each(function () {
-            var sirinaListe = parseFloat($(this).css('width'));
+                console.log(sirinaListe + " ovo je sirinaListe");
 
-            console.log(sirinaListe + " ovo je sirinaListe");
-
-            $(this).css("width", sirinaListe + 32 + "px");
-            $(this).parent().css("width", $(this).css("width"));
-        }
-
-        );
+                $(this).css("width", sirinaListe + 32 + "px");
+                $(this).parent().css("width", $(this).css("width"));
+            });
         }
         brojKlikovaNaLupu = 2;
     });
@@ -93,7 +98,7 @@
     });
 
 
-    
+
 
     $(".customSelect li").click(function () {
         var kliknutiTekst = $(this).text();
@@ -119,7 +124,7 @@
             $(this).next().css("margin-top", "0px");
             $(this).next().find(".select2-selection__rendered").css({ "margin-top": "7px", "height": "43px", "margin-bottom": "0" });
             //$(this).next().find(".select2-search__field").css({ "margin-top": "0", "height": "30px", "margin-bottom": "22px" });
-           
+
             $(this).next().find(".select2-search__field").css({ "margin-top": "7px", "height": "30px", "margin-bottom": "3px" });
             console.log("pun");
             console.log($(this).val());
@@ -132,12 +137,12 @@
             $(this).next().find("span.select2-selection--multiple").css("height", "20px");
             $(this).next().css("margin-top", "9px");
             $(this).next().find(".select2-selection__rendered").css({ "margin-top": "0", "height": "30px", "margin-bottom": "5px" });
-            
+
             $(this).next().find(".select2-search__field").css({ "margin-top": "22px", "height": "30px", "margin-bottom": "0" });
 
             console.log("prazan");
             console.log($(this).val());
-         
+
         }
 
     });

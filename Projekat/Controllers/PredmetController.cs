@@ -51,6 +51,7 @@ namespace Projekat.Controllers
                         //smerId = viewModel.smer.smerId
                     });
                 }
+              
                 context.SaveChanges();
 
             }
@@ -78,20 +79,22 @@ namespace Projekat.Controllers
                 model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
             }
 
+           
+
             PredmetPoSmeruViewModel predmetiPoSmeru = new PredmetPoSmeruViewModel
             {
                 predmeti = model
             };
             
-            try
-            {
+            //try
+            //{
                 
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
            
             return View("PredmetiPrikaz", predmetiPoSmeru);
         }
