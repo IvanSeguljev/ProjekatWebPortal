@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Projekat.Models;
 using Projekat.ViewModels;
 using System.Data.Entity;
+using System.Web.Helpers;
 
 
 namespace Projekat.Controllers
@@ -34,6 +35,11 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult MaterijaliPrikaz(string sort,int number = 0, int id = 0)
         {
+            MaterijaliNaprednaPretragaViewModel vm;
+
+           
+            
+
             List<MaterijalModel> materijali;
             materijali = context.materijali.ToList();
             if (number == 0)
@@ -53,14 +59,21 @@ namespace Projekat.Controllers
             if(sort == "opadajuce")
             {
                 materijali.Reverse();
+                return Json(materijali);
 
             }
+            vm = new MaterijaliNaprednaPretragaViewModel
+            {
+                materijali = materijali,
+                naprednaPretragaSelektovani = ""
+            };
 
 
 
-            
 
-            return View("MaterijaliPrikaz", materijali);
+
+
+            return View("MaterijaliPrikaz", vm);
         }
 
         [HttpGet]

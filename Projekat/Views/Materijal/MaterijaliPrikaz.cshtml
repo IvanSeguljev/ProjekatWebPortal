@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Projekat.Models.MaterijalModel>
+﻿@model  Projekat.ViewModels.MaterijaliNaprednaPretragaViewModel
 @{
     ViewBag.Title = "MaterijaliPrikaz";
     
@@ -28,6 +28,8 @@
             </optgroup>
         </select>
 
+
+        @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
         <select class="select2formati" multiple="multiple" name="formati">
             
             <optgroup label="Tekstualno">
@@ -50,7 +52,7 @@
                 
 
         </select>
-   
+        @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
         <select class="customDropdown datum" name="filterStarijeNovije">
             <option id="opadajuce">Od novijeg ka starijem</option>
             <option id="rastuce">Od starijeg ka novijem</option>           
@@ -59,7 +61,7 @@
     </div>
     
 
-    @foreach (var materijal in Model)
+    @foreach (var materijal in Model.materijali)
     {
         //using (Html.BeginForm("Delete", "UploadMaterijal", new { id = materijal.materijalId }))
         //{
