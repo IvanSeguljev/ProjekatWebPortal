@@ -79,7 +79,7 @@ namespace Projekat.Controllers
                 model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
             }
 
-            if(sort == "opadajuci")
+            if(sort == "opadajuce")
             {
                 model.Reverse();
             }
