@@ -52,5 +52,38 @@
         //$('.customLista').css('width', sirinaListe + 'px');
     });
 
+    //pokusaj zatvaranja customdropdowna na klik negde drugde
+   /* $('body').click(function () {
+        if ($(".customLista").css('display', 'block')) { 
+            var otvoreniCustomDropdownovi = $('.customLista').filter(function(){
+                return $(this).css("display") === 'block'
+            });
+
+            console.log(otvoreniCustomDropdownovi);
+
+            otvoreniCustomDropdownovi.slideToggle(200);
+
+        }
+    });*/
+
+
+    $(document).click(function (e) {
+        if ($(e.target).closest('.customSelect').length === 0) {
+            console.log(e.target);
+            console.log($(e.target).closest('.customSelect').length);
+
+            var otvoreniCustomDropdownovi = $('.customLista').filter(function () {
+                return $(this).css("display") === 'block'
+            });
+
+            var trougloviOtvorenihDorpdownova = otvoreniCustomDropdownovi.siblings('.izabraniUselectu').find(".trougao");
+
+
+            otvoreniCustomDropdownovi.slideUp();
+            trougloviOtvorenihDorpdownova.toggleClass("rotate");
+        }
+        
+    });
+
 
 });
