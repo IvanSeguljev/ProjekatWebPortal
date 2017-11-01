@@ -84,3 +84,22 @@
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
     color: #e21b22;
 }
+
+/*SELECT2 ZA PRAVLJENJE PREDMETA POCETAK*/
+
+#predmetForma .select2-container--default .select2-selection--multiple .select2-selection__choice{
+    margin-top: 0px;
+}
+
+#predmetForma .select2-container--default.select2-container--focus .select2-selection--multiple{
+    height: 40px;
+}
+
+#predmetForma .select2-container--default .select2-selection--multiple .select2-selection__rendered{
+    height: 33px;
+
+}
+
+#predmetForma .select2-container--default .select2-selection--multiple{
+    height:40px;
+}
