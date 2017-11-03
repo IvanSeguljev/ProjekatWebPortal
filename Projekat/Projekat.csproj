@@ -204,6 +204,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DropDownList_Optgroup.cs" />
     <Compile Include="Migrations\ApplicationDbContext\DefaultConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\MaterijalContext\201709111150233_init.cs" />

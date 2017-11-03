@@ -1,4 +1,5 @@
 ﻿@model  Projekat.ViewModels.MaterijaliNaprednaPretragaViewModel
+@using Projekat.Helpers;
 @{
     ViewBag.Title = "MaterijaliPrikaz";
     
@@ -31,36 +32,43 @@
 
         @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
 
-    @*  @Html.DropDownListFor(m => m.naprednaPretragaSelektovani, new SelectList(Model.materijali), new { @class = "select2formati", @multiple = "multiple", @name ="formati" })*@
+        @*  @Html.DropDownListFor(m => m.naprednaPretragaSelektovani, new SelectList(Model.materijali), new { @class = "select2formati", @multiple = "multiple", @name ="formati" })*@
 
-       <label class="nasSelect2dropdown">Format materijala</label>
-       <select class="select2formati" multiple="multiple" name="formati">
+        @Html.Raw(Html.DropDownOpt(m =>m.materijal.materijalId,new SelectList(Model.materijali, "materijalEkstenzija", "materijalEkstenzija"), "MaterijalModel"))
+      
+        <label class="nasSelect2dropdown">Format materijala</label>
 
-        <optgroup label="Tekstualno">
-            <option value="pdf">pdf</option>
-            <option value="docx">docx</option>
-            <option value="rtf">rtf</option>
-            <option value="txt">txt</option>
+        
 
-        </optgroup>
-
-        <optgroup label="Slike">
-            <option value="jpg">jpg</option>
-            <option value="gif">gif</option>
-            <option value="png">png</option>
-        </optgroup>
-
-        <optgroup label="Ostalo">
-            <option value="mp4">mp4</option>
-        </optgroup>
+        <select class="select2formati" multiple="multiple" name="formati">
 
 
-    </select>
-    
+
+            <optgroup label='Tekstualni'>
+                <option value="pdf">pdf</option>
+                <option value="docx">docx</option>
+                <option value="rtf">rtf</option>
+                <option value="txt">txt</option>
+
+            </optgroup>
+
+            <optgroup label="Slike">
+                <option value="jpg">jpg</option>
+                <option value="gif">gif</option>
+                <option value="png">png</option>
+            </optgroup>
+
+            <optgroup label="Ostali">
+                <option value="mp4">mp4</option>
+            </optgroup>
+
+
+        </select>
+
         @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
         <select class="customDropdown datum" name="filterStarijeNovije">
             <option id="opadajuce">Od novijeg ka starijem</option>
-            <option id="rastuce">Od starijeg ka novijem</option>           
+            <option id="rastuce">Od starijeg ka novijem</option>
         </select>
 
     </div>
