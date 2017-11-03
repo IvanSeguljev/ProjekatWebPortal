@@ -761,10 +761,6 @@ input#materijalNaslov:focus, textarea#materijalOpis:focus, input#smerNaziv:focus
   border-radius:3px;
 }
 
-#smerOpisEdit {
-    margin-bottom:15px;
-}
-
 textarea#materijalOpis, textarea#smerOpis, textarea#predmet_predmetOpis{
     display: block;
     margin: 35px 70px 70px 70px;
@@ -1375,3 +1371,23 @@ pre {
 }
 /*PRIVREMENO KRAJ*/
 
+/*EDIT SMERA MODAL POCETAK*/
+
+#editModal .modal-dialog{
+    width: 646px;
+
+}
+
+form#editSmera textarea#smerOpisEdit{
+    max-width: 100%;
+    min-width: 100%;
+    margin-bottom:15px;
+    height: 220px;
+}
+
+#smerNazivEdit{
+    width:100%;
+    max-width:100%;
+}
+
+/*EDIT SMERA MODAL KRAJ*/

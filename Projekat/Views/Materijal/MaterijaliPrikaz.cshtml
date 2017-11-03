@@ -34,13 +34,15 @@
 
         @*  @Html.DropDownListFor(m => m.naprednaPretragaSelektovani, new SelectList(Model.materijali), new { @class = "select2formati", @multiple = "multiple", @name ="formati" })*@
 
+        <label class="nasSelect2dropdown">Format materijala</label>
+
         @Html.Raw(Html.DropDownOpt(m =>m.materijal.materijalId,new SelectList(Model.materijali, "materijalEkstenzija", "materijalEkstenzija"), "MaterijalModel"))
       
-        <label class="nasSelect2dropdown">Format materijala</label>
+        
 
         
 
-        <select class="select2formati" multiple="multiple" name="formati">
+        @*<select class="select2formati" multiple="multiple" name="formati">
 
 
 
@@ -63,7 +65,7 @@
             </optgroup>
 
 
-        </select>
+        </select>*@
 
         @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
         <select class="customDropdown datum" name="filterStarijeNovije">
