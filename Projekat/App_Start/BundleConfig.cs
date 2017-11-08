@@ -17,7 +17,8 @@ namespace Projekat
             //dodato za upload fajla
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                         "~/Scripts/hamburger.js",
-                        "~/Scripts/VracanjeID.js"
+                        "~/Scripts/VracanjeID.js",
+                        "~/Scripts/loading.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jsFile").Include(

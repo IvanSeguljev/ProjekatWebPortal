@@ -70,9 +70,15 @@
                     id: query,
                     sort: sort
                 },
+                beforeSend: function() {
+                    $('#sredina').css({
+                        'filter': 'blur(10px)',
+                        'transition': 'all:0.3s'
+                    });
+                },
                 success: function (data) {
                     //console.log(data);
-
+                    $('#sredina').css('filter', 'blur(0)');
                     $('.kartica').each(function (index, element) {
                         var kartica = $(this);
 
