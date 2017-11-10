@@ -71,15 +71,18 @@
                     @using (Html.BeginForm("DodajSmer", "Smer", FormMethod.Post, new { @id = "editSmera" }))
                     {
                         @Html.HiddenFor(s=>s.smerId, new { @id = @"smerId", @name = "smerId" })
-
+                        <label class= "matDesignLabel">Naziv smera</label>
                         @Html.TextBoxFor(s => s.smerNaziv, new { @id = @"smerNazivEdit", @name = "smerNaziv" })
 
+                        <label class="matDesignLabel">Opis smera</label>
                         @Html.TextAreaFor(s => s.smerOpis, new { @id = @"smerOpisEdit", @name = "smerOpis" })
+
+                        <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
 
                         <button  class="btn btn-default" type="submit" id="submitEdit">
                             Potvrdi promene
                         </button>
-                        <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
+                        
                     }
                 </div>
                 <div class="modal-footer">
@@ -95,6 +98,8 @@
 
 </div>
 
+@Scripts.Render("~/Scripts/editSmera.js")
+@*@Scripts.Render("~/Scripts/labeli.js")*@
 @Scripts.Render("~/Scripts/modalOpisSmer.js")
 @Scripts.Render("~/Scripts/jquery.validate.min.js")
 @Scripts.Render("~/Scripts/validacijaEditSmera.js")
