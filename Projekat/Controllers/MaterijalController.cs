@@ -182,5 +182,13 @@ namespace Projekat.Controllers
             return View("MaterijaliPrikaz", model);
 
         }
+
+        public ActionResult FiltrirajPoFormatuMaterijala(string ekstenzija)
+        {
+            //MaterijaliNaprednaPretragaViewModel vm = new MaterijaliNaprednaPretragaViewModel();
+            List<MaterijalModel> materijali = context.materijali.Where(m => m.materijalEkstenzija == ekstenzija).ToList();
+            // vm.materijali = materijali;
+            return Json(materijali, JsonRequestBehavior.AllowGet);
+        }
     }
 }

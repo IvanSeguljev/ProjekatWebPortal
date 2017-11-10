@@ -49,55 +49,7 @@
     })
 
     
-    $(".customLista li").on("click", function () {
-        var url = window.location.href;
-        var args = url.split('/');
-
-        query = args[args.length -1];
-
-        var datum = $(this);
-        sort = datum.attr('id');
-
-        if (sort === "opadajuce") sort = 'opadajuce';
-        else if (sort === "rastuce") sort = 'rastuce';
-        else sort = ''
-
-        if (sort !== '') {
-            $.ajax({
-                method: 'GET',
-                url: '/Materijal/MaterijaliPrikaz',
-                data: {
-                    id: query,
-                    sort: sort
-                },
-                beforeSend: function() {
-                    $('#sredina').css({
-                        'filter': 'blur(10px)',
-                        'transition': 'all:0.3s'
-                    });
-                },
-                success: function (data) {
-                    //console.log(data);
-                    $('#sredina').css('filter', 'blur(0)');
-                    $('.kartica').each(function (index, element) {
-                        var kartica = $(this);
-
-                        var materijalId = data[index].materijalId;
-                        var materijalNaslov = data[index].materijalNaslov;
-                        var materijalOpis = data[index].materijalOpis;
-                        var ImgPath = data[index].ImgPath;
-                        var path = ImgPath.substring(1);
-                        
-                        kartica.attr('id', materijalId);
-                        kartica.find('h2').text(materijalNaslov);
-                        kartica.find($('.opis')).text(materijalOpis);
-                        kartica.find($('.imgPath')).attr('src', path);
-                        kartica.find($('.preuzmi')).attr('href', '/Materijal/DownloadMaterijal/' + materijalId);
-                    });
-                }
-            });
-        }
-    });
+    
 
     $("#lupaPretragaToggle").click(function () {
         if (brojKlikovaNaLupu < 1) {
@@ -148,8 +100,8 @@
             //$(this).next().find(".select2-search__field").css({ "margin-top": "0", "height": "30px", "margin-bottom": "22px" });
 
             $(this).next().find(".select2-search__field").css({ "margin-top": "7px", "height": "30px", "margin-bottom": "3px" });
-            console.log("pun");
-            console.log($(this).val());
+            //console.log("pun");
+            //console.log($(this).val());
         }
         else {
             $(this).prev().css("transform", "scale(8) translate(8px, -0.5px)");
@@ -162,8 +114,8 @@
 
             $(this).next().find(".select2-search__field").css({ "margin-top": "22px", "height": "30px", "margin-bottom": "0" });
 
-            console.log("prazan");
-            console.log($(this).val());
+            //console.log("prazan");
+            //console.log($(this).val());
 
         }
 
