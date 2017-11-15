@@ -65,7 +65,7 @@
                     <h4 class="modal-title">Uređivanje predmeta <span>   </span></h4>
                 </div>
                 <div class="modal-body">
-                    @using (Html.BeginForm("PredmetiPrikaz", "Predmet", FormMethod.Post, new { @id = "editPredmeta" }))
+                    @using (Html.BeginForm("PredmetiPrikaz", "Predmet", FormMethod.Post, new { @id = "editPredmeta" })) //Ovde je scuuff
                     {
                         @Html.HiddenFor(p => p.predmet.predmetId, new { @id = @"predmetId", @name = "predmetId" })
 
@@ -73,10 +73,12 @@
 
                         @Html.TextAreaFor(p => p.predmet.predmetOpis, new { @id = @"predmetOpis", @name = "predmetOpis" })
 
+                        
+                        <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
+
                         <button class="btn btn-default" type="submit" id="submitEdit">
                             Potvrdi promene
                         </button>
-                        <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
                     }
                 </div>
                 <div class="modal-footer">
@@ -89,6 +91,7 @@
 
 </div>
 
+@Scripts.Render("~/Scripts/AutoHeightTextarea.js")
 @Scripts.Render("~/Scripts/modalOpisPredmet.js")
 @Scripts.Render("~/Scripts/jquery.validate.min.js")
 @Scripts.Render("~/Scripts/validacijaEditPredmeta.js")
