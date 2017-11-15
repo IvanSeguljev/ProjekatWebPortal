@@ -33,7 +33,7 @@ namespace Projekat.Controllers
         }
 
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(string sort,int number = 0, int id = 0)
+        public ActionResult MaterijaliPrikaz(string sort, string ekstenzija, int idTipa,int number = 0, int id = 0)
         {
             MaterijaliNaprednaPretragaViewModel vm;
 
@@ -42,6 +42,7 @@ namespace Projekat.Controllers
             if (number == 0)
             {
                 materijali = context.materijali.Where(m => m.predmetId == id).ToList();
+                
             } /*Ovde treba dodati da se kao parametar prosledjuje i id tipa pa onda
             ako taj broj nije nula raditi oba filtriranja a ako jeste onda samo filtriranje po predmetu!
             EZ AF!
@@ -57,18 +58,23 @@ namespace Projekat.Controllers
 
             if(sort == "opadajuce")
             {
+                FiltrirajPoFormatuMaterijala(ekstenzija, idTipa,ref materijali);
                 materijali.Reverse();
-                return Json(materijali,JsonRequestBehavior.AllowGet);
+                return Json(materijali,JsonRequestBehavior.AllowGet); 
 
             }
             else if(sort =="rastuce")
             {
-                return Json(materijali, JsonRequestBehavior.AllowGet);
+                FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
+                return Json(materijali, JsonRequestBehavior.AllowGet);  //LEPO
             }
             vm = new MaterijaliNaprednaPretragaViewModel
             {
                 materijali = materijali,
-                naprednaPretragaSelektovani = ""
+                naprednaPretragaSelektovani = "",
+                tipoviMaterijala = context.tipMaterijala.ToList()
+
+
             };
 
             return View("MaterijaliPrikaz", vm);
@@ -173,22 +179,43 @@ namespace Projekat.Controllers
 
 
 
-        public ActionResult SortirajPoTipuMaterijala(int id)
+        //public ActionResult SortirajPoTipuMaterijala(int id)
+        //{
+        //    context = new MaterijalContext();
+        //    List<MaterijalModel> model = context.materijali.Where(m => m.tipMaterijalId == id).ToList();
+
+
+        //    return View("MaterijaliPrikaz", model);
+
+        //}
+
+        public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id,ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
         {
-            context = new MaterijalContext();
-            List<MaterijalModel> model = context.materijali.Where(m => m.tipMaterijalId == id).ToList();
+
+          
+                materijali = context.materijali.Where(m => m.materijalEkstenzija == ekstenzija && m.tipMaterijalId == id).ToList();//scuffed
 
 
-            return View("MaterijaliPrikaz", model);
-
+                
         }
 
-        public ActionResult FiltrirajPoFormatuMaterijala(string ekstenzija)
-        {
-            //MaterijaliNaprednaPretragaViewModel vm = new MaterijaliNaprednaPretragaViewModel();
-            List<MaterijalModel> materijali = context.materijali.Where(m => m.materijalEkstenzija == ekstenzija).ToList();
-            // vm.materijali = materijali;
-            return Json(materijali, JsonRequestBehavior.AllowGet);
-        }
+        // IF SCUFFED IN MATERIJALCONTEXT THIS.UNCOMMENT
+
+        //public List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
+        //{
+        //    List<MaterijalModel> materijali = new List<MaterijalModel>();
+        //    foreach(MaterijalModel m in context.materijali)
+        //    {
+        //        if (ekstenzije.Contains(m.materijalEkstenzija) && tipoviMaterijalaIds.Contains(m.tipMaterijalId))
+        //            materijali.Add(m);
+                    
+        //    }
+        //    return materijali;
+        //}
+        
+
+        
+
+
     }
 }

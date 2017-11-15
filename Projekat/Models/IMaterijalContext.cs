@@ -23,5 +23,8 @@ namespace Projekat.Models
         MaterijalModel pronadjiMaterijalPoNazivu(string naziv);
 
         T Delete<T>(T entity) where T : class;
+
+        List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds);
+        
     }
 }
