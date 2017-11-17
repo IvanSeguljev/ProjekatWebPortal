@@ -71,5 +71,18 @@ namespace Projekat.Models
 
             return SaveChanges();
         }
+
+        public List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
+        {
+            IMaterijalContext context = new MaterijalContext();
+            List<MaterijalModel> materijali = new List<MaterijalModel>();
+            foreach (MaterijalModel m in context.materijali)
+            {
+                if (ekstenzije.Contains(m.materijalEkstenzija) && tipoviMaterijalaIds.Contains(m.tipMaterijalId))
+                    materijali.Add(m);
+
+            }
+            return materijali;
+        } //TREBA TESTIRATI OVO KAD SE PREKO JS PROSLEDE LISTE
     }
 }

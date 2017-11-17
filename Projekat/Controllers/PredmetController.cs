@@ -37,6 +37,8 @@ namespace Projekat.Controllers
 
             context = new MaterijalContext();
 
+            
+
             try
             {
                 context.Add<PredmetModel>(viewModel.predmet);
@@ -62,6 +64,40 @@ namespace Projekat.Controllers
             }
 
             return RedirectToAction("DodajPredmet", "Predmet");
+        }
+
+        public ActionResult Edit(PredmetModel predmet, int smerId)
+        {
+
+            if(predmet!= null)
+            {
+                try
+                {
+                    PredmetModel predmetPromenjenji = context.predmeti.FirstOrDefault(m => m.predmetId == predmet.predmetId);
+                    if(predmetPromenjenji== null)
+                    {
+                        return new HttpNotFoundResult("Nije nadjen ni jedan predmet u bazi sa datim ID-om");
+                    }
+                    predmetPromenjenji.predmetNaziv = predmet.predmetNaziv;
+                    predmetPromenjenji.predmetOpis = predmet.predmetOpis;
+
+                    context.SaveChanges();
+
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            else
+            {
+                return new HttpNotFoundResult("losi parametri");
+            }
+
+            return RedirectToAction("PredmetiPrikaz", new { id = smerId });
+
         }
         
 
