@@ -33,7 +33,7 @@ namespace Projekat.Controllers
         }
 
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(string sort/*, string ekstenzija, int idTipa*/,int number = 0, int id = 0)
+        public ActionResult MaterijaliPrikaz(string sort,/* string ekstenzija, int idTipa,*/int number = 0, int id = 0)
         {
             MaterijaliNaprednaPretragaViewModel vm;
 
