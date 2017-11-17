@@ -39,14 +39,14 @@
 
     });
 
-    $('.select2formati').on("change", function () {
-        formati = $(this).val();
-        console.log(formati);
-    })
-    $('.select2materijali').on("change", function () {
-        materijali = $(this).val();
-        console.log(materijali);
-    })
+    //$('.select2formati').on("change", function () {
+    //    formati = $(this).val();
+    //    console.log(formati);
+    //})
+    //$('.select2materijali').on("change", function () {
+    //    materijali = $(this).val();
+    //    console.log(materijali);
+    //})
 
     //POCETAK TEST
     function selECT2LbeliResize(ovo) {
