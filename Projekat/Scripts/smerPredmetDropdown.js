@@ -35,6 +35,8 @@
     });
 
     $(".customSelect").click(function () {
+        $(this).toggleClass("customSelectHighlightovan");
+        $(this).find($(".izabraniUselectu")).toggleClass("izabraniUselectuHighlightovan");
         $(this).find($('.customLista')).slideToggle(200);
         $(this).find($(".izabraniUselectu .trougao")).toggleClass("rotate");
     });
@@ -81,6 +83,8 @@
 
             otvoreniCustomDropdownovi.slideUp();
             trougloviOtvorenihDorpdownova.toggleClass("rotate");
+            otvoreniCustomDropdownovi.siblings('.izabraniUselectuHighlightovan').removeClass("izabraniUselectuHighlightovan");
+            otvoreniCustomDropdownovi.parent(".customSelectHighlightovan").removeClass("customSelectHighlightovan");
         }
         
     });

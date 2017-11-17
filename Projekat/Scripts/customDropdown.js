@@ -48,10 +48,37 @@
         console.log(materijali);
     })
 
-    
+    //POCETAK TEST
+    function selECT2LbeliResize(ovo) {
+
+        if ($(this).val() !== null) {
+            console.log("nije prazan input");
+            $(this).prev().css("transform", "scale(6) translate(8px, -4.7px)");
+            $(this).next().find("span.select2-selection--multiple").css("height", "50px");
+            $(this).next().css("margin-top", "0px");
+            $(this).next().find(".select2-selection__rendered").css({ "margin-top": "7px", "height": "43px", "margin-bottom": "0" });
+            $(this).next().find(".select2-search__field").css({ "margin-top": "7px", "height": "30px", "margin-bottom": "3px" });
+        }
+        else {
+            console.log("prazan je input");
+            $(this).prev().css("transform", "scale(8) translate(8px, -0.5px)");
+            $(this).next().find("span.select2-selection--multiple").css("height", "20px");
+            $(this).next().css("margin-top", "9px");
+            $(this).next().find(".select2-selection__rendered").css({ "margin-top": "0", "height": "30px", "margin-bottom": "5px" });
+            $(this).next().find(".select2-search__field").css({ "margin-top": "22px", "height": "30px", "margin-bottom": "0" });
+        }
+    };
+
+    $('.select2-hidden-accessible').on('load change', selECT2LbeliResize);
+    //$('.select2-search__field').on('load keyup', selECT2LbeliResize($(this).closest(".select2-container").prev(".select2-hidden-accessible")));//ovo ne radi, moraces odvojenu funkciju
+
+    //KRAJ TEST
     
 
     $("#lupaPretragaToggle").click(function () {
+
+        $('.select2-hidden-accessible').trigger("change");
+
         if (brojKlikovaNaLupu < 1) {
             $(".customLista").each(function () {
                 var sirinaListe = parseFloat($(this).css('width'));
@@ -69,6 +96,8 @@
     $(".customSelect").click(function () {
         $(this).find($('.customLista')).slideToggle(200);
         $(this).find($(".izabraniUselectu .trougao")).toggleClass("rotate");
+        $(this).toggleClass("customSelectHighlightovan");
+        $(this).find($(".izabraniUselectu")).toggleClass("izabraniUselectuHighlightovan");
     });
 
 
@@ -88,7 +117,7 @@
         $(this).delay(800).select2("close");
     });
 
-    $('.select2-hidden-accessible').on('load change', function() {
+    /*$('.select2-hidden-accessible').on('load change', function() {
     //$('.select2-hidden-accessible').change(function () {
         if($(this).val()!==null){
             //$(this).prev().css({ "font-size": "14px", "transform": "translate(106%, -24px)" });
@@ -119,6 +148,8 @@
 
         }
 
-    });
+    });*/
+
+
 
 });
