@@ -32,6 +32,9 @@ namespace Projekat.Controllers
             return View();
         }
 
+        //TESTIRATI KAD MLADJA PROSLEDI EKSTENZIJU I ID TIPA!!!
+        //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
+        //
         [HttpGet]
         public ActionResult MaterijaliPrikaz(string sort,/* string ekstenzija, int idTipa,*/int number = 0, int id = 0)
         {
@@ -41,7 +44,7 @@ namespace Projekat.Controllers
             materijali = context.materijali.ToList();
             if (number == 0)
             {
-                materijali = context.materijali.Where(m => m.predmetId == id).ToList();
+                materijali = context.materijali.Where(m => m.predmetId == id && m.namenaMaterijalaId == 1).ToList();//hardkodovan 1 kao nastavni materijal iz tabele namena
                 
             } /*Ovde treba dodati da se kao parametar prosledjuje i id tipa pa onda
             ako taj broj nije nula raditi oba filtriranja a ako jeste onda samo filtriranje po predmetu!
@@ -50,7 +53,7 @@ namespace Projekat.Controllers
             else
             {
                 materijali = (from p in context.materijali
-                              where p.tipMaterijalId == number && p.predmetId == id
+                              where p.tipMaterijalId == number && p.predmetId == id && p.namenaMaterijalaId == 1//hardkodovan 1 kao nastavni materijal iz tabele namena
                               select p).ToList();
             }
 
@@ -79,7 +82,7 @@ namespace Projekat.Controllers
 
             return View("MaterijaliPrikaz", vm);
         }
-
+        //kod ove akcije treba dodati punjenje tabele namena materijala
         [HttpGet]
         public ActionResult UploadMaterijal()
         {
@@ -88,13 +91,16 @@ namespace Projekat.Controllers
             MaterijalUploadViewModel viewModel = new MaterijalUploadViewModel
             {
                 Predmeti = context.predmeti.ToList(),
-                tipoviMaterijala = context.tipMaterijala.ToList()
+                tipoviMaterijala = context.tipMaterijala.ToList(),
+                nameneMaterijala = context.nameneMaterijala.ToList()              
             };
 
 
             return View("UploadMaterijal", viewModel);
         }
 
+
+        //kod ove akcije treba dodati punjenje tabele namena materijala
         [HttpPost]
         public ActionResult UploadMaterijal(MaterijalModel materijal, HttpPostedFileBase file, MaterijalModel model/*, string hiddenPredmet*/)
         {

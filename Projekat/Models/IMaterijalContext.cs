@@ -11,6 +11,7 @@ namespace Projekat.Models
         IQueryable<MaterijalModel> materijali { get; }
         IQueryable<PredmetModel> predmeti { get; }
         IQueryable<SmerModel> smerovi { get; }
+        IQueryable<NamenaMaterijalaModel> nameneMaterijala { get; }
         IQueryable<PremetPoSmeru> predmetiPoSmeru { get; }
         IQueryable<TipMaterijalModel> tipMaterijala { get; }
 
