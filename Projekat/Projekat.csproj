@@ -239,6 +239,10 @@
     <Compile Include="Migrations\MaterijalContext\201710021232532_MaterijalNaslovFix.Designer.cs">
       <DependentUpon>201710021232532_MaterijalNaslovFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\MaterijalContext\201711151252405_namenaMaterijala.cs" />
+    <Compile Include="Migrations\MaterijalContext\201711151252405_namenaMaterijala.Designer.cs">
+      <DependentUpon>201711151252405_namenaMaterijala.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -247,6 +251,7 @@
     <Compile Include="Models\MaterijalContext.cs" />
     <Compile Include="Models\MaterijalModel.cs" />
     <Compile Include="Models\MaterijalSharingInitializer.cs" />
+    <Compile Include="Models\NamenaMaterijalaModel.cs" />
     <Compile Include="Models\PredmetModel.cs" />
     <Compile Include="Models\PremetPoSmeru.cs" />
     <Compile Include="Models\SmerModel.cs" />
@@ -445,6 +450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201710021232532_MaterijalNaslovFix.resx">
       <DependentUpon>201710021232532_MaterijalNaslovFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201711151252405_namenaMaterijala.resx">
+      <DependentUpon>201711151252405_namenaMaterijala.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
