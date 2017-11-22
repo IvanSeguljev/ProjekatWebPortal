@@ -36,7 +36,7 @@ namespace Projekat.Controllers
         //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
         //
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(string sort, string ekstenzija, int idTipa,int number = 0, int id = 0)
+        public ActionResult MaterijaliPrikaz(string sort,/* string ekstenzija, int idTipa,*/int number = 0, int id = 0)
         {
             MaterijaliNaprednaPretragaViewModel vm;
 
@@ -61,14 +61,14 @@ namespace Projekat.Controllers
 
             if(sort == "opadajuce")
             {
-                FiltrirajPoFormatuMaterijala(ekstenzija, idTipa,ref materijali);
+                //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa,ref materijali);
                 materijali.Reverse();
                 return Json(materijali,JsonRequestBehavior.AllowGet); 
 
             }
             else if(sort =="rastuce")
             {
-                FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
+                //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
                 return Json(materijali, JsonRequestBehavior.AllowGet);  //LEPO
             }
             vm = new MaterijaliNaprednaPretragaViewModel

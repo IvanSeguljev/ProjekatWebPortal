@@ -1,26 +1,34 @@
-﻿$(document).ready(function () {
-    $(".customLista li, .select2-results__option--highlighted").on("click", function () {
+﻿$(document).ready(function () { 
+    $("select").on("change", function () {
+        
         var url = window.location.href;
         var args = url.split('/');
 
         query = args[args.length - 1];
+        var sort = '';
+        var filterDatumSpanText = $('.datum').next('.customSelect').find('span').text();
 
-        var datum = $(this);
-        var sort = datum.attr('id');
+        var novijeStarije = $(".customLista li");
+        for (var i = 0; i < novijeStarije.length ; i++) {
+            if (novijeStarije[i].textContent === filterDatumSpanText ) {
+                sort = novijeStarije[i].id;
+            }
+        }
         var tipovi = [];
         var formati = [];
 
-        $('.select2materijali').each(function (index, element) {
-            var tip = $(this).find('option').val();
-            tipovi.push();
+        $('.select2materijali').next().find('.select2-selection__choice').each(function (index, element) {
+            var tip = $(this).attr('title');
+            tipovi.push(tip);
         });
-        console.log(tipovi);
+        //console.log(tipovi);
         
-        $('.select2formati').each(function (index, element) {
-            var format = $(this).find('option').val();
+        $('.select2formati').next().find('.select2-selection__choice').each(function (index, element) {
+            var format = $(this).attr('title');
+            console.log(format);
             formati.push(format);
         });
-        console.log(formati);
+        //console.log(formati);
 
         if (sort === "opadajuce") sort = 'opadajuce';
         else if (sort === "rastuce") sort = 'rastuce';
@@ -38,14 +46,11 @@
                 },
                 beforeSend: function () {
                     $('#sredina').css({
-                        'filter': 'blur(10px)',
+                        'filter': 'blur(0px)', //stavio sam ti na 0 jer je jos scuffed
                         'transition': 'all 0.3s'
                     });
                 },
                 success: function (data) {
-                    //console.log(data);
-                    console.log(tipovi);
-                    console.log(formati);
                     $('#sredina').css('filter', 'blur(0)');
                     $('.kartica').each(function (index, element) {
                         var kartica = $(this);

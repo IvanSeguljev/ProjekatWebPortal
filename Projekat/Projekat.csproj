@@ -298,6 +298,7 @@
     <Content Include="Content\img\profesor.png" />
     <Content Include="Content\img\RARicon.png" />
     <Content Include="Content\img\RTFicon.png" />
+    <Content Include="Content\img\sort.png" />
     <Content Include="Content\img\tri-tacke.png" />
     <Content Include="Content\img\trougao-breadcrumbs.png" />
     <Content Include="Content\img\TXTicon.png" />
@@ -312,6 +313,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
+    <Content Include="Scripts\asc-desc-strelica.js" />
     <Content Include="Scripts\AutoHeightTextarea.js" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
@@ -354,6 +356,7 @@
     <Content Include="Scripts\kontroleRespMaterijaliPrikaz.js" />
     <Content Include="Scripts\labeli.js" />
     <Content Include="Scripts\loading.js" />
+    <Content Include="Scripts\lupauX.js" />
     <Content Include="Scripts\modalOpisPredmet.js" />
     <Content Include="Scripts\modalOpisSmer.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

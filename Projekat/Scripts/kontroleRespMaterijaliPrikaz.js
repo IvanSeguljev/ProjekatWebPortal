@@ -62,7 +62,7 @@
 
 
     //OTVARANJE ZATVARANJE NAPREDNE PRETRAGE
-    $('#lupaPretragaToggle').click(function () {
+    $('#lupaWrap').click(function () {
         if($('#naprednaPretraga').css('transform') !== "matrix(1, 0, 0, 1, 0, -65)"){
         //$('#naprednaPretraga').toggle("blind", 200);
             $('#naprednaPretraga').css({ 'transform': 'translate(0, -65px)', 'margin-bottom': '0' });

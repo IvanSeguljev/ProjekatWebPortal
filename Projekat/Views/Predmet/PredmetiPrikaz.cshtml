@@ -67,6 +67,8 @@
                 <div class="modal-body">
                     @using (Html.BeginForm("PredmetiPrikaz", "Predmet", FormMethod.Post, new { @id = "editPredmeta" })) //Ovde je scuuff
                     {
+                        @Html.DropDownListFor(p => p.smerovi, new SelectList(Model.smerovi, "smerId", "smerNaziv"), new { @class = "select2predmeti", @multiple = "multiple" })
+
                         @Html.HiddenFor(p => p.predmet.predmetId, new { @id = @"predmetId", @name = "predmetId" })
 
                         @Html.TextBoxFor(p => p.predmet.predmetNaziv, new { @id = @"predmetNaziv", @name = "predmetNaziv" })
@@ -92,6 +94,7 @@
 </div>
 
 @Scripts.Render("~/Scripts/AutoHeightTextarea.js")
+@Scripts.Render("~/Scripts/select2.min.js")
 @Scripts.Render("~/Scripts/modalOpisPredmet.js")
 @Scripts.Render("~/Scripts/jquery.validate.min.js")
 @Scripts.Render("~/Scripts/validacijaEditPredmeta.js")

@@ -712,6 +712,10 @@ form#smerForma{
     padding:30px 0;
 }
 
+form#smerForma h2 {
+    text-align: center;
+}
+
 #predmetForma h2{
     text-align:center;
     padding:20px 0;
@@ -1157,11 +1161,30 @@ a.naziv-smera-na-kartici{
 #naprednaPretraga .customSelect{
     float: right;
     margin: 0 15px;
+    background-color:#707070;
+    width:197px;/*HARD CODE ZA ASC-DESC*/
+    /*transform: translate(0,-4px);*/
 }
 
+#naprednaPretraga .customSelect span{
+    color:#707070;
+}
 
+#naprednaPretraga .customSelect .izabraniUselectu{
+    padding: 8px 23px;
+}
 
+#naprednaPretraga .customSelect .trougao{
+    border-top: 5px solid #707070;
+}
 
+#asc-desc{
+    float:right;
+    margin: 6px 0;
+    transform: translate(11px,0) rotate(90deg);
+    transition: all .3s cubic-bezier(.07,.64,.07,.95);
+    /*transition: all .3s cubic-bezier(0,.68,.01,1);*/
+}
 
 
 /*NAPREDNA PRETRAGA KRAJ*/
@@ -1236,12 +1259,18 @@ div.kartica-smer .kontrola-ikonica:first-child{
     font-size:15px;
     letter-spacing:0.005em;
     color:#000;
-    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
-    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
     display:inline-block;
     position:relative;
 
+}
+
+.customSelectHighlightovan{
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
 }
 
 #dropDownovi {
@@ -1311,8 +1340,8 @@ div.kartica-smer .kontrola-ikonica:first-child{
 }
 
 .customLista li{
-    height:32px;
-    line-height: 32px;
+    height:42px;
+    line-height: 42px;
     padding: 0 24px;
     cursor:pointer;
 }
@@ -1323,11 +1352,19 @@ div.kartica-smer .kontrola-ikonica:first-child{
 
 .izabraniUselectu{
     border-radius: 2px 2px 0 0;
-    border-bottom:#e3e3e3;
     cursor:pointer;
     padding: 14px 23px;
-    background-color:#fafafa;
     position:relative;
+    border-bottom: 1px solid #aaaaaa;
+    background-color:#fff;
+
+    /*border-bottom:#e3e3e3;
+    background-color:#fafafa;*/
+}
+
+.izabraniUselectuHighlightovan{
+    background-color:#eeeeee;
+    border-bottom: none;
 }
 
 .izabraniUselectu span{
@@ -1505,3 +1542,78 @@ div#opisModal .modal-dialog {
             transform: scale3D(0, 0, 1);
   } 
 }
+
+/*LUPA U X I NAZAD POCETAK*/
+
+#lupaWrap{
+    position: absolute;
+    top: 13px;
+    right: 60px;
+    display: inline;
+    width: 42px;
+    height: 42px;
+    cursor:pointer;
+}
+
+#search {
+    position: absolute;
+    /*top: 15px;
+    right: 115px;*/
+    right: 9px;
+    display: inline-block;
+    background-color: #fff;
+    width: 11px;
+    height: 3px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin: 27px 0px 0 0px;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+#search:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+#search:after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: -9px;
+    margin-left: -18px;
+    box-shadow: 0 0 0 3px #fff inset;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+#search.transform {
+    width: 30px;
+    margin: 0;
+    margin-top: 18px;
+    margin-right: -5px;
+}
+#search.transform:before {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+#search.transform:after {
+  opacity: 0;
+  margin-top: 10px;
+  margin-left: 24px;
+  width: 0;
+  height: 0;
+}
+
+.navbar {
+  background: #2196F3;
+  height: 60px;
+}
+
+
+
+/*LUPA U X I NAZAD KRAJ*/
