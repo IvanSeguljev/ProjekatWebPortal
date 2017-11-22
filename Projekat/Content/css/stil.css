@@ -712,6 +712,10 @@ form#smerForma{
     padding:30px 0;
 }
 
+form#smerForma h2 {
+    text-align: center;
+}
+
 #predmetForma h2{
     text-align:center;
     padding:20px 0;
