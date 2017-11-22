@@ -1540,10 +1540,22 @@ div#opisModal .modal-dialog {
 }
 
 /*LUPA U X I NAZAD POCETAK*/
+
+#lupaWrap{
+    position: absolute;
+    top: 13px;
+    right: 60px;
+    display: inline;
+    width: 42px;
+    height: 42px;
+    cursor:pointer;
+}
+
 #search {
     position: absolute;
-    top: 15px;
-    right: 115px;
+    /*top: 15px;
+    right: 115px;*/
+    right: 9px;
     display: inline-block;
     background-color: #fff;
     width: 11px;
@@ -1576,10 +1588,10 @@ div#opisModal .modal-dialog {
     transition: all 200ms ease-in-out;
 }
 #search.transform {
-  width: 48px;
-  margin: 0;
-  margin-top: 12px;
-  margin-right: -5px;
+    width: 30px;
+    margin: 0;
+    margin-top: 18px;
+    margin-right: -5px;
 }
 #search.transform:before {
   -webkit-transform: rotate(90deg);
