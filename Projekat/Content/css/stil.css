@@ -736,6 +736,10 @@ input#Materijal_materijalNaslov, input#smerNaziv, input#predmet_predmetNaziv{
     margin: 0px 70px 0 70px;
 }
 
+input#smerNazivEdit, input#predmetNaziv{
+    margin-bottom: 20px;
+}
+
 .matDesignLabel, .smerDesignLabel {
     display: block;
     margin: 0 0 0 75px;
@@ -1427,10 +1431,10 @@ pre {
 
 }
 
-#editModal button{
+/*#editModal button{
     float:right;
-    margin: 24px 24px 0 0;
-}
+    margin: 5px 0 0 0;
+}*/
 
 form#editSmera textarea#smerOpisEdit{
     max-width: 100%;
@@ -1450,13 +1454,14 @@ form#editSmera label.error{
     max-width:100%;
 }
 
-form#editSmera button{
+form#editSmera button,form#editPredmeta button{
     float:right;
     margin:24px 24px 0 0;
 }
 
-form#editSmera .matDesignLabel{
+form#editSmera .matDesignLabel, form#editPredmeta .matDesignLabel{
     margin: 0 0 0 5px;
+    font-size: 15px;
 }
 
 /*EDIT SMERA MODAL KRAJ*/
@@ -1546,10 +1551,22 @@ div#opisModal .modal-dialog {
 }
 
 /*LUPA U X I NAZAD POCETAK*/
+
+#lupaWrap{
+    position: absolute;
+    top: 13px;
+    right: 60px;
+    display: inline;
+    width: 42px;
+    height: 42px;
+    cursor:pointer;
+}
+
 #search {
     position: absolute;
-    top: 15px;
-    right: 115px;
+    /*top: 15px;
+    right: 115px;*/
+    right: 9px;
     display: inline-block;
     background-color: #fff;
     width: 11px;
@@ -1582,10 +1599,10 @@ div#opisModal .modal-dialog {
     transition: all 200ms ease-in-out;
 }
 #search.transform {
-  width: 48px;
-  margin: 0;
-  margin-top: 12px;
-  margin-right: -5px;
+    width: 30px;
+    margin: 0;
+    margin-top: 18px;
+    margin-right: -5px;
 }
 #search.transform:before {
   -webkit-transform: rotate(90deg);

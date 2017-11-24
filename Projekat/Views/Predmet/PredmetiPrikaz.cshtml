@@ -67,17 +67,20 @@
                 <div class="modal-body">
                     @using (Html.BeginForm("PredmetiPrikaz", "Predmet", FormMethod.Post, new { @id = "editPredmeta" })) //Ovde je scuuff
                     {
+
                         @Html.HiddenFor(p => p.predmet.predmetId, new { @id = @"predmetId", @name = "predmetId" })
 
+                        <label class="matDesignLabel">Naziv predmeta</label>
                         @Html.TextBoxFor(p => p.predmet.predmetNaziv, new { @id = @"predmetNaziv", @name = "predmetNaziv" })
 
+                        <label class="matDesignLabel">Opis predmeta</label>
                         @Html.TextAreaFor(p => p.predmet.predmetOpis, new { @id = @"predmetOpis", @name = "predmetOpis" })
 
                         
                         <button type="button" class="btn btn-default btn-sekundarni" data-dismiss="modal">Zatvori</button>
 
                         <button class="btn btn-default" type="submit" id="submitEdit">
-                            Potvrdi promene
+                            Potvrdi izmene
                         </button>
                     }
                 </div>
@@ -91,6 +94,7 @@
 
 </div>
 
+@Scripts.Render("~/Scripts/editSmera.js")
 @Scripts.Render("~/Scripts/AutoHeightTextarea.js")
 @Scripts.Render("~/Scripts/select2.min.js")
 @Scripts.Render("~/Scripts/modalOpisPredmet.js")

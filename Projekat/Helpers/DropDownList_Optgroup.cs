@@ -24,11 +24,13 @@ namespace Projekat.Helpers
             List<string> Tekstualni = new List<string>();
             List<string> Slike = new List<string>();
             List<string> Ostali = new List<string>();
+           
 
             foreach (SelectListItem opcija in opcije)
             {
                 if (opcija.Text == ".txt" || opcija.Text == ".pdf" || opcija.Text == ".docx" || opcija.Text == ".rtf")
                 {
+                    
                     if(!Tekstualni.Contains(opcija.Text))
                     Tekstualni.Add(opcija.Text.ToString());
                 }

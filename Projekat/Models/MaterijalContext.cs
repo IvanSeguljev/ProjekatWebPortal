@@ -11,6 +11,7 @@ namespace Projekat.Models
         public DbSet<MaterijalModel> materijali { get; set; }
         public DbSet<PredmetModel> predmeti { get; set; }
         public DbSet<SmerModel> smerovi { get; set; }
+        public DbSet<NamenaMaterijalaModel> nameneMaterijala { get; set; }
         public DbSet<PremetPoSmeru> predmetiPoSmeru { get; set; }
         public DbSet<TipMaterijalModel> tipMaterijala { get; set; }
 
@@ -40,6 +41,11 @@ namespace Projekat.Models
         IQueryable<PremetPoSmeru> IMaterijalContext.predmetiPoSmeru
         {
             get { return predmetiPoSmeru; }
+        }
+
+        IQueryable<NamenaMaterijalaModel> IMaterijalContext.nameneMaterijala
+        {
+            get { return nameneMaterijala; }
         }
 
         T IMaterijalContext.Add<T>(T entity)
@@ -72,7 +78,7 @@ namespace Projekat.Models
             return SaveChanges();
         }
 
-        public List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
+        public  List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
         {
             IMaterijalContext context = new MaterijalContext();
             List<MaterijalModel> materijali = new List<MaterijalModel>();

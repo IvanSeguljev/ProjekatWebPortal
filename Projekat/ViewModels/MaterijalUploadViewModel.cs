@@ -14,5 +14,7 @@ namespace Projekat.ViewModels
 
         public IEnumerable<TipMaterijalModel> tipoviMaterijala { get; set; }
 
+        public IEnumerable<NamenaMaterijalaModel> nameneMaterijala { get; set; }
+
     }
 }

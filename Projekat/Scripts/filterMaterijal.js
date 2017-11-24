@@ -58,7 +58,7 @@
                 },
                 beforeSend: function () {
                     $('#sredina').css({
-                        'filter': 'blur(10px)', //stavio sam ti na 0 jer je jos scuffed
+                        'filter': 'blur(0px)', //stavio sam ti na 0 jer je jos scuffed
                         'transition': 'all 0.3s'
                     });
                 },
