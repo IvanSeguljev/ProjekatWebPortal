@@ -78,7 +78,7 @@ namespace Projekat.Models
             return SaveChanges();
         }
 
-        public List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
+        public  List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
         {
             IMaterijalContext context = new MaterijalContext();
             List<MaterijalModel> materijali = new List<MaterijalModel>();
