@@ -336,6 +336,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\brisanjeMaterijala.js" />
     <Content Include="Scripts\customDropdown.js" />
+    <Content Include="Scripts\editPredmeta.js" />
     <Content Include="Scripts\editSmera.js" />
     <Content Include="Scripts\filterMaterijal.js" />
     <Content Include="Scripts\hamburger.js" />
