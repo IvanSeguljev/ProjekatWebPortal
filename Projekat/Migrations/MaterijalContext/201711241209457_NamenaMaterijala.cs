@@ -3,7 +3,7 @@ namespace Projekat.Migrations.MaterijalContext
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class namenaMaterijala : DbMigration
+    public partial class NamenaMaterijala : DbMigration
     {
         public override void Up()
         {
