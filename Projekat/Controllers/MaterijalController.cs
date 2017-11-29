@@ -44,7 +44,7 @@ namespace Projekat.Controllers
             materijali = context.materijali.ToList();
             if (number == 0)
             {
-                materijali = context.materijali.Where(m => m.predmetId == id && m.namenaMaterijalaId == 1).ToList();//hardkodovan 1 kao nastavni materijal iz tabele namena
+                materijali = context.materijali.Where(m => m.predmetId == id && m.namenaMaterijalaId == 2).ToList();//hardkodovan 1 kao nastavni materijal iz tabele namena
                 
             } /*Ovde treba dodati da se kao parametar prosledjuje i id tipa pa onda
             ako taj broj nije nula raditi oba filtriranja a ako jeste onda samo filtriranje po predmetu!
