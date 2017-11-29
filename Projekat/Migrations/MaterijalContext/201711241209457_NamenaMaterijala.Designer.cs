@@ -7,13 +7,13 @@ namespace Projekat.Migrations.MaterijalContext
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class namenaMaterijala : IMigrationMetadata
+    public sealed partial class NamenaMaterijala : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(namenaMaterijala));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NamenaMaterijala));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711151252405_namenaMaterijala"; }
+            get { return "201711241209457_NamenaMaterijala"; }
         }
         
         string IMigrationMetadata.Source

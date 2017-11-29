@@ -27,6 +27,4 @@
 
         }
     });
-
-    $('.select2predmeti').select2();
 });

@@ -235,13 +235,9 @@
     <Compile Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.Designer.cs">
       <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\MaterijalContext\201710021232532_MaterijalNaslovFix.cs" />
-    <Compile Include="Migrations\MaterijalContext\201710021232532_MaterijalNaslovFix.Designer.cs">
-      <DependentUpon>201710021232532_MaterijalNaslovFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201711151252405_namenaMaterijala.cs" />
-    <Compile Include="Migrations\MaterijalContext\201711151252405_namenaMaterijala.Designer.cs">
-      <DependentUpon>201711151252405_namenaMaterijala.cs</DependentUpon>
+    <Compile Include="Migrations\MaterijalContext\201711241209457_NamenaMaterijala.cs" />
+    <Compile Include="Migrations\MaterijalContext\201711241209457_NamenaMaterijala.Designer.cs">
+      <DependentUpon>201711241209457_NamenaMaterijala.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -341,6 +337,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\brisanjeMaterijala.js" />
     <Content Include="Scripts\customDropdown.js" />
+    <Content Include="Scripts\editPredmeta.js" />
     <Content Include="Scripts\editSmera.js" />
     <Content Include="Scripts\filterMaterijal.js" />
     <Content Include="Scripts\hamburger.js" />
@@ -451,11 +448,8 @@
     <EmbeddedResource Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.resx">
       <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201710021232532_MaterijalNaslovFix.resx">
-      <DependentUpon>201710021232532_MaterijalNaslovFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201711151252405_namenaMaterijala.resx">
-      <DependentUpon>201711151252405_namenaMaterijala.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201711241209457_NamenaMaterijala.resx">
+      <DependentUpon>201711241209457_NamenaMaterijala.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

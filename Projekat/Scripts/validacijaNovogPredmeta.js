@@ -15,7 +15,7 @@
 
     $('#predmetForma').validate({
         rules: {
-            "smer.smerId" : {
+            smerIds: {
                 required: true
             },
             "predmet.predmetNaziv": {
@@ -30,8 +30,8 @@
         },
 
         messages: {
-            "smer.smerId": {
-                required: "Morate odabrati barem jedan smer."
+            smerIds: {
+                required: "Odaberite barem jedan smer."
             },
             "predmet.predmetNaziv": {
                 required: "Polje naziv je obavezno.",
