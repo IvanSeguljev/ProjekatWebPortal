@@ -50,6 +50,11 @@ div.LeftBar div.simplebar-track{
     z-index:20000 !important;
 }
 
+.simplebar-track.horizontal{
+    opacity:0;
+    pointer-events:none;
+}
+
 
 /*LEVA NAVIGACIJA*/
 
@@ -104,7 +109,7 @@ div.LeftBar div.simplebar-track{
    transition: all .2s ease;
  }
 
- #hamburger-menu-toggle:hover .bar-top {
+ .hamburger-menu-toggle-otvoren .bar-top {
    -webkit-transform: translateY(15px) rotateZ(45deg);
    -moz-transform: translateY(15px) rotateZ(45deg);
    -ms-transform: translateY(15px) rotateZ(45deg);
@@ -112,7 +117,7 @@ div.LeftBar div.simplebar-track{
    transform: translateY(15px) rotateZ(45deg);
  }
 
- #hamburger-menu-toggle:hover .bar-bottom {
+ .hamburger-menu-toggle-otvoren .bar-bottom {
    -webkit-transform: translateY(-15px) rotateZ(-45deg);
    -moz-transform: translateY(-15px) rotateZ(-45deg);
    -ms-transform: translateY(-15px) rotateZ(-45deg);
@@ -120,7 +125,7 @@ div.LeftBar div.simplebar-track{
    transform: translateY(-15px) rotateZ(-45deg);
  }
 
- #hamburger-menu-toggle:hover .bar-middle {
+ .hamburger-menu-toggle-otvoren .bar-middle {
    width: 0;
  }
 
@@ -1216,6 +1221,7 @@ div.kartica-smer .kontrola-ikonica:first-child{
     left:50%;
     padding-left:25px;
     padding-top:16px;
+    line-height: 16px;
     display:none;
 }
 

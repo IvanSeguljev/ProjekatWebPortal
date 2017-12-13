@@ -7,12 +7,14 @@
         $('.LeftBar:first').toggleClass('notActive');
         sirinaNava = $('.LeftBar:first').offset().left;
         if (sirinaNava == 0) {
+            $(this).removeClass('hamburger-menu-toggle-otvoren');
             $('#gornjaNavigacija').css({ 'transition': '.3s', 'margin-left': "0px", 'width': "100%" });
             $('#sredina').css({ 'width': "100%" });
             $('.LeftBar:first').css({ 'width': "0" });
             $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "70px" });
         }
         else if (sirinaNava == -338) {
+            $(this).addClass('hamburger-menu-toggle-otvoren');
             $('#gornjaNavigacija').removeAttr("style");
             $('#sredina').removeAttr("style");
             $('.LeftBar:first').css({ 'width': "338px" });

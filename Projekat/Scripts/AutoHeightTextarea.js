@@ -2,7 +2,8 @@
     
     function textAreaAdjust(o) {
         o.style.height = "1px";
-        o.style.height = (25 + o.scrollHeight) + "px";
+        //o.style.height = (25 + o.scrollHeight) + "px";
+        o.style.height = (o.scrollHeight - 50) + "px";
     }
     //$('#editModal #predmetOpis').on("load keyup", function () {
     $('#predmetOpis').keyup(function () {
