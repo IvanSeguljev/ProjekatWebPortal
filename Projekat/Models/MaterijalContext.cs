@@ -95,10 +95,6 @@ namespace Projekat.Models
             return materijali;
         } //TREBA TESTIRATI OVO KAD SE PREKO JS PROSLEDE LISTE
 
-        List<MaterijalModel> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
-        {
-            throw new NotImplementedException();
-        }
 
         List<object> IMaterijalContext.skiniPodatke(List<MaterijalModel> listaMaterijala )
         {
