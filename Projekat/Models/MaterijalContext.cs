@@ -84,8 +84,12 @@ namespace Projekat.Models
             List<MaterijalModel> materijali = new List<MaterijalModel>();
             foreach (MaterijalModel m in context.materijali)
             {
-                if (ekstenzije.Contains(m.materijalEkstenzija) && tipoviMaterijalaIds.Contains(m.tipMaterijalId))
-                    materijali.Add(m);
+                
+                if (ekstenzije != null)
+                {
+                    if (ekstenzije.Contains(m.materijalEkstenzija) /*|| tipoviMaterijalaIds.Contains(m.tipMaterijalId)*/)
+                            materijali.Add(m);
+                }
 
             }
             return materijali;
