@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using Projekat.ViewModels;
 
 namespace Projekat.Models
 {
@@ -78,45 +79,25 @@ namespace Projekat.Models
             return SaveChanges();
         }
 
-        public  List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
+   
+
+        List<OsiromaseniMaterijali> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
         {
             IMaterijalContext context = new MaterijalContext();
-            List<MaterijalModel> materijali = new List<MaterijalModel>();
-            foreach (MaterijalModel m in context.materijali)
+
+            List<OsiromaseniMaterijali> SviOsiromaseni = context.materijali.Select(m => new OsiromaseniMaterijali { materijalId = m.materijalId, materijalNaslov = m.materijalNaslov, materijaOpis = m.materijalOpis, ImgPath = m.ImgPath,ekstenzija = m.materijalEkstenzija,tipMaterijalaId = m.tipMaterijalId }).ToList();
+            List <OsiromaseniMaterijali> materijali = new List<OsiromaseniMaterijali>();
+            foreach (OsiromaseniMaterijali m in SviOsiromaseni)
             {
-                
+
                 if (ekstenzije != null)
                 {
-                    if (ekstenzije.Contains(m.materijalEkstenzija) /*|| tipoviMaterijalaIds.Contains(m.tipMaterijalId)*/)
-                            materijali.Add(m);
+                    if (ekstenzije.Contains(m.ekstenzija) /*|| tipoviMaterijalaIds.Contains(m.tipMaterijalId)*/)
+                        materijali.Add(m);
                 }
 
             }
             return materijali;
-        } //TREBA TESTIRATI OVO KAD SE PREKO JS PROSLEDE LISTE
-
-        List<MaterijalModel> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<object> IMaterijalContext.skiniPodatke(List<MaterijalModel> listaMaterijala )
-        {
-            List<object> trimovano = new List<object>();
-            foreach(MaterijalModel m in listaMaterijala)
-            {
-                trimovano.Add(new
-                {
-                    materijalId = m.materijalId,
-                    materijalNaslov = m.materijalNaslov,
-                    materijalOpis = m.materijalOpis,
-                    ImgPath = m.ImgPath
-
-                });
-            }
-
-            return trimovano;
-
         }
     }
 }

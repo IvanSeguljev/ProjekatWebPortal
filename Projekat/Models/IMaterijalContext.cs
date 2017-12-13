@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projekat.ViewModels;
 
 namespace Projekat.Models
 {
@@ -25,10 +26,10 @@ namespace Projekat.Models
 
         T Delete<T>(T entity) where T : class;
 
-        List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds);
+        List<OsiromaseniMaterijali> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds);
 
 
-        List<Object> skiniPodatke(List<MaterijalModel> listaMaterijala);
+        
         
     }
 }

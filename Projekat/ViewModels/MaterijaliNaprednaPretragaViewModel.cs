@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Projekat.Models;
+using Projekat.ViewModels;
 
 namespace Projekat.ViewModels
 {
     public class MaterijaliNaprednaPretragaViewModel
     {
-        public IEnumerable<Projekat.Models.MaterijalModel> materijali { get; set; }
+
+        public IEnumerable<ViewModels.OsiromaseniMaterijali> osiromaseniMaterijali { get; set; }
 
         public IEnumerable<Projekat.Models.TipMaterijalModel> tipoviMaterijala { get; set; }
 

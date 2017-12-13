@@ -40,23 +40,18 @@ namespace Projekat.Controllers
         {
             MaterijaliNaprednaPretragaViewModel vm;
 
-            List<MaterijalModel> materijali;
+            List<OsiromaseniMaterijali> materijali;
             List<Object> trimovani = new List<object>();
-            materijali = context.materijali.ToList();
+            materijali = context.materijali.Select(m=> new OsiromaseniMaterijali{materijalId = m.materijalId,materijalNaslov = m.materijalNaslov, materijaOpis = m.materijalOpis, ImgPath = m.ImgPath }).ToList();
             if (number == 0)
             {
-                materijali = context.materijali.Where(m => m.predmetId == id && m.namenaMaterijalaId == 1).ToList();//hardkodovan 1 kao nastavni materijal iz tabele namena
+                materijali = context.materijali.Where(m => m.predmetId == id && m.namenaMaterijalaId == 1).Select(m => new OsiromaseniMaterijali { materijalId = m.materijalId, materijalNaslov = m.materijalNaslov, materijaOpis = m.materijalOpis, ImgPath = m.ImgPath, ekstenzija = m.materijalEkstenzija, tipMaterijalaId = m.tipMaterijalId }).ToList();//hardkodovan 1 kao nastavni materijal iz tabele namena
                 
             } /*Ovde treba dodati da se kao parametar prosledjuje i id tipa pa onda
             ako taj broj nije nula raditi oba filtriranja a ako jeste onda samo filtriranje po predmetu!
             EZ AF!
             */
-            else
-            {
-                materijali = (from p in context.materijali
-                              where p.tipMaterijalId == number && p.predmetId == id && p.namenaMaterijalaId == 1//hardkodovan 1 kao nastavni materijal iz tabele namena
-                              select p).ToList();
-            }
+           
 
 
 
@@ -64,7 +59,6 @@ namespace Projekat.Controllers
             {
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa,ref materijali);
                  materijali = context.naprednaPretraga(formati, tipovi);
-                trimovani = context.skiniPodatke(materijali);
                 trimovani.Reverse();
                 return PartialView("_Kartice", trimovani);
 
@@ -73,12 +67,11 @@ namespace Projekat.Controllers
             {
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
                materijali = context.naprednaPretraga(formati, tipovi);
-                trimovani = context.skiniPodatke(materijali);
                 return PartialView("_Kartice", trimovani);
             }
             vm = new MaterijaliNaprednaPretragaViewModel
             {
-                materijali = materijali,
+                osiromaseniMaterijali = materijali,
                 naprednaPretragaSelektovani = "",
                 tipoviMaterijala = context.tipMaterijala.ToList()
 
