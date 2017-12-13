@@ -62,7 +62,7 @@ namespace Projekat.Controllers
             if(sort == "opadajuce")
             {
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa,ref materijali);
-                // materijali = MaterijalContext.naprednaPretraga(formati, tipovi);
+                materijali = context.naprednaPretraga(formati, tipovi);
                 materijali.Reverse();
                 return Json(materijali,JsonRequestBehavior.AllowGet); 
 
@@ -70,7 +70,7 @@ namespace Projekat.Controllers
             else if(sort =="rastuce")
             {
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
-              // materijali = MaterijalContext.naprednaPretraga(formati, tipovi);
+                materijali = context.naprednaPretraga(formati, tipovi);
                 return Json(materijali, JsonRequestBehavior.AllowGet);  //LEPO
             }
             vm = new MaterijaliNaprednaPretragaViewModel
@@ -197,15 +197,15 @@ namespace Projekat.Controllers
 
         //}
 
-        public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id,ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
-        {
+        //public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id,ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
+        //{
 
           
-                materijali = context.materijali.Where(m => m.materijalEkstenzija == ekstenzija && m.tipMaterijalId == id).ToList();//scuffed
+        //        materijali = context.materijali.Where(m => m.materijalEkstenzija == ekstenzija && m.tipMaterijalId == id).ToList();//scuffed
 
 
                 
-        }
+        //}
 
         // IF SCUFFED IN MATERIJALCONTEXT THIS.UNCOMMENT
 
