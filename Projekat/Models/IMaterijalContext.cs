@@ -26,6 +26,9 @@ namespace Projekat.Models
         T Delete<T>(T entity) where T : class;
 
         List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds);
+
+
+        List<Object> skiniPodatke(List<MaterijalModel> listaMaterijala);
         
     }
 }

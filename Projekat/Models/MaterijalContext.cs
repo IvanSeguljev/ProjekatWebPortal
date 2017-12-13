@@ -90,5 +90,29 @@ namespace Projekat.Models
             }
             return materijali;
         } //TREBA TESTIRATI OVO KAD SE PREKO JS PROSLEDE LISTE
+
+        List<MaterijalModel> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<object> IMaterijalContext.skiniPodatke(List<MaterijalModel> listaMaterijala )
+        {
+            List<object> trimovano = new List<object>();
+            foreach(MaterijalModel m in listaMaterijala)
+            {
+                trimovano.Add(new
+                {
+                    materijalId = m.materijalId,
+                    materijalNaslov = m.materijalNaslov,
+                    materijalOpis = m.materijalOpis,
+                    ImgPath = m.ImgPath
+
+                });
+            }
+
+            return trimovano;
+
+        }
     }
 }

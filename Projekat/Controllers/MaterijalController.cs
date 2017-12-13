@@ -41,6 +41,7 @@ namespace Projekat.Controllers
             MaterijaliNaprednaPretragaViewModel vm;
 
             List<MaterijalModel> materijali;
+            List<Object> trimovani = new List<object>();
             materijali = context.materijali.ToList();
             if (number == 0)
             {
@@ -62,16 +63,18 @@ namespace Projekat.Controllers
             if(sort == "opadajuce")
             {
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa,ref materijali);
-                // materijali = MaterijalContext.naprednaPretraga(formati, tipovi);
-                materijali.Reverse();
-                return Json(materijali,JsonRequestBehavior.AllowGet); 
+                 materijali = context.naprednaPretraga(formati, tipovi);
+                trimovani = context.skiniPodatke(materijali);
+                trimovani.Reverse();
+                return Json(trimovani, JsonRequestBehavior.AllowGet); 
 
             }
             else if(sort =="rastuce")
             {
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
-              // materijali = MaterijalContext.naprednaPretraga(formati, tipovi);
-                return Json(materijali, JsonRequestBehavior.AllowGet);  //LEPO
+               materijali = context.naprednaPretraga(formati, tipovi);
+                trimovani = context.skiniPodatke(materijali);
+                return Json(materijali, JsonRequestBehavior.AllowGet);  
             }
             vm = new MaterijaliNaprednaPretragaViewModel
             {
