@@ -258,6 +258,7 @@
     <Compile Include="ViewModels\MaterijaliNaprednaPretragaViewModel.cs" />
     <Compile Include="ViewModels\MaterijalUploadViewModel.cs" />
     <Compile Include="ViewModels\MaterijalViewModel.cs" />
+    <Compile Include="ViewModels\OsiromaseniMaterijali.cs" />
     <Compile Include="ViewModels\PredmetPoSmeruViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
