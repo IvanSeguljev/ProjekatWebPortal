@@ -411,6 +411,7 @@
     <Content Include="Views\Smer\DodajSmer.cshtml" />
     <Content Include="Views\Predmet\DodajPredmet.cshtml" />
     <Content Include="Views\Predmet\PredmetiPrikaz.cshtml" />
+    <Content Include="Views\Materijal\_Kartice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

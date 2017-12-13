@@ -66,7 +66,7 @@ namespace Projekat.Controllers
                  materijali = context.naprednaPretraga(formati, tipovi);
                 trimovani = context.skiniPodatke(materijali);
                 trimovani.Reverse();
-                return Json(trimovani, JsonRequestBehavior.AllowGet); 
+                return PartialView("_Kartice", trimovani);
 
             }
             else if(sort =="rastuce")
@@ -74,7 +74,7 @@ namespace Projekat.Controllers
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
                materijali = context.naprednaPretraga(formati, tipovi);
                 trimovani = context.skiniPodatke(materijali);
-                return Json(materijali, JsonRequestBehavior.AllowGet);  
+                return PartialView("_Kartice", trimovani);
             }
             vm = new MaterijaliNaprednaPretragaViewModel
             {
