@@ -67,22 +67,22 @@
                     tipovi = [];
                     formati = [];
                     sort = "";
-                    $('#sredina').css('filter', 'blur(0)');
-                    $('.kartica').each(function (index, element) {
-                        var kartica = $(this);
+                    $('#sredina').css('filter', 'blur(0)').html(data);
+                    //$('.kartica').each(function (index, element) {
+                    //    var kartica = $(this);
                             
-                        var materijalId = data[index].materijalId;
-                        var materijalNaslov = data[index].materijalNaslov;
-                        var materijalOpis = data[index].materijalOpis;
-                        var ImgPath = data[index].ImgPath;
-                        var path = ImgPath.substring(1);
+                    //    var materijalId = data[index].materijalId;
+                    //    var materijalNaslov = data[index].materijalNaslov;
+                    //    var materijalOpis = data[index].materijalOpis;
+                    //    var ImgPath = data[index].ImgPath;
+                    //    var path = ImgPath.substring(1);
 
-                        kartica.attr('id', materijalId);
-                        kartica.find('h2').text(materijalNaslov);
-                        kartica.find($('.opis')).text(materijalOpis);
-                        kartica.find($('.imgPath')).attr('src', path);
-                        kartica.find($('.preuzmi')).attr('href', '/Materijal/DownloadMaterijal/' + materijalId);
-                    });
+                    //    kartica.attr('id', materijalId);
+                    //    kartica.find('h2').text(materijalNaslov);
+                    //    kartica.find($('.opis')).text(materijalOpis);
+                    //    kartica.find($('.imgPath')).attr('src', path);
+                    //    kartica.find($('.preuzmi')).attr('href', '/Materijal/DownloadMaterijal/' + materijalId);
+                    //});
                 }
             });
         }
