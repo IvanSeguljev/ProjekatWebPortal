@@ -44,47 +44,53 @@
 
         if (sort === "opadajuce") sort = 'opadajuce';
         else if (sort === "rastuce") sort = 'rastuce';
+         
         else sort = '';
 
-        if (sort !== "" || tipovi !== null || formati !== null) {
-            $.ajax({
-                method: 'GET',
-                url: '/Materijal/MaterijaliPrikaz',
-                data: {
-                    id: predmetId,
-                    sort: sort,
-                    tipovi: tipovi,
-                    formati: formati
-                },
-                traditional: true,
-                beforeSend: function () {
-                    $('#sredina').css({
-                        'filter': 'blur(10px)', //stavio sam ti na 0 jer je jos scuffed
-                        'transition': 'all 0.3s'
-                    });
-                },
-                success: function (data) {
-                    tipovi = [];
-                    formati = [];
-                    sort = "";
-                    $('#sredina').css('filter', 'blur(0)').html(data);
-                    //$('.kartica').each(function (index, element) {
-                    //    var kartica = $(this);
-                            
-                    //    var materijalId = data[index].materijalId;
-                    //    var materijalNaslov = data[index].materijalNaslov;
-                    //    var materijalOpis = data[index].materijalOpis;
-                    //    var ImgPath = data[index].ImgPath;
-                    //    var path = ImgPath.substring(1);
+        $.ajax({
+            method: 'GET',
+            url: '/Materijal/MaterijaliPrikaz',
+            data: {
+                id: predmetId,
+                sort: sort,
+                tipovi: tipovi,
+                formati: formati
+            },
+            traditional: true,
+            beforeSend: function () {
+                $('#sredina').css({
+                    'filter': 'blur(10px)', //stavio sam ti na 0 jer je jos scuffed
+                    'transition': 'all 0.3s'
+                });
+            },
+            success: function (data) {
+                tipovi = [];
+                formati = [];
+                sort = "";
+                //console.log(data);
+                $('.kartica').remove();
+                $('#sredina').append(data);
+                $('#sredina').css('filter', 'blur(0)');
+                //$('#sredina').css('filter', 'blur(0)').html(data);
+                //$('.kartica').each(function (index, element) {
+                //    var kartica = $(this);
 
-                    //    kartica.attr('id', materijalId);
-                    //    kartica.find('h2').text(materijalNaslov);
-                    //    kartica.find($('.opis')).text(materijalOpis);
-                    //    kartica.find($('.imgPath')).attr('src', path);
-                    //    kartica.find($('.preuzmi')).attr('href', '/Materijal/DownloadMaterijal/' + materijalId);
-                    //});
-                }
-            });
-        }
+                //    var materijalId = data[index].materijalId;
+                //    var materijalNaslov = data[index].materijalNaslov;
+                //    var materijalOpis = data[index].materijalOpis;
+                //    var ImgPath = data[index].ImgPath;
+                //    var path = ImgPath.substring(1);
+
+                //    kartica.attr('id', materijalId);
+                //    kartica.find('h2').text(materijalNaslov);
+                //    kartica.find($('.opis')).text(materijalOpis);
+                //    kartica.find($('.imgPath')).attr('src', path);
+                //    kartica.find($('.preuzmi')).attr('href', '/Materijal/DownloadMaterijal/' + materijalId);
+                //});
+            },
+            error: function () {
+                console.log("ne valja");
+            }
+        });
     }
 });

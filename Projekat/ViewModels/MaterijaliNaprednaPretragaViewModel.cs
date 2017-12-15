@@ -10,7 +10,7 @@ namespace Projekat.ViewModels
     public class MaterijaliNaprednaPretragaViewModel
     {
 
-        public IEnumerable<ViewModels.OsiromaseniMaterijali> osiromaseniMaterijali { get; set; }
+        public List<ViewModels.OsiromaseniMaterijali> osiromaseniMaterijali { get; set; }
 
         public IEnumerable<Projekat.Models.TipMaterijalModel> tipoviMaterijala { get; set; }
 

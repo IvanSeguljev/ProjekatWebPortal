@@ -41,42 +41,59 @@ namespace Projekat.Controllers
             MaterijaliNaprednaPretragaViewModel vm;
 
             List<OsiromaseniMaterijali> materijali;
-            List<Object> trimovani = new List<object>();
-            materijali = context.materijali.Select(m=> new OsiromaseniMaterijali{materijalId = m.materijalId,materijalNaslov = m.materijalNaslov, materijaOpis = m.materijalOpis, ImgPath = m.ImgPath }).ToList();
+            materijali = context.materijali.Select(m=> new OsiromaseniMaterijali{materijalId = m.materijalId,materijalNaslov = m.materijalNaslov, materijalOpis = m.materijalOpis }).ToList();
             if (number == 0)
             {
-                materijali = context.materijali.Where(m => m.predmetId == id && m.namenaMaterijalaId == 1).Select(m => new OsiromaseniMaterijali { materijalId = m.materijalId, materijalNaslov = m.materijalNaslov, materijaOpis = m.materijalOpis, ImgPath = m.ImgPath, ekstenzija = m.materijalEkstenzija, tipMaterijalaId = m.tipMaterijalId }).ToList();//hardkodovan 1 kao nastavni materijal iz tabele namena
+                materijali = context.materijali.Where(m => m.predmetId == id && m.namenaMaterijalaId == 1).Select(m => new OsiromaseniMaterijali { materijalId = m.materijalId, materijalNaslov = m.materijalNaslov, materijalOpis = m.materijalOpis,  ekstenzija = m.materijalEkstenzija, tipMaterijalaId = m.tipMaterijalId }).ToList();//hardkodovan 1 kao nastavni materijal iz tabele namena
                 
             } /*Ovde treba dodati da se kao parametar prosledjuje i id tipa pa onda
             ako taj broj nije nula raditi oba filtriranja a ako jeste onda samo filtriranje po predmetu!
             EZ AF!
             */
-           
 
 
-
-            if(sort == "opadajuce")
+            if (sort == "opadajuce")
             {
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa,ref materijali);
                  materijali = context.naprednaPretraga(formati, tipovi);
-                trimovani.Reverse();
-                return PartialView("_Kartice", trimovani);
+                materijali.Reverse();
+
+                vm = new MaterijaliNaprednaPretragaViewModel
+                {
+                    osiromaseniMaterijali = materijali,
+                    naprednaPretragaSelektovani = "",
+                    tipoviMaterijala = context.tipMaterijala.ToList()
+
+
+                };
+
+                return PartialView("_Kartice", vm);
 
             }
             else if(sort =="rastuce")
             {
                 //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
                materijali = context.naprednaPretraga(formati, tipovi);
-                return PartialView("_Kartice", trimovani);
+
+                vm = new MaterijaliNaprednaPretragaViewModel
+                {
+                    osiromaseniMaterijali = materijali,
+                    naprednaPretragaSelektovani = "",
+                    tipoviMaterijala = context.tipMaterijala.ToList()
+
+
+                };
+                return PartialView("_Kartice", vm);
             }
+
+
             vm = new MaterijaliNaprednaPretragaViewModel
             {
                 osiromaseniMaterijali = materijali,
                 naprednaPretragaSelektovani = "",
                 tipoviMaterijala = context.tipMaterijala.ToList()
-
-
             };
+
 
             return View("MaterijaliPrikaz", vm);
         }

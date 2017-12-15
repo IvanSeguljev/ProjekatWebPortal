@@ -85,7 +85,7 @@ namespace Projekat.Models
         {
             IMaterijalContext context = new MaterijalContext();
 
-            List<OsiromaseniMaterijali> SviOsiromaseni = context.materijali.Select(m => new OsiromaseniMaterijali { materijalId = m.materijalId, materijalNaslov = m.materijalNaslov, materijaOpis = m.materijalOpis, ImgPath = m.ImgPath,ekstenzija = m.materijalEkstenzija,tipMaterijalaId = m.tipMaterijalId }).ToList();
+            List<OsiromaseniMaterijali> SviOsiromaseni = context.materijali.Select(m => new OsiromaseniMaterijali { materijalId = m.materijalId, materijalNaslov = m.materijalNaslov, materijalOpis = m.materijalOpis, ekstenzija = m.materijalEkstenzija,tipMaterijalaId = m.tipMaterijalId }).ToList();
             List <OsiromaseniMaterijali> materijali = new List<OsiromaseniMaterijali>();
             foreach (OsiromaseniMaterijali m in SviOsiromaseni)
             {
@@ -95,6 +95,7 @@ namespace Projekat.Models
                     if (ekstenzije.Contains(m.ekstenzija) /*|| tipoviMaterijalaIds.Contains(m.tipMaterijalId)*/)
                         materijali.Add(m);
                 }
+                else return SviOsiromaseni;
 
             }
             return materijali;

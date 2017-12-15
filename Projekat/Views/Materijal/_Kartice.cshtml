@@ -1,19 +1,21 @@
-﻿@foreach (var materijal in Model.materijali)
+﻿@using Projekat.ViewModels;
+@model MaterijaliNaprednaPretragaViewModel
+@foreach (var osiromaseni in Model.osiromaseniMaterijali )
 {
     //using (Html.BeginForm("Delete", "UploadMaterijal", new { id = materijal.materijalId }))
     //{
     //}
     //var myModal = "myModal" + materijal.materijalId;
-    <div class="kartica" id=@materijal.materijalId>
+    <div class="kartica" id= @osiromaseni.materijalId>
         <div class="karticaTekts">
             <h2>
-                @materijal.materijalNaslov
+                @osiromaseni.materijalNaslov
             </h2>
             <p class="postavio">
                 Jovana Nikolić / Administrator / 4 Komentara
             </p>
             <p class="opis">
-                @materijal.materijalOpis
+            @osiromaseni.materijalOpis
             </p>
             <div class="kontrole">
                 <div class="triTackeKontrole" tabindex="1">
@@ -36,7 +38,7 @@
                     <img src="~/Content/img/komentarisi.png" alt="komentarisi">
                 </a>
                 <a class="datumPostavljanja" href="#">28.06.2017.</a>
-                <a class="preuzmi" href="@Url.Action("DownloadMaterijal", "Materijal", new { id = materijal.materijalId })">preuzmi</a>
+                <a class="preuzmi" href="@Url.Action("DownloadMaterijal", "Materijal", new { id = osiromaseni.materijalId })">preuzmi</a>
             </div>
         </div>
 
@@ -50,12 +52,13 @@
 
         <div class="karticaFormat">
             <a href="#">
-                <img class="imgPath" src="@Url.Content(materijal.ImgPath)" alt="preuzmi-PDF">
+                  <img class="imgPath" src="@Url.Content(osiromaseni.ImgPath)" alt="preuzmi-PDF">
             </a>
         </div>
-        @*@Html.HiddenFor(Model => materijal.materijalId, new {@id ="nesto" })*@
+        @*@Html.HiddenFor(Model => osiromaseni.materijalId, new {@id ="nesto" })*@
 
     </div>
 }
+
 
 
