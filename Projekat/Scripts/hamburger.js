@@ -6,19 +6,27 @@
     $('#hamburger-menu-toggle').click(function () {
         $('.LeftBar:first').toggleClass('notActive');
         sirinaNava = $('.LeftBar:first').offset().left;
-        if (sirinaNava == 0) {
+        if (sirinaNava == 0) {  //ZATVARANJE
             $(this).removeClass('hamburger-menu-toggle-otvoren');
             $('#gornjaNavigacija').css({ 'transition': '.3s', 'margin-left': "0px", 'width': "100%" });
             $('#sredina').css({ 'width': "100%" });
             $('.LeftBar:first').css({ 'width': "0" });
             $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "70px" });
         }
-        else if (sirinaNava == -338) {
-            $(this).addClass('hamburger-menu-toggle-otvoren');
-            $('#gornjaNavigacija').removeAttr("style");
-            $('#sredina').removeAttr("style");
+        else if (sirinaNava == -338) { //OTVARANJE
+            if ($(window).width() < 1025) {
+                $('#sredina').css({ 'width': "100%" });
+                $('.LeftBar:first').css({ "z-index": "999" });
+            }
+            else {
+                $('#gornjaNavigacija').removeAttr("style");
+                $('#sredina').removeAttr("style");
+                $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "29px" });
+                $('.LeftBar:first').css({ "z-index": "1" });
+            }
             $('.LeftBar:first').css({ 'width': "338px" });
-            $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "29px" });
+            $(this).addClass('hamburger-menu-toggle-otvoren');
+            
         }
 
     });
@@ -36,6 +44,24 @@
         }
 
     }
+
+    window.onresize = function () {
+
+        sirinaNava = $('.LeftBar:first').offset().left;
+
+        if ($(window).width() < 1025 && sirinaNava == 0) {
+            console.log('promenio sam stil sidenava');
+            $('#sredina').css({ 'width': "100%" });
+            $('.LeftBar:first').css({ "z-index": "999" });
+
+        } else if ($(window).width() > 1025 && sirinaNava == 0) {
+            $('#sredina').removeAttr("style");
+            $('.LeftBar:first').css({ "z-index": "0" });
+        }
+
+    }
+
+
     $(window).trigger('resize');
 
 });

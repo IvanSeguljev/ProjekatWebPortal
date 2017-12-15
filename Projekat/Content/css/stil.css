@@ -396,6 +396,7 @@ div#sredina{
   background-color:#f6f6f6;
   /*height:100vh;*/
   transition: all .3s ease-in-out;
+  z-index:-1;
 }
 
 
@@ -907,12 +908,15 @@ button#postavi:hover{
         margin: 7px 26px 5px 26px;
     }
 }
+@media screen and (max-width:822px) {
+    div.kartica-smer{
+        width: 100%;
 
-/*@media screen and (max-width:1430px) {
-    div.kartica{
-        width: calc(100% - 70px);;
     }
-}*/
+    div#sredina {
+        padding: 45px 65px 0 65px;
+    }
+}
 
 /*PREDMETI*/
 
@@ -1630,3 +1634,4 @@ div#opisModal .modal-dialog {
 
 
 /*LUPA U X I NAZAD KRAJ*/
+
