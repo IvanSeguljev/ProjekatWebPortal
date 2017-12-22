@@ -1,9 +1,6 @@
 ﻿$(document).ready(function () {
     $(".select2materijali, .select2formati").on("change", filterMaterijali);
     $(".customLista li").on("click", filterMaterijali);
-    
-
-    
 
     function filterMaterijali() {
         var url = window.location.href;
@@ -34,7 +31,6 @@
         //    formati.push(format);
         //});
 
-        //OVE DVE METODE VRACAJU IDeve i Stringove sukcesivno (nije radilo kada se stavi $(this)[index].value)
         $(".select2materijali option:selected").each(function (index, Element) {
             tipovi.push($(".select2materijali option:selected")[index].value);
         });
@@ -42,7 +38,6 @@
             formati.push($(".select2formati option:selected")[index].value);
         });
 
-        
         if (sort === "opadajuce") sort = 'opadajuce';
         else if (sort === "rastuce") sort = 'rastuce';
         else sort = '';
@@ -64,8 +59,6 @@
             tipovi = formatiOptioni;
         }
 
-        console.log()
-
         $.ajax({
             method: 'GET',
             url: '/Materijal/MaterijaliPrikaz',
@@ -78,7 +71,7 @@
             traditional: true,
             beforeSend: function () {
                 $('#sredina').css({
-                    'filter': 'blur(10px)', //stavio sam ti na 0 jer je jos scuffed
+                    'filter': 'blur(10px)',
                     'transition': 'all 0.3s'
                 });
             },
@@ -86,26 +79,9 @@
                 tipovi = [];
                 formati = [];
                 sort = "";
-                //console.log(data);
                 $('.kartica').remove();
                 $('#sredina').append(data);
                 $('#sredina').css('filter', 'blur(0)');
-                //$('#sredina').css('filter', 'blur(0)').html(data);
-                //$('.kartica').each(function (index, element) {
-                //    var kartica = $(this);
-
-                //    var materijalId = data[index].materijalId;
-                //    var materijalNaslov = data[index].materijalNaslov;
-                //    var materijalOpis = data[index].materijalOpis;
-                //    var ImgPath = data[index].ImgPath;
-                //    var path = ImgPath.substring(1);
-
-                //    kartica.attr('id', materijalId);
-                //    kartica.find('h2').text(materijalNaslov);
-                //    kartica.find($('.opis')).text(materijalOpis);
-                //    kartica.find($('.imgPath')).attr('src', path);
-                //    kartica.find($('.preuzmi')).attr('href', '/Materijal/DownloadMaterijal/' + materijalId);
-                //});
             },
             error: function () {
                 console.log("ne valja");
