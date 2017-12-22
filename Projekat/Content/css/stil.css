@@ -911,10 +911,13 @@ button#postavi:hover{
 @media screen and (max-width:822px) {
     div.kartica-smer{
         width: 100%;
-
+        margin: 0 0 40px 0;
     }
     div#sredina {
         padding: 45px 65px 0 65px;
+    }
+    div.kartica{
+        margin: 0 68px 46px 0;
     }
 }
 
