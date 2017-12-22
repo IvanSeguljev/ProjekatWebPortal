@@ -47,7 +47,6 @@
             $('#tipMaterijala option').each(function () {
                 tipoviOptioni.push($(this).val());
             });
-            console.log(tipoviOptioni);
             tipovi = tipoviOptioni;
         } 
         if (formati === null) {
@@ -55,7 +54,6 @@
             $('.select2formati option').each(function () {
                 formatiOptioni.push($(this).val());
             });
-            console.log(formatiOptioni);
             tipovi = formatiOptioni;
         }
 

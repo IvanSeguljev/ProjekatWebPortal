@@ -6,7 +6,6 @@
         var customSelect = '<div class="customSelect" id="trenutnoPravim"> <div class="izabraniUselectu"> <span>' +
             $(this).find("option:selected").text() + '</span> <div class="trougao"></div> </div> <ul class="customLista"></ul> </div>';
 
-
         $(this).after(customSelect);
 
         var arrayLijeva = $(this).find($('option')).toArray();
@@ -38,15 +37,6 @@
         minimumResultsForSearch: Infinity,
 
     });
-
-    //$('.select2formati').on("change", function () {
-    //    formati = $(this).val();
-    //    console.log(formati);
-    //})
-    //$('.select2materijali').on("change", function () {
-    //    materijali = $(this).val();
-    //    console.log(materijali);
-    //})
 
     //POCETAK TEST
     function selECT2LbeliResize(ovo) {

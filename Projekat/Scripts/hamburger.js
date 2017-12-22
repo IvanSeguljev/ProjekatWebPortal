@@ -3,7 +3,10 @@
     $('.LeftBar:first').css("position", "fixed");
 
     var sirinaNava;
-    $('#hamburger-menu-toggle').click(function () {
+
+    $('#hamburger-menu-toggle').unbind('click');
+
+    $('#hamburger-menu-toggle').bind('click', function () {
         $('.LeftBar:first').toggleClass('notActive');
         sirinaNava = $('.LeftBar:first').offset().left;
         if (sirinaNava == 0) {  //ZATVARANJE
@@ -32,11 +35,9 @@
     });
     //ako ne radi brisi sve ispod mene osim dve poslednje zagrade
 
-
     window.onresize = function () {
 
         if ($('#gornjaNavigacija').width() < 680) {
-            console.log('nav je manji od 680px');
             $('#gornjaNavigacija p:first').css({ 'display': "none" });
 
         } else if ($('#gornjaNavigacija').width() > 680) {
@@ -50,7 +51,6 @@
         sirinaNava = $('.LeftBar:first').offset().left;
 
         if ($(window).width() < 1025 && sirinaNava == 0) {
-            console.log('promenio sam stil sidenava');
             $('#sredina').css({ 'width': "100%" });
             $('.LeftBar:first').css({ "z-index": "999" });
 
