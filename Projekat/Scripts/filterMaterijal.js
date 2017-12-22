@@ -1,6 +1,9 @@
 ﻿$(document).ready(function () {
     $(".select2materijali, .select2formati").on("change", filterMaterijali);
     $(".customLista li").on("click", filterMaterijali);
+    
+
+    
 
     function filterMaterijali() {
         var url = window.location.href;
@@ -39,13 +42,29 @@
             formati.push($(".select2formati option:selected")[index].value);
         });
 
-        //console.log(formati);
-        //console.log(tipovi);
-
+        
         if (sort === "opadajuce") sort = 'opadajuce';
         else if (sort === "rastuce") sort = 'rastuce';
-         
         else sort = '';
+
+        if (tipovi === null) {
+            var tipoviOptioni = [];
+            $('#tipMaterijala option').each(function () {
+                tipoviOptioni.push($(this).val());
+            });
+            console.log(tipoviOptioni);
+            tipovi = tipoviOptioni;
+        } 
+        if (formati === null) {
+            var formatiOptioni = [];
+            $('.select2formati option').each(function () {
+                formatiOptioni.push($(this).val());
+            });
+            console.log(formatiOptioni);
+            tipovi = formatiOptioni;
+        }
+
+        console.log()
 
         $.ajax({
             method: 'GET',
