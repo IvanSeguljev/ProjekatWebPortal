@@ -908,18 +908,9 @@ button#postavi:hover{
         margin: 7px 26px 5px 26px;
     }
 }
-@media screen and (max-width:822px) {
-    div.kartica-smer{
-        width: 100%;
-        margin: 0 0 40px 0;
-    }
-    div#sredina {
-        padding: 45px 65px 0 65px;
-    }
-    div.kartica{
-        margin: 0 68px 46px 0;
-    }
-}
+
+
+
 
 /*PREDMETI*/
 
@@ -1638,3 +1629,39 @@ div#opisModal .modal-dialog {
 
 /*LUPA U X I NAZAD KRAJ*/
 
+@media screen and (max-width:822px) {
+    div.kartica-smer{
+        width: 100%;
+        margin: 0 0 40px 0;
+    }
+    div#sredina {
+        padding: 45px 65px 0 65px;
+    }
+    div.kartica{
+        margin: 0 68px 46px 0;
+    }
+    .kartica-predmet {
+        width: 100%;
+        height: 175px;
+    }
+    .kartica-predmet a.naziv-predmeta-na-kartici{
+        height: 95px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    div.kartica {
+        margin: 0 12px 12px 0;
+    }
+    div#sredina {
+        padding: 12px 12px 0 12px;
+    }
+    div.kartica-smer {
+        width: 100%;
+        margin: 0 0 12px 0;
+    }
+    .kartica-predmet {
+        width: 100%;
+        margin: 0 12px 12px 0;
+    }
+}

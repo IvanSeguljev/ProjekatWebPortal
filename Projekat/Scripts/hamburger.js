@@ -15,6 +15,7 @@
             $('#sredina').css({ 'width': "100%" });
             $('.LeftBar:first').css({ 'width': "0" });
             $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "70px" });
+            sessionStorage.setItem("hamburgerState", "zatvoren");
         }
         else if (sirinaNava == -338) { //OTVARANJE
             if ($(window).width() < 1025) {
@@ -29,7 +30,7 @@
             }
             $('.LeftBar:first').css({ 'width': "338px" });
             $(this).addClass('hamburger-menu-toggle-otvoren');
-            
+            sessionStorage.setItem("hamburgerState", "otvoren");
         }
 
     });
