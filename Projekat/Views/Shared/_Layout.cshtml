@@ -51,14 +51,14 @@
         <p id="uloga">
             administrator
         </p>
-        <ul class="ListaNav" id="aktivnaSekcija">
+        <ul class="ListaNav">
             <li class="naslov">
                 <div id="Cikica" class="slikaOdNaslova">
                     <img src="~/Content/img/cikica.png" alt="slika1" />
                 </div>
                 <p>Korisnici</p>
             </li>
-            <li id="aktivan">
+            <li>
                 <div class="slikaLi">
                     <img src="~/Content/img/plus.png" alt="slika1" />
                 </div>
@@ -71,7 +71,7 @@
                 <p>Pretraga korisnika</p>
             </li>
         </ul>
-        <ul class="ListaNav">
+        <ul class="ListaNav" id="aktivnaSekcija">
             <li class="naslov">
                 <div id="Materijali" class="slikaOdNaslova">
                     <img src="~/Content/img/mat.png" alt="slika1" />
@@ -84,7 +84,7 @@
                 </div>
                 <p>Obuka profesora</p>
             </li>
-            <li>
+            <li id="aktivan">
                 <a href="@Url.Action("SmeroviPrikaz", "Smer")">
                     <div class="slikaLi">
                         <img src="~/Content/img/ucenik.png" alt="slika1" />
