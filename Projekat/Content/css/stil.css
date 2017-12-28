@@ -146,7 +146,7 @@ div.LeftBar div.simplebar-track{
   top: 0;
   bottom: 0;
   font-family: 'roboto-bold';
-  transition: width .3s ease-in-out, left .3s ease-in-out;
+  /*transition: width .3s ease-in-out, left .3s ease-in-out;*/
 
   /*   overflow-y: auto; */
 }
@@ -350,7 +350,7 @@ div#gornjaNavigacija{
   overflow:hidden;
   transform: translate(0, 0);
   z-index:99;
-  transition: .3s ease-in-out;
+  /*transition: .3s ease-in-out;*/
 }
 
 
@@ -1426,6 +1426,13 @@ pre {
         display:none;
     }
 }
+
+@media screen and (max-width:640px) {
+    #gornjaNavigacija img:nth-child(5), #gornjaNavigacija p:nth-child(4){
+        display:none;
+    }
+}
+
 /*PRIVREMENO KRAJ*/
 
 /*EDIT SMERA MODAL POCETAK*/

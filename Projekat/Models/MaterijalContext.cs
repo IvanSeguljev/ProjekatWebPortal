@@ -92,7 +92,7 @@ namespace Projekat.Models
 
                 if (ekstenzije != null)
                 {
-                    if (ekstenzije.Contains(m.ekstenzija) /*|| tipoviMaterijalaIds.Contains(m.tipMaterijalId)*/)
+                    if (ekstenzije.Contains(m.ekstenzija) || tipoviMaterijalaIds.Contains(m.tipMaterijalaId))
                         materijali.Add(m);
                 }
                 else return SviOsiromaseni;
