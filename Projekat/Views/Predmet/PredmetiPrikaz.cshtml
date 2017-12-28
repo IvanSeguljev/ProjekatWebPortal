@@ -63,9 +63,9 @@
                     <h4 class="modal-title">Uređivanje predmeta <span>   </span></h4>
                 </div>
                 <div class="modal-body">
-                    @using (Html.BeginForm("PredmetiPrikaz", "Predmet", FormMethod.Post, new { @id = "editPredmeta" })) //Ovde je scuuff
+                    @using (Html.BeginForm("DodajPredmet", "Predmet", FormMethod.Post, new { @id = "editPredmeta" })) //Ovde je scuuff
                     {
-
+                        
                         @Html.HiddenFor(p => p.predmet.predmetId, new { @id = @"predmetId", @name = "predmetId" })
 
                         <label class="matDesignLabel">Naziv predmeta</label>
@@ -90,9 +90,9 @@
 
 </div>
 
-@*@Scripts.Render("~/Scripts/editSmera.js")*@
+@Scripts.Render("~/Scripts/select2.min.js")
+@Scripts.Render("~/Scripts/editPredmeta.js")
 @Scripts.Render("~/Scripts/AutoHeightTextarea.js")
-@*@Scripts.Render("~/Scripts/select2.min.js")*@
 @Scripts.Render("~/Scripts/modalOpisPredmet.js")
 @Scripts.Render("~/Scripts/jquery.validate.min.js")
 @Scripts.Render("~/Scripts/validacijaEditPredmeta.js")
