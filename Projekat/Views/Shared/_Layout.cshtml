@@ -60,7 +60,7 @@
             </li>
             <li>
                 <div class="slikaLi">
-                    <img src="~/Content/img/plus.png" alt="slika1" />
+                    <img src="~/Content/img/plus-pasivna.png" alt="slika1" />
                 </div>
                 <p>Novi korisnik</p>
             </li>
@@ -79,15 +79,18 @@
                 <p>Materijali</p>
             </li>
             <li>
-                <div class="slikaLi">
-                    <img src="~/Content/img/profesor.png" alt="slika1" />
-                </div>
-                <p>Obuka profesora</p>
+                @* SHOWING OFF TO MANAGMENT DELETE THIS CRAP AFTER *@
+                <a href="@Url.Action("MaterijaliPrikaz", "Materijal")">
+                    <div class="slikaLi">
+                        <img src="~/Content/img/profesor.png" alt="slika1" />
+                    </div>
+                    <p>Obuka profesora</p>
+                </a>
             </li>
             <li id="aktivan">
                 <a href="@Url.Action("SmeroviPrikaz", "Smer")">
                     <div class="slikaLi">
-                        <img src="~/Content/img/ucenik.png" alt="slika1" />
+                        <img src="~/Content/img/ucenik-aktivna.png" alt="slika1" />
                     </div>
                     <p>Nastavni materijal</p>
                 </a>

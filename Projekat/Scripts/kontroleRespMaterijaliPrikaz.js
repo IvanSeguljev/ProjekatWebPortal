@@ -21,6 +21,7 @@
     triTackeKontrole();
 
     function sakrijFormat() {
+        sredinaSirina = $('#sredina').width();
         if (sredinaSirina < 450) {
             $('.karticaFormat').css({ 'display': 'none', 'overflow': 'hidden' });
             $('.karticaTekts').css("width", "100%");
