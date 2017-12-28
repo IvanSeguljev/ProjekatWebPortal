@@ -235,9 +235,9 @@
     <Compile Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.Designer.cs">
       <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\MaterijalContext\201711241209457_NamenaMaterijala.cs" />
-    <Compile Include="Migrations\MaterijalContext\201711241209457_NamenaMaterijala.Designer.cs">
-      <DependentUpon>201711241209457_NamenaMaterijala.cs</DependentUpon>
+    <Compile Include="Migrations\MaterijalContext\201712221117350_osiromaseniPredmetId.cs" />
+    <Compile Include="Migrations\MaterijalContext\201712221117350_osiromaseniPredmetId.Designer.cs">
+      <DependentUpon>201712221117350_osiromaseniPredmetId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -450,8 +450,8 @@
     <EmbeddedResource Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.resx">
       <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201711241209457_NamenaMaterijala.resx">
-      <DependentUpon>201711241209457_NamenaMaterijala.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201712221117350_osiromaseniPredmetId.resx">
+      <DependentUpon>201712221117350_osiromaseniPredmetId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

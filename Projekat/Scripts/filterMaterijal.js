@@ -38,14 +38,14 @@
         $(".select2formati option:selected").each(function (index, element) {
             formati.push($(".select2formati option:selected")[index].value);
         });
-
         //console.log(formati);
         //console.log(tipovi);
 
         if (sort === "opadajuce") sort = 'opadajuce';
         else if (sort === "rastuce") sort = 'rastuce';
-         
         else sort = '';
+        if (tipovi === null) tipovi = $(".select2materijali option");
+        if (formati === null) formati = $(".select2formati option");
 
         $.ajax({
             method: 'GET',

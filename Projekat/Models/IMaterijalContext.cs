@@ -26,7 +26,9 @@ namespace Projekat.Models
 
         T Delete<T>(T entity) where T : class;
 
-        List<OsiromaseniMaterijali> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds);
+        IQueryable<OsiromaseniMaterijali> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds,int predmetId);
+
+        IQueryable<OsiromaseniMaterijali> poPredmetu(int predmetId);
 
 
         
