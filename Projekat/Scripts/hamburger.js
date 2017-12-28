@@ -5,10 +5,10 @@
     var sirinaNava;
 
     $('#hamburger-menu-toggle').unbind('click');
-
     $('#hamburger-menu-toggle').bind('click', function () {
         $('.LeftBar:first').toggleClass('notActive');
         sirinaNava = $('.LeftBar:first').offset().left;
+        
         if (sirinaNava == 0) {  //ZATVARANJE
             $(this).removeClass('hamburger-menu-toggle-otvoren');
             $('#gornjaNavigacija').css({ 'transition': '.3s', 'margin-left': "0px", 'width': "100%" });
@@ -17,6 +17,7 @@
             $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "70px" });
             sessionStorage.setItem("hamburgerState", "zatvoren");
         }
+
         else if (sirinaNava == -338) { //OTVARANJE
             if ($(window).width() < 1025) {
                 $('#sredina').css({ 'width': "100%" });
@@ -28,13 +29,17 @@
                 $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "29px" });
                 $('.LeftBar:first').css({ "z-index": "1" });
             }
+
             $('.LeftBar:first').css({ 'width': "338px" });
             $(this).addClass('hamburger-menu-toggle-otvoren');
             sessionStorage.setItem("hamburgerState", "otvoren");
         }
+        console.log(sessionStorage.getItem('hamburgerState'));
 
     });
-    //ako ne radi brisi sve ispod mene osim dve poslednje zagrade
+    //ako ne radi brisi sve ispod mene do komentara kraj
+
+    //kraj
 
     window.onresize = function () {
 
