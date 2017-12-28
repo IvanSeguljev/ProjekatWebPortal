@@ -9,7 +9,6 @@
 
 
     var isUploaded = sessionStorage.getItem('upload');
-    var data = sessionStorage.getItem('upload');
 
     if (isUploaded) {
         $('#snackbar').css('display', 'block');
@@ -21,7 +20,6 @@
 
     var forma = $('#postavkaMat');
 
-    console.log(sessionStorage);
     $('#postavkaMat').validate({
 
         rules: {
@@ -74,11 +72,4 @@
             forma.submit();
         }
     });
-        
-    //$.validator.addMethod('filesize', function (value, element, param) {
-    //    return this.optional(element) || (element.files[0].size <= param)
-    //}, 'File size must be less than {0}');
-
-
-
 });

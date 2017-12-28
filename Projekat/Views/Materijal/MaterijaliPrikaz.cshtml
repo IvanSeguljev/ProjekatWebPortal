@@ -44,12 +44,7 @@
         
        @* Gadja se materijalEkstenzija jer nemamo posebnu tabelu za nju pa moramo filtrirati po stringu *@
 
-        
-
         @*<select class="select2formati" multiple="multiple" name="formati">
-
-
-
             <optgroup label='Tekstualni'>
                 <option value="pdf">pdf</option>
                 <option value="docx">docx</option>
@@ -67,8 +62,6 @@
             <optgroup label="Ostali">
                 <option value="mp4">mp4</option>
             </optgroup>
-
-
         </select>*@
 
         @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
@@ -97,7 +90,6 @@
 
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -116,49 +108,10 @@
     </div>
 </div>
 
-<script>
-
-    $(document).ready(function () {
-
-        var data = sessionStorage.getItem('kantica');
-        if (data) {
-            $('#banana').css('display', 'block').attr('src', '').attr('src', '../../Content/img/potvrdaBrisanjaGIFGOTOV.gif');
-            setTimeout(function () { $('#banana').css('display', 'none') }, 2000);
-            sessionStorage.removeItem('kantica');
-        }
-
-        $(".brisi").click(function () {
-            $delete = $(this);
-
-            var id = $delete.parent().parent().parent().parent().attr('id');    
-            var ime = $delete.parent().parent().parent().find('h2').text();
-
-            console.log(id);
-            $('.modal-body span').text(ime);
-
-            $('button.btn-default:first').click(function () {
-                $.ajax({
-                    //url: "/ControllerName/ActionName",
-                    url: '@Url.Action("DeleteConfirmed", "Materijal")' + "/?id=" + id,
-                    method: 'post',
-                    //data:{id:id},
-                    complete: function () {
-                        $delete.parent().parent().parent().parent().remove();
-                        sessionStorage.setItem('kantica', true);
-                        location.reload();
-                    }
-                });
-
-            });
-        });
-
-    });
-</script>
-
-
 @Scripts.Render("~/bundles/materijal")
 @Scripts.Render("~/Scripts/select2.min.js")
 @Scripts.Render("~/Scripts/customDropdown.js")
 @Scripts.Render("~/Scripts/filterMaterijal.js")
+@Scripts.Render("~/Scripts/brisanjeMaterijala.js")
 @Scripts.Render("~/Scripts/asc-desc-strelica.js")
 @Scripts.Render("~/Scripts/lupauX.js")

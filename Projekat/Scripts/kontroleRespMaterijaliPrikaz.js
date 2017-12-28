@@ -21,6 +21,7 @@
     triTackeKontrole();
 
     function sakrijFormat() {
+        sredinaSirina = $('#sredina').width();
         if (sredinaSirina < 450) {
             $('.karticaFormat').css({ 'display': 'none', 'overflow': 'hidden' });
             $('.karticaTekts').css("width", "100%");
@@ -41,8 +42,11 @@
 
         triTackeKontrole();
         //savrsena sirina za uslov je 1153px TAKODJE VAR UZIMA SIRINU BEZZ MARGINA I PADDINGA
-        if (sredinaSirina < 958) {
-            $('div.kartica').css('width', '100%').css('width', '-=55px');
+        if (sredinaSirina < 958 && sredinaSirina > 754) {
+            //$('div.kartica').css('width', '100%').css('width', '-=55px');
+            $('div.kartica').css("width", "calc(100% - 68px)");
+        } else if (sredinaSirina < 754) {
+            $('div.kartica').css("width", "100%");
             //$('div.kartica').css("width", "calc(100% - 68px)");
         } else if (sredinaSirina > 958) {
             $('div.kartica').css("width", "calc(50% - 55px)");

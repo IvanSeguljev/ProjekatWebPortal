@@ -2,26 +2,43 @@
 
     $('.select2predmeti').select2();
 
-    var predmetEdited = sessionStorage.getItem('predmetEdited');
+    var isEdited = sessionStorage.getItem('editedPredmet');
 
-    if (predmetEdited) {
+    if (isEdited) {
         $('#snackbar').css('display', 'block');
-        sessionStorage.removeItem('predmetEdited');
+        sessionStorage.removeItem('editedPredmet');
     }
-    else  $('#snackbar').css('display', 'none');
+    else
+        $('#snackbar').css('display', 'none');
 
     var url = window.location.href;
     var args = url.split('/');
 
     var smerId = args[args.length - 1];
 
+    $('.edit').click(function () {
+        $edit = $(this);
+        var predmetId = $edit.parent().parent().attr('id');
+        var predmetNaziv = $edit.parent().parent().find("a[class='naziv-predmeta-na-kartici']").text();
+        var predmetOpis = $edit.parent().parent().find("div.opisPredmeta p").text();
+
+        $('.modal-edit .modal-header span').text(predmetNaziv);
+        $(".modal-edit .modal-body input[name='predmetId']").val(predmetId);
+        $(".modal-edit .modal-body input[name='predmet.predmetNaziv']").val(predmetNaziv);
+        $(".modal-edit .modal-body textarea[name='predmet.predmetOpis']").val(predmetOpis);
+    });
+
     $('#submitEdit').click(function () {
         $.ajax({
-            method: 'GET',
-            url: '/Predmet/VratiSmerove',
-            data: { smerId: smerId },
-            success: function () {
-                sessionStorage.setItem('predmetEdited', true);
+            method: 'POST',
+            url: '/Predmet/DodajPredmet',
+            data: {
+                predmetId: predmetId,
+                predmetNaziv: predmetNaziv,
+                predmetOpis: predmetOpis
+            },
+            complete: function () {
+                sessionStorage.setItem('editedPredmet', true);
                 location.reload();
             }
         });
