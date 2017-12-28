@@ -79,26 +79,72 @@ namespace Projekat.Models
             return SaveChanges();
         }
 
-   
-
-        List<OsiromaseniMaterijali> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
+        IQueryable<OsiromaseniMaterijali> IMaterijalContext.poPredmetu(int predmetId)
         {
-            IMaterijalContext context = new MaterijalContext();
-
-            List<OsiromaseniMaterijali> SviOsiromaseni = context.materijali.Select(m => new OsiromaseniMaterijali { materijalId = m.materijalId, materijalNaslov = m.materijalNaslov, materijalOpis = m.materijalOpis, ekstenzija = m.materijalEkstenzija,tipMaterijalaId = m.tipMaterijalId }).ToList();
-            List <OsiromaseniMaterijali> materijali = new List<OsiromaseniMaterijali>();
-            foreach (OsiromaseniMaterijali m in SviOsiromaseni)
+            IQueryable<OsiromaseniMaterijali> materijali;
+            materijali = this.materijali.Where(m => m.predmetId == predmetId).Select(m => new OsiromaseniMaterijali
             {
+                materijalId = m.materijalId,
+                ekstenzija = m.materijalEkstenzija,
+                materijalNaslov = m.materijalNaslov,
+                materijalOpis = m.materijalOpis,
+                tipMaterijalaId = m.tipMaterijalId
+            });
 
-                if (ekstenzije != null)
-                {
-                    if (ekstenzije.Contains(m.ekstenzija) || tipoviMaterijalaIds.Contains(m.tipMaterijalaId))
-                        materijali.Add(m);
-                }
-                else return SviOsiromaseni;
-
-            }
             return materijali;
         }
+
+
+
+        IQueryable<OsiromaseniMaterijali> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds, int predmetId)//Dodati parametre 
+        {
+            // && (a => tipoviMaterijalaIds.Any(s => a.tipMaterijalaId)
+
+           
+            IMaterijalContext context = new MaterijalContext();
+           var queriable = context.poPredmetu( predmetId);
+
+            if (ekstenzije != null && tipoviMaterijalaIds != null)
+            {
+
+                queriable = queriable.
+                   Where(a => ekstenzije.Any(s => a.ekstenzija.Contains(s))); 
+                                    
+
+                queriable = queriable.
+                    Where(a => tipoviMaterijalaIds.Any(s => a.tipMaterijalaId.ToString().Contains(s.ToString())));
+
+
+                return queriable;
+
+            }
+
+            else if (ekstenzije == null && tipoviMaterijalaIds != null)
+            {
+                queriable = queriable.
+                Where(a => tipoviMaterijalaIds.Any(s => a.tipMaterijalaId.ToString().Contains(s.ToString())));
+
+
+                return queriable;
+
+            }
+
+            else if (ekstenzije != null && tipoviMaterijalaIds == null)
+            {
+
+               queriable = queriable.
+               Where(a => ekstenzije.Any(s => a.ekstenzija.Contains(s)));
+
+             
+                return queriable;
+
+            }
+            else
+                return queriable;
+
+
+        }
+
+      
     }
 }

@@ -31,31 +31,21 @@
         //    formati.push(format);
         //});
 
+        //OVE DVE METODE VRACAJU IDeve i Stringove sukcesivno (nije radilo kada se stavi $(this)[index].value)
         $(".select2materijali option:selected").each(function (index, Element) {
             tipovi.push($(".select2materijali option:selected")[index].value);
         });
         $(".select2formati option:selected").each(function (index, element) {
             formati.push($(".select2formati option:selected")[index].value);
         });
+        //console.log(formati);
+        //console.log(tipovi);
 
         if (sort === "opadajuce") sort = 'opadajuce';
         else if (sort === "rastuce") sort = 'rastuce';
         else sort = '';
-
-        if (tipovi === null) {
-            var tipoviOptioni = [];
-            $('#tipMaterijala option').each(function () {
-                tipoviOptioni.push($(this).val());
-            });
-            tipovi = tipoviOptioni;
-        } 
-        if (formati === null) {
-            var formatiOptioni = [];
-            $('.select2formati option').each(function () {
-                formatiOptioni.push($(this).val());
-            });
-            tipovi = formatiOptioni;
-        }
+        if (tipovi === null) tipovi = $(".select2materijali option");
+        if (formati === null) formati = $(".select2formati option");
 
         $.ajax({
             method: 'GET',
@@ -69,7 +59,7 @@
             traditional: true,
             beforeSend: function () {
                 $('#sredina').css({
-                    'filter': 'blur(10px)',
+                    'filter': 'blur(10px)', //stavio sam ti na 0 jer je jos scuffed
                     'transition': 'all 0.3s'
                 });
             },
@@ -77,9 +67,26 @@
                 tipovi = [];
                 formati = [];
                 sort = "";
+                //console.log(data);
                 $('.kartica').remove();
                 $('#sredina').append(data);
                 $('#sredina').css('filter', 'blur(0)');
+                //$('#sredina').css('filter', 'blur(0)').html(data);
+                //$('.kartica').each(function (index, element) {
+                //    var kartica = $(this);
+
+                //    var materijalId = data[index].materijalId;
+                //    var materijalNaslov = data[index].materijalNaslov;
+                //    var materijalOpis = data[index].materijalOpis;
+                //    var ImgPath = data[index].ImgPath;
+                //    var path = ImgPath.substring(1);
+
+                //    kartica.attr('id', materijalId);
+                //    kartica.find('h2').text(materijalNaslov);
+                //    kartica.find($('.opis')).text(materijalOpis);
+                //    kartica.find($('.imgPath')).attr('src', path);
+                //    kartica.find($('.preuzmi')).attr('href', '/Materijal/DownloadMaterijal/' + materijalId);
+                //});
             },
             error: function () {
                 console.log("ne valja");

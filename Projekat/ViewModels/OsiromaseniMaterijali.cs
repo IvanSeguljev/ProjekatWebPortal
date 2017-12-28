@@ -39,5 +39,7 @@ namespace Projekat.ViewModels
         public string ekstenzija { get; set; }
         public int tipMaterijalaId { get; set; }
 
+        public int predmetId { get; set; }
+
     }
 }

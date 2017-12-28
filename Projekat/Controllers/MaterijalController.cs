@@ -38,24 +38,16 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult MaterijaliPrikaz(string sort,List<string> formati, List<int> tipovi,int number = 0, int id = 0)
         {
+            List<OsiromaseniMaterijali> materijali;
+
             MaterijaliNaprednaPretragaViewModel vm;
 
-            List<OsiromaseniMaterijali> materijali;
-            materijali = context.materijali.Select(m=> new OsiromaseniMaterijali{materijalId = m.materijalId,materijalNaslov = m.materijalNaslov, materijalOpis = m.materijalOpis }).ToList();
-            if (number == 0)
-            {
-                materijali = context.materijali.Where(m => m.predmetId == id && m.namenaMaterijalaId == 1).Select(m => new OsiromaseniMaterijali { materijalId = m.materijalId, materijalNaslov = m.materijalNaslov, materijalOpis = m.materijalOpis,  ekstenzija = m.materijalEkstenzija, tipMaterijalaId = m.tipMaterijalId }).ToList();//hardkodovan 1 kao nastavni materijal iz tabele namena
-                
-            } /*Ovde treba dodati da se kao parametar prosledjuje i id tipa pa onda
-            ako taj broj nije nula raditi oba filtriranja a ako jeste onda samo filtriranje po predmetu!
-            EZ AF!
-            */
 
+            materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
 
             if (sort == "opadajuce")
             {
-                //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa,ref materijali);
-                 materijali = context.naprednaPretraga(formati, tipovi);
+                materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
                 materijali.Reverse();
 
                 vm = new MaterijaliNaprednaPretragaViewModel
@@ -72,8 +64,7 @@ namespace Projekat.Controllers
             }
             else if(sort =="rastuce")
             {
-                //FiltrirajPoFormatuMaterijala(ekstenzija, idTipa, ref materijali);
-               materijali = context.naprednaPretraga(formati, tipovi);
+                materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
 
                 vm = new MaterijaliNaprednaPretragaViewModel
                 {

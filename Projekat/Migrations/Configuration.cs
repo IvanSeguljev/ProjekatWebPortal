@@ -5,14 +5,14 @@ namespace Projekat.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Projekat.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Projekat.Models.MaterijalContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Projekat.Models.ApplicationDbContext context)
+        protected override void Seed(Projekat.Models.MaterijalContext context)
         {
             //  This method will be called after migrating to the latest version.
 

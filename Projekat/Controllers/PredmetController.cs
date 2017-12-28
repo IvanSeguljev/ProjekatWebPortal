@@ -67,7 +67,7 @@ namespace Projekat.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(DodajPremetViewModel viewModel, int trenutiSmer)//Dodaj predmet viewmodel vise smerova
+        public ActionResult Edit(DodajPremetViewModel viewModel, int trenutiSmer,List<int>smeroviId)//Dodaj predmet viewmodel vise smerova
         {
 
             if (viewModel.predmet != null)
@@ -82,7 +82,7 @@ namespace Projekat.Controllers
                     predmetPromenjenji.predmetNaziv = viewModel.predmet.predmetNaziv;
                     predmetPromenjenji.predmetOpis = viewModel.predmet.predmetOpis;
 
-                    foreach (int smerID in viewModel.smerIds)
+                    foreach (int smerID in smeroviId)
                     {
                         context.Add<PremetPoSmeru>(new PremetPoSmeru
                         {
@@ -138,17 +138,20 @@ namespace Projekat.Controllers
             List<PremetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
             List<PredmetModel> model = new List<PredmetModel>();
             List<PredmetModel> tempPredmet = context.predmeti.ToList();
+            List<SmerModel> smerovi = context.smerovi.ToList();
 
             foreach (PremetPoSmeru ps in poSmeru)
             {
                 model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
             }
 
-
+            
 
             PredmetPoSmeruViewModel predmetiPoSmeru = new PredmetPoSmeruViewModel
             {
-                predmeti = model
+                predmeti = model,
+                smerovi = smerovi
+                
             };
 
             //try

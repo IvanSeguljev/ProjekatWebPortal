@@ -14,6 +14,9 @@ namespace Projekat.ViewModels
         public List<PredmetModel> predmeti { get; set; }
 
 
+        public List<SmerModel> smerovi { get; set; }
+
+
 
     }
 }
