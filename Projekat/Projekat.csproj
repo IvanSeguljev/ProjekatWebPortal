@@ -297,7 +297,6 @@
     <Content Include="Content\img\Novine.png" />
     <Content Include="Content\img\obrisi.png" />
     <Content Include="Content\img\PDFicon.png" />
-    <Content Include="Content\img\plus-pasivna.png" />
     <Content Include="Content\img\plus.png" />
     <Content Include="Content\img\PNGicon.png" />
     <Content Include="Content\img\potvrdaBrisanjaGIFGOTOV.gif" />
@@ -310,7 +309,6 @@
     <Content Include="Content\img\tri-tacke.png" />
     <Content Include="Content\img\trougao-breadcrumbs.png" />
     <Content Include="Content\img\TXTicon.png" />
-    <Content Include="Content\img\ucenik-aktivna.png" />
     <Content Include="Content\img\ucenik.png" />
     <Content Include="Content\img\upload.png" />
     <Content Include="Content\img\upload2.png" />
