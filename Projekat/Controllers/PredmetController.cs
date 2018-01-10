@@ -70,47 +70,36 @@ namespace Projekat.Controllers
         public ActionResult Edit(int smerId, List<int> smeroviId, string predmetNaziv, string predmetOpis, int predmetId)
         {
             context = new MaterijalContext();
-            try
+
+            PredmetModel predmetPromenjenji = context.predmeti.FirstOrDefault(m => m.predmetId == predmetId);
+            List<int> smeroviIdIzBaze = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).Select(m => m.smerId).ToList();
+
+            if (predmetPromenjenji == null)
             {
-                PredmetModel predmetPromenjenji = context.predmeti.FirstOrDefault(m => m.predmetId == predmetId);
-                List<int> smeroviIdIzBaze = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).Select(m => m.smerId).ToList();
+                return new HttpNotFoundResult("Nije nadjen ni jedan predmet u bazi sa datim ID-om");
+            }
+            predmetPromenjenji.predmetNaziv = predmetNaziv;
+            predmetPromenjenji.predmetOpis = predmetOpis;
 
-                if (predmetPromenjenji == null)
+            foreach (int smerID in smeroviId)
+            {
+                if (!smeroviIdIzBaze.Contains(smerID))
                 {
-                    return new HttpNotFoundResult("Nije nadjen ni jedan predmet u bazi sa datim ID-om");
-                }
-                predmetPromenjenji.predmetNaziv = predmetNaziv;
-                predmetPromenjenji.predmetOpis = predmetOpis;
-
-                foreach (int smerID in smeroviId)
-                {
-                    if (!smeroviIdIzBaze.Contains(smerID))
+                    context.Add<PremetPoSmeru>(new PremetPoSmeru
                     {
-                        context.Add<PremetPoSmeru>(new PremetPoSmeru
-                        {
 
-                            predmetId = predmetId,
-                            smerId = smerID
+                        predmetId = predmetId,
+                        smerId = smerID
 
-                        });
-                    }
+                    });
                 }
-
-                foreach (int smerID in smeroviIdIzBaze)
-                {
-                    if (!smeroviId.Contains(smerID))
-                    context.Delete(context.predmetiPoSmeru.Where(m => m.smerId == smerID).Single());
-                }
-
-                context.SaveChanges();
-
-
             }
-            catch (Exception)
-            {
 
-                throw;
-            }
+
+            context.SaveChanges();
+
+
+
 
 
             return RedirectToAction("PredmetiPrikaz", new { id = smerId });

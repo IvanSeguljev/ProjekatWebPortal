@@ -1287,6 +1287,7 @@ div.kartica-smer .kontrola-ikonica:first-child{
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis; 
+    z-index:9;
 }
 
 #postavkaMat #dropDownovi{
@@ -1342,7 +1343,7 @@ div.kartica-smer .kontrola-ikonica:first-child{
     box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.35);
     padding: 8px 0;
     margin-bottom:0;
-  
+    z-index:9;
 }
 
 select.error{
@@ -1411,6 +1412,11 @@ select.error{
     -o-transform: rotate(180deg);
 }
 
+div.sredina-upload-mat #postavkaMat #dropDownovi .customSelect:last-child{
+    margin-top: 20px;
+    margin-right: 0;
+}
+
 /*CUSTOM DROPDOWNOVI KRAJ*/
 
 pre {
@@ -1427,11 +1433,98 @@ pre {
     }
 }
 
+@media screen and (max-width:740px) {
+    form#smerForma, #predmetForma, form#postavkaMat{
+        width: 100%;
+        margin: 0 0 70px 0;
+        box-shadow: none;
+        background-color: #f6f6f6;
+        padding: 0;
+    }
+    textarea#smerOpis{
+        background-color: #f6f6f6;
+        border-color:#f6f6f6;
+        margin: 0 auto;
+        min-width: 84%;
+        max-width: 84%;
+    }
+    input#smerNaziv, input#Materijal_materijalNaslov, textarea#materijalOpis{
+        background-color: #f6f6f6;
+        border: 1px solid #f6f6f6;
+        margin: 0 auto;
+        width: 84%;
+    }
+    input#smerNaziv:focus {
+        background-color: #f6f6f6;
+    }
+    .matDesignLabel{
+        margin: 0 0 0 8.5%;
+    }
+    form#predmetForma .select2-container--default .select2-selection--multiple, input#predmet_predmetNaziv, textarea#predmet_predmetOpis{
+        background-color: #f6f6f6;
+    }
+    #predmetForma .select2-container{
+        width:84% !important;
+        padding:0;
+        margin: 9px auto 7px auto;
+        display: block;
+    }
+    input#predmet_predmetNaziv, textarea#predmet_predmetOpis{
+        width:84%;
+        margin: 0 auto;
+        border-color:#f6f6f6;
+    }
+    textarea#predmet_predmetOpis, textarea#materijalOpis{
+        min-width:84%;
+        max-width:84%;
+    }
+    .izabraniUselectu{
+        background-color: #f6f6f6;
+    }
+    form#postavkaMat input#file + label{
+        margin: 70px auto 0 auto;
+        display: block;
+        width: 84%;
+    }
+    
+}
+
 @media screen and (max-width:640px) {
     #gornjaNavigacija img:nth-child(5), #gornjaNavigacija p:nth-child(4){
         display:none;
     }
+    input#smerNaziv, input#predmet_predmetNaziv, input#Materijal_materijalNaslov{
+        width: 100%;
+    }
+    textarea#smerOpis, textarea#predmet_predmetOpis, textarea#materijalOpis{
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .matDesignLabel{
+        margin: 0 0 0 0.9%;
+    }
+    #predmetForma .select2-container {
+        width: 100% !important;
+    }
+    form#postavkaMat input#file + label{
+        width: 100%;
+    }
 }
+
+
+@media screen and (max-width:500px) {
+    #filename, span#filename span {
+        width: 100%;
+    }
+    form#postavkaMat input#file + label {
+        margin-top: 15px;
+    }
+    /*#postavkaMat #dropDownovi .customSelect{
+        margin: 10px auto 0 auto;
+        display: block;
+    }*/
+}
+
 
 /*PRIVREMENO KRAJ*/
 
@@ -1645,7 +1738,8 @@ div#opisModal .modal-dialog {
         padding: 45px 65px 0 65px;
     }
     div.kartica{
-        margin: 0 68px 46px 0;
+        /*margin: 0 68px 46px 0;*/
+        margin: 0 0 46px 0;
     }
     .kartica-predmet {
         width: 100%;
@@ -1670,5 +1764,8 @@ div#opisModal .modal-dialog {
     .kartica-predmet {
         width: 100%;
         margin: 0 12px 12px 0;
+    }
+    form#smerForma h2, #predmetForma {
+        margin-top: 15vh;
     }
 }

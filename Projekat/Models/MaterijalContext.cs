@@ -15,8 +15,6 @@ namespace Projekat.Models
         public DbSet<NamenaMaterijalaModel> nameneMaterijala { get; set; }
         public DbSet<PremetPoSmeru> predmetiPoSmeru { get; set; }
         public DbSet<TipMaterijalModel> tipMaterijala { get; set; }
-        public DbSet<MaterijalPoTipu> materijaliPoTipu { get; set; }
-        public DbSet<MaterijalPoPredmetu> materijalPoPredmetu { get; set; }
 
         IQueryable<MaterijalModel> IMaterijalContext.materijali
         {
@@ -27,7 +25,7 @@ namespace Projekat.Models
         IQueryable<TipMaterijalModel> IMaterijalContext.tipMaterijala
         {
             get { return tipMaterijala; }
-            
+
         }
 
 
@@ -74,17 +72,12 @@ namespace Projekat.Models
             return materijal;
         }
 
-       
+
         int IMaterijalContext.SaveChanges()
         {
 
             return SaveChanges();
         }
-
-        
-        
-        
-
 
         IQueryable<OsiromaseniMaterijali> IMaterijalContext.poPredmetu(int predmetId)
         {
@@ -107,16 +100,16 @@ namespace Projekat.Models
         {
             // && (a => tipoviMaterijalaIds.Any(s => a.tipMaterijalaId)
 
-           
+
             IMaterijalContext context = new MaterijalContext();
-           var queriable = context.poPredmetu( predmetId);
+            var queriable = context.poPredmetu(predmetId);
 
             if (ekstenzije != null && tipoviMaterijalaIds != null)
             {
 
                 queriable = queriable.
-                   Where(a => ekstenzije.Any(s => a.ekstenzija.Contains(s))); 
-                                    
+                   Where(a => ekstenzije.Any(s => a.ekstenzija.Contains(s)));
+
 
                 queriable = queriable.
                     Where(a => tipoviMaterijalaIds.Any(s => a.tipMaterijalaId.ToString().Contains(s.ToString())));
@@ -139,10 +132,10 @@ namespace Projekat.Models
             else if (ekstenzije != null && tipoviMaterijalaIds == null)
             {
 
-               queriable = queriable.
-               Where(a => ekstenzije.Any(s => a.ekstenzija.Contains(s)));
+                queriable = queriable.
+                Where(a => ekstenzije.Any(s => a.ekstenzija.Contains(s)));
 
-             
+
                 return queriable;
 
             }
@@ -152,6 +145,6 @@ namespace Projekat.Models
 
         }
 
-      
+
     }
 }

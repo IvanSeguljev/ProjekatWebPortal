@@ -22,6 +22,7 @@
 
     function sakrijFormat() {
         sredinaSirina = $('#sredina').width();
+        console.log("（╯°□°）╯︵(\ .o.)\ sakrio/prikazao sam kartice" + "    sredina sirina je  " + sredinaSirina);
         if (sredinaSirina < 450) {
             $('.karticaFormat').css({ 'display': 'none', 'overflow': 'hidden' });
             $('.karticaTekts').css("width", "100%");
@@ -31,7 +32,8 @@
             $('.karticaTekts').removeAttr("style");
         }
     };
-    sakrijFormat();
+    setTimeout(sakrijFormat, 350); // ovaj  broj treba povecati ako se ne prikaze/sakrije materijal format na kartici pri loadu
+    //sakrijFormat();
 
     $(window).on('resize', function () {
         sakrijFormat();
@@ -46,8 +48,9 @@
             //$('div.kartica').css('width', '100%').css('width', '-=55px');
             $('div.kartica').css("width", "calc(100% - 68px)");
         } else if (sredinaSirina < 754) {
+            //$('div.kartica').css("width", "calc(100% - 70px)");
+            console.log("yahoo");
             $('div.kartica').css("width", "100%");
-            //$('div.kartica').css("width", "calc(100% - 68px)");
         } else if (sredinaSirina > 958) {
             $('div.kartica').css("width", "calc(50% - 55px)");
         }
@@ -67,11 +70,11 @@
 
     //OTVARANJE ZATVARANJE NAPREDNE PRETRAGE
     $('#lupaWrap').click(function () {
-        if($('#naprednaPretraga').css('transform') !== "matrix(1, 0, 0, 1, 0, -65)"){
-        //$('#naprednaPretraga').toggle("blind", 200);
+        if ($('#naprednaPretraga').css('transform') !== "matrix(1, 0, 0, 1, 0, -65)") {
+            //$('#naprednaPretraga').toggle("blind", 200);
             $('#naprednaPretraga').css({ 'transform': 'translate(0, -65px)', 'margin-bottom': '0' });
         }
-        else{
+        else {
             $('#naprednaPretraga').css({ 'transform': 'translate(0, 0)', 'margin-bottom': '69px' });
         }
     });
