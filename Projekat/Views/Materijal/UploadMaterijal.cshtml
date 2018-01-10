@@ -31,7 +31,7 @@
         <div id="dropDownovi">
             @Html.DropDownListFor(m => m.Materijal.predmetId, new SelectList(Model.Predmeti, "predmetId", "predmetNaziv"), new { @class = "customDropdown" })
             @Html.DropDownListFor(m => m.Materijal.tipMaterijalId, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"), new { @class = "customDropdown" })
-            @Html.DropDownListFor(m => m.Materijal.namenaMaterijalaId, new SelectList(Model.nameneMaterijala, "namenaMaterijalaId", "namenaMaterijalaNaziv"), new { @class = "customDropdown" })
+            @Html.DropDownListFor(m => m.Materijal.namenaMaterijalaId, new SelectList(Model.nameneMaterijala, "namenaMaterijalaId", "namenaMaterijalaNaziv"), new { @class = "customDropdown", @selected = "selected" })
         </div>
 
 
