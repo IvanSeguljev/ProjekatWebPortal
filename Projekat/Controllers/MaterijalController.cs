@@ -32,11 +32,9 @@ namespace Projekat.Controllers
             return View();
         }
 
-        //TESTIRATI KAD MLADJA PROSLEDI EKSTENZIJU I ID TIPA!!!
-        //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
-        //
-        [HttpGet]
-        public ActionResult MaterijaliPrikaz(string sort,List<string> formati, List<int> tipovi,int number = 0, int id = 0)
+       
+     /*   [HttpGet]
+       public ActionResult MaterijaliPrikaz(string sort,List<string> formati, List<int> tipovi,int number = 0, int id = 0)
         {
             List<OsiromaseniMaterijali> materijali;
 
@@ -88,6 +86,7 @@ namespace Projekat.Controllers
 
             return View("MaterijaliPrikaz", vm);
         }
+        */
         //kod ove akcije treba dodati punjenje tabele namena materijala
         [HttpGet]
         public ActionResult UploadMaterijal()
@@ -191,17 +190,8 @@ namespace Projekat.Controllers
 
 
 
-        //public ActionResult SortirajPoTipuMaterijala(int id)
-        //{
-        //    context = new MaterijalContext();
-        //    List<MaterijalModel> model = context.materijali.Where(m => m.tipMaterijalId == id).ToList();
 
-
-        //    return View("MaterijaliPrikaz", model);
-
-        //}
-
-        public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id,ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
+      /*  public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id,ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
         {
 
           
@@ -209,22 +199,9 @@ namespace Projekat.Controllers
 
 
                 
-        }
+        }*/
 
-        // IF SCUFFED IN MATERIJALCONTEXT THIS.UNCOMMENT
-
-        //public List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
-        //{
-        //    List<MaterijalModel> materijali = new List<MaterijalModel>();
-        //    foreach(MaterijalModel m in context.materijali)
-        //    {
-        //        if (ekstenzije.Contains(m.materijalEkstenzija) && tipoviMaterijalaIds.Contains(m.tipMaterijalId))
-        //            materijali.Add(m);
-                    
-        //    }
-        //    return materijali;
-        //}
-        
+       
 
         
 

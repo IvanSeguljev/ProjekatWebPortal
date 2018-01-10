@@ -26,10 +26,10 @@ namespace Projekat.Models
 
         T Delete<T>(T entity) where T : class;
 
-        IQueryable<OsiromaseniMaterijali> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds,int predmetId);
+       /* IQueryable<OsiromaseniMaterijali> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds,int predmetId);
 
         IQueryable<OsiromaseniMaterijali> poPredmetu(int predmetId);
-
+        */
 
         
         
