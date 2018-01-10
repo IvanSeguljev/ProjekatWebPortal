@@ -27,9 +27,9 @@ namespace Projekat.Models
 
 
         //public string UserName { get; set; }
-     //   public PredmetModel Predmet { get; set; }
+        //   public PredmetModel Predmet { get; set; }
 
-      //  public int predmetId { get; set; }
+        //  public int predmetId { get; set; }
 
 
         public string materijalEkstenzija { get; set; }
@@ -64,7 +64,17 @@ namespace Projekat.Models
             }
         }
 
-     
+        public PredmetModel PredmetModel { get; set; }
+
+        [ForeignKey("PredmetModel")]
+        public int predmetId { get; set; }
+
+        public TipMaterijalModel TipMaterijalModel { get; set; }
+
+
+        [ForeignKey("TipMaterijalModel")]
+        public int tipMaterijalId { get; set; }
+
         public NamenaMaterijalaModel NamenaMaterijalaModel { get; set; }
 
         [ForeignKey("NamenaMaterijalaModel")]

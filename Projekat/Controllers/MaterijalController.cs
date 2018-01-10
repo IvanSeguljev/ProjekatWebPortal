@@ -32,9 +32,11 @@ namespace Projekat.Controllers
             return View();
         }
 
-       
-     /*   [HttpGet]
-       public ActionResult MaterijaliPrikaz(string sort,List<string> formati, List<int> tipovi,int number = 0, int id = 0)
+        //TESTIRATI KAD MLADJA PROSLEDI EKSTENZIJU I ID TIPA!!!
+        //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
+        //
+        [HttpGet]
+        public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int id = 0)
         {
             List<OsiromaseniMaterijali> materijali;
 
@@ -60,7 +62,7 @@ namespace Projekat.Controllers
                 return PartialView("_Kartice", vm);
 
             }
-            else if(sort =="rastuce")
+            else if (sort == "rastuce")
             {
                 materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
 
@@ -86,7 +88,6 @@ namespace Projekat.Controllers
 
             return View("MaterijaliPrikaz", vm);
         }
-        */
         //kod ove akcije treba dodati punjenje tabele namena materijala
         [HttpGet]
         public ActionResult UploadMaterijal()
@@ -97,7 +98,7 @@ namespace Projekat.Controllers
             {
                 Predmeti = context.predmeti.ToList(),
                 tipoviMaterijala = context.tipMaterijala.ToList(),
-                nameneMaterijala = context.nameneMaterijala.ToList()              
+                nameneMaterijala = context.nameneMaterijala.ToList()
             };
 
 
@@ -132,7 +133,7 @@ namespace Projekat.Controllers
                 }
 
                 ViewBag.Message = "Uspešno ste postavili materijal!";
-                
+
                 return RedirectToAction("UploadMaterijal", "Materijal");
                 // return View("UploadMaterijal", ViewModel);
             }
@@ -190,20 +191,42 @@ namespace Projekat.Controllers
 
 
 
+        //public ActionResult SortirajPoTipuMaterijala(int id)
+        //{
+        //    context = new MaterijalContext();
+        //    List<MaterijalModel> model = context.materijali.Where(m => m.tipMaterijalId == id).ToList();
 
-      /*  public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id,ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
+
+        //    return View("MaterijaliPrikaz", model);
+
+        //}
+
+        public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id, ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
         {
 
-          
-                materijali = context.materijali.Where(m => m.materijalEkstenzija == ekstenzija && m.tipMaterijalId == id).ToList();//scuffed
+
+            materijali = context.materijali.Where(m => m.materijalEkstenzija == ekstenzija && m.tipMaterijalId == id).ToList();//scuffed
 
 
-                
-        }*/
 
-       
+        }
 
-        
+        // IF SCUFFED IN MATERIJALCONTEXT THIS.UNCOMMENT
+
+        //public List<MaterijalModel> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds)
+        //{
+        //    List<MaterijalModel> materijali = new List<MaterijalModel>();
+        //    foreach(MaterijalModel m in context.materijali)
+        //    {
+        //        if (ekstenzije.Contains(m.materijalEkstenzija) && tipoviMaterijalaIds.Contains(m.tipMaterijalId))
+        //            materijali.Add(m);
+
+        //    }
+        //    return materijali;
+        //}
+
+
+
 
 
     }
