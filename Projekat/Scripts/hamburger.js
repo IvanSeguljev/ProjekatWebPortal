@@ -6,10 +6,7 @@
     //$('.LeftBar:first').css('transition', 'width .3s ease-in-out, left .3s ease-in-out' );
     var sirinaNava;
 
-
-
-    window.onresize = function () {
-
+    function sidebarTip() {
         sirinaNava = $('.LeftBar:first').offset().left;
 
         if ($(window).width() < 1025 && sirinaNava == 0) {
@@ -20,10 +17,26 @@
             $('#sredina').css({ 'width': "calc(100% - 338px)" });
             $('.LeftBar:first').css({ "z-index": "0" });
         }
-
     }
+    sidebarTip();
+    $(window).resize(sidebarTip);
 
-    $(window).trigger('resize');
+    //window.onresize = function () {
+
+    //    sirinaNava = $('.LeftBar:first').offset().left;
+
+    //    if ($(window).width() < 1025 && sirinaNava == 0) {
+    //        $('#sredina').css({ 'width': "100%" });
+    //        $('.LeftBar:first').css({ "z-index": "999" });
+
+    //    } else if ($(window).width() > 1025 && sirinaNava == 0) {
+    //        $('#sredina').css({ 'width': "calc(100% - 338px)" });
+    //        $('.LeftBar:first').css({ "z-index": "0" });
+    //    }
+
+    //}
+
+    //$(window).trigger('resize');
 
 
 
