@@ -235,9 +235,17 @@
     <Compile Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.Designer.cs">
       <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\MaterijalContext\201712221117350_osiromaseniPredmetId.cs" />
-    <Compile Include="Migrations\MaterijalContext\201712221117350_osiromaseniPredmetId.Designer.cs">
-      <DependentUpon>201712221117350_osiromaseniPredmetId.cs</DependentUpon>
+    <Compile Include="Migrations\MaterijalContext\201712281403270_revert.cs" />
+    <Compile Include="Migrations\MaterijalContext\201712281403270_revert.Designer.cs">
+      <DependentUpon>201712281403270_revert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201712281428395_materijalpotipu.cs" />
+    <Compile Include="Migrations\MaterijalContext\201712281428395_materijalpotipu.Designer.cs">
+      <DependentUpon>201712281428395_materijalpotipu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201712281439591_MaterijalPoPredmetu.cs" />
+    <Compile Include="Migrations\MaterijalContext\201712281439591_MaterijalPoPredmetu.Designer.cs">
+      <DependentUpon>201712281439591_MaterijalPoPredmetu.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -246,6 +254,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MaterijalContext.cs" />
     <Compile Include="Models\MaterijalModel.cs" />
+    <Compile Include="Models\MaterijalPoPredmetu.cs" />
+    <Compile Include="Models\MaterijalPoTipu.cs" />
     <Compile Include="Models\MaterijalSharingInitializer.cs" />
     <Compile Include="Models\NamenaMaterijalaModel.cs" />
     <Compile Include="Models\PredmetModel.cs" />
@@ -452,8 +462,14 @@
     <EmbeddedResource Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.resx">
       <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201712221117350_osiromaseniPredmetId.resx">
-      <DependentUpon>201712221117350_osiromaseniPredmetId.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201712281403270_revert.resx">
+      <DependentUpon>201712281403270_revert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201712281428395_materijalpotipu.resx">
+      <DependentUpon>201712281428395_materijalpotipu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201712281439591_MaterijalPoPredmetu.resx">
+      <DependentUpon>201712281439591_MaterijalPoPredmetu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
