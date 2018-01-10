@@ -67,48 +67,42 @@ namespace Projekat.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(DodajPremetViewModel viewModel, int trenutiSmer,List<int>smeroviId)//Dodaj predmet viewmodel vise smerova
+        public ActionResult Edit(int smerId, List<int> smeroviId, string predmetNaziv, string predmetOpis, int predmetId)
         {
+            context = new MaterijalContext();
 
-            if (viewModel.predmet != null)
+            PredmetModel predmetPromenjenji = context.predmeti.FirstOrDefault(m => m.predmetId == predmetId);
+            List<int> smeroviIdIzBaze = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).Select(m => m.smerId).ToList();
+
+            if (predmetPromenjenji == null)
             {
-                try
+                return new HttpNotFoundResult("Nije nadjen ni jedan predmet u bazi sa datim ID-om");
+            }
+            predmetPromenjenji.predmetNaziv = predmetNaziv;
+            predmetPromenjenji.predmetOpis = predmetOpis;
+
+            foreach (int smerID in smeroviId)
+            {
+                if (!smeroviIdIzBaze.Contains(smerID))
                 {
-                    PredmetModel predmetPromenjenji = context.predmeti.FirstOrDefault(m => m.predmetId == viewModel.predmet.predmetId);
-                    if (predmetPromenjenji == null)
+                    context.Add<PremetPoSmeru>(new PremetPoSmeru
                     {
-                        return new HttpNotFoundResult("Nije nadjen ni jedan predmet u bazi sa datim ID-om");
-                    }
-                    predmetPromenjenji.predmetNaziv = viewModel.predmet.predmetNaziv;
-                    predmetPromenjenji.predmetOpis = viewModel.predmet.predmetOpis;
 
-                    foreach (int smerID in smeroviId)
-                    {
-                        context.Add<PremetPoSmeru>(new PremetPoSmeru
-                        {
+                        predmetId = predmetId,
+                        smerId = smerID
 
-                            predmetId = viewModel.predmet.predmetId,
-                            smerId = smerID
-
-                        });
-                    }
-
-                    context.SaveChanges();
-
-
-                }
-                catch (Exception)
-                {
-
-                    throw;
+                    });
                 }
             }
-            else
-            {
-                return new HttpNotFoundResult("losi parametri");
-            }
 
-            return RedirectToAction("PredmetiPrikaz", new { id = trenutiSmer });
+
+            context.SaveChanges();
+
+
+
+
+
+            return RedirectToAction("PredmetiPrikaz", new { id = smerId });
 
         }
 
@@ -119,14 +113,14 @@ namespace Projekat.Controllers
 
             List<SmerModel> smeroviModel = new List<SmerModel>();
 
-            foreach(PremetPoSmeru predmetPoSmeru in predmetPoSmerovima)
+            foreach (PremetPoSmeru predmetPoSmeru in predmetPoSmerovima)
             {
                 SmerModel smer = context.smerovi.Where(m => m.smerId == predmetPoSmeru.smerId).Single();
-                smeroviModel.Add(smer);      
+                smeroviModel.Add(smer);
             }
 
-            return Json(smeroviModel,JsonRequestBehavior.AllowGet);
-            
+            return Json(smeroviModel, JsonRequestBehavior.AllowGet);
+
         }
 
 
@@ -145,13 +139,14 @@ namespace Projekat.Controllers
                 model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
             }
 
-            
+
 
             PredmetPoSmeruViewModel predmetiPoSmeru = new PredmetPoSmeruViewModel
             {
                 predmeti = model,
-                smerovi = smerovi
-                
+                smerovi = smerovi,
+                smerId = id
+
             };
 
             //try
