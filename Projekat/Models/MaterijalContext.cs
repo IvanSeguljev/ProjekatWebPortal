@@ -86,7 +86,7 @@ namespace Projekat.Models
         
 
 
-       /* IQueryable<OsiromaseniMaterijali> IMaterijalContext.poPredmetu(int predmetId)
+        IQueryable<OsiromaseniMaterijali> IMaterijalContext.poPredmetu(int predmetId)
         {
             IQueryable<OsiromaseniMaterijali> materijali;
             materijali = this.materijali.Where(m => m.predmetId == predmetId).Select(m => new OsiromaseniMaterijali
@@ -99,11 +99,11 @@ namespace Projekat.Models
             });
 
             return materijali;
-        }*/
+        }
 
 
 
-       /* IQueryable<OsiromaseniMaterijali> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds, int predmetId)//Dodati parametre 
+        IQueryable<OsiromaseniMaterijali> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds, int predmetId)//Dodati parametre 
         {
             // && (a => tipoviMaterijalaIds.Any(s => a.tipMaterijalaId)
 
@@ -150,7 +150,7 @@ namespace Projekat.Models
                 return queriable;
 
 
-        }*/
+        }
 
       
     }
