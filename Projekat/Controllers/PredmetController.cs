@@ -95,6 +95,19 @@ namespace Projekat.Controllers
                 }
             }
 
+            foreach (int smerID in smeroviIdIzBaze)
+            {
+                if(!smeroviId.Contains(smerID) )
+                {
+                    List<PremetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).ToList();
+                    foreach (PremetPoSmeru predmetPoSmeru in lista)
+                    {
+                        context.Delete(predmetPoSmeru);
+                    }
+                }
+
+            }
+
 
             context.SaveChanges();
 
