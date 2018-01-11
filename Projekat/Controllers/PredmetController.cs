@@ -100,7 +100,7 @@ namespace Projekat.Controllers
                 {
 
                     
-                    List<PremetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.smerId == smerID).ToList();
+                    List<PremetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).ToList();
                     foreach (PremetPoSmeru predmet in lista)
                     {
                         context.Delete(predmet);
