@@ -367,6 +367,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\kontroleRespMaterijaliPrikaz.js" />
     <Content Include="Scripts\labeli.js" />
+    <Content Include="Scripts\labeliEditPredmeta.js" />
     <Content Include="Scripts\loading.js" />
     <Content Include="Scripts\lupauX.js" />
     <Content Include="Scripts\modalOpisPredmet.js" />
