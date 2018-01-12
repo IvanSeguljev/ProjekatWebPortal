@@ -16,10 +16,24 @@
         var predmetId = $edit.parent().parent().attr('id');
         var predmetNaziv = $edit.parent().parent().find("a[class='naziv-predmeta-na-kartici']").text();
         var predmetOpis = $edit.parent().parent().find("div.opisPredmeta p").text();
+        var smerIds = [];
+
+        $.ajax({
+            method: 'GET',
+            url: '/Predmet/VratiSmerove',
+            data: {
+                id: predmetId
+            },
+            success: function (data) {
+                var smeroviInput = $("#smeroviedit");
+                smeroviInput.val(data);
+                smeroviInput.trigger('change');
+            }
+        });
 
         $('.modal-edit .modal-header span').text(predmetNaziv);
         $(".modal-edit .modal-body input[name='predmetId']").val(predmetId);
-        $(".modal-edit .modal-body input[name='redmetNaziv']").val(predmetNaziv);
+        $(".modal-edit .modal-body input[name='predmetNaziv']").val(predmetNaziv);
         $(".modal-edit .modal-body textarea[name='predmetOpis']").val(predmetOpis);
     });
 });
