@@ -15,7 +15,7 @@
 
     $('#predmetForma').validate({
         rules: {
-            smerIds: {
+            smeroviId: {
                 required: true
             },
             "predmet.predmetNaziv": {
@@ -30,7 +30,7 @@
         },
 
         messages: {
-            smerIds: {
+            smeroviId: {
                 required: "Odaberite barem jedan smer."
             },
             "predmet.predmetNaziv": {
@@ -47,7 +47,5 @@
             sessionStorage.setItem('uploadPredmet', true);
             forma.submit();
         }
-
     });
-
 });

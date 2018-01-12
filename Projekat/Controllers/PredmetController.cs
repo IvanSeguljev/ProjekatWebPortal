@@ -138,13 +138,15 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult VratiSmerove(int id)
         {
-            List<PremetPoSmeru> predmetPoSmerovima = context.predmetiPoSmeru.Where(m => m.predmetId == id).ToList();
+            context = new MaterijalContext();
 
-            List<SmerModel> smeroviModel = new List<SmerModel>();
+            List<int> smeroviId= context.predmetiPoSmeru.Where(m => m.predmetId == id).Select(m => m.smerId).ToList();
 
-            foreach (PremetPoSmeru predmetPoSmeru in predmetPoSmerovima)
+            List<int> smeroviModel = new List<int>();
+
+            foreach (int smerId in smeroviId)
             {
-                SmerModel smer = context.smerovi.Where(m => m.smerId == predmetPoSmeru.smerId).Single();
+                int smer = context.smerovi.Where(m => m.smerId == smerId).Select(m=>m.smerId).Single();
                 smeroviModel.Add(smer);
             }
 
