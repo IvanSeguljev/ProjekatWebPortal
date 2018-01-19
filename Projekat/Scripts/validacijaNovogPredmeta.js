@@ -1,9 +1,14 @@
 ﻿$(document).ready(function () {
 
-    $('.select2smerovi').select2({
+    $('#smerovi').select2({
         width: "auto",
         placeholder: "Odaberite smerove",
     });
+
+    var smerId = sessionStorage.getItem("smerId");
+    var smeroviInput = $('#smerovi');
+    smeroviInput.val(smerId);
+    smeroviInput.trigger('change');
 
     var isUploaded = sessionStorage.getItem('uploadPredmet');
     if (isUploaded) {
@@ -15,7 +20,7 @@
 
     $('#predmetForma').validate({
         rules: {
-            smeroviId: {
+            smerIds: {
                 required: true
             },
             "predmet.predmetNaziv": {
@@ -30,7 +35,7 @@
         },
 
         messages: {
-            smeroviId: {
+            smerIds: {
                 required: "Odaberite barem jedan smer."
             },
             "predmet.predmetNaziv": {
