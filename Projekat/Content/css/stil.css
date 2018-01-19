@@ -435,7 +435,10 @@ div.karticaTekts h2{
   /*white-space: nowrap;*/
   text-overflow: ellipsis;
   overflow: hidden;
-  height: 27px;
+  /*height: 27px;*/
+
+  min-height:26px;
+  max-height:51px;
 
 }
 
@@ -450,21 +453,30 @@ div.karticaTekts p.postavio{
 div.karticaTekts p.opis{
   font-size:14px;
   margin: 0 26px 14px 26px;
-  height: 64px;
+  /*height: 64px;*/
   overflow: hidden;
   text-overflow: ellipsis; 
+
+  min-height: 64px;
+  max-height: 64px;
 }
 
 div.kartica div.karticaTekts{
   display:inline-block;
   float:left;
+
+  position: relative;
 }
 
 div.kartica div.karticaTekts div.kontrole{
   width:100%;
-  height:41px;
+  /*height:41px;*/
   display:block;
   border-top:1px solid #e0e0e0;
+
+  height:47px;
+  position: absolute;
+  bottom: 0;
 }
 
 /*div.kartica div.karticaTekts div.kontrole a:first-child{
@@ -896,13 +908,19 @@ button#postavi:hover{
 @media screen and (max-width:1600px) {
     div.karticaTekts p.opis{
         margin: 0 26px 10px 26px;
-        height: 63px;
+        /*height: 63px;*/
+
+        min-height: 64px;
+        max-height: 84px;
     }
     div.karticaTekts h2{
         margin: 12px 26px 5px 26px;
         font-size: 20px;
-        height: 47px;
+        /*height: 47px;*/
         vertical-align:middle;
+
+        max-height: 46px;
+        min-height: 27px;
     }
     div.karticaTekts p.postavio{
         margin: 7px 26px 5px 26px;
@@ -1530,12 +1548,12 @@ pre {
 
 /*EDIT SMERA MODAL POCETAK*/
 
-#editModal .modal-dialog{
+#editModal .modal-dialog, .editModalPredmeta .modal-dialog{
     width: 646px;
 
 }
 
-/*#editModal button{
+/*#editModal button, .editModalPredmeta button{
     float:right;
     margin: 5px 0 0 0;
 }*/

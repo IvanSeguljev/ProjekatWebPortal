@@ -22,7 +22,7 @@
 
     function sakrijFormat() {
         sredinaSirina = $('#sredina').width();
-        console.log("（╯°□°）╯︵(\ .o.)\ sakrio/prikazao sam kartice" + "    sredina sirina je  " + sredinaSirina);
+        //console.log("（╯°□°）╯︵(\ .o.)\ sakrio/prikazao sam kartice" + "    sredina sirina je  " + sredinaSirina);
         if (sredinaSirina < 450) {
             $('.karticaFormat').css({ 'display': 'none', 'overflow': 'hidden' });
             $('.karticaTekts').css("width", "100%");
@@ -35,15 +35,51 @@
     setTimeout(sakrijFormat, 350); // ovaj  broj treba povecati ako se ne prikaze/sakrije materijal format na kartici pri loadu
     //sakrijFormat();
 
+    //RED MANJE OPISA KAD JE NASLOV U 2 REDA i OBRNUTO
+    function brojRedovaUopisuMat() {
+        //console.log($(window).width());
+        //console.log($('#69').find('h2').height());
+        $('.kartica').each(function () {
+
+            if ($(this).find('h2').height() > 28) {
+                if ($(window).width() > 1600) {
+                    $(this).find('.opis').css({ "min-height": "23px", "max-height": "44px"});
+                    //console.log($(this) + 'smanjio opis za red, ekran je veci od 1600');
+                }
+
+                else if ($(window).width() <= 1600) {
+                    $(this).find('.opis').css({ "min-height": "23px", "max-height": "60px"});
+                    //console.log($(this) + 'smanjio opis za red, ekran je manji od 1600');
+                }
+            }
+            else if ($(this).find('h2').height() < 28) {
+                if ($(window).width() > 1600) {
+                    $(this).find('.opis').css({ "min-height": "23px", "max-height": "63px" });
+                    //console.log($(this) + 'smanjio opis za red, ekran je veci od 1600');
+                }
+
+                else if ($(window).width() <= 1600) {
+                    $(this).find('.opis').css({ "min-height": "23px", "max-height": "83px" });
+                    //console.log($(this) + 'smanjio opis za red, ekran je manji od 1600');
+                }
+            }
+
+            else { console.log('nisam uradio nista'); }
+        });
+    }
+    setTimeout(brojRedovaUopisuMat(), 100);
+    
+
     $(window).on('resize', function () {
         sakrijFormat();
+        brojRedovaUopisuMat();
         //OVO ISPOD MENE BRISI
-        console.log(sredinaSirina + "(ಠ⌣ಠ)");
+        //console.log(sredinaSirina + "(ಠ⌣ಠ)");
 
         sredinaSirina = $('#sredina').width();
 
         triTackeKontrole();
-        //savrsena sirina za uslov je 1153px TAKODJE VAR UZIMA SIRINU BEZZ MARGINA I PADDINGA
+        //savrsena sirina za uslov je 1153px TAKODJE VAR UZIMA SIRINU BEZZ MARGINA I PADDINGA, OVO SLUZI ZA STAVLJANJE KARTICA U 2 REDA
         if (sredinaSirina < 958 && sredinaSirina > 754) {
             //$('div.kartica').css('width', '100%').css('width', '-=55px');
             $('div.kartica').css("width", "calc(100% - 68px)");
@@ -78,7 +114,6 @@
             $('#naprednaPretraga').css({ 'transform': 'translate(0, 0)', 'margin-bottom': '69px' });
         }
     });
-
 
     //trigger resiza da bi se resize funkcija za kartice runovala
     $(window).trigger('resize');

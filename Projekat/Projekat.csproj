@@ -350,6 +350,7 @@
     <Content Include="Content\fonts\Roboto-Regular.ttf" />
     <Content Include="Content\fonts\Roboto-Thin.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\breadCrumbsHardCode.js" />
     <Content Include="Scripts\brisanjeMaterijala.js" />
     <Content Include="Scripts\customDropdown.js" />
     <Content Include="Scripts\editPredmeta.js" />

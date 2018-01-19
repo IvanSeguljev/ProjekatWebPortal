@@ -30,14 +30,14 @@
         <div class="kartica-predmet clear-fix" id="@predmet.predmetId">
             <a class="naziv-predmeta-na-kartici" href="#">@predmet.predmetNaziv</a>
             <div class="kontrole clear-fix">
-                <a href="#" class="kontrola-ikonica edit" data-toggle="modal" data-target="#editModal"><img src="~/Content/img/uredi.png" alt="uredi" /></a>
+                <a href="#" class="kontrola-ikonica edit" data-toggle="modal" data-target="@("#editModal"+ predmet.predmetId)"><img src="~/Content/img/uredi.png" alt="uredi" /></a>
                 <a class="predmet-kontrole opis" href="#" data-toggle="modal" data-target="#opisModal">OPIS</a>
                 @Html.ActionLink("MATERIJALI", "MaterijaliPrikaz", "Materijal", new { id = predmet.predmetId }, new { @class = "predmet-kontrole getMaterijali", tabindex = predmet.predmetId })
             </div>
             <div class="opisPredmeta" style="display:none"><p>@predmet.predmetOpis</p></div>
         </div>
 
-        <div class="modal modal-edit fade" id="editModal" role="dialog">
+        <div class="modal modal-edit fade editModalPredmeta" id="@("editModal"+ predmet.predmetId)" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
