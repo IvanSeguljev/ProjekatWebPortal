@@ -11,12 +11,14 @@
     else
         $('#snackbar').css('display', 'none');
 
+    var smerId = $("#smerId").text();
+    sessionStorage.setItem("smerId", smerId);
+
     $('.edit').click(function () {
         $edit = $(this);
         var predmetId = $edit.parent().parent().attr('id');
         var predmetNaziv = $edit.parent().parent().find("a[class='naziv-predmeta-na-kartici']").text();
         var predmetOpis = $edit.parent().parent().find("div.opisPredmeta p").text();
-        var smerIds = [];
 
         $.ajax({
             method: 'GET',
@@ -28,6 +30,7 @@
                 var smeroviInput = $("#smeroviedit");
                 smeroviInput.val(data);
                 smeroviInput.trigger('change');
+                sessionStorage.setItem('smeroviId', smeroviInput.val());
             }
         });
 
