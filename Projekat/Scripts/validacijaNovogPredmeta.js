@@ -47,6 +47,14 @@
                 minlength: "Polje opis mora sadržati najmanje 5 karaktera.",
                 maxlength: "Polje opis može sadržati najviše 1000 karaktera."
             }
+        },errorPlacement: function (error, element) {
+            if (element.attr("name") == "smerIds") {
+                error.insertAfter(element.next());
+            }
+            else {
+                error.insertAfter(element);
+            }
+            
         },
         submitHandler: function (forma) {
             sessionStorage.setItem('uploadPredmet', true);
