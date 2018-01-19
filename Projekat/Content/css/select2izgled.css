@@ -103,3 +103,25 @@
 #predmetForma .select2-container--default .select2-selection--multiple{
     height:40px;
 }
+
+/*EDIT PREDMETA MODAL FORM POCETAK*/
+#editPredmeta{
+    height: 41px;
+}
+
+#editPredmeta .selection{
+    height: 48px;
+}
+
+#editPredmeta .select2-container--default .select2-selection--multiple{
+    height: 40px;
+}
+
+#editPredmeta .select2-container--default .select2-selection--multiple .select2-selection__rendered{
+    height: 35px;
+}
+
+#editPredmeta .select2-container--default .select2-selection--multiple .select2-selection__rendered li{
+    margin-top: 0;
+}
+/*EDIT PREDMETA MODAL FORM KRAJ*/
