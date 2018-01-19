@@ -43,6 +43,10 @@
     margin-top:9px;
 }
 
+#predmetForma .select2-container{
+    margin-bottom: 0px
+}
+
 .select2-container--default .select2-selection--multiple{
     height:20px;
 }
