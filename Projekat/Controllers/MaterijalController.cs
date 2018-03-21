@@ -12,6 +12,7 @@ using System.Web.Helpers;
 
 namespace Projekat.Controllers
 {
+    [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
     public class MaterijalController : Controller
     {
         private IMaterijalContext context;
@@ -26,6 +27,7 @@ namespace Projekat.Controllers
             context = Context;
         }
 
+
         // GET: Materijal
         public ActionResult Index()
         {
@@ -36,18 +38,19 @@ namespace Projekat.Controllers
         //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
         //
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int id = 0)
+        [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
+        public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int predmetId = 0)
         {
             List<OsiromaseniMaterijali> materijali;
 
             MaterijaliNaprednaPretragaViewModel vm;
 
 
-            materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
+            materijali = context.naprednaPretraga(formati, tipovi, predmetId).ToList();
 
             if (sort == "opadajuce")
             {
-                materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
+                materijali = context.naprednaPretraga(formati, tipovi, predmetId).ToList();
                 materijali.Reverse();
 
                 vm = new MaterijaliNaprednaPretragaViewModel
@@ -64,7 +67,7 @@ namespace Projekat.Controllers
             }
             else if (sort == "rastuce")
             {
-                materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
+                materijali = context.naprednaPretraga(formati, tipovi, predmetId).ToList();
 
                 vm = new MaterijaliNaprednaPretragaViewModel
                 {
@@ -90,6 +93,7 @@ namespace Projekat.Controllers
         }
         //kod ove akcije treba dodati punjenje tabele namena materijala
         [HttpGet]
+        [Authorize(Roles = "Profesor, Urednik, Administrator")]
         public ActionResult UploadMaterijal()
         {
             context = new MaterijalContext();
@@ -108,6 +112,7 @@ namespace Projekat.Controllers
 
         //kod ove akcije treba dodati punjenje tabele namena materijala
         [HttpPost]
+        [Authorize(Roles = "Profesor, Urednik, Administrator")]
         public ActionResult UploadMaterijal(MaterijalModel materijal, HttpPostedFileBase file, MaterijalModel model/*, string hiddenPredmet*/)
         {
 
@@ -146,6 +151,7 @@ namespace Projekat.Controllers
             }
         }
 
+        [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
         public FileContentResult DownloadMaterijal(int id)
         {
             MaterijalModel materijal = context.pronadjiMaterijalPoId(id);
@@ -158,7 +164,7 @@ namespace Projekat.Controllers
                 return null;
             }
         }
-
+        [Authorize(Roles = "Urednik, Administrator")]
         public ActionResult Delete(int id)
         {
             MaterijalModel materijal = context.pronadjiMaterijalPoId(id);
@@ -172,6 +178,7 @@ namespace Projekat.Controllers
         [HttpPost]
         //[ActionName("Delete")]
         //[Route("UploadMaterijal/DeleteConfirmed/{id:int}")]
+        [Authorize(Roles = "Urednik, Administrator")]
         public ActionResult DeleteConfirmed(int id)
         {
             MaterijalModel materijal;
@@ -200,7 +207,7 @@ namespace Projekat.Controllers
         //    return View("MaterijaliPrikaz", model);
 
         //}
-
+        [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
         public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id, ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
         {
 

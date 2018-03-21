@@ -8,6 +8,7 @@ using Projekat.ViewModels;
 
 namespace Projekat.Controllers
 {
+    [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
     public class PredmetController : Controller
     {
         private IMaterijalContext context;
@@ -19,6 +20,7 @@ namespace Projekat.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Urednik, Administrator")]
         public ActionResult DodajPredmet()
         {
 
@@ -32,6 +34,7 @@ namespace Projekat.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Urednik, Administrator")]
         public ActionResult DodajPredmet(DodajPremetViewModel viewModel)
         {
 
@@ -67,6 +70,7 @@ namespace Projekat.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Urednik, Administrator")]
         public ActionResult Edit(int smerId, List<int> smeroviId, string predmetNaziv, string predmetOpis, int predmetId)
         {
             context = new MaterijalContext();
@@ -136,6 +140,7 @@ namespace Projekat.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
         public ActionResult VratiSmerove(int id)
         {
             context = new MaterijalContext();
@@ -157,10 +162,11 @@ namespace Projekat.Controllers
 
         //GET: /Predmet/PredmetiPrikaz
         [HttpGet]
-        public ActionResult PredmetiPrikaz(int id)
+        [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
+        public ActionResult PredmetiPrikaz(int smerId)
         {
             context = new MaterijalContext();
-            List<PremetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
+            List<PremetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == smerId).ToList();
             List<PredmetModel> model = new List<PredmetModel>();
             List<PredmetModel> tempPredmet = context.predmeti.ToList();
             List<SmerModel> smerovi = context.smerovi.ToList();
@@ -176,7 +182,7 @@ namespace Projekat.Controllers
             {
                 predmeti = model,
                 smerovi = smerovi,
-                smerId = id
+                smerId = smerId
 
             };
 

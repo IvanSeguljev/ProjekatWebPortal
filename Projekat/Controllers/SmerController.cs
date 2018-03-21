@@ -7,6 +7,7 @@ using Projekat.Models;
 
 namespace Projekat.Controllers
 {
+   // [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
     public class SmerController : Controller
     {
         private IMaterijalContext context;
@@ -28,6 +29,7 @@ namespace Projekat.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Učenik, Profesor, Urednik, Administrator")]
         public ActionResult SmeroviPrikaz()
         {
             List<SmerModel> smeroviInDb;
@@ -39,6 +41,7 @@ namespace Projekat.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public ActionResult DodajSmer()
         {
             
@@ -46,7 +49,7 @@ namespace Projekat.Controllers
         }
 
         [HttpPost]
-
+        [Authorize(Roles = "Administrator")]
         public ActionResult DodajSmer(SmerModel smer)
         {   
             if (ModelState.IsValid)

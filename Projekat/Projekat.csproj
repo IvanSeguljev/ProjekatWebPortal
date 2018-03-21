@@ -77,6 +77,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcSiteMapProvider, Version=4.6.22.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.Core.4.6.22\lib\net45\MvcSiteMapProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator, Version=4.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC5.4.6.22\lib\net45\MvcSiteMapProvider.WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -129,6 +137,10 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -205,6 +217,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DropDownList_Optgroup.cs" />
+    <Compile Include="Helpers\SadrzajPoUlogama.cs" />
     <Compile Include="Migrations\ApplicationDbContext\DefaultConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\MaterijalContext\201709111150233_init.cs" />
@@ -250,6 +263,14 @@
     <Compile Include="Migrations\MaterijalContext\201801111127074_commit fetching db update.cs" />
     <Compile Include="Migrations\MaterijalContext\201801111127074_commit fetching db update.Designer.cs">
       <DependentUpon>201801111127074_commit fetching db update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201802121035267_ident.cs" />
+    <Compile Include="Migrations\MaterijalContext\201802121035267_ident.Designer.cs">
+      <DependentUpon>201802121035267_ident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201802131240091_dodavanjeRole.cs" />
+    <Compile Include="Migrations\MaterijalContext\201802131240091_dodavanjeRole.Designer.cs">
+      <DependentUpon>201802131240091_dodavanjeRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -349,6 +370,12 @@
     <Content Include="Content\fonts\Roboto-Medium.ttf" />
     <Content Include="Content\fonts\Roboto-Regular.ttf" />
     <Content Include="Content\fonts\Roboto-Thin.ttf" />
+    <Content Include="Mvc.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\brisanjeMaterijala.js" />
     <Content Include="Scripts\customDropdown.js" />
@@ -428,6 +455,14 @@
     <Content Include="Views\Predmet\DodajPredmet.cshtml" />
     <Content Include="Views\Predmet\PredmetiPrikaz.cshtml" />
     <Content Include="Views\Materijal\_Kartice.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -476,6 +511,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201801111127074_commit fetching db update.resx">
       <DependentUpon>201801111127074_commit fetching db update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201802121035267_ident.resx">
+      <DependentUpon>201802121035267_ident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201802131240091_dodavanjeRole.resx">
+      <DependentUpon>201802131240091_dodavanjeRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

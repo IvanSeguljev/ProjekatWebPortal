@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Projekat.Helpers
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -36,6 +37,7 @@
                 </div>
             </div>
         </div>*@
+    @*@if()*@
     <div id="hamburger-menu-toggle" class="hamburger-menu-toggle-otvoren">
         <div class="bar bar-top"></div>
         <div class="bar bar-middle"></div>
@@ -49,8 +51,15 @@
         <!-- Reseno -->
         <p id="Ime"> Jovana Nikolic</p>
         <p id="uloga">
-            administrator
+            @using Projekat.Models
+            @Html.Label("Urednik")
+
+@*@if(HttpContext.Current.User.Identity.ToString())*@
         </p>
+        
+        @if (HttpContext.Current.User.IsInRole("Administrator"))
+        {
+
         <ul class="ListaNav">
             <li class="naslov">
                 <div id="Cikica" class="slikaOdNaslova">
@@ -71,6 +80,8 @@
                 <p>Pretraga korisnika</p>
             </li>
         </ul>
+        }
+        
         <ul class="ListaNav" id="aktivnaSekcija">
             <li class="naslov">
                 <div id="Materijali" class="slikaOdNaslova">
@@ -96,7 +107,8 @@
                 </a>
             </li>
         </ul>
-        <ul class="ListaNav">
+        @if (HttpContext.Current.User.IsInRole("Administrator"))
+        {<ul class="ListaNav">
             <li class="naslov">
                 <div id="Novine" class="slikaOdNaslova">
                     <img src="~/Content/img/Novine.png" alt="slika1" />
@@ -127,10 +139,12 @@
                 </div>
                 <p>Novo</p>
             </li>
-        </ul>
+        </ul>}
     </div>
+    
     <div id="gornjaNavigacija"> 
-        <a id="nazad" href="#">
+        @Html.MvcSiteMap().SiteMapPath()
+        @*<a id="nazad" href="#">
             <img src="~/Content/img/back-strelica.png" alt="nazad">
         </a>
         <p>
@@ -147,11 +161,11 @@
         
         <img id="gornjeOpcije" src="~/Content/img/tri-tacke.png" alt="opcije">
 
-        @*<img class="gornjiNavIkonice" id="lupaPretragaToggle" src="~/Content/img/lupaPretraga.png" alt="pretraga" />*@
+        <img class="gornjiNavIkonice" id="lupaPretragaToggle" src="~/Content/img/lupaPretraga.png" alt="pretraga" />
 
         <div id="lupaWrap">
             <div id="search"></div>
-        </div>
+        </div>*@
 
     </div>
 

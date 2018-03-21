@@ -7,7 +7,8 @@
 
 
 <div id="sredina">
-
+@if (HttpContext.Current.User.IsInRole("Administrator") || HttpContext.Current.User.IsInRole("Urednik"))
+{
     <a id="novi-materijal" href="../Smer/DodajSmer">
         <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
             <g>
@@ -24,16 +25,19 @@
             </g>
         </svg>
     </a>
-
+}
 
     @foreach (var smer in Model.smerovi)
     {
         <div class="kartica-smer clear-fix"  id=@smer.smerId>
             <a class="naziv-smera-na-kartici" href="#">@smer.smerNaziv</a>
             <div class="kontrole clear-fix">
+                @if (HttpContext.Current.User.IsInRole("Administrator") || HttpContext.Current.User.IsInRole("Urednik"))
+                {
                 <a href="#" class="kontrola-ikonica edit" data-toggle="modal" data-target="#editModal"><img src="~/Content/img/uredi.png" alt="uredi" /></a>
+                }
                 <a class="predmet-kontrole opis" href="#" data-toggle="modal" data-target="#opisModal">OPIS</a>
-                @Html.ActionLink("PREDMETI", "PredmetiPrikaz", "Predmet", new { id = smer.smerId }, new { @class = "predmet-kontrole" })
+                @Html.ActionLink("PREDMETI", "PredmetiPrikaz", "Predmet", new { smerId = smer.smerId }, new { @class = "predmet-kontrole" })
                 @*   <a class="predmet-kontrole" tabindex="1" href="#">PREDMETI </a>*@
             </div>
             <div class="opisSmera" style="display:none"><p>@smer.smerOpis</p></div>

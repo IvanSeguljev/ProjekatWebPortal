@@ -2,37 +2,39 @@
 @using Projekat.Helpers;
 @{
     ViewBag.Title = "MaterijaliPrikaz";
-    
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/js")*@
-
-<a id="novi-materijal" href="@Url.Action("UploadMaterijal", "Materijal")">
-    <img src="~/Content/img/upload.png" alt="Novi materijal">
-</a>
+@if (HttpContext.Current.User.IsInRole("Administrator") || HttpContext.Current.User.IsInRole("Urednik"))
+{
+    <a id="novi-materijal" href="@Url.Action("UploadMaterijal", "Materijal")">
+        <img src="~/Content/img/upload.png" alt="Novi materijal">
+    </a>
+}
 <div id="sredina">
-    
-    
+
+
     <img id="banana" src="~/Content/img/potvrdaBrisanjaGIFGOTOV.gif" />
 
     <div id="naprednaPretraga">
         <label class="nasSelect2dropdown">Tip materijala</label>
 
         @*<select class="select2materijali" multiple="multiple" name="materijali">
-            <optgroup label="Tip materijala">
-                <option value="Domaci">Domaci</option>
-                <option value="Predavanje">Predavanje</option>
-                <option value="Vezbe">Vezbe</option>
-                <option value="Primeri">Primeri</option>
-            </optgroup>
-        </select>*@
-        @Html.DropDownListFor(m => m.tipMaterijala, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"), new { @class = "select2materijali" ,@multiple ="multiple", @name = "materijali" })
- 
+                <optgroup label="Tip materijala">
+                    <option value="Domaci">Domaci</option>
+                    <option value="Predavanje">Predavanje</option>
+                    <option value="Vezbe">Vezbe</option>
+                    <option value="Primeri">Primeri</option>
+                </optgroup>
+            </select>*@
+        @Html.DropDownListFor(m => m.tipMaterijala, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"), new { @class = "select2materijali", @multiple = "multiple", @name = "materijali" })
 
-        
+
+
 
         @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
 
@@ -40,32 +42,32 @@
 
         <label class="nasSelect2dropdown">Format materijala</label>
 
-        @Html.Raw(Html.DropDownOpt(m =>m.osiromaseniMaterijali, new SelectList(Model.osiromaseniMaterijali, "ekstenzija", "ekstenzija"), "OsiromaseniMaterijali"))
-        
-       @* Gadja se materijalEkstenzija jer nemamo posebnu tabelu za nju pa moramo filtrirati po stringu *@
+        @Html.Raw(Html.DropDownOpt(m => m.osiromaseniMaterijali, new SelectList(Model.osiromaseniMaterijali, "ekstenzija", "ekstenzija"), "OsiromaseniMaterijali"))
+
+        @* Gadja se materijalEkstenzija jer nemamo posebnu tabelu za nju pa moramo filtrirati po stringu *@
 
         @*<select class="select2formati" multiple="multiple" name="formati">
-            <optgroup label='Tekstualni'>
-                <option value="pdf">pdf</option>
-                <option value="docx">docx</option>
-                <option value="rtf">rtf</option>
-                <option value="txt">txt</option>
+                <optgroup label='Tekstualni'>
+                    <option value="pdf">pdf</option>
+                    <option value="docx">docx</option>
+                    <option value="rtf">rtf</option>
+                    <option value="txt">txt</option>
 
-            </optgroup>
+                </optgroup>
 
-            <optgroup label="Slike">
-                <option value="jpg">jpg</option>
-                <option value="gif">gif</option>
-                <option value="png">png</option>
-            </optgroup>
+                <optgroup label="Slike">
+                    <option value="jpg">jpg</option>
+                    <option value="gif">gif</option>
+                    <option value="png">png</option>
+                </optgroup>
 
-            <optgroup label="Ostali">
-                <option value="mp4">mp4</option>
-            </optgroup>
-        </select>*@
+                <optgroup label="Ostali">
+                    <option value="mp4">mp4</option>
+                </optgroup>
+            </select>*@
 
         @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
-        
+
         <select class="customDropdown datum" name="filterStarijeNovije">
             <option id="rastuce">Od starijeg ka novijem</option>
             <option id="opadajuce">Od novijeg ka starijem</option>
