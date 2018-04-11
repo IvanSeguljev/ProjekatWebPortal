@@ -9,11 +9,26 @@ using System.Web.Mvc;
 
 namespace Projekat.Models
 {
+    /// <summary>
+    /// NamenaMaterijala model class
+    /// </summary>
     public class NamenaMaterijalaModel
     {
+        /// <summary>
+        /// Gets or sets the identifier of namena materijala.
+        /// </summary>
+        /// <value>
+        /// The namena materijala identifier.
+        /// </value>
         [Key]
         public int namenaMaterijalaId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name of namena materijala.
+        /// </summary>
+        /// <value>
+        /// The namena materijala name.
+        /// </value>
         public string namenaMaterijalaNaziv { get; set; }
 
     }
