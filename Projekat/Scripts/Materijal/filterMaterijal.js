@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     $(".select2materijali, .select2formati").on("change", filterMaterijali);
-    $(".customLista li").on("click", filterMaterijali);
+    $("ul.customLista li").on("click", filterMaterijali);
+    //$(document).delegate(".customLista li", "click", filterMaterijali);
 
     function filterMaterijali() {
         var url = window.location.href;
@@ -67,7 +68,6 @@
                 tipovi = [];
                 formati = [];
                 sort = "";
-                //console.log(data);
                 $('.kartica').remove();
                 $('#sredina').append(data);
                 $('#sredina').css('filter', 'blur(0)');

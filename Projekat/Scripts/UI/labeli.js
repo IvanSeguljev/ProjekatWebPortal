@@ -9,7 +9,6 @@
         console.log("prazan sam input")}
     });
 
-
     $('input, textarea').on("keyup focus", function () {
 
         if ($(this).val().length === 0) {
@@ -31,6 +30,4 @@
             $(this).prev().filter(".matDesignLabel").css("color", "#6d6d6d");
         }
     });
-
-
 });

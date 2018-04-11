@@ -37,8 +37,6 @@
 
     //RED MANJE OPISA KAD JE NASLOV U 2 REDA i OBRNUTO
     function brojRedovaUopisuMat() {
-        //console.log($(window).width());
-        //console.log($('#69').find('h2').height());
         $('.kartica').each(function () {
 
             if ($(this).find('h2').height() > 28) {
@@ -63,7 +61,6 @@
                     //console.log($(this) + 'smanjio opis za red, ekran je manji od 1600');
                 }
             }
-
             else { console.log('nisam uradio nista'); }
         });
     }
@@ -73,8 +70,6 @@
     $(window).on('resize', function () {
         sakrijFormat();
         brojRedovaUopisuMat();
-        //OVO ISPOD MENE BRISI
-        //console.log(sredinaSirina + "(ಠ⌣ಠ)");
 
         sredinaSirina = $('#sredina').width();
 

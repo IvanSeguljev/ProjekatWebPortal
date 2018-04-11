@@ -38,13 +38,6 @@
 
     //$(window).trigger('resize');
 
-
-
-
-
-
-
-
     //ako ne radi brisi sve ispod mene do komentara kraj
     function zatvaranje() {
         $('.hamburger-menu-toggle-otvoren').removeClass('hamburger-menu-toggle-otvoren');
@@ -171,8 +164,5 @@
         $('#gornjaNavigacija').css("transition", ".3s ease-in-out");
         $('.LeftBar:first').css('transition', 'width .3s ease-in-out, left .3s ease-in-out');
     }, 2000);
-
-
-
 });
 

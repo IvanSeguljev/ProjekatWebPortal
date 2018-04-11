@@ -2,70 +2,26 @@
 @using Projekat.Helpers;
 @{
     ViewBag.Title = "MaterijaliPrikaz";
-    
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/js")*@
 
 <a id="novi-materijal" href="@Url.Action("UploadMaterijal", "Materijal")">
     <img src="~/Content/img/upload.png" alt="Novi materijal">
 </a>
 <div id="sredina">
-    
-    
+
     <img id="banana" src="~/Content/img/potvrdaBrisanjaGIFGOTOV.gif" />
 
     <div id="naprednaPretraga">
         <label class="nasSelect2dropdown">Tip materijala</label>
 
-        @*<select class="select2materijali" multiple="multiple" name="materijali">
-            <optgroup label="Tip materijala">
-                <option value="Domaci">Domaci</option>
-                <option value="Predavanje">Predavanje</option>
-                <option value="Vezbe">Vezbe</option>
-                <option value="Primeri">Primeri</option>
-            </optgroup>
-        </select>*@
-        @Html.DropDownListFor(m => m.tipMaterijala, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"), new { @class = "select2materijali" ,@multiple ="multiple", @name = "materijali" })
- 
-
-        
-
-        @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
-
-        @*  @Html.DropDownListFor(m => m.naprednaPretragaSelektovani, new SelectList(Model.materijali), new { @class = "select2formati", @multiple = "multiple", @name ="formati" })*@
+        @Html.DropDownListFor(m => m.tipMaterijala, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"), new { @class = "select2materijali", @multiple = "multiple", @name = "materijali" })
 
         <label class="nasSelect2dropdown">Format materijala</label>
 
-        @Html.Raw(Html.DropDownOpt(m =>m.osiromaseniMaterijali, new SelectList(Model.osiromaseniMaterijali, "ekstenzija", "ekstenzija"), "OsiromaseniMaterijali"))
-        
-       @* Gadja se materijalEkstenzija jer nemamo posebnu tabelu za nju pa moramo filtrirati po stringu *@
+        @Html.Raw(Html.DropDownOpt(m => m.osiromaseniMaterijali, new SelectList(Model.osiromaseniMaterijali, "ekstenzija", "ekstenzija"), "OsiromaseniMaterijali"))
 
-        @*<select class="select2formati" multiple="multiple" name="formati">
-            <optgroup label='Tekstualni'>
-                <option value="pdf">pdf</option>
-                <option value="docx">docx</option>
-                <option value="rtf">rtf</option>
-                <option value="txt">txt</option>
-
-            </optgroup>
-
-            <optgroup label="Slike">
-                <option value="jpg">jpg</option>
-                <option value="gif">gif</option>
-                <option value="png">png</option>
-            </optgroup>
-
-            <optgroup label="Ostali">
-                <option value="mp4">mp4</option>
-            </optgroup>
-        </select>*@
-
-        @* //TEMP// ovde cu da bindujem sa bazom //TEMP// *@
-        
         <select class="customDropdown datum" name="filterStarijeNovije">
             <option id="rastuce">Od starijeg ka novijem</option>
             <option id="opadajuce">Od novijeg ka starijem</option>
@@ -73,17 +29,6 @@
 
         <img id="asc-desc" src="~/Content/img/sort.png" alt="asc/desc" />
 
-    </div>
-    <div class="sk-cube-grid">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
     </div>
 
     @Html.Partial("_Kartice", Model)
@@ -108,10 +53,4 @@
     </div>
 </div>
 
-@Scripts.Render("~/bundles/materijal")
-@Scripts.Render("~/Scripts/select2.min.js")
-@Scripts.Render("~/Scripts/customDropdown.js")
-@Scripts.Render("~/Scripts/filterMaterijal.js")
-@Scripts.Render("~/Scripts/brisanjeMaterijala.js")
-@Scripts.Render("~/Scripts/asc-desc-strelica.js")
-@Scripts.Render("~/Scripts/lupauX.js")
+@Scripts.Render("~/bundles/materijal_prikaz")

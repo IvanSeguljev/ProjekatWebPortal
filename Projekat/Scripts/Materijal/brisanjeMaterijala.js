@@ -19,7 +19,6 @@
         $('button.btn-default:first').click(function () {
             $.ajax({
                 url: '/Materijal/DeleteConfirmed',
-                //url: '@Url.Action("DeleteConfirmed", "Materijal")' + "/?id=" + id,
                 method: 'post',
                 data:{ id: id },
                 complete: function () {
@@ -30,5 +29,4 @@
             });
         });
     });
-
 });

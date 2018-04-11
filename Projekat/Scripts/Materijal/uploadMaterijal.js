@@ -7,7 +7,6 @@
     else
         $("#Materijal_predmetId").val($('#Materijal_predmetId option').first().val());
 
-
     var isUploaded = sessionStorage.getItem('upload');
 
     if (isUploaded) {

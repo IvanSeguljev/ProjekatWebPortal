@@ -6,7 +6,6 @@
         var customSelect = '<div class="customSelect" id="trenutnoPravim"> <div class="izabraniUselectu"> <span>' +
             $(this).find("option:selected").text() + '</span> <div class="trougao"></div> </div> <ul class="customLista"></ul> </div>';
 
-
         $(this).after(customSelect);
 
         var arrayLijeva = $(this).find($('option')).toArray();
@@ -15,18 +14,13 @@
             $('#trenutnoPravim ul.customLista').append(($('<li></li>').text($(this).text())));
         });
 
-
         var lista = $('.customLista li');
-
 
         $('#trenutnoPravim').removeAttr('id');
     });
 
-
     $(".customLista").each(function () {
         var sirinaListe = parseFloat($(this).css('width'));
-
-        console.log(sirinaListe + " ovo je sirinaListe");
 
         $(this).css("width", sirinaListe + 42 + "px");
         $(this).parent().css("width", $(this).css("width"));
@@ -55,19 +49,18 @@
     });
 
     //pokusaj zatvaranja customdropdowna na klik negde drugde
-   /* $('body').click(function () {
-        if ($(".customLista").css('display', 'block')) { 
-            var otvoreniCustomDropdownovi = $('.customLista').filter(function(){
-                return $(this).css("display") === 'block'
-            });
-
-            console.log(otvoreniCustomDropdownovi);
-
-            otvoreniCustomDropdownovi.slideToggle(200);
-
-        }
-    });*/
-
+    /* $('body').click(function () {
+         if ($(".customLista").css('display', 'block')) { 
+             var otvoreniCustomDropdownovi = $('.customLista').filter(function(){
+                 return $(this).css("display") === 'block'
+             });
+ 
+             console.log(otvoreniCustomDropdownovi);
+ 
+             otvoreniCustomDropdownovi.slideToggle(200);
+ 
+         }
+     });*/
 
     $(document).click(function (e) {
         if ($(e.target).closest('.customSelect').length === 0) {
@@ -80,14 +73,10 @@
 
             var trougloviOtvorenihDorpdownova = otvoreniCustomDropdownovi.siblings('.izabraniUselectu').find(".trougao");
 
-
             otvoreniCustomDropdownovi.slideUp();
             trougloviOtvorenihDorpdownova.toggleClass("rotate");
             otvoreniCustomDropdownovi.siblings('.izabraniUselectuHighlightovan').removeClass("izabraniUselectuHighlightovan");
             otvoreniCustomDropdownovi.parent(".customSelectHighlightovan").removeClass("customSelectHighlightovan");
         }
-        
     });
-
-
 });

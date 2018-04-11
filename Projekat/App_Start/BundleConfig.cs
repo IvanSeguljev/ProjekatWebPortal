@@ -11,28 +11,30 @@ namespace Projekat
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+
+            // "~/Scripts/jquery.validate*"
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                "~/Scripts/jquery.validate.min.js"));
 
             //dodato za upload fajla
-            bundles.Add(new ScriptBundle("~/bundles/js").Include(
-                        "~/Scripts/hamburger.js",
-                        "~/Scripts/VracanjeID.js",
-                        "~/Scripts/loading.js"
-                        ));
+            //bundles.Add(new ScriptBundle("~/bundles/js").Include(
+            //            "~/Scripts/hamburger.js",
+            //            "~/Scripts/VracanjeID.js",
+            //            "~/Scripts/loading.js"
+            //            ));
 
-            bundles.Add(new ScriptBundle("~/bundles/jsFile").Include(
-                        "~/Scripts/uploadNaziv.js"
-                        ));
-            bundles.Add(new ScriptBundle("~/bundles/smer").Include(
-                        "~/Scripts/modalOpisSmer.js"
-                        ));
+            //bundles.Add(new ScriptBundle("~/bundles/jsFile").Include(
+            //            "~/Scripts/uploadNaziv.js"
+            //            ));
+            //bundles.Add(new ScriptBundle("~/bundles/smer").Include(
+            //            "~/Scripts/modalOpisSmer.js"
+            //            ));
 
-            bundles.Add(new ScriptBundle("~/bundles/materijal").Include(
-                        "~/Scripts/kontroleRespMaterijaliPrikaz.js",
-                        "~/Scripts/brisanjeMaterijala.js",
-                        "~/Scripts/jquery-ui.min.js"
-                        ));
+            //bundles.Add(new ScriptBundle("~/bundles/materijal").Include(
+            //            "~/Scripts/kontroleRespMaterijaliPrikaz.js",
+            //            "~/Scripts/brisanjeMaterijala.js",
+            //            "~/Scripts/jquery-ui.min.js"
+            //            ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -43,6 +45,49 @@ namespace Projekat
                       "~/Scripts/bootstrap.js",
                       //"~/Scripts/bootbox.js",
                       "~/Scripts/respond.js"));
+
+
+            /* OVO SU NOVO DODATI BUNDLOVI */
+
+            bundles.Add(new ScriptBundle("~/bundles/materijal_prikaz").Include(
+                       "~/Scripts/Materijal/brisanjeMaterijala.js",
+                       "~/Scripts/Materijal/filterMaterijal.js",
+                       "~/Scripts/customDropdown.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/upload_materijal").Include(
+            "~/Scripts/Materijal/uploadMaterijal.js",
+            "~/Scripts/Materijal/smerPredmetDropdown.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/predmet_prikaz").Include(
+             "~/Scripts/Predmet/editPredmeta.js",
+             "~/Scripts/Predmet/modalOpisPredmet.js",
+             "~/Scripts/Predmet/validacijaEditPredmeta.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/novi_predmet").Include(
+             "~/Scripts/Predmet/validacijaNovogPredmeta.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/smer_prikaz").Include(
+                "~/Scripts/Smer/editSmera.js",
+                "~/Scripts/Smer/modalOpisSmer.js",
+                "~/Scripts/Smer/validacijaEditSmera.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/novi_smer").Include(
+             "~/Scripts/Smer/validacijaNovogSmera.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/ui").IncludeDirectory(
+                      "~/Scripts/UI", "*.js", true)
+                      );
+            bundles.Add(new ScriptBundle("~/bundles/shared").IncludeDirectory(
+                      "~/Scripts/Shared", "*.js", true)
+                      );
+            /* KRAJ NOVIH CISTIH */
+
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/reset.css",

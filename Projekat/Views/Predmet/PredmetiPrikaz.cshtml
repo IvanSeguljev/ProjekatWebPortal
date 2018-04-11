@@ -3,9 +3,7 @@
 @{
     ViewBag.Title = "PredmetiPrikaz";
 }
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/bundles/js")
+
 <div id="sredina">
 
     <a id="novi-materijal" href="/Predmet/DodajPredmet">
@@ -50,7 +48,7 @@
                         @using (Html.BeginForm("Edit", "Predmet", FormMethod.Post, new { @id = "editPredmeta" }))
                         {
 
-                            @Html.DropDownListFor(p => p.smeroviId, new SelectList(Model.smerovi, "smerId", "smerNaziv"), new { @multiple = @"multiple", @class = "select2smerovi", @id="smeroviedit" })
+                            @Html.DropDownListFor(p => p.smeroviId, new SelectList(Model.smerovi, "smerId", "smerNaziv"), new { @multiple = @"multiple", @class = "select2smerovi", @id = "smeroviedit" })
 
                             @Html.HiddenFor(p => p.predmetId, new { @id = @"predmetId", @name = "predmetId" })
                             @Html.HiddenFor(p => p.smerId, new { @id = @"smerId", @name = "smerId" })
@@ -96,12 +94,5 @@
 
 
 </div>
-@Scripts.Render("~/Scripts/labeli.js")
-@Scripts.Render("~/Scripts/labeliEditPredmeta.js")
-@Scripts.Render("~/Scripts/jquery.validate.min.js")
-@Scripts.Render("~/Scripts/select2.min.js")
-@Scripts.Render("~/Scripts/editPredmeta.js")
-@Scripts.Render("~/Scripts/AutoHeightTextarea.js")
-@Scripts.Render("~/Scripts/modalOpisPredmet.js")
-@Scripts.Render("~/Scripts/validacijaEditPredmeta.js")
 
+@Scripts.Render("~/bundles/predmet_prikaz")

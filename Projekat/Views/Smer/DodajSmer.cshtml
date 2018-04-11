@@ -13,13 +13,8 @@
         @Html.TextAreaFor(m => m.smerOpis, new { @name = "smerOpis" });
 
         <button type="submit" id="postavi">POSTAVI</button>
-
     }
     <div id="snackbar"><span>Smer uspešno dodat!</span></div>
 </div>
 
-@Scripts.Render("~/Scripts/labeli.js")
-@Scripts.Render("~/Scripts/jquery.validate.min.js")
-@Scripts.Render("~/Scripts/validacijaNovogSmera.js")
-
-
+@Scripts.Render("~/bundles/novi_smer")

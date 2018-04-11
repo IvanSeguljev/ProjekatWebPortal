@@ -1,6 +1,5 @@
 ﻿$(document).ready(function () {
     $('.edit').on("click", function () {
-        console.log('radi nova sskripta');
         setTimeout(
               function () {
                   $('input, textarea').each(function () {
@@ -13,9 +12,5 @@
                       }
                   });
               }, 200);
-        
-
-
     });
-
 });

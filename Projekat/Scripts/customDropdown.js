@@ -91,8 +91,6 @@
     });
 
 
-
-
     $(".customSelect li").click(function () {
         var kliknutiTekst = $(this).text();
         $(this).parent().siblings("div").find('span').text($(this).text());
@@ -103,7 +101,6 @@
     });
 
     $('.select2materijali').on('select2:unselect', function () {
-        //console.log("YAHOO");
         $(this).delay(800).select2("close");
     });
 
@@ -139,7 +136,4 @@
         }
 
     });*/
-
-
-
 });

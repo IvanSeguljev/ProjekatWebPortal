@@ -4,11 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@Scripts.Render("~/bundles/js")  @*Sluzi za postavljanje imena fajla kada isti bude izabran.*@
-@Scripts.Render("~/bundles/jsFile")
-
 <style>
     .file {
         visibility: hidden;
@@ -27,13 +22,12 @@
 
         <label for="opis" class="matDesignLabel">Opis</label>
 
-        @Html.TextAreaFor(model => model.Materijal.materijalOpis, 2, 20, new { @id = @"materijalOpis", @name="materijalOpis" })
+        @Html.TextAreaFor(model => model.Materijal.materijalOpis, 2, 20, new { @id = @"materijalOpis", @name = "materijalOpis" })
         <div id="dropDownovi">
             @Html.DropDownListFor(m => m.Materijal.predmetId, new SelectList(Model.Predmeti, "predmetId", "predmetNaziv"), new { @class = "customDropdown" })
             @Html.DropDownListFor(m => m.Materijal.tipMaterijalId, new SelectList(Model.tipoviMaterijala, "tipMaterijalId", "nazivTipMaterijal"), new { @class = "customDropdown" })
             @Html.DropDownListFor(m => m.Materijal.namenaMaterijalaId, new SelectList(Model.nameneMaterijala, "namenaMaterijalaId", "namenaMaterijalaNaziv"), new { @class = "customDropdown", @selected = "selected" })
         </div>
-
 
         <button type="submit" id="postavi">
             POSTAVI
@@ -41,18 +35,9 @@
 
     }
 
-
     <div id="snackbar"><span>Materijal uspešno postavljen!</span></div>
-
-
 </div>
 
-@Scripts.Render("~/Scripts/hamburger.js")
-@Scripts.Render("~/Scripts/labeli.js")
-
-@Scripts.Render("~/Scripts/jquery.validate.min.js")
-@Scripts.Render("~/Scripts/jquery.validate.file.js")
+@Scripts.Render("~/bundles/upload_materijal")
+@*@Scripts.Render("~/Scripts/jquery.validate.file.js")*@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-
-@Scripts.Render("~/Scripts/uploadMaterijal.js")
-@Scripts.Render("~/Scripts/smerPredmetDropdown.js")

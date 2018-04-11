@@ -4,8 +4,6 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <div id="sredina">
 
     <a id="novi-materijal" href="../Smer/DodajSmer">
@@ -24,7 +22,6 @@
             </g>
         </svg>
     </a>
-
 
     @foreach (var smer in Model.smerovi)
     {
@@ -61,7 +58,6 @@
 
     <div class="modal modal-edit fade" id="editModal" role="dialog">
         <div class="modal-dialog">
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -82,7 +78,6 @@
                         <button  class="btn btn-default" type="submit" id="submitEdit">
                             Potvrdi izmene
                         </button>
-                        
                     }
                 </div>
                 <div class="modal-footer">
@@ -94,12 +89,5 @@
     </div>
 
     <div id="snackbar"><span>Smer uspešno izmenjen!</span> <button type="button">UNDO</button></div>
-
-
 </div>
-
-@Scripts.Render("~/Scripts/editSmera.js")
-@*@Scripts.Render("~/Scripts/labeli.js")*@
-@Scripts.Render("~/Scripts/modalOpisSmer.js")
-@Scripts.Render("~/Scripts/jquery.validate.min.js")
-@Scripts.Render("~/Scripts/validacijaEditSmera.js")
+@Scripts.Render("~/bundles/smer_prikaz")

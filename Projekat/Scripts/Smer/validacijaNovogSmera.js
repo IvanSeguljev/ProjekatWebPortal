@@ -37,7 +37,5 @@
             sessionStorage.setItem('uploadSmer', true);
             forma.submit();
         }
-
     }); 
-
 });
