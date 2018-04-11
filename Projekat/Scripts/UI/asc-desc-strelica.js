@@ -11,7 +11,7 @@
         $(this).closest('.customSelect').find('.customLista li:contains(' + klinkutValueAscDesc + ')').css("background-color", "#eee");
 
         if ($(this).closest(".customSelect").prev().filter(".datum").val() === 'Od novijeg ka starijem') {
-            //console.log("od novijeg, strelica gore")
+            //console.log("od novijeg, strelica gore.")
             $(this).closest(".customSelect").next().filter("#asc-desc").css("transform", "translate(11px,0) rotate(90deg)");
 
         } else {
