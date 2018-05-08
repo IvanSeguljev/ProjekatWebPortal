@@ -5,19 +5,46 @@ using System.Web.Mvc;
 
 namespace Projekat.Models
 {
+    /// <summary>
+    /// Material class
+    /// </summary>
     public class MaterijalModel
     {
+        /// <summary>
+        /// Gets or sets the materijal identifier.
+        /// </summary>
+        /// <value>
+        /// The materijal identifier.
+        /// </value>
         [Key]
         public int materijalId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the materijal file.
+        /// </summary>
+        /// <value>
+        /// The materijal file.
+        /// </value>
         [DisplayName("Materijal")]
         [MaxLength]
         public byte[] materijalFile { get; set; }
 
+        /// <summary>
+        /// Gets or sets the type of the file MIME.
+        /// </summary>
+        /// <value>
+        /// The type of the file MIME.
+        /// </value>
         [HiddenInput(DisplayValue = false)]
         public string fileMimeType { get; set; }
 
         //[DataType(DataType.MultilineText)]
+        /// <summary>
+        /// Gets or sets the materijal description.
+        /// </summary>
+        /// <value>
+        /// The materijal description.
+        /// </value>
         public string materijalOpis { get; set; }
 
         //[DataType(DataType.DateTime)]
@@ -32,11 +59,35 @@ namespace Projekat.Models
         //  public int predmetId { get; set; }
 
 
+        /// <summary>
+        /// Gets or sets the materijal extension.
+        /// </summary>
+        /// <value>
+        /// The materijal extension.
+        /// </value>
         public string materijalEkstenzija { get; set; }
 
+        /// <summary>
+        /// Gets or sets the materijal name.
+        /// </summary>
+        /// <value>
+        /// The materijal name.
+        /// </value>
         public string materijalNaziv { get; set; }
+        /// <summary>
+        /// Gets or sets the materijal heading.
+        /// </summary>
+        /// <value>
+        /// The materijal heading.
+        /// </value>
         public string materijalNaslov { get; set; }
 
+        /// <summary>
+        /// Gets the image path.
+        /// </summary>
+        /// <value>
+        /// The image path.
+        /// </value>
         public string ImgPath
         {
             get
@@ -64,19 +115,55 @@ namespace Projekat.Models
             }
         }
 
+        /// <summary>
+        /// Gets or sets the predmet model.
+        /// </summary>
+        /// <value>
+        /// The predmet model.
+        /// </value>
         public PredmetModel PredmetModel { get; set; }
 
+        /// <summary>
+        /// Gets or sets the predmet identifier.
+        /// </summary>
+        /// <value>
+        /// The predmet identifier.
+        /// </value>
         [ForeignKey("PredmetModel")]
         public int predmetId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the tip materijal model.
+        /// </summary>
+        /// <value>
+        /// The tip materijal model.
+        /// </value>
         public TipMaterijalModel TipMaterijalModel { get; set; }
 
 
+        /// <summary>
+        /// Gets or sets the tip materijal identifier.
+        /// </summary>
+        /// <value>
+        /// The tip materijal identifier.
+        /// </value>
         [ForeignKey("TipMaterijalModel")]
         public int tipMaterijalId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the namena materijala model.
+        /// </summary>
+        /// <value>
+        /// The namena materijala model.
+        /// </value>
         public NamenaMaterijalaModel NamenaMaterijalaModel { get; set; }
 
+        /// <summary>
+        /// Gets or sets the namena materijala identifier.
+        /// </summary>
+        /// <value>
+        /// The namena materijala identifier.
+        /// </value>
         [ForeignKey("NamenaMaterijalaModel")]
         public int namenaMaterijalaId { get; set; }
     }

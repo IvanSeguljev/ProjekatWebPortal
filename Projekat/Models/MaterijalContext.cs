@@ -7,15 +7,58 @@ using Projekat.ViewModels;
 
 namespace Projekat.Models
 {
+    /// <summary>
+    /// MaterijalContext class
+    /// </summary>
+    /// <seealso cref="Projekat.Models.ApplicationDbContext" />
+    /// <seealso cref="Projekat.Models.IMaterijalContext" />
     public class MaterijalContext : ApplicationDbContext, IMaterijalContext
     {
+        /// <summary>
+        /// Gets the queryable data source for materijali.
+        /// </summary>
+        /// <value>
+        /// Queryable selection of MaterijalModel Classes.
+        /// </value>
         public DbSet<MaterijalModel> materijali { get; set; }
+        /// <summary>
+        /// Gets the queryable data source for predmeti.
+        /// </summary>
+        /// <value>
+        /// The queryable selection of PredmetModelClasses.
+        /// </value>
         public DbSet<PredmetModel> predmeti { get; set; }
+        /// <summary>
+        /// Gets the queryable data source for smerovi.
+        /// </summary>
+        /// <value>
+        /// The queryable selection of SmerModel Classes.
+        /// </value>
         public DbSet<SmerModel> smerovi { get; set; }
+        /// <summary>
+        /// Gets the queryable data source for NamenaMaterijala.
+        /// </summary>
+        /// <value>
+        /// The queryable selection of NamenaMaterijalaModel Classes.
+        /// </value>
         public DbSet<NamenaMaterijalaModel> nameneMaterijala { get; set; }
+        /// <summary>
+        /// Gets the queryable data source for PredmetiPoSmeru.
+        /// </summary>
+        /// <value>
+        /// The queryable selection of PredmetPoSmeru Classes.
+        /// </value>
         public DbSet<PremetPoSmeru> predmetiPoSmeru { get; set; }
+        /// <summary>
+        /// Gets the queryable data source for TipMaterijala.
+        /// </summary>
+        /// <value>
+        /// The queryable selection of TipMaterijala Classes.
+        /// </value>
         public DbSet<TipMaterijalModel> tipMaterijala { get; set; }
 
+
+        
         IQueryable<MaterijalModel> IMaterijalContext.materijali
         {
             get { return materijali; }
