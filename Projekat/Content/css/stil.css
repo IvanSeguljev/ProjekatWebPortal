@@ -326,10 +326,13 @@ li#aktivan p{
   color:#c21b22;
 }
 
-ul#aktivnaSekcija{
+ul.aktivnaSekcija{
   background-color:#edeff0;
 }
 
+ul.neaktivnaSekcija{
+  background-color:#fff;
+}
 
 
 

@@ -383,6 +383,7 @@
     <Content Include="Scripts\Smer\validacijaEditSmera.js" />
     <Content Include="Scripts\Predmet\validacijaNovogPredmeta.js" />
     <Content Include="Scripts\Smer\validacijaNovogSmera.js" />
+    <Content Include="Scripts\UI\sideBarSections.js" />
     <Content Include="Scripts\UI\VracanjeID.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
