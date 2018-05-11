@@ -15,13 +15,29 @@ namespace Projekat.Migrations.MaterijalContext
                         materijalFile = c.Binary(),
                         fileMimeType = c.String(),
                         materijalOpis = c.String(),
-                        predmetId = c.Int(nullable: false),
                         materijalEkstenzija = c.String(),
                         materijalNaziv = c.String(),
+                        materijalNaslov = c.String(),
+                        predmetId = c.Int(nullable: false),
+                        tipMaterijalId = c.Int(nullable: false),
+                        namenaMaterijalaId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.materijalId)
+                .ForeignKey("dbo.NamenaMaterijalaModels", t => t.namenaMaterijalaId, cascadeDelete: true)
                 .ForeignKey("dbo.PredmetModels", t => t.predmetId, cascadeDelete: true)
-                .Index(t => t.predmetId);
+                .ForeignKey("dbo.TipMaterijalModels", t => t.tipMaterijalId, cascadeDelete: true)
+                .Index(t => t.predmetId)
+                .Index(t => t.tipMaterijalId)
+                .Index(t => t.namenaMaterijalaId);
+            
+            CreateTable(
+                "dbo.NamenaMaterijalaModels",
+                c => new
+                    {
+                        namenaMaterijalaId = c.Int(nullable: false, identity: true),
+                        namenaMaterijalaNaziv = c.String(),
+                    })
+                .PrimaryKey(t => t.namenaMaterijalaId);
             
             CreateTable(
                 "dbo.PredmetModels",
@@ -32,6 +48,15 @@ namespace Projekat.Migrations.MaterijalContext
                         predmetOpis = c.String(),
                     })
                 .PrimaryKey(t => t.predmetId);
+            
+            CreateTable(
+                "dbo.TipMaterijalModels",
+                c => new
+                    {
+                        tipMaterijalId = c.Int(nullable: false, identity: true),
+                        nazivTipMaterijal = c.String(),
+                    })
+                .PrimaryKey(t => t.tipMaterijalId);
             
             CreateTable(
                 "dbo.PremetPoSmerus",
@@ -128,7 +153,37 @@ namespace Projekat.Migrations.MaterijalContext
         
         public override void Down()
         {
-           
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.PremetPoSmerus", "smerId", "dbo.SmerModels");
+            DropForeignKey("dbo.PremetPoSmerus", "predmetId", "dbo.PredmetModels");
+            DropForeignKey("dbo.MaterijalModels", "tipMaterijalId", "dbo.TipMaterijalModels");
+            DropForeignKey("dbo.MaterijalModels", "predmetId", "dbo.PredmetModels");
+            DropForeignKey("dbo.MaterijalModels", "namenaMaterijalaId", "dbo.NamenaMaterijalaModels");
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.PremetPoSmerus", new[] { "smerId" });
+            DropIndex("dbo.PremetPoSmerus", new[] { "predmetId" });
+            DropIndex("dbo.MaterijalModels", new[] { "namenaMaterijalaId" });
+            DropIndex("dbo.MaterijalModels", new[] { "tipMaterijalId" });
+            DropIndex("dbo.MaterijalModels", new[] { "predmetId" });
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetRoles");
+            DropTable("dbo.SmerModels");
+            DropTable("dbo.PremetPoSmerus");
+            DropTable("dbo.TipMaterijalModels");
+            DropTable("dbo.PredmetModels");
+            DropTable("dbo.NamenaMaterijalaModels");
+            DropTable("dbo.MaterijalModels");
         }
     }
 }

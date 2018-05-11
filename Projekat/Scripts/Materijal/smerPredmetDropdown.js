@@ -1,6 +1,10 @@
 ﻿$(document).ready(function () {
 
     brojKlikovaNaLupu = 0;
+    //na load dokumenta setuj select i li osluskuje
+    //na klik lija select osluskuje
+
+    $(".customSelect").val($(this).attr('id'));
 
     $(".customDropdown").each(function () {
         var customSelect = '<div class="customSelect" id="trenutnoPravim"> <div class="izabraniUselectu"> <span>' +
@@ -9,9 +13,15 @@
         $(this).after(customSelect);
 
         var arrayLijeva = $(this).find($('option')).toArray();
+        var nameneId = $('.customSelect').find($('option')).toArray();
 
+        
         $.each(arrayLijeva, function () {
-            $('#trenutnoPravim ul.customLista').append(($('<li></li>').text($(this).text())));
+            $('#trenutnoPravim ul.customLista').append(($('<li ></li>').text($(this).text())));
+        });
+
+        $.each(nameneId, function (index) {
+            $('#trenutnoPravim ul.customLista li').attr('id', index);
         });
 
         var lista = $('.customLista li');
@@ -35,9 +45,11 @@
         $(this).find($(".izabraniUselectu .trougao")).toggleClass("rotate");
     });
 
-
     $(".customSelect li").click(function () {
         var kliknutiTekst = $(this).text();
+
+        $(".customSelect").val();
+
         $(this).parent().siblings("div").find('span').text($(this).text());
         //$(this).parent().parent().prev().find($("option").removeAttr('selected'));
         $(this).parent().parent().prev().find($("option").filter(function () {

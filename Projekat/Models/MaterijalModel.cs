@@ -130,7 +130,7 @@ namespace Projekat.Models
         /// The predmet identifier.
         /// </value>
         [ForeignKey("PredmetModel")]
-        public int predmetId { get; set; }
+        public int? predmetId { get; set; }
 
         /// <summary>
         /// Gets or sets the tip materijal model.

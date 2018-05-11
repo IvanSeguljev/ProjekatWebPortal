@@ -101,7 +101,7 @@ namespace Projekat.Models
         /// <returns>
         /// Queryable selection of OsirommaseniMaterijaliModel Classes.
         /// </returns>
-        IQueryable<OsiromaseniMaterijali> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds, int predmetId);
+        IQueryable<OsiromaseniMaterijali> naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds, int? predmetId,int namena);
 
         /// <summary>
         /// Gets the queryable data source for PoPredmetu.
@@ -110,7 +110,8 @@ namespace Projekat.Models
         /// <returns>
         /// Queryable selection of OsirommaseniMaterijaliModel Classes.
         /// </returns>
-        IQueryable<OsiromaseniMaterijali> poPredmetu(int predmetId);
+        IQueryable<OsiromaseniMaterijali> poPredmetu(int? predmetId);
+        IQueryable<OsiromaseniMaterijali> poNameni(int namenaID, IQueryable<OsiromaseniMaterijali> materijali);
 
 
 
