@@ -7,13 +7,13 @@ namespace Projekat.Migrations.MaterijalContext
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class IDpredmetaNULL : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IDpredmetaNULL));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709111150233_init"; }
+            get { return "201805101144240_IDpredmetaNULL"; }
         }
         
         string IMigrationMetadata.Source

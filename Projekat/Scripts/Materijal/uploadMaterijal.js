@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    $(".customSelect").trigger('change');
 
     var predmetId = sessionStorage.getItem('predmetId');
 

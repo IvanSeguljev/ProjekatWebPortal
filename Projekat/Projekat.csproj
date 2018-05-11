@@ -207,49 +207,13 @@
     <Compile Include="Helpers\DropDownList_Optgroup.cs" />
     <Compile Include="Migrations\ApplicationDbContext\DefaultConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709111150233_init.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709111150233_init.Designer.cs">
-      <DependentUpon>201709111150233_init.cs</DependentUpon>
+    <Compile Include="Migrations\MaterijalContext\201805081242537_init.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805081242537_init.Designer.cs">
+      <DependentUpon>201805081242537_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\MaterijalContext\201709111203510_init -f.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709111203510_init -f.Designer.cs">
-      <DependentUpon>201709111203510_init -f.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201709111229536_reseedPKValues.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709111229536_reseedPKValues.Designer.cs">
-      <DependentUpon>201709111229536_reseedPKValues.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201709141016009_seedovanjeSmerova.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709141016009_seedovanjeSmerova.Designer.cs">
-      <DependentUpon>201709141016009_seedovanjeSmerova.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201709141026097_seedovanjePredmeta.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709141026097_seedovanjePredmeta.Designer.cs">
-      <DependentUpon>201709141026097_seedovanjePredmeta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201709151053229_PredmetFKnaMaterijalModelu.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709151053229_PredmetFKnaMaterijalModelu.Designer.cs">
-      <DependentUpon>201709151053229_PredmetFKnaMaterijalModelu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.cs" />
-    <Compile Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.Designer.cs">
-      <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201712281403270_revert.cs" />
-    <Compile Include="Migrations\MaterijalContext\201712281403270_revert.Designer.cs">
-      <DependentUpon>201712281403270_revert.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201712281428395_materijalpotipu.cs" />
-    <Compile Include="Migrations\MaterijalContext\201712281428395_materijalpotipu.Designer.cs">
-      <DependentUpon>201712281428395_materijalpotipu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201712281439591_MaterijalPoPredmetu.cs" />
-    <Compile Include="Migrations\MaterijalContext\201712281439591_MaterijalPoPredmetu.Designer.cs">
-      <DependentUpon>201712281439591_MaterijalPoPredmetu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\MaterijalContext\201801111127074_commit fetching db update.cs" />
-    <Compile Include="Migrations\MaterijalContext\201801111127074_commit fetching db update.Designer.cs">
-      <DependentUpon>201801111127074_commit fetching db update.cs</DependentUpon>
+    <Compile Include="Migrations\MaterijalContext\201805101144240_IDpredmetaNULL.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805101144240_IDpredmetaNULL.Designer.cs">
+      <DependentUpon>201805101144240_IDpredmetaNULL.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -445,38 +409,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201709111150233_init.resx">
-      <DependentUpon>201709111150233_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805081242537_init.resx">
+      <DependentUpon>201805081242537_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201709111203510_init -f.resx">
-      <DependentUpon>201709111203510_init -f.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201709111229536_reseedPKValues.resx">
-      <DependentUpon>201709111229536_reseedPKValues.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201709141016009_seedovanjeSmerova.resx">
-      <DependentUpon>201709141016009_seedovanjeSmerova.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201709141026097_seedovanjePredmeta.resx">
-      <DependentUpon>201709141026097_seedovanjePredmeta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201709151053229_PredmetFKnaMaterijalModelu.resx">
-      <DependentUpon>201709151053229_PredmetFKnaMaterijalModelu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201709211123146_dodavanjeTipaMaterijala.resx">
-      <DependentUpon>201709211123146_dodavanjeTipaMaterijala.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201712281403270_revert.resx">
-      <DependentUpon>201712281403270_revert.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201712281428395_materijalpotipu.resx">
-      <DependentUpon>201712281428395_materijalpotipu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201712281439591_MaterijalPoPredmetu.resx">
-      <DependentUpon>201712281439591_MaterijalPoPredmetu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\MaterijalContext\201801111127074_commit fetching db update.resx">
-      <DependentUpon>201801111127074_commit fetching db update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805101144240_IDpredmetaNULL.resx">
+      <DependentUpon>201805101144240_IDpredmetaNULL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

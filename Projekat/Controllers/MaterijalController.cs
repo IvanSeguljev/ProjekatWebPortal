@@ -36,18 +36,18 @@ namespace Projekat.Controllers
         //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
         //
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int id = 0)
+        public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int id = 0,int namenaID = 1)
         {
             List<OsiromaseniMaterijali> materijali;
 
             MaterijaliNaprednaPretragaViewModel vm;
 
 
-            materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
+            materijali = context.naprednaPretraga(formati, tipovi, id,namenaID).ToList();
 
             if (sort == "opadajuce")
             {
-                materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
+                materijali = context.naprednaPretraga(formati, tipovi, id,namenaID).ToList();
                 materijali.Reverse();
 
                 vm = new MaterijaliNaprednaPretragaViewModel
@@ -64,7 +64,7 @@ namespace Projekat.Controllers
             }
             else if (sort == "rastuce")
             {
-                materijali = context.naprednaPretraga(formati, tipovi, id).ToList();
+                materijali = context.naprednaPretraga(formati, tipovi, id,namenaID).ToList();
 
                 vm = new MaterijaliNaprednaPretragaViewModel
                 {
@@ -114,7 +114,10 @@ namespace Projekat.Controllers
             // PredmetModel predmet = new PredmetModel();
 
             context = new MaterijalContext();
-
+            if(materijal.namenaMaterijalaId == 2)
+            {
+                materijal.predmetId = null;
+            }
             if (ModelState.IsValid)
             {
                 if (file != null)

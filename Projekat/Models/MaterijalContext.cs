@@ -122,11 +122,12 @@ namespace Projekat.Models
             return SaveChanges();
         }
 
-        IQueryable<OsiromaseniMaterijali> IMaterijalContext.poPredmetu(int predmetId)
+        IQueryable<OsiromaseniMaterijali> IMaterijalContext.poPredmetu(int? predmetId)
         {
             IQueryable<OsiromaseniMaterijali> materijali;
             materijali = this.materijali.Where(m => m.predmetId == predmetId).Select(m => new OsiromaseniMaterijali
             {
+                namenaID = m.namenaMaterijalaId,
                 materijalId = m.materijalId,
                 ekstenzija = m.materijalEkstenzija,
                 materijalNaslov = m.materijalNaslov,
@@ -139,13 +140,14 @@ namespace Projekat.Models
 
 
 
-        IQueryable<OsiromaseniMaterijali> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds, int predmetId)//Dodati parametre 
+        IQueryable<OsiromaseniMaterijali> IMaterijalContext.naprednaPretraga(List<string> ekstenzije, List<int> tipoviMaterijalaIds, int? predmetId,int namenaID)//Dodati parametre 
         {
             // && (a => tipoviMaterijalaIds.Any(s => a.tipMaterijalaId)
 
 
             IMaterijalContext context = new MaterijalContext();
             var queriable = context.poPredmetu(predmetId);
+            queriable = poNameni(namenaID, queriable);
 
             if (ekstenzije != null && tipoviMaterijalaIds != null)
             {
@@ -188,6 +190,19 @@ namespace Projekat.Models
 
         }
 
+        public IQueryable<OsiromaseniMaterijali> poNameni(int namenaID,IQueryable<OsiromaseniMaterijali> materijali)
+        {
+            materijali = this.materijali.Where(m => m.namenaMaterijalaId == namenaID).Select(m => new OsiromaseniMaterijali
+            {
+                namenaID = m.namenaMaterijalaId,
+                materijalId = m.materijalId,
+                ekstenzija = m.materijalEkstenzija,
+                materijalNaslov = m.materijalNaslov,
+                materijalOpis = m.materijalOpis,
+                tipMaterijalaId = m.tipMaterijalId
+            });
 
+            return materijali;
+        }
     }
 }

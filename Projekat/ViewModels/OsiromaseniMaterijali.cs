@@ -7,6 +7,7 @@ namespace Projekat.ViewModels
 {
     public class OsiromaseniMaterijali
     {
+        public int namenaID { get; set; }
         public int materijalId { get; set; }
         public string materijalNaslov { get; set; }
         public string materijalOpis{ get; set; }
