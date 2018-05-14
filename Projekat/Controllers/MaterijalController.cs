@@ -35,13 +35,19 @@ namespace Projekat.Controllers
         //TESTIRATI KAD MLADJA PROSLEDI EKSTENZIJU I ID TIPA!!!
         //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
         //
+        
         [HttpGet]
-        public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int id = 0,int namenaID = 1)
+        
+        public ActionResult MaterijaliPrikaz(string sort , List<string> formati , List<int> tipovi , int number = 0, int? id = null)
         {
             List<OsiromaseniMaterijali> materijali;
 
             MaterijaliNaprednaPretragaViewModel vm;
-
+            int namenaID = 1;
+            if(id == null)
+            {
+                namenaID = 2;
+            }
 
             materijali = context.naprednaPretraga(formati, tipovi, id,namenaID).ToList();
 

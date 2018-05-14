@@ -13,11 +13,24 @@ namespace Projekat
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "Materijali",
+                url: "Materijali/Prikaz/{id}",
+                defaults: new { controller = "Materijal", action = "MaterijaliPrikaz" }
+            );
+            routes.MapRoute(
+              name: "MaterijaliZaProf",
+              url: "Materijali/ZaProfesore",
+              defaults: new { controller = "Materijal", action = "MaterijaliPrikaz" }
+          );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }    
             );
+            
         }
     }
 }
