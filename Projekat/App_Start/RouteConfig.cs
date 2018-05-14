@@ -16,13 +16,13 @@ namespace Projekat
 
             routes.MapRoute(
                 name: "Materijali",
-                url: "Materijali/Prikaz/{id}/{namenaID}",
-                defaults: new { controller = "Materijal", action = "MaterijaliPrikaz", id = UrlParameter.Optional, namenaID = UrlParameter.Optional }
+                url: "Materijali/Prikaz/{id}",
+                defaults: new { controller = "Materijal", action = "MaterijaliPrikaz" }
             );
             routes.MapRoute(
               name: "MaterijaliZaProf",
-              url: "Materijali/ZaProfesore/{namenaID}",
-              defaults: new { controller = "Materijal", action = "MaterijaliPrikaz", namenaID = UrlParameter.Optional }
+              url: "Materijali/ZaProfesore",
+              defaults: new { controller = "Materijal", action = "MaterijaliPrikaz" }
           );
 
             routes.MapRoute(

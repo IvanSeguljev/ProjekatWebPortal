@@ -38,12 +38,16 @@ namespace Projekat.Controllers
         
         [HttpGet]
         
-        public ActionResult MaterijaliPrikaz(string sort , List<string> formati , List<int> tipovi , int number = 0, int? id = null,int namenaID = 1)
+        public ActionResult MaterijaliPrikaz(string sort , List<string> formati , List<int> tipovi , int number = 0, int? id = null)
         {
             List<OsiromaseniMaterijali> materijali;
 
             MaterijaliNaprednaPretragaViewModel vm;
-
+            int namenaID = 1;
+            if(id == null)
+            {
+                namenaID = 2;
+            }
 
             materijali = context.naprednaPretraga(formati, tipovi, id,namenaID).ToList();
 
