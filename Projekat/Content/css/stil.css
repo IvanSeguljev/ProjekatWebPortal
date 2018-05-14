@@ -322,9 +322,15 @@ div.slikaLi img#zvono{
   margin-top: 9px;
 }
 
-li#aktivan p{
-  color:#c21b22;
+.ListaNav li:not(.naslov) p {
+    transition: 0.2s all;
 }
+
+.ListaNav li:not(.naslov) p:hover,
+.ListaNav li:not(.naslov) p:active {
+    color: #c21b22;
+}
+
 
 ul.aktivnaSekcija{
   background-color:#edeff0;
@@ -334,7 +340,17 @@ ul.neaktivnaSekcija{
   background-color:#fff;
 }
 
+.ListaNav li:not(.naslov) p.aktivanLink {
+    color: #c21b22;
+}
+.blok:hover {
+    background-color: #d4d4d6;
+    
+}
 
+ul.aktivanBlok {
+    background-color: #c21b22;
+}
 
 
 /*BREADCRUMBS GORNJI BAR*/

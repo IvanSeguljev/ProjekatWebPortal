@@ -49,81 +49,81 @@
         <p id="uloga">
             administrator
         </p>
-        <ul class="ListaNav">
+        <ul class="ListaNav" id="n1">
             <li class="naslov">
                 <div id="Cikica" class="slikaOdNaslova">
                     <img src="~/Content/img/cikica.png" alt="slika1" />
                 </div>
                 <p>Korisnici</p>
-            </li>
-            <li>
+            </li >
+            <li class="blok">
                 <div class="slikaLi">
                     <img src="~/Content/img/plus.png" alt="slika1" />
                 </div>
-                <p>Novi korisnik</p>
+                <p id="l1">Novi korisnik</p>
             </li>
-            <li>
+            <li class="blok">
                 <div class="slikaLi">
                     <img src="~/Content/img/lupa.png" alt="slika1" />
                 </div>
-                <p>Pretraga korisnika</p>
+                <p id="l2">Pretraga korisnika</p>
             </li>
         </ul>
-        <ul class="ListaNav">
+        <ul class="ListaNav" id="n2">
             <li class="naslov">
                 <div id="Materijali" class="slikaOdNaslova">
                     <img src="~/Content/img/mat.png" alt="slika1" />
                 </div>
                 <p>Materijali</p>
             </li>
-            <li>
-                @* SHOWING OFF TO MANAGMENT DELETE THIS CRAP AFTER *@
+            <li  class="blok">
+                
                 <a href="@Url.Action("MaterijaliPrikaz", "Materijal",new { namenaID = 2})">
                     <div class="slikaLi">
                         <img src="~/Content/img/profesor.png" alt="slika1" />
                     </div>
-                    <p>Obuka profesora</p>
+                    <p id="l3">Obuka profesora</p>
                 </a>
             </li>
-            <li id="aktivan">
+            <li class="blok">
                 <a href="@Url.Action("SmeroviPrikaz", "Smer")">
                     <div class="slikaLi">
                         <img src="~/Content/img/ucenik.png" alt="slika1" />
                     </div>
-                    <p>Nastavni materijal</p>
+                    <p id="l4">Nastavni materijal</p>
                 </a>
             </li>
         </ul>
-        <ul class="ListaNav">
+        <ul class="ListaNav" id="n3">
             <li class="naslov">
                 <div id="Novine" class="slikaOdNaslova">
                     <img src="~/Content/img/Novine.png" alt="slika1" />
                 </div>
                 <p id="vestiP">Vesti i obavestenja</p>
             </li>
-            <li>
+            <li class="blok">
                 <div class="slikaLi">
                     <img src="~/Content/img/novine-svetlije.png" alt="slika1" />
                 </div>
-                <p>Pregled vesti</p>
+                <p id="l5">Pregled vesti</p>
             </li>
-            <li>
+            <li class="blok">
                 <div class="slikaLi">
                     <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
                 </div>
-                <p>Nova vest</p>
+                <p id="l6">Nova vest</p>
             </li>
-            <li>
+            <li class="blok">
                 <div class="slikaLi">
                     <img id="zvono" src="~/Content/img/zvono.png" alt="slika1" />
                 </div>
-                <p>Pregled obavestenja</p>
+                <p id="l7">Pregled obavestenja</p>
             </li>
-            <li>
+            <li class="blok">
                 <div class="slikaLi">
                     <img src="~/Content/img/zvono-plus.png" alt="slika1" />
                 </div>
-                <p>Novo</p>
+                <p id="l8">Novo</p>
             </li>
         </ul>
     </div>
