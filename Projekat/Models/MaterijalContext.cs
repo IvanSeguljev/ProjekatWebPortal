@@ -132,7 +132,8 @@ namespace Projekat.Models
                 ekstenzija = m.materijalEkstenzija,
                 materijalNaslov = m.materijalNaslov,
                 materijalOpis = m.materijalOpis,
-                tipMaterijalaId = m.tipMaterijalId
+                tipMaterijalaId = m.tipMaterijalId,
+                predmetId = m.predmetId
             });
 
             return materijali;
@@ -192,14 +193,16 @@ namespace Projekat.Models
 
         public IQueryable<OsiromaseniMaterijali> poNameni(int namenaID,IQueryable<OsiromaseniMaterijali> materijali)
         {
-            materijali = this.materijali.Where(m => m.namenaMaterijalaId == namenaID).Select(m => new OsiromaseniMaterijali
+            materijali = materijali.Where(m => m.namenaID == namenaID).Select(m => new OsiromaseniMaterijali
             {
-                namenaID = m.namenaMaterijalaId,
+                namenaID = m.namenaID,
                 materijalId = m.materijalId,
-                ekstenzija = m.materijalEkstenzija,
+                ekstenzija = m.ekstenzija,
                 materijalNaslov = m.materijalNaslov,
                 materijalOpis = m.materijalOpis,
-                tipMaterijalaId = m.tipMaterijalId
+                tipMaterijalaId = m.tipMaterijalaId,
+                predmetId = m.predmetId
+                
             });
 
             return materijali;
