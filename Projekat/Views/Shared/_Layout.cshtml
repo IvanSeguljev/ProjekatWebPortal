@@ -76,8 +76,18 @@
                 </div>
                 <p>Materijali</p>
             </li>
-            <li  class="blok">
-                
+            <li class="blok">
+
+                <a href="@Url.Action("UploadMaterijal","Materijal")">
+                    <div class="slikaLi">
+                        <img src="~/Content/img/novimaterijal.png" height=28 width="27" alt="slika1" />
+                    </div>
+                    <p id="l9">Novi materijal</p>
+                </a>
+            </li>
+
+            <li class="blok">
+
                 <a href="@Url.RouteUrl("MaterijaliZaProf")">
                     <div class="slikaLi">
                         <img src="~/Content/img/profesor.png" alt="slika1" />
@@ -85,6 +95,7 @@
                     <p id="l3">Obuka profesora</p>
                 </a>
             </li>
+
             <li class="blok">
                 <a href="@Url.Action("SmeroviPrikaz", "Smer")">
                     <div class="slikaLi">
