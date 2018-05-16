@@ -48,7 +48,7 @@ namespace Projekat.Models
         /// <value>
         /// The queryable selection of PredmetPoSmeru Classes.
         /// </value>
-        public DbSet<PremetPoSmeru> predmetiPoSmeru { get; set; }
+        public DbSet<PredmetPoSmeru> predmetiPoSmeru { get; set; }
         /// <summary>
         /// Gets the queryable data source for TipMaterijala.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Projekat.Models
             get { return smerovi; }
         }
 
-        IQueryable<PremetPoSmeru> IMaterijalContext.predmetiPoSmeru
+        IQueryable<PredmetPoSmeru> IMaterijalContext.predmetiPoSmeru
         {
             get { return predmetiPoSmeru; }
         }

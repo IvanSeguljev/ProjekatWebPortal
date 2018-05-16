@@ -46,7 +46,7 @@ namespace Projekat.Models
         /// <value>
         /// The queryable selection of PredmetPoSmeru Classes.
         /// </value>
-        IQueryable<PremetPoSmeru> predmetiPoSmeru { get; }
+        IQueryable<PredmetPoSmeru> predmetiPoSmeru { get; }
         /// <summary>
         /// Gets the queryable data source for TipMaterijala.
         /// </summary>

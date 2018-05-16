@@ -46,7 +46,7 @@ namespace Projekat.Controllers
                 foreach (int n in viewModel.smerIds)
                 {
 
-                    context.Add<PremetPoSmeru>(new PremetPoSmeru
+                    context.Add<PredmetPoSmeru>(new PredmetPoSmeru
                     {
                         predmetId = viewModel.predmet.predmetId,
                         smerId = n
@@ -85,7 +85,7 @@ namespace Projekat.Controllers
             {
                 if (!smeroviIdIzBaze.Contains(smerID))
                 {
-                    context.Add<PremetPoSmeru>(new PremetPoSmeru
+                    context.Add<PredmetPoSmeru>(new PredmetPoSmeru
                     {
 
                         predmetId = predmetId,
@@ -100,8 +100,8 @@ namespace Projekat.Controllers
                 {
 
                     
-                    List<PremetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).ToList();
-                    foreach (PremetPoSmeru predmet in lista)
+                    List<PredmetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).ToList();
+                    foreach (PredmetPoSmeru predmet in lista)
                     {
                         context.Delete(predmet);
                     }
@@ -115,8 +115,8 @@ namespace Projekat.Controllers
             {
                 if(!smeroviId.Contains(smerID) )
                 {
-                    List<PremetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).ToList();
-                    foreach (PremetPoSmeru predmetPoSmeru in lista)
+                    List<PredmetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).ToList();
+                    foreach (PredmetPoSmeru predmetPoSmeru in lista)
                     {
                         context.Delete(predmetPoSmeru);
                     }
@@ -160,12 +160,12 @@ namespace Projekat.Controllers
         public ActionResult PredmetiPrikaz(int id)
         {
             context = new MaterijalContext();
-            List<PremetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
+            List<PredmetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
             List<PredmetModel> model = new List<PredmetModel>();
             List<PredmetModel> tempPredmet = context.predmeti.ToList();
             List<SmerModel> smerovi = context.smerovi.ToList();
 
-            foreach (PremetPoSmeru ps in poSmeru)
+            foreach (PredmetPoSmeru ps in poSmeru)
             {
                 model.Add(tempPredmet.Where(m => m.predmetId == ps.predmetId).Single());
             }

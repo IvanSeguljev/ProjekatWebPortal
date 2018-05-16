@@ -16,5 +16,10 @@ namespace Projekat.ViewModels
 
         public IEnumerable<NamenaMaterijalaModel> nameneMaterijala { get; set; }
 
+        public IEnumerable<SmerModel> Smerovi { get; set; }
+
+        public Dictionary<int,List<PredmetModel>> PredmetPoSmeru { get; set; }
+
+
     }
 }

@@ -10,7 +10,7 @@ namespace Projekat.Models
     /// <summary>
     /// Agregation class that joins Predmet class and smer class
     /// </summary>
-    public class PremetPoSmeru
+    public class PredmetPoSmeru
     {
         /// <summary>
         /// Gets or sets the predmet identifier.
