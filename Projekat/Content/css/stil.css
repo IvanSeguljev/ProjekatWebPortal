@@ -672,21 +672,21 @@ a#novi-materijal:hover{
 	z-index: -1;
 }
 
-.inputfile + label {
-  font-size: 1.25em;
-  display: inline-block;
-    /*max-width:400px;*/
-  color: #fff;
-  background-color: #e45459;
-  white-space: nowrap;
-  overflow:hidden;
-  /*text-overflow: ellipsis;*/
-  cursor: pointer;
-  padding: 0.625rem 1.25rem;
-  border-radius:3px;
-  height:58px;
-  text-align:center;
-}
+    .inputfile + label {
+        font-size: 1.25em;
+        display: inline-block;
+        /*max-width:400px;*/
+        color: #fff;
+        background-color: #e21b22;
+        white-space: nowrap;
+        overflow: hidden;
+        /*text-overflow: ellipsis;*/
+        cursor: pointer;
+        padding: 0.625rem 1.25rem;
+        border-radius: 3px;
+        height: 58px;
+        text-align: center;
+    }
 
 #filename{
     width:385px;
@@ -887,25 +887,24 @@ textarea:focus{
 }*/
 
 button#postavi {
-  display: block;
-  width:122px;
-  height:45px;
-  font-family: 'roboto-regular';
-  color: #fff;
-  background-color: #e45459;
-  border-radius: 2px;
-  border: 1px solid #e45459;
-  font-size: 15px;
-  font-family: 'roboto-bold';
-/*   float: left;
+    display: block;
+    width: 122px;
+    height: 45px;
+    font-family: 'roboto-regular';
+    color: #fff;
+    background-color: #e21b22;
+    border-radius: 2px;
+    border: 1px solid #e21b22;
+    font-size: 15px;
+    font-family: 'roboto-bold';
+    /*   float: left;
   padding: 11px;*/
-  /*margin: 70px auto 50px auto;*/
-  margin: 50px auto 0 auto;
-  -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  transition: all 1s cubic-bezier(.08,.73,.08,.9);
-
+    /*margin: 70px auto 50px auto;*/
+    margin: 50px auto 0 auto;
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: all 1s cubic-bezier(.08,.73,.08,.9);
 }
 
 button#postavi:hover{
