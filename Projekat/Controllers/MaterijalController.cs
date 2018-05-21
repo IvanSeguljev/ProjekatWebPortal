@@ -105,18 +105,11 @@ namespace Projekat.Controllers
                 Predmeti = context.predmeti.ToList(),
                 tipoviMaterijala = context.tipMaterijala.ToList(),
                 nameneMaterijala = context.nameneMaterijala.ToList(),
-                Smerovi = context.smerovi.ToList(),
-                PredmetPoSmeru = new Dictionary<int, List<PredmetModel>>()
+                
                 
         };
             
-            foreach(SmerModel s in viewModel.Smerovi)
-            {
-                var predmetiposmeru = context.predmetiPoSmeru.Where(x=>x.smerId == s.smerId).Select(c=>c.predmetId).ToList();
-                viewModel.PredmetPoSmeru.Add(s.smerId, new List<PredmetModel>());
-                viewModel.PredmetPoSmeru[s.smerId].AddRange(viewModel.Predmeti.Where(x => predmetiposmeru.Contains(x.predmetId)));
-            }
-
+           
             return View("UploadMaterijal", viewModel);
         }
 
