@@ -68,6 +68,9 @@ namespace Projekat.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public byte[] Slika { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
