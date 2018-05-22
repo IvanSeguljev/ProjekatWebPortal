@@ -226,6 +226,10 @@
     <Compile Include="Migrations\MaterijalContext\201805160923559_Rename Tabele PredmetPoSmeru.Designer.cs">
       <DependentUpon>201805160923559_Rename Tabele PredmetPoSmeru.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\MaterijalContext\201805220852305_DodavanjeImenaPredmetaISlike.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805220852305_DodavanjeImenaPredmetaISlike.Designer.cs">
+      <DependentUpon>201805220852305_DodavanjeImenaPredmetaISlike.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -430,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201805160923559_Rename Tabele PredmetPoSmeru.resx">
       <DependentUpon>201805160923559_Rename Tabele PredmetPoSmeru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805220852305_DodavanjeImenaPredmetaISlike.resx">
+      <DependentUpon>201805220852305_DodavanjeImenaPredmetaISlike.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
