@@ -1,5 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using Projekat.Models;
+
 
 namespace Projekat.Models
 {
@@ -64,6 +69,12 @@ namespace Projekat.Models
 
     public class RegisterViewModel
     {
+        public IEnumerable<SmerModel> Smerovi { get; set; }
+        public IEnumerable<IdentityRole> Uloge { get; set; }
+
+        public int selektovaniSmer { get; set; }
+        public string selektovanaUloga { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

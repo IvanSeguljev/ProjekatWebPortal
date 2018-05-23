@@ -43,15 +43,21 @@
         </div>
     </div>
     <div class="form-group">
+
+        @Html.DropDownListFor(m => m.selektovaniSmer, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
+        @Html.DropDownListFor(m => m.selektovanaUloga, new SelectList(Model.Uloge, "Id", "Name"), new { @class = "customDropdown", @selected = "selected" })
+    </div>
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="file" name="file" id="file" class="inputfile" accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|images/*">
             <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku</span></span> </label>
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
     </div>
-    
+
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/upload_materijal")
 }

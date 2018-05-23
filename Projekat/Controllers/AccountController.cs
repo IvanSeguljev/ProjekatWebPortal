@@ -140,7 +140,14 @@ namespace Projekat.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            RegisterViewModel ViewModel = new RegisterViewModel();
+
+            MaterijalContext matcont = new MaterijalContext();
+
+            ViewModel.Smerovi = matcont.smerovi.ToList();
+            ViewModel.Uloge = matcont.Roles.ToList();
+            return View(ViewModel);
+            
         }
 
         //
@@ -153,15 +160,17 @@ namespace Projekat.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser {
-                    UserName = model.Ime + "Fagoot",
+                    UserName = model.Ime + "Šele",
                     Email = model.Email,
                     Ime = model.Ime,
                     Prezime = model.Prezime,
                     Slika = new byte[file.ContentLength],
                     
-
             };
-                file.InputStream.Read(user.Slika, 0, file.ContentLength);
+                if (file != null)
+                {
+                    file.InputStream.Read(user.Slika, 0, file.ContentLength);
+                }
             
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -178,7 +187,10 @@ namespace Projekat.Controllers
                 }
                 AddErrors(result);
             }
+            MaterijalContext matcont = new MaterijalContext();
 
+            model.Smerovi = matcont.smerovi.ToList();
+            model.Uloge = matcont.Roles.ToList();
             // If we got this far, something failed, redisplay form
             return View(model);
         }
