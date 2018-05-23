@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Projekat.Models;
+using System.Collections.Generic;
 
 namespace Projekat.Controllers
 {
@@ -432,7 +433,15 @@ namespace Projekat.Controllers
 
             base.Dispose(disposing);
         }
-        
+        [AllowAnonymous]
+        public ActionResult ListaKorisnika()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+
+            List<ApplicationUser> lista = context.Users.ToList();
+            
+            return View(lista);
+        }
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

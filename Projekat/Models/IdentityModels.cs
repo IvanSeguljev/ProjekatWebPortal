@@ -35,5 +35,7 @@ namespace Projekat.Models
         {
             return new ApplicationDbContext();
         }
+
+        
     }
 }

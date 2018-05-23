@@ -410,6 +410,7 @@
     <Content Include="Views\Predmet\DodajPredmet.cshtml" />
     <Content Include="Views\Predmet\PredmetiPrikaz.cshtml" />
     <Content Include="Views\Materijal\_Kartice.cshtml" />
+    <Content Include="Views\Account\ListaKorisnika.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
