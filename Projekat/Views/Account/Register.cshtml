@@ -1,57 +1,58 @@
-﻿@model Projekat.Models.RegisterViewModel
-@{
-    ViewBag.Title = "Unos novog korisnika";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿
+<div id="sredina" class="sredina-upload-mat" style=" width: calc(100% - 338px);">
 
-<h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @id = "postavkaMat", @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Ime, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Ime, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Prezime, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Prezime, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="file" name="file" id="file" class="inputfile" accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|images/*">
-            <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku</span></span> </label>
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-    
-}
+    @model Projekat.Models.RegisterViewModel
+    @{
+        ViewBag.Title = "Unos novog korisnika";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <h2>@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @id = "postavkaMat", @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Napravite novi nalog</h4>
+
+        <hr />
+
+
+        @Html.LabelFor(m => m.Ime, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Ime, new { @id = "korisnikTB" })
+        @Html.ValidationMessageFor(m => m.Ime, "", new { @class = "text-danger" })
+
+
+        @Html.LabelFor(m => m.Prezime, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Prezime, new { @id = "korisnikTB" })
+        @Html.ValidationMessageFor(m => m.Prezime, "", new { @class = "text-danger" })
+
+
+        @Html.LabelFor(m => m.Email, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Email, new { @id = "korisnikTB" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+
+        @Html.LabelFor(m => m.Password, new { @class = "matDesignLabel" })
+        @Html.PasswordFor(m => m.Password, new { @id = "korisnikTB" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "matDesignLabel" })
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @id = "korisnikTB" })
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+
+
+
+
+        <input type="file" name="file" id="file" class="inputfile" accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|images/*" />
+        <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
+        <input type="submit" id="btn-register" value="Register" />
+
+
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

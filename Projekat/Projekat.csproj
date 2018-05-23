@@ -259,6 +259,7 @@
     <Content Include="Content\css\bootstrap-flatly.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\forma-novikorisnik.css" />
     <Content Include="Content\css\izgled.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\select2.min.css" />
