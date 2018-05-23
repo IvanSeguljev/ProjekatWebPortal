@@ -8,12 +8,12 @@
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
-    <h2>@ViewBag.Title</h2>
+    <h2  style=" text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;">@ViewBag.Title</h2>
 
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @id = "postavkaMat", @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-        <h4>Napravite novi nalog</h4>
+        <h4  style=" margin-left: 7%; text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;">Napravite novi nalog</h4>
 
         <hr />
 
@@ -42,17 +42,26 @@
         @Html.PasswordFor(m => m.ConfirmPassword, new { @id = "korisnikTB" })
         @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
 
+        
+            <div class="noviKorisnikDD">
+                
+                <label for="customDropdown" style=" text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite smer: </label>
+                @Html.DropDownListFor(m => m.selektovaniSmer, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
+            </div>
+            <div class="noviKorisnikDD">
+
+                <label for="customDropdown" style=" text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite ulogu: </label>
+                @Html.DropDownListFor(m => m.selektovanaUloga, new SelectList(Model.Uloge, "Id", "Name"), new { @class = "customDropdown", @selected = "selected" })
+            </div>
+
+            <input type="file" name="file" id="file" class="inputfile" accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|images/*" />
+            <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
+            <input type="submit" id="btn-register" value="Register" />
 
 
+            }
 
-        <input type="file" name="file" id="file" class="inputfile" accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|images/*" />
-        <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
-        <input type="submit" id="btn-register" value="Register" />
-
-
-    }
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/upload_materijal")
-}
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+                @Scripts.Render("~/bundles/upload_materijal")
+            }
