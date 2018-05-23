@@ -226,6 +226,10 @@
     <Compile Include="Migrations\MaterijalContext\201805160923559_Rename Tabele PredmetPoSmeru.Designer.cs">
       <DependentUpon>201805160923559_Rename Tabele PredmetPoSmeru.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\MaterijalContext\201805220852305_DodavanjeImenaPredmetaISlike.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805220852305_DodavanjeImenaPredmetaISlike.Designer.cs">
+      <DependentUpon>201805220852305_DodavanjeImenaPredmetaISlike.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -244,6 +248,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DodajPremetViewModel.cs" />
+    <Compile Include="ViewModels\ListaKorisnikaViewModel.cs" />
     <Compile Include="ViewModels\MaterijaliNaprednaPretragaViewModel.cs" />
     <Compile Include="ViewModels\MaterijalUploadViewModel.cs" />
     <Compile Include="ViewModels\MaterijalViewModel.cs" />
@@ -405,6 +410,7 @@
     <Content Include="Views\Predmet\DodajPredmet.cshtml" />
     <Content Include="Views\Predmet\PredmetiPrikaz.cshtml" />
     <Content Include="Views\Materijal\_Kartice.cshtml" />
+    <Content Include="Views\Account\ListaKorisnika.cshtml" />
     <Content Include="Views\Materijal\_PredmetiNaSmeru.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -432,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201805160923559_Rename Tabele PredmetPoSmeru.resx">
       <DependentUpon>201805160923559_Rename Tabele PredmetPoSmeru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805220852305_DodavanjeImenaPredmetaISlike.resx">
+      <DependentUpon>201805220852305_DodavanjeImenaPredmetaISlike.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

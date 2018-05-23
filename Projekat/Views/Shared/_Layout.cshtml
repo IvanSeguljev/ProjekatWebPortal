@@ -57,16 +57,20 @@
                 <p>Korisnici</p>
             </li >
             <li class="blok">
-                <div class="slikaLi">
-                    <img src="~/Content/img/plus.png" alt="slika1" />
-                </div>
-                <p id="l1">Novi korisnik</p>
+                <a href="@Url.Action("Register", "Account")">
+                    <div class="slikaLi">
+                        <img src="~/Content/img/plus.png" alt="slika1" />
+                    </div>
+                    <p id="l1">Novi korisnik</p>
+                </a>
             </li>
             <li class="blok">
+                <a href="@Url.Action("ListaKorisnika", "Account")">
                 <div class="slikaLi">
                     <img src="~/Content/img/lupa.png" alt="slika1" />
                 </div>
                 <p id="l2">Pretraga korisnika</p>
+                 </a>
             </li>
         </ul>
         <ul class="ListaNav" id="n2">
