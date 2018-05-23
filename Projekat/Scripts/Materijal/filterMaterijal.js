@@ -12,7 +12,7 @@
         var filterDatumSpanText = $('.datum').next('.customSelect').find('span').text();
 
         var novijeStarije = $(".customLista li");
-        for (var i = 0; i < novijeStarije.length ; i++) {
+        for (var i = 0; i < novijeStarije.length; i++) {
             if (novijeStarije[i].textContent === filterDatumSpanText) {
                 sort = novijeStarije[i].id;
             }
