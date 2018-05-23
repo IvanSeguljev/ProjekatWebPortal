@@ -344,8 +344,8 @@ ul.neaktivnaSekcija{
     color: #c21b22;
 }
 .blok:hover {
-    background-color: #d4d4d6;
-    
+    background-color: #dddddd;
+    transition: 0.5s all;
 }
 
 ul.aktivanBlok {
@@ -710,7 +710,7 @@ span#filename span{
   background-color: #dc4a4f;
   cursor: pointer;
   transform: scale(1.03);
-;
+
 }
 
 .inputfile + label img{

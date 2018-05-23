@@ -411,11 +411,13 @@
     <Content Include="Views\Predmet\PredmetiPrikaz.cshtml" />
     <Content Include="Views\Materijal\_Kartice.cshtml" />
     <Content Include="Views\Account\ListaKorisnika.cshtml" />
+    <Content Include="Views\Materijal\_PredmetiNaSmeru.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\uploads\" />
     <Folder Include="Scripts\Shared\" />
+    <Folder Include="Views\Shared\Editor templates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

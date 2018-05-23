@@ -16,60 +16,70 @@
     }
     else
         $('#snackbar').css('display', 'none');
+});
 
+var forma = $('#postavkaMat');
 
-    var forma = $('#postavkaMat');
+$('#postavkaMat').validate({
 
-    $('#postavkaMat').validate({
-
-        rules: {
-            "Materijal.materijalNaslov": {
-                required: true
-            },
-            "Materijal.materijalOpis": {
-                required: true
-            },
-            file: {
-                required: true,
-                
-                    extension: "jpeg|png|jpg|pdf|mp4|rtf|txt|text|gif|rar|zip"
-                ,
-                maxFileSize: {
-                    "unit": "KB",
-                    "size": 5000
-                },
-                minFileSize: {
-                    "unit": "KB",
-                    "size": "1"
-                }
-            }
+    rules: {
+        "Materijal.materijalNaslov": {
+            required: true
         },
-        messages: {
-            "Materijal.materijalNaslov": {
-                required: "Polje naslov je obavezno."
-            },
-            "Materijal.materijalOpis": {
-                required: "Polje opis je obavezno."
-            },
-            file: {
-                required: "Morate odabrati fajl.",
-                extension: "Pogrešan format fajla.",
-                maxFileSize: "Fajl ne sme biti veći od 5MB",
-                minFileSize: "Fajl ne sme biti manji od 1KB"
-            }
+        "Materijal.materijalOpis": {
+            required: true
         },
-        errorPlacement: function (error, element) {
-            if (element.attr("name") == "file") {
-                error.insertAfter(element.next());
+        file: {
+            required: true,
+
+            extension: "jpeg|png|jpg|pdf|mp4|rtf|txt|text|gif|rar|zip"
+            ,
+            maxFileSize: {
+                "unit": "KB",
+                "size": 5000
+            },
+            minFileSize: {
+                "unit": "KB",
+                "size": "1"
             }
-            else {
-                error.insertAfter(element);
-            }
-            
-        },
-        submitHandler: function (forma) {
-            sessionStorage.setItem('upload', true);
-            forma.submit();
         }
-    });
+    },
+    messages: {
+        "Materijal.materijalNaslov": {
+            required: "Polje naslov je obavezno."
+        },
+        "Materijal.materijalOpis": {
+            required: "Polje opis je obavezno."
+        },
+        file: {
+            required: "Morate odabrati fajl.",
+            extension: "Pogrešan format fajla.",
+            maxFileSize: "Fajl ne sme biti veći od 5MB",
+            minFileSize: "Fajl ne sme biti manji od 1KB"
+        }
+    },
+    errorPlacement: function (error, element) {
+        if (element.attr("name") == "file") {
+            error.insertAfter(element.next());
+        }
+        else {
+            error.insertAfter(element);
+        }
+
+    },
+    submitHandler: function (forma) {
+        $.ajax({
+            method: 'POST',
+            url: '/Materijal/UplaodMaterijal',
+            data: {
+
+                id: predmetId,
+                sort: sort,
+                tipovi: tipovi,
+                formati: formati
+            },
+        });
+        sessionStorage.setItem('upload', true);
+        forma.submit();
+    }
 });

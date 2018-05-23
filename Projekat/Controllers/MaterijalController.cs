@@ -35,25 +35,25 @@ namespace Projekat.Controllers
         //TESTIRATI KAD MLADJA PROSLEDI EKSTENZIJU I ID TIPA!!!
         //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
         //
-        
+
         [HttpGet]
-        
-        public ActionResult MaterijaliPrikaz(string sort , List<string> formati , List<int> tipovi , int number = 0, int? id = null)
+
+        public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int? id = null)
         {
             List<OsiromaseniMaterijali> materijali;
 
             MaterijaliNaprednaPretragaViewModel vm;
             int namenaID = 1;
-            if(id == null)
+            if (id == null)
             {
                 namenaID = 2;
             }
 
-            materijali = context.naprednaPretraga(formati, tipovi, id,namenaID).ToList();
+            materijali = context.naprednaPretraga(formati, tipovi, id, namenaID).ToList();
 
             if (sort == "opadajuce")
             {
-                materijali = context.naprednaPretraga(formati, tipovi, id,namenaID).ToList();
+                materijali = context.naprednaPretraga(formati, tipovi, id, namenaID).ToList();
                 materijali.Reverse();
 
                 vm = new MaterijaliNaprednaPretragaViewModel
@@ -70,7 +70,7 @@ namespace Projekat.Controllers
             }
             else if (sort == "rastuce")
             {
-                materijali = context.naprednaPretraga(formati, tipovi, id,namenaID).ToList();
+                materijali = context.naprednaPretraga(formati, tipovi, id, namenaID).ToList();
 
                 vm = new MaterijaliNaprednaPretragaViewModel
                 {
@@ -96,7 +96,7 @@ namespace Projekat.Controllers
         }
         //kod ove akcije treba dodati punjenje tabele namena materijala
         [HttpGet]
-        public ActionResult UploadMaterijal()
+        public ActionResult UploadMaterijal(int? smerId)
         {
             context = new MaterijalContext();
 
@@ -105,24 +105,39 @@ namespace Projekat.Controllers
                 Predmeti = context.predmeti.ToList(),
                 tipoviMaterijala = context.tipMaterijala.ToList(),
                 nameneMaterijala = context.nameneMaterijala.ToList(),
-                
-                
-        };
-            
-           
-            return View("UploadMaterijal", viewModel);
+                Smerovi = context.smerovi.ToList()
+            };
+
+            if (smerId == null)
+            {
+                smerId = viewModel.Smerovi.ToList()[0].smerId;
+
+                var predmetiposmeru = context.predmetiPoSmeru.Where(x => x.smerId == smerId).Select(c => c.predmetId).ToList();
+                viewModel.PredmetPoSmeru = (viewModel.Predmeti.Where(x => predmetiposmeru.Contains(x.predmetId)));
+
+                return View("UploadMaterijal", viewModel);
+            }
+
+            else
+            {
+                var predmetiposmeru = context.predmetiPoSmeru.Where(x => x.smerId == smerId).Select(c => c.predmetId).ToList();
+
+                viewModel.PredmetPoSmeru = (viewModel.Predmeti.Where(x => predmetiposmeru.Contains(x.predmetId)));
+
+                return PartialView("_PredmetiNaSmeru", viewModel);
+            }
         }
 
 
         //kod ove akcije treba dodati punjenje tabele namena materijala
         [HttpPost]
-        public ActionResult UploadMaterijal(MaterijalModel materijal, HttpPostedFileBase file, MaterijalModel model/*, string hiddenPredmet*/)
+        public ActionResult UploadMaterijal(MaterijalModel materijal, HttpPostedFileBase file, PredmetPoSmeru predmet/*, string hiddenPredmet*/)
         {
 
             // PredmetModel predmet = new PredmetModel();
-
+            materijal.predmetId = predmet.predmetId;
             context = new MaterijalContext();
-            if(materijal.namenaMaterijalaId == 2)
+            if (materijal.namenaMaterijalaId == 2)
             {
                 materijal.predmetId = null;
             }
@@ -137,8 +152,9 @@ namespace Projekat.Controllers
                     file.InputStream.Read(materijal.materijalFile, 0, file.ContentLength);
                     materijal.materijalNaziv = nazivFajla;
                     materijal.materijalEkstenzija = Path.GetExtension(nazivFajla);
-                    model.materijalOpis = materijal.materijalOpis;
-                    model.materijalNaslov = materijal.materijalNaslov;
+                    materijal.materijalOpis = materijal.materijalOpis;
+                    materijal.materijalNaslov = materijal.materijalNaslov;
+                    
                     context.Add<MaterijalModel>(materijal);
                     context.SaveChanges();
                 }
