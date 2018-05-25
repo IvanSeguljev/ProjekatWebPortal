@@ -81,6 +81,11 @@ namespace Projekat
              "~/Scripts/Smer/validacijaNovogSmera.js"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/novi_korisnik").Include(
+             "~/Scripts/Korisnik/register.js",
+             "~/Scripts/customDropdown.js"
+            ));
+
             bundles.Add(new ScriptBundle("~/bundles/ui").IncludeDirectory(
                       "~/Scripts/UI", "*.js", true)
                       );

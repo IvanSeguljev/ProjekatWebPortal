@@ -306,6 +306,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
+    <Content Include="Scripts\Korisnik\register.js" />
     <Content Include="Scripts\UI\asc-desc-strelica.js" />
     <Content Include="Scripts\UI\AutoHeightTextarea.js" />
     <Content Include="Scripts\bootbox.js" />

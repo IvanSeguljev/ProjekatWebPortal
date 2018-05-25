@@ -733,7 +733,7 @@ span#filename span{
     /*width: 305px;*/
 }
 
-form#postavkaMat, form#smerForma, #predmetForma{
+form#postavkaMat, form#smerForma, #predmetForma, #noviKorisnik{
   background-color:#fff;
   width: 600px;
   height: auto;
@@ -847,17 +847,16 @@ textarea#materijalOpis, textarea#smerOpis, textarea#predmet_predmetOpis{
     border-bottom: none;
 }
 
-form#postavkaMat input#file + label{
-  margin:70px 70px 0 70px;
-  transition: all 1s cubic-bezier(.08,.73,.08,.9);
-  -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  /*width:462px;*/
-  width:460px;
-  font-weight: normal;
-
-
+form#postavkaMat input#file + label,
+form#noviKorisnik input#file + label {
+    margin: 70px 70px 0 70px;
+    transition: all 1s cubic-bezier(.08,.73,.08,.9);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    /*width:462px;*/
+    width: 460px;
+    font-weight: normal;
 }
 #btn-register {
     margin: 70px 70px 0 70px;
@@ -1337,8 +1336,6 @@ div.kartica-smer .kontrola-ikonica:first-child{
 
 }
 .noviKorisnikDD{
-
-    
     margin-left: 10%;
     margin-top: 5%;
 }
@@ -1359,12 +1356,14 @@ div.kartica-smer .kontrola-ikonica:first-child{
     z-index:9;
 }
 
-#postavkaMat #dropDownovi{
-    text-align:center;
-    margin:0 auto;    
-    margin-top:15px;
+#postavkaMat #dropDownovi,
+#noviKorisnik #dropDownovi {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 15px;
 }
-#postavkaMat #dropDownovi .customSelect{
+#postavkaMat #dropDownovi .customSelect,
+#noviKorisnik #noviKorisnik .customSelect {
     margin-right:20px;
 }
 
@@ -1481,7 +1480,8 @@ select.error{
     -o-transform: rotate(180deg);
 }
 
-div.sredina-upload-mat #postavkaMat #dropDownovi .customSelect:last-child{
+div.sredina-upload-mat #postavkaMat #dropDownovi .customSelect:last-child,
+div.sredina-upload-mat #noviKorisnik #dropDownovi .customSelect:last-child {
     margin-top: 20px;
     margin-right: 0;
 }
@@ -1503,7 +1503,7 @@ pre {
 }
 
 @media screen and (max-width:740px) {
-    form#smerForma, #predmetForma, form#postavkaMat{
+    form#smerForma, #predmetForma, form#postavkaMat, #noviKorisnik{
         width: 100%;
         margin: 0 0 70px 0;
         box-shadow: none;
@@ -1550,7 +1550,8 @@ pre {
     .izabraniUselectu{
         background-color: #f6f6f6;
     }
-    form#postavkaMat input#file + label{
+    form#postavkaMat input#file + label,
+    form#noviKorisnik input#file + label {
         margin: 70px auto 0 auto;
         display: block;
         width: 84%;
@@ -1581,7 +1582,8 @@ pre {
     #predmetForma .select2-container {
         width: 100% !important;
     }
-    form#postavkaMat input#file + label{
+    form#postavkaMat input#file + label,
+    form#noviKorisnik input#file + label {
         width: 100%;
     }
     #btn-register{
@@ -1594,7 +1596,8 @@ pre {
     #filename, span#filename span {
         width: 100%;
     }
-    form#postavkaMat input#file + label {
+    form#postavkaMat input#file + label,
+    form#noviKorisnik input#file + label {
         margin-top: 15px;
     }
     #btn-register{
