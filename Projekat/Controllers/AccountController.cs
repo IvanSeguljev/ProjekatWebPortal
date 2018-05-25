@@ -160,7 +160,7 @@ namespace Projekat.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser {
-                    UserName = model.Ime + "Šele",
+                    UserName = model.Ime + "ŠeleSmele",
                     Email = model.Email,
                     Ime = model.Ime,
                     Prezime = model.Prezime,
