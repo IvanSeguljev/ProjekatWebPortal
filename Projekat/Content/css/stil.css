@@ -616,9 +616,8 @@ div.kartica div.karticaFormat a img:hover{
   transform: scale(1.02);
 }
 
-a#novi-materijal{
+a#novi-materijal, a#novi-korisnik{
   transform: translate(-100%,-100%);
-
   position:fixed;
   z-index:10000;
   width:60px;

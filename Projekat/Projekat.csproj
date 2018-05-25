@@ -230,6 +230,30 @@
     <Compile Include="Migrations\MaterijalContext\201805220852305_DodavanjeImenaPredmetaISlike.Designer.cs">
       <DependentUpon>201805220852305_DodavanjeImenaPredmetaISlike.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\MaterijalContext\201805241136490_promene.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805241136490_promene.Designer.cs">
+      <DependentUpon>201805241136490_promene.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201805241218127_Dodavanje Godine upisa, skole i strucne spreme.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805241218127_Dodavanje Godine upisa, skole i strucne spreme.Designer.cs">
+      <DependentUpon>201805241218127_Dodavanje Godine upisa, skole i strucne spreme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201805241256011_aaaaa.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805241256011_aaaaa.Designer.cs">
+      <DependentUpon>201805241256011_aaaaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201805241343001_Brisanje srucne spreme.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805241343001_Brisanje srucne spreme.Designer.cs">
+      <DependentUpon>201805241343001_Brisanje srucne spreme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201805241346338_Dodavanje smera i uloge u korisnike.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805241346338_Dodavanje smera i uloge u korisnike.Designer.cs">
+      <DependentUpon>201805241346338_Dodavanje smera i uloge u korisnike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MaterijalContext\201805250932435_JosNekaSredjivanja.cs" />
+    <Compile Include="Migrations\MaterijalContext\201805250932435_JosNekaSredjivanja.Designer.cs">
+      <DependentUpon>201805250932435_JosNekaSredjivanja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -243,7 +267,9 @@
     <Compile Include="Models\NamenaMaterijalaModel.cs" />
     <Compile Include="Models\PredmetModel.cs" />
     <Compile Include="Models\PredmetPoSmeru.cs" />
+    <Compile Include="Models\SkolaModel.cs" />
     <Compile Include="Models\SmerModel.cs" />
+    <Compile Include="Models\StrucnaSpremaModel.cs" />
     <Compile Include="Models\TipMaterijalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -443,6 +469,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201805220852305_DodavanjeImenaPredmetaISlike.resx">
       <DependentUpon>201805220852305_DodavanjeImenaPredmetaISlike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805241136490_promene.resx">
+      <DependentUpon>201805241136490_promene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805241218127_Dodavanje Godine upisa, skole i strucne spreme.resx">
+      <DependentUpon>201805241218127_Dodavanje Godine upisa, skole i strucne spreme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805241256011_aaaaa.resx">
+      <DependentUpon>201805241256011_aaaaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805241343001_Brisanje srucne spreme.resx">
+      <DependentUpon>201805241343001_Brisanje srucne spreme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805241346338_Dodavanje smera i uloge u korisnike.resx">
+      <DependentUpon>201805241346338_Dodavanje smera i uloge u korisnike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MaterijalContext\201805250932435_JosNekaSredjivanja.resx">
+      <DependentUpon>201805250932435_JosNekaSredjivanja.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

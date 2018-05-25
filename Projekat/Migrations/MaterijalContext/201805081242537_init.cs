@@ -34,7 +34,7 @@ namespace Projekat.Migrations.MaterijalContext
                 "dbo.NamenaMaterijalaModels",
                 c => new
                     {
-                        namenaMaterijalaId = c.Int(nullable: false, identity: true),
+                        namenaMaterijalaId = c.Int(nullable: false, identity: false),
                         namenaMaterijalaNaziv = c.String(),
                     })
                 .PrimaryKey(t => t.namenaMaterijalaId);

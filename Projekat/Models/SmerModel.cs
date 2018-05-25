@@ -43,5 +43,6 @@ namespace Projekat.Models
         /// Queryable selection of SmerModel Classes.
         /// </value>
         public IEnumerable<SmerModel> smerovi { get; set; }//ovo mozda napravi problem
+        public string smerSkraceno { get; set; }
     }
 }

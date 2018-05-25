@@ -21,6 +21,7 @@ namespace Projekat.Models
         /// The namena materijala identifier.
         /// </value>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int namenaMaterijalaId { get; set; }
 
         /// <summary>
