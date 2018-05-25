@@ -75,7 +75,7 @@ namespace Projekat.Models
         public IEnumerable<StrucnaSpremaModel> StrucneSpreme { get; set; }
         public int SelektovanaSkola { get; set; }
         
-        public int GodinaUpisa { get; set; }
+        public int? GodinaUpisa { get; set; }
         public string SelektovanaSS { get; set; }
         public int selektovaniSmer { get; set; }
         public string selektovanaUloga { get; set; }
