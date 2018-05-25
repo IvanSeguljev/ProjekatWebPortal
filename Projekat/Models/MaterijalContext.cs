@@ -56,9 +56,10 @@ namespace Projekat.Models
         /// The queryable selection of TipMaterijala Classes.
         /// </value>
         public DbSet<TipMaterijalModel> tipMaterijala { get; set; }
+        public DbSet<SkolaModel> Skole { get; set; }
+       
 
 
-        
         IQueryable<MaterijalModel> IMaterijalContext.materijali
         {
             get { return materijali; }

@@ -143,7 +143,7 @@ namespace Projekat.Controllers
             RegisterViewModel ViewModel = new RegisterViewModel();
 
             MaterijalContext matcont = new MaterijalContext();
-
+            ViewModel.Skole = matcont.Skole.ToList();
             ViewModel.Smerovi = matcont.smerovi.ToList();
             ViewModel.Uloge = matcont.Roles.ToList();
             return View(ViewModel);
@@ -165,14 +165,24 @@ namespace Projekat.Controllers
                     Ime = model.Ime,
                     Prezime = model.Prezime,
                     Slika = new byte[file.ContentLength],
+                    SkolaId = model.SelektovanaSkola,
+                    GodinaUpisa = model.GodinaUpisa,
+                    SmerId = model.selektovaniSmer,
+                    Uloga = model.selektovanaUloga
+                    
                     
             };
+                if(model.selektovanaUloga == "Ucenik")
+                {
+                    GenerisiUsername(user);
+                }
                 if (file != null)
                 {
                     file.InputStream.Read(user.Slika, 0, file.ContentLength);
                 }
-            
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
+                UserManager.AddToRole(user.Id, model.selektovanaUloga);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
@@ -189,10 +199,33 @@ namespace Projekat.Controllers
             }
             MaterijalContext matcont = new MaterijalContext();
 
+            model.Skole = matcont.Skole.ToList();
             model.Smerovi = matcont.smerovi.ToList();
             model.Uloge = matcont.Roles.ToList();
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        private void GenerisiUsername(ApplicationUser user)
+        {
+            ApplicationUser duplikat = null;
+            MaterijalContext context = new MaterijalContext();
+            string username = "";
+            username += user.Ime;
+            username += context.Skole.Where(x => x.IdSkole == user.SkolaId).First().Skraceno;
+            username += user.GodinaUpisa.ToString().Remove(0, 2);
+            username += context.smerovi.Where(x => x.smerId == user.SmerId).First().smerSkraceno;
+            int id = 1;
+            string usernamesaID;
+            do
+            {
+                 usernamesaID = username + id.ToString();
+                duplikat = UserManager.FindByName(usernamesaID);
+                id++;
+
+            }
+            while (duplikat != null);
+            user.UserName = usernamesaID;
         }
 
         //

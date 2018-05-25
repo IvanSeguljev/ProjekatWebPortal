@@ -42,7 +42,11 @@
         @Html.PasswordFor(m => m.ConfirmPassword, new { @id = "korisnikTB" })
         @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
 
-        
+        @Html.LabelFor(m => m.GodinaUpisa, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.GodinaUpisa, new { @id = "korisnikTB" })
+        @Html.ValidationMessageFor(m => m.GodinaUpisa, "", new { @class = "text-danger" })
+
+
             <div class="noviKorisnikDD">
                 
                 <label for="customDropdown" style=" text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite smer: </label>
@@ -51,7 +55,12 @@
             <div class="noviKorisnikDD">
 
                 <label for="customDropdown" style=" text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite ulogu: </label>
-                @Html.DropDownListFor(m => m.selektovanaUloga, new SelectList(Model.Uloge, "Id", "Name"), new { @class = "customDropdown", @selected = "selected" })
+                @Html.DropDownListFor(m => m.selektovanaUloga, new SelectList(Model.Uloge, "Name", "Name"), new { @class = "customDropdown", @selected = "selected" })
+            </div>
+            <div class="noviKorisnikDD">
+
+                <label for="customDropdown" style=" text-align left; margin-right 32%; font-family 'roboto-regular' ; font-weight lighter;"> Odaberite skolu: </label>
+                @Html.DropDownListFor(m => m.SelektovanaSkola, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), new { @class = "customDropdown", @selected = "selected" })
             </div>
 
             <input type="file" name="file" id="file" class="inputfile" accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|images/*" />

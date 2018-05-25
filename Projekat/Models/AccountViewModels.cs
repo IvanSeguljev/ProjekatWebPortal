@@ -71,11 +71,16 @@ namespace Projekat.Models
     {
         public IEnumerable<SmerModel> Smerovi { get; set; }
         public IEnumerable<IdentityRole> Uloge { get; set; }
-
+        public IEnumerable<SkolaModel> Skole { get; set; }
+        public IEnumerable<StrucnaSpremaModel> StrucneSpreme { get; set; }
+        public int SelektovanaSkola { get; set; }
+        
+        public int GodinaUpisa { get; set; }
+        public string SelektovanaSS { get; set; }
         public int selektovaniSmer { get; set; }
         public string selektovanaUloga { get; set; }
 
-        [Required(ErrorMessage = "Morate uneti mail!")]
+        [Required(ErrorMessage ="Morate uneti email!")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
