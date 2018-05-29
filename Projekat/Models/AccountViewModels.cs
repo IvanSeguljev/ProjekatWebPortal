@@ -74,7 +74,7 @@ namespace Projekat.Models
         public IEnumerable<SkolaModel> Skole { get; set; }
         public IEnumerable<StrucnaSpremaModel> StrucneSpreme { get; set; }
         public int SelektovanaSkola { get; set; }
-        
+        [Display(Name = "Godina upisa")]
         public int? GodinaUpisa { get; set; }
         public string SelektovanaSS { get; set; }
         public int selektovaniSmer { get; set; }
