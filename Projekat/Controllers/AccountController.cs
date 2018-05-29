@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Projekat.Models;
 using System.Collections.Generic;
+using Projekat.ViewModels;
 
 namespace Projekat.Controllers
 {
@@ -168,7 +169,9 @@ namespace Projekat.Controllers
                     SkolaId = model.SelektovanaSkola,
                     GodinaUpisa = model.GodinaUpisa,
                     SmerId = model.selektovaniSmer,
-                    Uloga = model.selektovanaUloga
+                    Uloga = model.selektovanaUloga,
+                    PhoneNumber = model.phoneNumber
+                    
                     
                     
             };
@@ -481,9 +484,43 @@ namespace Projekat.Controllers
         [AllowAnonymous]
         public ActionResult ListaKorisnika()
         {
-            ApplicationDbContext context = new ApplicationDbContext();
+            MaterijalContext context = new MaterijalContext();
+            List<SkolaModel> skole = context.Skole.ToList();
+            List<SmerModel> smerovi = context.smerovi.ToList();
+           
+            List<ApplicationUser> useri = context.Users.ToList();
 
-            List<ApplicationUser> lista = context.Users.ToList();
+            List<ListaKorisnikaViewModel> lista = new List<ListaKorisnikaViewModel>();
+            foreach (ApplicationUser a in useri)
+            {
+                SkolaModel s = skole.FirstOrDefault(x => x.IdSkole == a.SkolaId);
+                SmerModel sm = smerovi.FirstOrDefault(c => c.smerId == a.SmerId);
+                string Skola;
+                string Smer;
+                if(s!=null)
+                {
+                    Skola = s.NazivSkole;
+                }
+                else
+                {
+                    Skola = "Nema";
+                }
+                if (sm != null)
+                {
+                    Smer = sm.smerNaziv;
+                }
+                else
+                {
+                    Smer = "Nema";
+                }
+                lista.Add(new ListaKorisnikaViewModel {
+                    Korisnik = a,
+                    Skola =Skola,
+                    Smer = Smer
+                });
+                
+                
+            }
             
             return View(lista);
         }

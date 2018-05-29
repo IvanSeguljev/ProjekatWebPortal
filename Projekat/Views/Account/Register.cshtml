@@ -40,6 +40,10 @@
         @Html.PasswordFor(m => m.ConfirmPassword, new { @id = "korisnikTB" })
         @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
 
+        @Html.LabelFor(m => m.phoneNumber, new { @class = "matDesignLabel" })
+        @Html.EditorFor(m => m.phoneNumber, new { @id = "korisnikTB" })
+        @Html.ValidationMessageFor(m => m.phoneNumber, "", new { @class = "text-danger" })
+
         @Html.LabelFor(m => m.GodinaUpisa, new { @class = "matDesignLabel" })
         @Html.TextBoxFor(m => m.GodinaUpisa, new { @id = "korisnikTB" })
 

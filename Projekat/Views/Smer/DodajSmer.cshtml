@@ -9,8 +9,11 @@
         <h2>Novi smer</h2>
         <label class="matDesignLabel" for="smerNaziv">Naziv smera</label>
         @Html.TextBoxFor(m => m.smerNaziv, new { @name = "smerNaziv" });
+        <label for="smerSkraceno" class="matDesignLabel">Skracenica</label>
+        @Html.TextBoxFor(m => m.smerSkraceno, new { @name = "smerNaziv" });
         <label for="smerOpis" class="matDesignLabel">Opis</label>
         @Html.TextAreaFor(m => m.smerOpis, new { @name = "smerOpis" });
+       
 
         <button type="submit" id="postavi">POSTAVI</button>
     }
