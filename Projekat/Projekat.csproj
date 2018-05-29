@@ -285,6 +285,7 @@
     <Content Include="Content\css\bootstrap-flatly.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\datatables.min.css" />
     <Content Include="Content\css\forma-novikorisnik.css" />
     <Content Include="Content\css\izgled.css" />
     <Content Include="Content\css\reset.css" />
@@ -332,6 +333,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
+    <Content Include="Scripts\Korisnik\listaKorisnika.js" />
+    <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\Korisnik\register.js" />
     <Content Include="Scripts\UI\asc-desc-strelica.js" />
     <Content Include="Scripts\UI\AutoHeightTextarea.js" />

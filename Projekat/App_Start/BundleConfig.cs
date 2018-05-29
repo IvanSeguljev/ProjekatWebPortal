@@ -86,6 +86,10 @@ namespace Projekat
              "~/Scripts/customDropdown.js"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/lista_korisnika").Include(
+             "~/Scripts/Korisnik/listaKorisnika.js"
+            ));
+
             bundles.Add(new ScriptBundle("~/bundles/ui").IncludeDirectory(
                       "~/Scripts/UI", "*.js", true)
                       );
@@ -100,10 +104,11 @@ namespace Projekat
                       "~/Content/bootstrap.css",
                       "~/Content/css/bootstrap-flatly.css",
                       "~/Content/css/site.css",
+                      "~/Content/css/datatables.min.css",
                       "~/Content/css/izgled.css",
                       "~/Content/css/stil.css",
                       "~/Content/css/simplebar.css"
-                      ));
+                       ));
             bundles.Add(new StyleBundle("~/Content/select2").Include(
                       "~/Content/css/select2.min.css"
                       ));
