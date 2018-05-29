@@ -288,6 +288,7 @@
     <Content Include="Content\css\datatables.min.css" />
     <Content Include="Content\css\forma-novikorisnik.css" />
     <Content Include="Content\css\izgled.css" />
+    <Content Include="Content\css\listaKorisnikaStil.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\select2izgled.css" />

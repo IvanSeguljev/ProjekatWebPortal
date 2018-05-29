@@ -101,10 +101,10 @@ namespace Projekat
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/css/reset.css",
-                      "~/Content/bootstrap.css",
+                     /* "~/Content/bootstrap.css",*/
                       "~/Content/css/bootstrap-flatly.css",
                       "~/Content/css/site.css",
-                      "~/Content/css/datatables.min.css",
+                     "~/Content/css/datatables.min.css",
                       "~/Content/css/izgled.css",
                       "~/Content/css/stil.css",
                       "~/Content/css/simplebar.css"

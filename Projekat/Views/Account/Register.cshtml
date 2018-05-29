@@ -41,7 +41,7 @@
         @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
 
         @Html.LabelFor(m => m.phoneNumber, new { @class = "matDesignLabel" })
-        @Html.EditorFor(m => m.phoneNumber, new { @id = "korisnikTB" })
+        @Html.TextBoxFor(m => m.phoneNumber, new { @id = "korisnikTB" })
         @Html.ValidationMessageFor(m => m.phoneNumber, "", new { @class = "text-danger" })
 
         @Html.LabelFor(m => m.GodinaUpisa, new { @class = "matDesignLabel" })
