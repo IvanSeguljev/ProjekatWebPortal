@@ -158,6 +158,7 @@ namespace Projekat.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase file)
         {
+            
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser {
@@ -185,10 +186,11 @@ namespace Projekat.Controllers
                 }
                 
                 var result = await UserManager.CreateAsync(user, model.Password);
-                UserManager.AddToRole(user.Id, model.selektovanaUloga);
+
+               
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                     UserManager.AddToRole(user.Id, model.selektovanaUloga);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -201,7 +203,7 @@ namespace Projekat.Controllers
                 AddErrors(result);
             }
             MaterijalContext matcont = new MaterijalContext();
-
+           
             model.Skole = matcont.Skole.ToList();
             model.Smerovi = matcont.smerovi.ToList();
             model.Uloge = matcont.Roles.ToList();

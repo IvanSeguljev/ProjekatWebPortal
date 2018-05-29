@@ -16,7 +16,7 @@
         <h4 style="margin-left: 7%; text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;">Napravite novi nalog</h4>
         <hr />
 
-
+        @Html.ValidationSummary()
         @Html.LabelFor(m => m.Ime, new { @class = "matDesignLabel" })
         @Html.TextBoxFor(m => m.Ime, new { @id = "korisnikTB" })
         
@@ -49,7 +49,7 @@
         @Html.TextBoxFor(m => m.GodinaUpisa, new { @id = "korisnikTB" })
         @Html.ValidationMessageFor(m => m.GodinaUpisa, "", new { @class = "text-danger" })
 
-
+        
             <div class="noviKorisnikDD">
                 
                 <label for="customDropdown" style="text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite smer: </label>
