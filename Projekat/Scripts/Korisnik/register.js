@@ -15,6 +15,28 @@
                 slovaRegex: /^[a-zA-Z]+/,
                 minlength: 2
             },
+            Email: {
+
+                required: true,
+
+                mailRegex: /^[A-z0-9]+\@[a-z](2,6)\.[a-y](2,4)$/
+
+            },
+            Password: {
+
+                required: true,
+
+                minlength: 6
+            },
+            GodinaUpisa: {
+
+                required: false,
+
+                godinaRegex: /^\d(4,4)$/,
+
+                minlength: 4
+
+            },
             file: {
                 required: true,
                 extension: "jpeg|png|jpg",
@@ -37,6 +59,15 @@
                 required: 'Polje prezime je obavezno.',
                 minlength: "Prezime mora imati minimum 2 karaktera!"
             },
+            Password: {
+                required: 'Polje password je obavezno.',
+                minlength: "Password mora imati minimum 6 karaktera!"
+            },
+
+            GodinaUpisa: {
+               minlength: "Godina mora imati 4 karaktera"
+            },
+            
             file: {
                 required: "Morate odabrati fajl.",
                 extension: "Pogrešan format fajla.",
@@ -58,4 +89,13 @@
         return regexpr.test(value);
     }, 'Možete uneti samo slova.');
 
+    $.validator.addMethod("mailRegex", function (value, element, regexpr) {
+        // allow any non-whitespace characters as the host part
+        return regexpr.test(value);
+    }, 'Mail mora biti u formatu tekst@tekst.domen');
+
+    $.validator.addMethod("godinaRegex", function (value, element, regexpr) {
+        // allow any non-whitespace characters as the host part
+        return regexpr.test(value);
+    }, 'Godina mora imati 4 cifre.');
 });
