@@ -499,6 +499,7 @@ namespace Projekat.Controllers
                 SmerModel sm = smerovi.FirstOrDefault(c => c.smerId == a.SmerId);
                 string Skola;
                 string Smer;
+                int id = 1;
                 if(s!=null)
                 {
                     Skola = s.NazivSkole;
@@ -515,11 +516,18 @@ namespace Projekat.Controllers
                 {
                     Smer = "Nema";
                 }
-                lista.Add(new ListaKorisnikaViewModel {
-                    Korisnik = a,
-                    Skola =Skola,
-                    Smer = Smer
-                });
+
+                while (id < 100)
+                {
+                    lista.Add(new ListaKorisnikaViewModel
+                    {
+                        Korisnik = a,
+                        Skola = Skola,
+                        Smer = Smer
+
+                    });
+                    id++;
+                }
                 
                 
             }
