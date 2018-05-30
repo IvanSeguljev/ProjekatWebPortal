@@ -152,12 +152,12 @@ table.dataTable thead .sorting,table.dataTable thead .sorting_asc,table.dataTabl
 table.dataTable thead .sorting:after,table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting_desc:after,
 table.dataTable thead .sorting_asc_disabled:after,table.dataTable thead .sorting_desc_disabled:after
 {
-    position:absolute;
-    bottom:8px;
-    right:8px;
-    display:block;
-    font-family:'Glyphicons Halflings';
-    opacity:0.5;
+    position: inherit;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    opacity: 0.5;
+    left: 5%;
+    top: 10%;
 
 }
 
