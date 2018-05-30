@@ -16,8 +16,8 @@ table.dataTable{
     margin-bottom:6px !important;
     max-width:none !important;
     border-collapse:separate !important;
-    padding:2%;
-    width:90%;
+    
+    width:100%;
     
 
 }
@@ -64,7 +64,7 @@ div.dataTables_wrapper div.dataTables_length select{
 
 div.dataTables_wrapper div.dataTables_filter{
 
-    margin-right: 10%;
+    
     margin-bottom: 5%;
     text-align:right;
     
@@ -98,7 +98,7 @@ div.dataTables_wrapper div.dataTables_info{
 div.dataTables_wrapper div.dataTables_paginate{
 
     margin-top: 5%;
-    margin-right:10%;
+    
     white-space:nowrap;
     text-align:right;
 
