@@ -13,8 +13,8 @@
     <table id="listaKorisnika" class="display">
         <thead>
             <tr>
-                <th>Korisničko ime</th>
-                <th>Prezime</th>
+                <th style="border-right: 1px solid lightgray">Korisničko ime</th>
+                <th style="padding-left: 25px">Prezime</th>
                 <th>Škola</th>
                 <th>Smer</th>
                 <th>Telefon</th>
@@ -24,8 +24,8 @@
            @foreach(var item in Model)
            {
                <tr>
-                   <td>@item.Korisnik.UserName</td>
-                   <td>@item.Korisnik.Prezime</td>
+                   <td style="border-right: 1px solid lightgray">@item.Korisnik.UserName</td>
+                   <td style="padding-left: 25px">@item.Korisnik.Prezime</td>
                    <td>@item.Skola</td>
                    <td>@item.Smer</td>
                    <td>@item.Korisnik.PhoneNumber</td>
@@ -58,4 +58,5 @@
 @section Scripts {
     @Scripts.Render("~/Scripts/datatables.min.js")
     @Scripts.Render("~/bundles/lista_korisnika")
+    @Scripts.Render("~/Scripts/UI/labeli.js")
 }   

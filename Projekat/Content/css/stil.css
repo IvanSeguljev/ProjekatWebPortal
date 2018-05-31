@@ -773,7 +773,7 @@ input#Materijal_materijalNaslov, input#smerNaziv, input#predmet_predmetNaziv{
     margin: 0px 70px 0 70px;
 }
 
-#korisnikTB {
+.korisnikTB {
     display: block;
     margin: 0 70px;
     /*min-width: 253px;*/

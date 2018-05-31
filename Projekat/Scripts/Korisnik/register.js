@@ -3,39 +3,27 @@
         rules: {
             Ime: {
                 required: true,
-
-                slovaRegex: /^[A-Za-z]+$/,
-
-
+                //slovaRegex: /^[A-Za-z]+$/,
                 minlength: 2
             },
             Prezime: {
                 required: true,
-
-                slovaRegex: /^[a-zA-Z]+/,
+                //slovaRegex: /^[a-zA-Z]+/,
                 minlength: 2
             },
             Email: {
-
                 required: true,
-
-                mailRegex: /^[A-z0-9]+\@[a-z](2,6)\.[a-y](2,4)$/
-
+                email: true
+                //mailRegex: /^[A-z0-9]+\@[a-z](2,6)\.[a-y](2,4)$/
             },
             Password: {
-
                 required: true,
-
                 minlength: 6
             },
             GodinaUpisa: {
-
                 required: false,
-
                 godinaRegex: /^\d(4,4)$/,
-
                 minlength: 4
-
             },
             file: {
                 required: true,
@@ -53,21 +41,23 @@
         messages: {
             Ime: {
                 required: 'Polje ime je obavezno.',
-                minlength: "Ime mora imati minimum 2 karaktera!"
+                minlength: "Ime mora sadržati minimum 2 karaktera."
             },
             Prezime: {
                 required: 'Polje prezime je obavezno.',
-                minlength: "Prezime mora imati minimum 2 karaktera!"
+                minlength: "Prezime mora sadržati minimum 2 karaktera."
+            },
+            Email: {
+                required: 'Polje email je obavezno.',
+                email: "Unesite ispravan format email adrese."
             },
             Password: {
                 required: 'Polje password je obavezno.',
-                minlength: "Password mora imati minimum 6 karaktera!"
+                minlength: "Password mora sadržati minimum 6 karaktera."
             },
-
             GodinaUpisa: {
-               minlength: "Godina mora imati 4 karaktera"
+                minlength: "Godina mora sadržati minimum 4 karaktera."
             },
-            
             file: {
                 required: "Morate odabrati fajl.",
                 extension: "Pogrešan format fajla.",

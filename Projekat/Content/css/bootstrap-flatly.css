@@ -1274,6 +1274,8 @@ h1,
 h2,
 .h2 {
   font-size: 32px;
+  margin-left: 0;
+  padding-bottom: 1.5%;
 }
 h3,
 .h3 {
@@ -1784,6 +1786,7 @@ pre code {
   }
   .col-sm-12 {
     width: 100%;
+    padding-left:3%;
   }
   .col-sm-11 {
     width: 91.66666667%;

@@ -16,36 +16,36 @@
         <h4 style="margin-left: 7%; text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;">Napravite novi nalog</h4>
         <hr />
 
-        @Html.ValidationSummary()
+        @*@Html.ValidationSummary()*@
         @Html.LabelFor(m => m.Ime, new { @class = "matDesignLabel" })
-        @Html.TextBoxFor(m => m.Ime, new { @id = "korisnikTB" })
+        @Html.TextBoxFor(m => m.Ime, new { @class = "korisnikTB" })
         
 
 
         @Html.LabelFor(m => m.Prezime, new { @class = "matDesignLabel" })
-        @Html.TextBoxFor(m => m.Prezime, new { @id = "korisnikTB" })
+        @Html.TextBoxFor(m => m.Prezime, new { @class = "korisnikTB" })
         
 
 
         @Html.LabelFor(m => m.Email, new { @class = "matDesignLabel" })
-        @Html.TextBoxFor(m => m.Email, new { @id = "korisnikTB" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "korisnikTB" })
 
 
         @Html.LabelFor(m => m.Password, new { @class = "matDesignLabel" })
-        @Html.PasswordFor(m => m.Password, new { @id = "korisnikTB" })
-        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        @Html.PasswordFor(m => m.Password, new { @class = "korisnikTB" })
+        @*@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })*@
 
 
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "matDesignLabel" })
-        @Html.PasswordFor(m => m.ConfirmPassword, new { @id = "korisnikTB" })
-        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "korisnikTB" })
+        @*@Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })*@
 
         @Html.LabelFor(m => m.phoneNumber, new { @class = "matDesignLabel" })
-        @Html.TextBoxFor(m => m.phoneNumber, new { @id = "korisnikTB" })
-        @Html.ValidationMessageFor(m => m.phoneNumber, "", new { @class = "text-danger" })
+        @Html.TextBoxFor(m => m.phoneNumber, new { @class = "korisnikTB" })
+        @*Html.ValidationMessageFor(m => m.phoneNumber, "", new { @class = "text-danger" })*@
 
         @Html.LabelFor(m => m.GodinaUpisa, new { @class = "matDesignLabel" })
-        @Html.TextBoxFor(m => m.GodinaUpisa, new { @id = "korisnikTB" })
+        @Html.TextBoxFor(m => m.GodinaUpisa, new { @class = "korisnikTB" })
 
         
             <div class="noviKorisnikDD">
@@ -73,6 +73,5 @@
     </div>
     @section Scripts {
         @Scripts.Render("~/bundles/novi_korisnik")
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     }   
-
-   
