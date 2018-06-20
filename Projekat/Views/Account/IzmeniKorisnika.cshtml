@@ -1,0 +1,73 @@
+﻿<div id="sredina" class="sredina-upload-mat" style="width: calc(100% - 338px)">
+
+
+    @model Projekat.Models.IzmeniKorisnikaViewModel
+    @{
+        ViewBag.Title = "Izmeni Korisnika";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2 style="text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;">@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("IzmenaKorisnika", "Account", FormMethod.Post, new { @id = "noviKorisnik", @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4 style="margin-left: 7%; text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;">Napravite novi nalog</h4>
+        <hr />
+
+        @*@Html.ValidationSummary()*@
+        @Html.LabelFor(m => m.Korisnik.Ime, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Korisnik.Ime, new { @class = "korisnikTB" })
+
+        @Html.HiddenFor(m=>m.Korisnik.Id)
+
+
+
+        @Html.LabelFor(m => m.Korisnik.Prezime, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Korisnik.Prezime, new { @class = "korisnikTB" })
+
+
+
+        @Html.LabelFor(m => m.Korisnik.Email, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Korisnik.Email, new { @class = "korisnikTB" })
+
+
+
+       
+
+        @Html.LabelFor(m => m.Korisnik.PhoneNumber, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Korisnik.PhoneNumber, new { @class = "korisnikTB" })
+        @*Html.ValidationMessageFor(m => m.phoneNumber, "", new { @class = "text-danger" })*@
+
+        @Html.LabelFor(m => m.Korisnik.GodinaUpisa, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Korisnik.GodinaUpisa, new { @class = "korisnikTB" })
+        @Html.HiddenFor(m => m.Korisnik.Slika)
+        
+
+        <div class="noviKorisnikDD">
+
+            <label for="customDropdown" style="text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite smer: </label>
+            @Html.DropDownListFor(m => m.Korisnik.SmerId, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
+        </div>
+            <div class="noviKorisnikDD">
+
+                <label for="customDropdown" style="text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite ulogu: </label>
+                @Html.DropDownListFor(m => m.Korisnik.Uloga, new SelectList(Model.Uloge, "Name", "Name"), new { @class = "customDropdown", @selected = "selected" })
+            </div>
+            <div class="noviKorisnikDD">
+
+                <label for="customDropdown" style="text-align: left; margin-right: 32%; font-family: 'roboto-regular' ; font-weight: lighter;"> Odaberite skolu: </label>
+                @Html.DropDownListFor(m => m.Korisnik.SkolaId, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), new { @class = "customDropdown", @selected = "selected" })
+            </div>
+
+            <input type="file" name="Fajl" id="file" class="inputfile" accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|images/*" />
+            <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
+            <input type="submit" id="btn-register" value="Register" />
+
+
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/novi_korisnik")
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+}   

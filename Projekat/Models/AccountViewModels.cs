@@ -106,6 +106,18 @@ namespace Projekat.Models
         
     }
 
+    public class IzmeniKorisnikaViewModel
+    {
+        public ApplicationUser Korisnik {get; set;}
+
+        public IEnumerable<SmerModel> Smerovi { get; set; }
+        public IEnumerable<IdentityRole> Uloge { get; set; }
+        public IEnumerable<SkolaModel> Skole { get; set; }
+        public IEnumerable<StrucnaSpremaModel> StrucneSpreme { get; set; }
+
+    }
+
+
     public class ResetPasswordViewModel
     {
         [Required]

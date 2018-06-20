@@ -444,6 +444,7 @@
     <Content Include="Views\Materijal\_Kartice.cshtml" />
     <Content Include="Views\Account\ListaKorisnika.cshtml" />
     <Content Include="Views\Materijal\_PredmetiNaSmeru.cshtml" />
+    <Content Include="Views\Account\IzmeniKorisnika.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

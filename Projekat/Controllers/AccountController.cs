@@ -150,6 +150,77 @@ namespace Projekat.Controllers
             return View(ViewModel);
             
         }
+        
+        [AllowAnonymous]
+        public ActionResult IzmeniKorisnika(string ID)
+        {
+            if(ID != null)
+            { 
+            IzmeniKorisnikaViewModel ViewModel = new IzmeniKorisnikaViewModel();
+
+            MaterijalContext matcon = new MaterijalContext();
+
+            ViewModel.Uloge = matcon.Roles.ToList();
+            ViewModel.Skole = matcon.Skole.ToList();
+            ViewModel.Smerovi = matcon.smerovi.ToList();
+
+            ApplicationUser Korisnik = matcon.Users.FirstOrDefault(x => x.Id ==ID);
+            ViewModel.Korisnik = Korisnik;
+
+            return View(ViewModel);
+            }
+            else
+            {
+                return RedirectToAction("ListaKorisnika");
+            }
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult IzmenaKorisnika(IzmeniKorisnikaViewModel model,HttpPostedFileBase Fajl)
+        {
+            
+            if (ModelState.IsValid)
+            {
+               
+                MaterijalContext context = new MaterijalContext();
+                ApplicationUser user;
+                user = model.Korisnik;
+                ApplicationUser postojeci = context.Users.FirstOrDefault(x => x.Id == user.Id);
+                if((postojeci.Ime != user.Ime||postojeci.GodinaUpisa!=user.GodinaUpisa||postojeci.SkolaId!=user.SkolaId||user.SmerId!=postojeci.SmerId)&&user.Uloga=="Ucenik")
+                {
+                    GenerisiUsername(user);
+                }
+                if(user.Uloga != postojeci.Uloga)
+                {
+                    UserManager.RemoveFromRole(postojeci.Id, postojeci.Uloga);
+                    UserManager.AddToRole(postojeci.Id, user.Uloga);
+                }
+                if (Fajl != null)
+                {
+                    Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
+                }
+                if(user.Slika != postojeci.Slika)
+                {
+                    postojeci.Slika = user.Slika;
+                }
+                postojeci.UserName = user.UserName;
+                postojeci.Ime = user.Ime;
+                postojeci.Email = user.Email;
+                postojeci.Prezime = user.Prezime;
+                
+                postojeci.SkolaId= user.SkolaId;
+                postojeci.GodinaUpisa = user.GodinaUpisa;
+                postojeci.SmerId = user.SmerId;
+                postojeci.Uloga = user.Uloga;
+                postojeci.PhoneNumber = user.PhoneNumber;
+
+                context.SaveChanges();
+
+
+
+            }
+            return RedirectToAction("ListaKorisnika");
+        }
 
         //
         // POST: /Account/Register

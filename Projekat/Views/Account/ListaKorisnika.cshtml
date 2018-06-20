@@ -29,6 +29,13 @@
                    <td>@item.Skola</td>
                    <td>@item.Smer</td>
                    <td>@item.Korisnik.PhoneNumber</td>
+                   <td>@using (Html.BeginForm("IzmeniKorisnika", "Account", new { ID = item.Korisnik.Id}))
+                   {
+                           
+                             <input type="submit" name="button" class="button1" value="Promeni" />
+                        }
+                   </td>
+
                </tr>
            }
         </tbody>
