@@ -22,20 +22,15 @@
             },
             GodinaUpisa: {
                 required: false,
-                godinaRegex: /^\d(4,4)$/,
+                godinaRegex: /^([0-9]{4,4})?$/,
                 minlength: 4
+
             },
-            file: {
+            Fajl: {
                 required: true,
-                extension: "jpeg|png|jpg",
-                maxFileSize: {
-                    "unit": "KB",
-                    "size": 5000
-                },
-                minFileSize: {
-                    "unit": "KB",
-                    "size": "1"
-                }
+
+                extension: "jpeg|png|jpg"
+              
             }
         },
         messages: {
@@ -58,7 +53,7 @@
             GodinaUpisa: {
                 minlength: "Godina mora sadržati minimum 4 karaktera."
             },
-            file: {
+            Fajl: {
                 required: "Morate odabrati fajl.",
                 extension: "Pogrešan format fajla.",
                 maxFileSize: "Fajl ne sme biti veći od 5MB.",
@@ -66,7 +61,7 @@
             }
         },
         errorPlacement: function (error, element) {
-            if (element.attr("name") == "file") {
+            if (element.attr("name") == "Fajl") {
                 error.insertAfter(element.next());
             }
             else {

@@ -156,17 +156,19 @@ namespace Projekat.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase file)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase Fajl)
         {
             
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser {
+                ApplicationUser user;
+                
+                user = new ApplicationUser {
                     UserName = model.Ime,
                     Email = model.Email,
                     Ime = model.Ime,
                     Prezime = model.Prezime,
-                    Slika = new byte[file.ContentLength],
+                    Slika = new byte[Fajl.ContentLength],
                     SkolaId = model.SelektovanaSkola,
                     GodinaUpisa = model.GodinaUpisa,
                     SmerId = model.selektovaniSmer,
@@ -180,9 +182,9 @@ namespace Projekat.Controllers
                 {
                     GenerisiUsername(user);
                 }
-                if (file != null)
+                if (Fajl != null)
                 {
-                    file.InputStream.Read(user.Slika, 0, file.ContentLength);
+                    Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
                 }
                 
                 var result = await UserManager.CreateAsync(user, model.Password);
