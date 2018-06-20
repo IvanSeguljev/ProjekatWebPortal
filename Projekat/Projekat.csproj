@@ -334,6 +334,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
+    <Content Include="Scripts\Korisnik\izmeniKorisnika.js" />
     <Content Include="Scripts\Korisnik\listaKorisnika.js" />
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\Korisnik\register.js" />
