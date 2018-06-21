@@ -165,9 +165,15 @@ namespace Projekat.Controllers
             ViewModel.Smerovi = matcon.smerovi.ToList();
 
             ApplicationUser Korisnik = matcon.Users.FirstOrDefault(x => x.Id ==ID);
-            ViewModel.Korisnik = Korisnik;
-
-            return View(ViewModel);
+            if(Korisnik != null)
+            { 
+                ViewModel.Korisnik = Korisnik;
+                return View(ViewModel);
+            }
+            else
+                {
+                    return RedirectToAction("ListaKorisnika");
+                }
             }
             else
             {
@@ -187,37 +193,39 @@ namespace Projekat.Controllers
                 user = model.Korisnik;
 
                 ApplicationUser postojeci = context.Users.FirstOrDefault(x => x.UserName == model.Korisnik.UserName);
-                if ((postojeci.Ime != user.Ime||postojeci.GodinaUpisa!=user.GodinaUpisa||postojeci.SkolaId!=user.SkolaId||user.SmerId!=postojeci.SmerId)&&user.Uloga=="Ucenik")
+                if (postojeci != null)
                 {
-                    GenerisiUsername(user);
-                    postojeci.UserName = user.UserName;
-                }
-                if(user.Uloga != postojeci.Uloga)
-                {
-                    UserManager.RemoveFromRole(postojeci.Id, postojeci.Uloga);
-                    UserManager.AddToRole(postojeci.Id, user.Uloga);
-                }
-                if (Fajl != null)
-                {
-                    Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
-                }
-                if(user.Slika != postojeci.Slika)
-                {
-                    postojeci.Slika = user.Slika;
-                }
-                
-                postojeci.Ime = user.Ime;
-                postojeci.Email = user.Email;
-                postojeci.Prezime = user.Prezime;
-                
-                postojeci.SkolaId= user.SkolaId;
-                postojeci.GodinaUpisa = user.GodinaUpisa;
-                postojeci.SmerId = user.SmerId;
-                postojeci.Uloga = user.Uloga;
-                postojeci.PhoneNumber = user.PhoneNumber;
+                    if ((postojeci.Ime != user.Ime || postojeci.GodinaUpisa != user.GodinaUpisa || postojeci.SkolaId != user.SkolaId || user.SmerId != postojeci.SmerId) && user.Uloga == "Ucenik")
+                    {
+                        GenerisiUsername(user);
+                        postojeci.UserName = user.UserName;
+                    }
+                    if (user.Uloga != postojeci.Uloga)
+                    {
+                        UserManager.RemoveFromRole(postojeci.Id, postojeci.Uloga);
+                        UserManager.AddToRole(postojeci.Id, user.Uloga);
+                    }
+                    if (Fajl != null)
+                    {
+                        Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
+                    }
+                    if (user.Slika != postojeci.Slika)
+                    {
+                        postojeci.Slika = user.Slika;
+                    }
 
-                context.SaveChanges();
+                    postojeci.Ime = user.Ime;
+                    postojeci.Email = user.Email;
+                    postojeci.Prezime = user.Prezime;
 
+                    postojeci.SkolaId = user.SkolaId;
+                    postojeci.GodinaUpisa = user.GodinaUpisa;
+                    postojeci.SmerId = user.SmerId;
+                    postojeci.Uloga = user.Uloga;
+                    postojeci.PhoneNumber = user.PhoneNumber;
+
+                    context.SaveChanges();
+                }
 
 
             }
