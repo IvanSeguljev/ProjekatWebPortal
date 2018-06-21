@@ -185,10 +185,12 @@ namespace Projekat.Controllers
                 MaterijalContext context = new MaterijalContext();
                 ApplicationUser user;
                 user = model.Korisnik;
-                ApplicationUser postojeci = context.Users.FirstOrDefault(x => x.Id == user.Id);
-                if((postojeci.Ime != user.Ime||postojeci.GodinaUpisa!=user.GodinaUpisa||postojeci.SkolaId!=user.SkolaId||user.SmerId!=postojeci.SmerId)&&user.Uloga=="Ucenik")
+
+                ApplicationUser postojeci = context.Users.FirstOrDefault(x => x.UserName == model.Korisnik.UserName);
+                if ((postojeci.Ime != user.Ime||postojeci.GodinaUpisa!=user.GodinaUpisa||postojeci.SkolaId!=user.SkolaId||user.SmerId!=postojeci.SmerId)&&user.Uloga=="Ucenik")
                 {
                     GenerisiUsername(user);
+                    postojeci.UserName = user.UserName;
                 }
                 if(user.Uloga != postojeci.Uloga)
                 {
@@ -203,7 +205,7 @@ namespace Projekat.Controllers
                 {
                     postojeci.Slika = user.Slika;
                 }
-                postojeci.UserName = user.UserName;
+                
                 postojeci.Ime = user.Ime;
                 postojeci.Email = user.Email;
                 postojeci.Prezime = user.Prezime;
