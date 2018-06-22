@@ -182,7 +182,7 @@ namespace Projekat.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult IzmenaKorisnika(IzmeniKorisnikaViewModel model,HttpPostedFileBase Fajl)
+        public ActionResult IzmeniKorisnika(IzmeniKorisnikaViewModel model,HttpPostedFileBase Fajl)
         {
             
             if (ModelState.IsValid)
@@ -633,6 +633,24 @@ namespace Projekat.Controllers
             else
                 return RedirectToAction("ListaKorisnika", "Account");
 
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult ObrisiKorisnika(string ID)
+        {
+            MaterijalContext matcon = new MaterijalContext();
+
+            ApplicationUser Korisnik = UserManager.FindById(ID); 
+            
+            if(Korisnik != null)
+            {
+                
+                UserManager.Delete(Korisnik);
+            }
+            
+
+
+            return RedirectToAction("ListaKorisnika");
         }
         #region Helpers
         // Used for XSRF protection when adding external logins
