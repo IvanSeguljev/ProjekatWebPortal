@@ -150,7 +150,7 @@ namespace Projekat.Controllers
             return View(ViewModel);
             
         }
-        
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult IzmeniKorisnika(string ID)
         {
