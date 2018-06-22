@@ -111,7 +111,8 @@ namespace Projekat
                      "~/Content/css/datatables.min.css",
                       "~/Content/css/izgled.css",
                       "~/Content/css/stil.css",
-                      "~/Content/css/simplebar.css"
+                      "~/Content/css/simplebar.css",
+                      "~/Content/css/detaljiKorisnika.css"
                        ));
             bundles.Add(new StyleBundle("~/Content/select2").Include(
                       "~/Content/css/select2.min.css"

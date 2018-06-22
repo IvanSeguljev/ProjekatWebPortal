@@ -570,6 +570,7 @@ namespace Projekat.Controllers
         public ActionResult ListaKorisnika()
         {
             MaterijalContext context = new MaterijalContext();
+            
             List<SkolaModel> skole = context.Skole.ToList();
             List<SmerModel> smerovi = context.smerovi.ToList();
            
@@ -613,6 +614,25 @@ namespace Projekat.Controllers
             }
             
             return View(lista);
+        }
+        [AllowAnonymous]
+        public ActionResult DetaljiKorisnika(string ID)
+        {
+            MaterijalContext matCon = new MaterijalContext();
+            DetaljiKorisnikaViewModel viewmodel = new DetaljiKorisnikaViewModel();
+            
+            viewmodel.Korisnik = matCon.Users.FirstOrDefault(x => x.Id == ID);
+            
+            if (viewmodel.Korisnik != null)
+            {
+                viewmodel.SelektovanaSkola = matCon.Skole.FirstOrDefault(x => x.IdSkole == viewmodel.Korisnik.SkolaId).NazivSkole;
+                viewmodel.SelektovaniSmer = matCon.smerovi.FirstOrDefault(x => x.smerId == viewmodel.Korisnik.SmerId).smerNaziv;
+                return View(viewmodel);
+
+            }
+            else
+                return RedirectToAction("ListaKorisnika", "Account");
+
         }
         #region Helpers
         // Used for XSRF protection when adding external logins

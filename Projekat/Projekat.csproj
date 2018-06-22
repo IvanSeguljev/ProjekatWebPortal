@@ -286,6 +286,7 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\datatables.min.css" />
+    <Content Include="Content\css\detaljiKorisnika.css" />
     <Content Include="Content\css\forma-novikorisnik.css" />
     <Content Include="Content\css\izgled.css" />
     <Content Include="Content\css\listaKorisnikaStil.css" />
@@ -446,6 +447,7 @@
     <Content Include="Views\Account\ListaKorisnika.cshtml" />
     <Content Include="Views\Materijal\_PredmetiNaSmeru.cshtml" />
     <Content Include="Views\Account\IzmeniKorisnika.cshtml" />
+    <Content Include="Views\Account\DetaljiKorisnika.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

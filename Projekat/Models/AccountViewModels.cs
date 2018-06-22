@@ -116,6 +116,16 @@ namespace Projekat.Models
         public IEnumerable<StrucnaSpremaModel> StrucneSpreme { get; set; }
 
     }
+    public class DetaljiKorisnikaViewModel
+    {
+        public ApplicationUser Korisnik { get; set; }
+
+        public string SelektovaniSmer { get; set; }
+        
+        public string SelektovanaSkola { get; set; }
+        
+
+    }
 
 
     public class ResetPasswordViewModel

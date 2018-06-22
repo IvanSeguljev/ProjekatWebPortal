@@ -1,0 +1,45 @@
+﻿<div id="sredina" class="sredina-upload-mat" style="width: calc(100% - 338px)">
+    @model Projekat.Models.DetaljiKorisnikaViewModel
+    @{
+        ViewBag.Title = "Detalji Korisnika";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("DetaljiKorisnika", "Account", FormMethod.Post, new { @class = "form-detalji", role = "form", @enctype = "multipart/form-data" }))
+    {
+
+        @Html.AntiForgeryToken()
+        <h4>Detalji korisnika</h4>
+
+
+
+        <img src="data:image;base64,@System.Convert.ToBase64String(Model.Korisnik.Slika)" class="slika" />
+        <table>
+            <tr> <td class="kategorija"> <label class="labele">Ime: &nbsp</label> </td> <td>  <label class="labelaIzBaze">@Model.Korisnik.Ime</label> </td> </tr>
+
+            <tr> <td class="kategorija"> <label class="labele">Prezime: &nbsp</label>   </td> <td>     <label class="labelaIzBaze">@Model.Korisnik.Prezime</label>  </td> </tr>
+
+
+            <tr> <td class="kategorija"><label class="labele">Email: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.Korisnik.Email</label> </td> </tr>
+
+            <tr> <td class="kategorija"><label class="labele">Broj telefona: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.PhoneNumber</label> </td> </tr>
+
+            <tr> <td class="kategorija"><label class="labele">Uloga: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.Uloga</label></td> </tr>
+
+            <tr> <td class="kategorija"><label class="labele">Godina upisa: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.Korisnik.GodinaUpisa</label></td> </tr>
+        </table>
+
+
+       
+
+
+
+    }
+</div>
+@section Scripts{
+
+    @Scripts.Render("~bundles/Content/css")
+
+}
