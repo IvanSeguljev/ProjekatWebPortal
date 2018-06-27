@@ -163,7 +163,7 @@ namespace Projekat.Controllers
             ViewModel.Uloge = matcon.Roles.ToList();
             ViewModel.Skole = matcon.Skole.ToList();
             ViewModel.Smerovi = matcon.smerovi.ToList();
-
+            
             ApplicationUser Korisnik = matcon.Users.FirstOrDefault(x => x.Id ==ID);
             if(Korisnik != null)
             { 
@@ -192,7 +192,7 @@ namespace Projekat.Controllers
                 ApplicationUser user;
                 user = model.Korisnik;
 
-                ApplicationUser postojeci = context.Users.FirstOrDefault(x => x.UserName == model.Korisnik.UserName);
+                ApplicationUser postojeci = UserManager.FindByName(model.Korisnik.UserName);
                 if (postojeci != null)
                 {
                     if ((postojeci.Ime != user.Ime || postojeci.GodinaUpisa != user.GodinaUpisa || postojeci.SkolaId != user.SkolaId || user.SmerId != postojeci.SmerId) && user.Uloga == "Ucenik")
@@ -224,7 +224,7 @@ namespace Projekat.Controllers
                     postojeci.Uloga = user.Uloga;
                     postojeci.PhoneNumber = user.PhoneNumber;
 
-                    context.SaveChanges();
+                    UserManager.Update(postojeci);
                 }
 
 
