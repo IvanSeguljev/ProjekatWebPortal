@@ -16,43 +16,45 @@
 
         <img src="data:image;base64,@System.Convert.ToBase64String(Model.Korisnik.Slika)" class="slika" />
         <table>
-            <tr> <td class="kategorija"> <label class="labele">Ime: &nbsp</label> </td> <td colspan="2">  <label class="labelaIzBaze">@Model.Korisnik.Ime</label> </td> </tr>
+            <tr> <td class="kategorija"> <label class="labele">Ime: &nbsp</label> </td> <td>  <label class="labelaIzBaze">@Model.Korisnik.Ime</label> </td> </tr>
 
-            <tr> <td class="kategorija"> <label class="labele">Prezime: &nbsp</label>   </td> <td colspan="2">    <label class="labelaIzBaze">@Model.Korisnik.Prezime</label>  </td> </tr>
+            <tr> <td class="kategorija"> <label class="labele">Prezime: &nbsp</label>   </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.Prezime</label>  </td> </tr>
 
 
-            <tr> <td class="kategorija"><label class="labele">Email: &nbsp</label>   </td> <td colspan="2">      <label class="labelaIzBaze">@Model.Korisnik.Email</label> </td> </tr>
+            <tr> <td class="kategorija"><label class="labele">Email: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.Korisnik.Email</label> </td> </tr>
 
-            <tr> <td class="kategorija"><label class="labele">Broj telefona: &nbsp</label>    </td> <td colspan="2">    <label class="labelaIzBaze">@Model.Korisnik.PhoneNumber</label> </td> </tr>
+            <tr> <td class="kategorija"><label class="labele">Broj telefona: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.PhoneNumber</label> </td> </tr>
 
-            <tr> <td class="kategorija"><label class="labele">Uloga: &nbsp</label>    </td> <td colspan="2">    <label class="labelaIzBaze">@Model.Korisnik.Uloga</label></td> </tr>
+            <tr> <td class="kategorija"><label class="labele">Uloga: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.Uloga</label></td> </tr>
 
-            <tr> <td class="kategorija"><label class="labele">Godina upisa: &nbsp</label>   </td> <td colspan="2">      <label class="labelaIzBaze">@Model.Korisnik.GodinaUpisa</label></td> </tr>
+            <tr> <td class="kategorija"><label class="labele">Godina upisa: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.Korisnik.GodinaUpisa</label></td> </tr>
 
-            <tr>
-                <td>
-                    @using (Html.BeginForm("IzmeniKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Get))
-                    {
-
-                        <input type="submit" name="button" class="btnDetalji" value="Izmeni" />
-                    }
-                </td>
-                <td>
-                    @using (Html.BeginForm("ObrisiKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Post))
-                    {
-
-                        <input type="submit" name="button" class="btnDetalji" value="Obrisi" />
-                    }
-                </td>
-                <td>
-                    @using (Html.BeginForm("DetaljiKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Post))
-                    {
-
-                        <input type="submit" name="button" class="btnDetalji" value="Placeholder" />
-                    }
-                </td>
-            </tr>
+                 
+                   
         </table>
+        <p>
+
+            @using (Html.BeginForm("IzmeniKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Get))
+            {
+
+                <input type="submit" name="button" class="btnsOnDetalji" value="IZMENI" />
+            }
+
+            @using (Html.BeginForm("ObrisiKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Post))
+            {
+
+                <input type="submit" name="button" class="btnsOnDetalji" value="OBRISI" />
+            }
+
+            @using (Html.BeginForm("DetaljiKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Post))
+            {
+
+                <input type="submit" name="button" class="btnReset" value="RESETUJ PASSWORD" />
+            }
+
+        </p>
+
+
 
 
 
