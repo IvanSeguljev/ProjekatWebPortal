@@ -10,7 +10,7 @@
     <div class="form-detalji" role="form">
 
         @Html.AntiForgeryToken()
-        <h4>Detalji korisnika</h4>
+        <h4>Detalji korisnika: @Model.Korisnik.UserName</h4>
 
 
 
@@ -25,9 +25,23 @@
 
             <tr> <td class="kategorija"><label class="labele">Broj telefona: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.PhoneNumber</label> </td> </tr>
 
-            <tr> <td class="kategorija"><label class="labele">Uloga: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.Uloga</label></td> </tr>
+            
 
-            <tr> <td class="kategorija"><label class="labele">Godina upisa: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.Korisnik.GodinaUpisa</label></td> </tr>
+            <tr> <td class="kategorija"><label class="labele">Uloga: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.Uloga</label></td> </tr>
+            @{ if (Model.Korisnik.Uloga == "Ucenik")
+                {
+                    <tr> <td class="kategorija"><label class="labele">Skola: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.SelektovanaSkola</label></td> </tr>
+
+                    <tr> <td class="kategorija"><label class="labele">Godina upisa: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.Korisnik.GodinaUpisa</label></td> </tr>
+
+                    <tr> <td class="kategorija"><label class="labele">Smer: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.SelektovaniSmer</label></td> </tr>
+                }
+                else if (Model.Korisnik.Uloga == "Profesor")
+                {
+                    <tr> <td class="kategorija"><label class="labele">Skola: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.SelektovanaSkola</label></td> </tr>
+                }
+                 }
+           
 
                  
                    
@@ -43,13 +57,13 @@
             @using (Html.BeginForm("ObrisiKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Post))
             {
 
-                <input type="submit" name="button" class="btnsOnDetalji" value="OBRISI" />
+                <input type="submit" name="button" class="btnsOnDetalji" value="OBRISI" onclick="return confirm('Molimo vas potvrdite brisanje')" />
             }
 
             @using (Html.BeginForm("DetaljiKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Post))
             {
 
-                <input type="submit" name="button" class="btnReset" value="RESETUJ PASSWORD" />
+                <input type="submit" name="button" class="btnReset" value="RESETUJ PASSWORD" onclick="return confirm('Molimo vas potvrdite resetovanje sifre')" />
             }
 
         </p>
