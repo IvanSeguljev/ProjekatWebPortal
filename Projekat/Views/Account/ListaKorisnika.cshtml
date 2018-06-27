@@ -31,11 +31,11 @@
                     <td>@item.Skola</td>
                     <td>@item.Smer</td>
                     <td>@item.Korisnik.PhoneNumber</td>
-                    <td>
+                    <td class="dugmetd">
                         @using (Html.BeginForm("DetaljiKorisnika", "Account", new { ID = item.Korisnik.Id }))
                         {
 
-                            <input type="submit" name="button" class="btnDetalji" value="Detalji" />
+                            <input type="submit" name="button" class="btnDetalji" value="DETALJI" />
                         }
                 </td>
 

@@ -1,12 +1,23 @@
 ﻿.btnDetalji {
-    background-color: red;
-    background-color: #e21b22;
-    color: white;
-    border-radius: 4px;
+    
+    background-color: white;
+    color: red;
+    font-family: 'roboto-regular';
+    
+    
+    height:100%;
+    width:100%;
+    background-image:none;
+    
     
 }
 
     .btnDetalji:hover {
-        transition: 0.7s;
-        background-color: #ef474d;
+        transition: 0.3s;
+        background-color: indianred;
+        color:white;
+        background-color:#ef474d;
+        
     }
+
+    
