@@ -213,13 +213,21 @@ namespace Projekat.Controllers
                     {
                         postojeci.Slika = user.Slika;
                     }
+                    if(user.Uloga == "Ucenik")
+                    {
+                        postojeci.GodinaUpisa = user.GodinaUpisa;
+                    }
+                    else
+                    {
+                        postojeci.GodinaUpisa = null;
+                    }
 
                     postojeci.Ime = user.Ime;
                     postojeci.Email = user.Email;
                     postojeci.Prezime = user.Prezime;
 
                     postojeci.SkolaId = user.SkolaId;
-                    postojeci.GodinaUpisa = user.GodinaUpisa;
+                    
                     postojeci.SmerId = user.SmerId;
                     postojeci.Uloga = user.Uloga;
                     postojeci.PhoneNumber = user.PhoneNumber;
