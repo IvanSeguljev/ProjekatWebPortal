@@ -3,12 +3,13 @@
 @{
     ViewBag.Title = "ListaKorisnika";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
 <div id="sredina">
     <h2>Lista Korisnika</h2>
 
-    
+        <link rel="stylesheet" type="text/css" href="~/Content/css/TabelaListaKorisnika.css">
 
     <table id="listaKorisnika" class="display">
         <thead>
@@ -18,31 +19,32 @@
                 <th style="font-family: 'roboto-light'">Škola</th>
                 <th style="font-family: 'roboto-light'">Smer</th>
                 <th style="font-family: 'roboto-light'">Telefon</th>
-                <th style="font-family: 'roboto-light'"></th>
+                <th style="font-family: 'roboto-light'">Detalji</th>
             </tr>
         </thead>
         <tbody>
-           @foreach(var item in Model)
-           {
-               <tr>
-                   <td style="border-right: 1px solid lightgray">@item.Korisnik.UserName</td>
-                   <td style="padding-left: 25px">@item.Korisnik.Prezime</td>
-                   <td>@item.Skola</td>
-                   <td>@item.Smer</td>
-                   <td>@item.Korisnik.PhoneNumber</td>
-                   <td>@using (Html.BeginForm("DetaljiKorisnika", "Account", new { ID = item.Korisnik.Id}))
-                   {
-                           
-                             <input type="submit" name="button" class="btnDetalji" value="Detalji" />
-                        }
-                   </td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="border-right: 1px solid lightgray">@item.Korisnik.UserName</td>
+                    <td style="padding-left: 25px">@item.Korisnik.Prezime</td>
+                    <td>@item.Skola</td>
+                    <td>@item.Smer</td>
+                    <td>@item.Korisnik.PhoneNumber</td>
+                    <td>
+                        @using (Html.BeginForm("DetaljiKorisnika", "Account", new { ID = item.Korisnik.Id }))
+                        {
 
-               </tr>
-           }
+                            <input type="submit" name="button" class="btnDetalji" value="Detalji" />
+                        }
+                </td>
+
+            </tr>
+        }
         </tbody>
     </table>
 
-   
+
 
     <a id="novi-korisnik" href="/Account/Register">
         <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">

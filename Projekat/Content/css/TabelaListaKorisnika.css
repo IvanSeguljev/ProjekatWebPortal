@@ -1,0 +1,12 @@
+﻿.btnDetalji {
+    background-color: red;
+    background-color: #e21b22;
+    color: white;
+    border-radius: 4px;
+    
+}
+
+    .btnDetalji:hover {
+        transition: 0.7s;
+        background-color: #ef474d;
+    }
