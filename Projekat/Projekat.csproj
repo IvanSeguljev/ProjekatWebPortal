@@ -295,6 +295,7 @@
     <Content Include="Content\css\select2izgled.css" />
     <Content Include="Content\css\simplebar.css" />
     <Content Include="Content\css\stil.css" />
+    <Content Include="Content\css\TabelaListaKorisnika.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\back-strelica.png" />
     <Content Include="Content\img\cikica.png" />
