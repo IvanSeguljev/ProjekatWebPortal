@@ -26,89 +26,18 @@
     @foreach (var item in Model)
             {
         <tr>
-            <td style="border-right: 1px solid lightgray">@item.Korisnik.UserName</td>
-            <td style="padding-left: 25px">@item.Korisnik.Prezime</td>
+            <td style="border-right: 1px solid lightgray">@item.UserName</td>
+            <td style="padding-left: 25px">@item.Prezime</td>
             <td>@item.Skola</td>
             <td>@item.Smer</td>
-            <td>@item.Korisnik.PhoneNumber</td>
+            <td>@item.BrojTelefona</td>
 
             <td>
-                <input type="button" name="button" class="btnDetalji" value="DETALJI" data-toggle="modal" data-target="#myModal_@item.Korisnik.UserName"/>
-
-
-                <div id="myModal_@item.Korisnik.UserName" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        
-                            <div class="modal-body">
-                                <div class="form-detalji" role="form">
-
-
-
-                                    <h4>Detalji korisnika: @item.Korisnik.UserName</h4>
-
-
-
-                                    <img src="data:image;base64,@System.Convert.ToBase64String(item.Korisnik.Slika)" class="slika" />
-                                    <table>
-                                        <tr> <td class="kategorija"> <label class="labele">Ime: &nbsp</label> </td> <td>  <label class="labelaIzBaze">@item.Korisnik.Ime</label> </td> </tr>
-
-                                        <tr> <td class="kategorija"> <label class="labele">Prezime: &nbsp</label>   </td> <td>    <label class="labelaIzBaze">@item.Korisnik.Prezime</label>  </td> </tr>
-
-
-                                        <tr> <td class="kategorija"><label class="labele">Email: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@item.Korisnik.Email</label> </td> </tr>
-
-                                        <tr> <td class="kategorija"><label class="labele">Broj telefona: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@item.Korisnik.PhoneNumber</label> </td> </tr>
-
-
-
-                                        <tr> <td class="kategorija"><label class="labele">Uloga: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@item.Korisnik.Uloga</label></td> </tr>
-                                        @{ if (item.Korisnik.Uloga == "Ucenik")
+                @using (Html.BeginForm("DetaljiKorisnika", "Account", new { Username = item.UserName }, FormMethod.Post))
                 {
-                                                <tr> <td class="kategorija"><label class="labele">Skola: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@item.Skola</label></td> </tr>
 
-                                                <tr> <td class="kategorija"><label class="labele">Godina upisa: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@item.Korisnik.GodinaUpisa</label></td> </tr>
-
-                                                <tr> <td class="kategorija"><label class="labele">Smer: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@item.Smer</label></td> </tr>
-                                            }
-                                            else if (item.Korisnik.Uloga == "Profesor")
-                                            {
-                                                <tr> <td class="kategorija"><label class="labele">Skola: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@item.Skola</label></td> </tr>
-                                            }
-                                        }
-
-
-
-
-                                    </table>
-                                    <p>
-
-                                        @using (Html.BeginForm("IzmeniKorisnika", "Account", new { ID = item.Korisnik.Id }, FormMethod.Get))
-                                        {
-
-                                            <input type="submit" name="button" class="btnsOnDetalji" value="IZMENI" />
-                                        }
-
-                                        @using (Html.BeginForm("ObrisiKorisnika", "Account", new { ID = item.Korisnik.Id }, FormMethod.Post))
-                                        {
-
-                                            <input type="submit" name="button" class="btnsOnDetalji" value="OBRISI" onclick="return confirm('Molimo vas potvrdite brisanje')" />
-                                        }
-
-                                        @using (Html.BeginForm("DetaljiKorisnika", "Account", new { ID = item.Korisnik.Id }, FormMethod.Post))
-                                        {
-
-                                            <input type="submit" name="button" class="btnReset" value="RESETUJ PASSWORD" onclick="return confirm('Molimo vas potvrdite resetovanje sifre')" />
-                                        }
-
-                                    </p>
-                                </div>
-                            
-                        </div>
-
-                    </div>
-                </div>
+                    <input type="submit" name="button" class="btnDetalji" value="DETALJI"  />
+                }
             </td>
         </tr>
         

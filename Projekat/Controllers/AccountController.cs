@@ -609,27 +609,29 @@ namespace Projekat.Controllers
                     Smer = "Nema";
                 }
 
-                
+               
                     lista.Add(new ListaKorisnikaViewModel
                     {
-                        Korisnik = a,
+                        UserName = a.UserName,
+                        Prezime = a.Prezime,
+                        BrojTelefona = a.PhoneNumber,
                         Skola = Skola,
                         Smer = Smer
 
                     });
-                   
-                
+               
+
             }
             
             return View(lista);
         }
         [AllowAnonymous]
-        public ActionResult DetaljiKorisnika(string ID)
+        public ActionResult DetaljiKorisnika(string Username)
         {
             MaterijalContext matCon = new MaterijalContext();
             DetaljiKorisnikaViewModel viewmodel = new DetaljiKorisnikaViewModel();
             
-            viewmodel.Korisnik = matCon.Users.FirstOrDefault(x => x.Id == ID);
+            viewmodel.Korisnik = UserManager.FindByName(Username);
             
             if (viewmodel.Korisnik != null)
             {

@@ -10,7 +10,9 @@ namespace Projekat.ViewModels
 {
     public class ListaKorisnikaViewModel
     {
-        public ApplicationUser Korisnik { get; set; }
+        public string UserName { get; set; }
+        public string Prezime { get; set; }
+        public string BrojTelefona { get; set; }
         public string Smer { get; set; }
         public string Skola { get; set; }
     }
