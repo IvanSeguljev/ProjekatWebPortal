@@ -289,6 +289,7 @@
     <Content Include="Content\css\detaljiKorisnika.css" />
     <Content Include="Content\css\forma-novikorisnik.css" />
     <Content Include="Content\css\izgled.css" />
+    <Content Include="Content\css\izmeniKorisnika.css" />
     <Content Include="Content\css\listaKorisnikaStil.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\select2.min.css" />
@@ -314,6 +315,7 @@
     <Content Include="Content\img\obrisi.png" />
     <Content Include="Content\img\PDFicon.png" />
     <Content Include="Content\img\plus.png" />
+    <Content Include="Content\img\plusSivi.png" />
     <Content Include="Content\img\PNGicon.png" />
     <Content Include="Content\img\potvrdaBrisanjaGIFGOTOV.gif" />
     <Content Include="Content\img\PRIMER.png" />

@@ -20,4 +20,23 @@
         
     }
 
+label{
+    font-family: 'roboto-light' !important;
+    font-size: larger !important;
+}
+#listaKorisnika_info {
+    font-family: 'roboto-light' !important;
+    font-size: larger !important;
+}
+.form-control input-sm {
+    border-radius: 2px 2px 0 0 !important;
+    cursor: pointer !important;
+    padding: 14px 23px !important;
+    position: relative !important;
+    border-bottom: 1px solid #aaaaaa !important;
+    background-color: #fff !important;
+    border-bottom: #e3e3e3 !important;
+    background-color: #fafafa !important;
+    background-image: none;
+}
     
