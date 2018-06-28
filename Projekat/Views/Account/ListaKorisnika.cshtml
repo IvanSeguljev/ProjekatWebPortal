@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "ListaKorisnika";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+
 }
 
 <div id="sredina">
     <h2>Lista Korisnika</h2>
 
-        <link rel="stylesheet" type="text/css" href="~/Content/css/TabelaListaKorisnika.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/TabelaListaKorisnika.css">
 
     <table id="listaKorisnika" class="display">
         <thead>
@@ -23,25 +23,25 @@
             </tr>
         </thead>
         <tbody>
-    @foreach (var item in Model)
+            @foreach (var item in Model)
             {
-        <tr>
-            <td style="border-right: 1px solid lightgray">@item.UserName</td>
-            <td style="padding-left: 25px">@item.Prezime</td>
-            <td>@item.Skola</td>
-            <td>@item.Smer</td>
-            <td>@item.BrojTelefona</td>
+                <tr>
+                    <td style="border-right: 1px solid lightgray">@item.UserName</td>
+                    <td style="padding-left: 25px">@item.Prezime</td>
+                    <td>@item.Skola</td>
+                    <td>@item.Smer</td>
+                    <td>@item.BrojTelefona</td>
 
-            <td>
-                @using (Html.BeginForm("DetaljiKorisnika", "Account", new { Username = item.UserName }, FormMethod.Post))
-                {
+                    <td>
+                        @using (Html.BeginForm("DetaljiKorisnika", "Account", new { Username = item.UserName }, FormMethod.Post))
+                        {
 
-                    <input type="submit" name="button" class="btnDetalji" value="DETALJI"  />
-                }
-            </td>
-        </tr>
-        
-    }
+                            <input type="submit" name="button" class="btnDetalji" value="DETALJI" />
+                        }
+                    </td>
+                </tr>
+
+            }
         </tbody>
     </table>
 
