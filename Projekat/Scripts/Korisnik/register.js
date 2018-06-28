@@ -3,12 +3,12 @@
         rules: {
             Ime: {
                 required: true,
-                //slovaRegex: /^[A-Za-z]+$/,
+                slovaRegex: /^[A-Za-z]+$/,
                 minlength: 2
             },
             Prezime: {
                 required: true,
-                //slovaRegex: /^[a-zA-Z]+/,
+                slovaRegex1: /^[a-zA-Z]+$/,
                 minlength: 2
             },
             Email: {
@@ -70,6 +70,10 @@
         }
     });
     $.validator.addMethod("slovaRegex", function (value, element, regexpr) {
+        // allow any non-whitespace characters as the host part
+        return regexpr.test(value);
+    }, 'Možete uneti samo slova.');
+    $.validator.addMethod("slovaRegex1", function (value, element, regexpr) {
         // allow any non-whitespace characters as the host part
         return regexpr.test(value);
     }, 'Možete uneti samo slova.');

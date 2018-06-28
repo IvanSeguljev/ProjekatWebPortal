@@ -200,6 +200,11 @@ namespace Projekat.Controllers
                         GenerisiUsername(user);
                         postojeci.UserName = user.UserName;
                     }
+                    else if((postojeci.Ime != user.Ime  || postojeci.SkolaId != user.SkolaId || postojeci.Prezime!=user.Prezime))
+                    {
+                        GenerisiUsername(user);
+                        postojeci.UserName = user.UserName;
+                    }
                     if (user.Uloga != postojeci.Uloga)
                     {
                         UserManager.RemoveFromRole(postojeci.Id, postojeci.Uloga);
@@ -267,10 +272,9 @@ namespace Projekat.Controllers
                     
                     
             };
-                if(model.selektovanaUloga == "Ucenik")
-                {
+               
                     GenerisiUsername(user);
-                }
+                
                 if (Fajl != null)
                 {
                     Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
@@ -293,6 +297,7 @@ namespace Projekat.Controllers
                 }
                 AddErrors(result);
             }
+          
             MaterijalContext matcont = new MaterijalContext();
            
             model.Skole = matcont.Skole.ToList();
@@ -307,6 +312,8 @@ namespace Projekat.Controllers
             ApplicationUser duplikat = null;
             MaterijalContext context = new MaterijalContext();
             string username = "";
+        if (user.Uloga == "Ucenik")
+        {
             username += user.Ime;
             username += context.Skole.Where(x => x.IdSkole == user.SkolaId).First().Skraceno;
             username += user.GodinaUpisa.ToString().Remove(0, 2);
@@ -322,6 +329,24 @@ namespace Projekat.Controllers
             }
             while (duplikat != null);
             user.UserName = usernamesaID;
+            }
+         else
+            {
+                username += user.Ime;
+                username += user.Prezime;
+                username += context.Skole.Where(x => x.IdSkole == user.SkolaId).First().Skraceno;
+                int id = 1;
+                string usernamesaID;
+                do
+                {
+                    usernamesaID = username + id.ToString();
+                    duplikat = UserManager.FindByName(usernamesaID);
+                    id++;
+
+                }
+                while (duplikat != null);
+                user.UserName = usernamesaID;
+            }
         }
 
         //
@@ -608,7 +633,7 @@ namespace Projekat.Controllers
                 {
                     Smer = "Nema";
                 }
-
+                
                
                     lista.Add(new ListaKorisnikaViewModel
                     {
@@ -619,7 +644,7 @@ namespace Projekat.Controllers
                         Smer = Smer
 
                     });
-               
+                
 
             }
             
