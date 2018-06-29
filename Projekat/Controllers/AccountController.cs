@@ -264,7 +264,7 @@ namespace Projekat.Controllers
                     Prezime = model.Prezime,
                     Slika = new byte[Fajl.ContentLength],
                     SkolaId = model.SelektovanaSkola,
-                    GodinaUpisa = model.GodinaUpisa,
+                   
                     SmerId = model.selektovaniSmer,
                     Uloga = model.selektovanaUloga,
                     PhoneNumber = model.phoneNumber
@@ -279,7 +279,15 @@ namespace Projekat.Controllers
                 {
                     Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
                 }
-                
+                if (model.selektovanaUloga == "Ucenik")
+                {
+                    user.GodinaUpisa = model.GodinaUpisa;
+                }
+                else
+                {
+                    user.GodinaUpisa = null;
+                }
+
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                

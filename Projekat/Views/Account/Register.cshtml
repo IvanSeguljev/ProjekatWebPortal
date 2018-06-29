@@ -1,5 +1,5 @@
 ﻿
-<div id="sredina" class="sredina-upload-mat" style = "width: calc(100% - 338px)">
+<div id="sredina" name="sredina" class="sredina-upload-mat" style = "width: calc(100% - 338px)">
 
 
     
@@ -47,34 +47,34 @@
         @Html.LabelFor(m => m.phoneNumber, new { @class = "matDesignLabel" })
         @Html.TextBoxFor(m => m.phoneNumber, new { @class = "korisnikTB" })
         @*Html.ValidationMessageFor(m => m.phoneNumber, "", new { @class = "text-danger" })*@
+        <div id="godina">
+            @Html.LabelFor(m => m.GodinaUpisa, new { @class = "matDesignLabel" })
+            @Html.TextBoxFor(m => m.GodinaUpisa, new { @class = "korisnikTB" })
+        </div>
 
-        @Html.LabelFor(m => m.GodinaUpisa, new { @class = "matDesignLabel" })
-        @Html.TextBoxFor(m => m.GodinaUpisa, new { @class = "korisnikTB" })
-
-        
             <div class="noviKorisnikDD">
                 
                 <label for="customDropdown" class="labela"> Odaberite smer: </label>
                 @Html.DropDownListFor(m => m.selektovaniSmer, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
             </div>
-            <div class="noviKorisnikDD">
+            <div class="noviKorisnikDD" name="SelektUloga">
 
                 <label for="customDropdown" class="labela"> Odaberite ulogu: </label>
-                @Html.DropDownListFor(m => m.selektovanaUloga, new SelectList(Model.Uloge, "Name", "Name"), new { @class = "customDropdown", @selected = "selected" })
+                @Html.DropDownListFor(m => m.selektovanaUloga, new SelectList(Model.Uloge, "Name", "Name"), new {@class = "customDropdown", @selected = "selected"})
             </div>
             <div class="noviKorisnikDD">
 
                 <label for="customDropdown" class="labela"> Odaberite skolu: </label>
                 @Html.DropDownListFor(m => m.SelektovanaSkola, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), new { @class = "customDropdown", @selected = "selected" })
             </div>
-
-
            
+
+
         <input type="file" name="Fajl" id="file" class="inputfile" />
-        <label for="file" id="izaberi-materijal"> <span id="filename" class> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
+        <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
         <input type="submit" id="postavi" value="Postavi" class="btnPostavi"/>
-
-
+        
+        
     }
     </div>
    @section Scripts {
