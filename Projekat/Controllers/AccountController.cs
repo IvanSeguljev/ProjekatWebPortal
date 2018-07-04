@@ -610,24 +610,42 @@ namespace Projekat.Controllers
             base.Dispose(disposing);
         }
         [AllowAnonymous]
-        public ActionResult ListaKorisnika()
+        public ActionResult ListaKorisnika(ListaNaprednaPretragaViewModel vm)
         {
             MaterijalContext context = new MaterijalContext();
-            
+            ListaNaprednaPretragaViewModel ViewModel = new ListaNaprednaPretragaViewModel();
             List<SkolaModel> skole = context.Skole.ToList();
             List<SmerModel> smerovi = context.smerovi.ToList();
-           
-            List<ApplicationUser> useri = context.Users.ToList();
-
+            ViewModel.Skole = skole.ToList();            
+            ViewModel.Smerovi = smerovi.ToList();
+            ViewModel.Uloge = context.Roles.ToList();
+            ViewModel.Korisnici = new List<ListaKorisnikaViewModel>();
             List<ListaKorisnikaViewModel> lista = new List<ListaKorisnikaViewModel>();
+            List<ApplicationUser> useri;
+          
+                useri = context.Users.ToList();
+                if(vm.FilterSkolaID != 0)
+                {
+                    useri = useri.Where(x => x.SkolaId == vm.FilterSkolaID).ToList();
+                }
+                if(vm.FilterSmerID != 0)
+                {
+                    useri = useri.Where(x => x.SmerId == vm.FilterSmerID).ToList();
+                }
+                if(vm.FilterUloga != null)
+                {
+                    useri = useri.Where(x => x.Uloga == vm.FilterUloga).ToList();
+                }
+            
+            #region dodavanje
             foreach (ApplicationUser a in useri)
             {
                 SkolaModel s = skole.FirstOrDefault(x => x.IdSkole == a.SkolaId);
                 SmerModel sm = smerovi.FirstOrDefault(c => c.smerId == a.SmerId);
                 string Skola;
                 string Smer;
-                
-                if(s!=null)
+
+                if (s != null)
                 {
                     Skola = s.NazivSkole;
                 }
@@ -643,22 +661,24 @@ namespace Projekat.Controllers
                 {
                     Smer = "Nema";
                 }
-                
-               
-                    lista.Add(new ListaKorisnikaViewModel
-                    {
-                        UserName = a.UserName,
-                        Prezime = a.Prezime,
-                        BrojTelefona = a.PhoneNumber,
-                        Skola = Skola,
-                        Smer = Smer
 
-                    });
-                
+
+                ViewModel.Korisnici.Add(new ListaKorisnikaViewModel
+                {
+                    UserName = a.UserName,
+                    Prezime = a.Prezime,
+                    BrojTelefona = a.PhoneNumber,
+                    Skola = Skola,
+                    Smer = Smer
+
+                });
+
 
             }
-            
-            return View(lista);
+            #endregion
+           
+
+            return View(ViewModel);
         }
         [AllowAnonymous]
         public ActionResult DetaljiKorisnika(string Username)

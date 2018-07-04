@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Projekat.ViewModels.ListaKorisnikaViewModel>
+﻿@model Projekat.ViewModels.ListaNaprednaPretragaViewModel
 
 @{
     ViewBag.Title = "ListaKorisnika";
@@ -6,11 +6,13 @@
 
 }
 
-<div id="sredina">
+<div id="sredina" name="sredina">
     <h2>Lista Korisnika</h2>
-
+    
     <link rel="stylesheet" type="text/css" href="~/Content/css/TabelaListaKorisnika.css">
 
+    <link href="~/Content/css/ModalnaSredjivanje.css" rel="stylesheet" />
+   
     <table id="listaKorisnika" class="display">
         <thead>
             <tr>
@@ -23,8 +25,9 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Korisnici)
             {
+                
                 <tr>
                     <td style="border-right: 1px solid lightgray">@item.UserName</td>
                     <td style="padding-left: 25px">@item.Prezime</td>
@@ -45,7 +48,40 @@
         </tbody>
     </table>
 
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Napredna pretraga</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("ListaKorisnika", "Account", Model, FormMethod.Post))
+                    {
+                        <div>
+                            <label for="customDropdown" class="labela"> Odaberite smer: </label>
+                            @Html.DropDownListFor(m => m.FilterSmerID, new SelectList(Model.Smerovi, "smerId", "smerNaziv"),"Nista", new { @class = "customDropdown" })
+                        </div>
+                        <div>
+                            <label for="customDropdown" class="labela"> Odaberite ulogu: </label>
+                            @Html.DropDownListFor(m => m.FilterUloga, new SelectList(Model.Uloge, "Name", "Name"), "Nista", new { @class = "customDropdown", @selected = "selected" })
+                        </div>
+                        <div>
+                            <label for="customDropdown" class="labela"> Odaberite skolu: </label>
+                            @Html.DropDownListFor(m => m.FilterSkolaID, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), "Nista", new { @class = "customDropdown", @selected = "selected" })
+                        </div>
+                        <input type="submit" name="button" class="btnDetalji" value="Pretrazi" />
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <a id="novi-korisnik" href="/Account/Register">
         <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +103,19 @@
 </div>
 
 @section Scripts {
+
     @Scripts.Render("~/Scripts/datatables.min.js")
+
     @Scripts.Render("~/bundles/lista_korisnika")
+
     @Scripts.Render("~/Scripts/UI/labeli.js")
+<script>
+    $(document).ready(function () {
+        var filter = '<button id="Filter" class="Filter" data-toggle="modal" data-target="#myModal">Napredna Pretraga</button>';
+        document.getElementById("listaKorisnika_filter").insertAdjacentHTML('afterbegin', filter);
+    })
+</script>
+
+    @Scripts.Render("~/Scripts/customDropdown.js");
+    
 }   

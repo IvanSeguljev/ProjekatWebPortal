@@ -275,6 +275,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DodajPremetViewModel.cs" />
     <Compile Include="ViewModels\ListaKorisnikaViewModel.cs" />
+    <Compile Include="ViewModels\ListaNaprednaPretragaViewModel.cs" />
     <Compile Include="ViewModels\MaterijaliNaprednaPretragaViewModel.cs" />
     <Compile Include="ViewModels\MaterijalUploadViewModel.cs" />
     <Compile Include="ViewModels\MaterijalViewModel.cs" />
@@ -291,6 +292,7 @@
     <Content Include="Content\css\izgled.css" />
     <Content Include="Content\css\izmeniKorisnika.css" />
     <Content Include="Content\css\listaKorisnikaStil.css" />
+    <Content Include="Content\css\ModalnaSredjivanje.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\css\select2izgled.css" />

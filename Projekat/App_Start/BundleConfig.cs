@@ -94,6 +94,8 @@ namespace Projekat
             
             bundles.Add(new ScriptBundle("~/bundles/lista_korisnika").Include(
              "~/Scripts/Korisnik/listaKorisnika.js"
+             
+
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/ui").IncludeDirectory(
