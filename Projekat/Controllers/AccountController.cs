@@ -272,13 +272,6 @@ namespace Projekat.Controllers
                     
                     
             };
-               
-                    GenerisiUsername(user);
-                
-                if (Fajl != null)
-                {
-                    Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
-                }
                 if (model.selektovanaUloga == "Ucenik")
                 {
                     user.GodinaUpisa = model.GodinaUpisa;
@@ -287,6 +280,15 @@ namespace Projekat.Controllers
                 {
                     user.GodinaUpisa = null;
                 }
+
+                GenerisiUsername(user);
+                
+                if (Fajl != null)
+                {
+                    Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
+                }
+               
+               
 
                 var result = await UserManager.CreateAsync(user, model.Password);
 
