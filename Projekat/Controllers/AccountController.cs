@@ -264,7 +264,7 @@ namespace Projekat.Controllers
                     Prezime = model.Prezime,
                     Slika = new byte[Fajl.ContentLength],
                     SkolaId = model.SelektovanaSkola,
-                    GodinaUpisa = model.GodinaUpisa,
+                   
                     SmerId = model.selektovaniSmer,
                     Uloga = model.selektovanaUloga,
                     PhoneNumber = model.phoneNumber
@@ -272,14 +272,24 @@ namespace Projekat.Controllers
                     
                     
             };
-               
-                    GenerisiUsername(user);
+                if (model.selektovanaUloga == "Ucenik")
+                {
+                    user.GodinaUpisa = model.GodinaUpisa;
+                }
+                else
+                {
+                    user.GodinaUpisa = null;
+                }
+
+                GenerisiUsername(user);
                 
                 if (Fajl != null)
                 {
                     Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
                 }
-                
+               
+               
+
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                

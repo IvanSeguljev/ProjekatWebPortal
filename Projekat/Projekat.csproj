@@ -342,6 +342,7 @@
     <Content Include="Scripts\Korisnik\listaKorisnika.js" />
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\Korisnik\register.js" />
+    <Content Include="Scripts\Korisnik\SakrijGodine.js" />
     <Content Include="Scripts\UI\asc-desc-strelica.js" />
     <Content Include="Scripts\UI\AutoHeightTextarea.js" />
     <Content Include="Scripts\bootbox.js" />

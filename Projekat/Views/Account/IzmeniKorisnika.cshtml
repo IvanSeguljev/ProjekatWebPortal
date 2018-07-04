@@ -38,14 +38,15 @@
             @Html.LabelFor(m => m.Korisnik.PhoneNumber, new { @class = "matDesignLabel" })
             @Html.TextBoxFor(m => m.Korisnik.PhoneNumber, new { @class = "korisnikTB" })
             @*Html.ValidationMessageFor(m => m.phoneNumber, "", new { @class = "text-danger" })*@
+            <div id="godina">
+                @Html.LabelFor(m => m.Korisnik.GodinaUpisa, new { @class = "matDesignLabel" })
+                @Html.TextBoxFor(m => m.Korisnik.GodinaUpisa, new { @class = "korisnikTB" })
+            </div>
+                @Html.HiddenFor(m => m.Korisnik.UserName)
+                @Html.HiddenFor(m => m.Korisnik.Slika)
 
-            @Html.LabelFor(m => m.Korisnik.GodinaUpisa, new { @class = "matDesignLabel" })
-            @Html.TextBoxFor(m => m.Korisnik.GodinaUpisa, new { @class = "korisnikTB" })
-            @Html.HiddenFor(m => m.Korisnik.UserName)
-            @Html.HiddenFor(m => m.Korisnik.Slika)
 
-
-            <div class="noviKorisnikDD">
+                <div class="noviKorisnikDD">
 
                 <label for="customDropdown" class="cdlLabele"> Odaberite smer: </label>
                 @Html.DropDownListFor(m => m.Korisnik.SmerId, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
@@ -69,8 +70,8 @@
                 <input type="submit" class="btnsOnIzmeni" value="ODUSTANI" onclick="return confirm('Da li želite da odustanete od izmena?')" />
             </div>
 
-        }
-    </div>
+                }
+            </div>
 
 </div>
 
