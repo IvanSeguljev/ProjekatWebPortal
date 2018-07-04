@@ -18,7 +18,7 @@
     margin-bottom: 15px;
 }
 .korisnikTB{
-    margin-bottom: 3px !important;
+    margin-bottom: 5px !important;
 }
 .register {
     margin: 70px 70px 0 70px;
@@ -51,3 +51,40 @@
         cursor: pointer;
         transform: scale(1.03);
     }
+.matDesignLabel {
+    font-family: 'roboto-light' !important;
+    font-size: 18px !important;
+}
+.cdlLabele {
+    text-align: left;
+    margin-right: 32%;
+    font-family: 'roboto-light' !important;
+    font-size: 20px !important;
+    font-weight: lighter !important;
+}
+h2 {
+    text-align: left;
+    margin-right: 32%;
+    font-family: 'roboto-regular';
+    font-weight: lighter;
+}
+.izabraniUselectu {
+   
+    width: 182px !important;
+}
+.btnsOnIzmeni {
+    float: left;
+    width: 47%;
+    border-bottom: none;
+    text-align: center;
+    background-image: none;
+    padding-left: 25px;
+    font-family: 'roboto-regular';
+    font-size:20px;
+    color: #e21b22;
+    margin-left: 3px;
+    height: auto;
+}
+.izmene{
+    padding-bottom: 10px;
+}
