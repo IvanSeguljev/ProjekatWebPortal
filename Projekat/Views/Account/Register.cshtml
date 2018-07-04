@@ -58,7 +58,7 @@
             <label for="customDropdown" class="cdlLabele"> Odaberite smer: </label>
             @Html.DropDownListFor(m => m.selektovaniSmer, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
         </div>
-        <div class="noviKorisnikDD">
+        <div class="noviKorisnikDD" name="SelektUloga">
 
             <label for="customDropdown" class="cdlLabele"> Odaberite ulogu: </label>
             @Html.DropDownListFor(m => m.selektovanaUloga, new SelectList(Model.Uloge, "Name", "Name"), new { @class = "customDropdown", @selected = "selected" })
@@ -74,7 +74,7 @@
         <input type="file" name="Fajl" id="file" class="inputfile" />
         <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
          <div class="izmene">
-                <input type="submit" class="btnsOnIzmeni" value="SAČUVAJ IZMENE" onclick="return confirm('Molimo vas potvrdite izmenu korisnika')" />
+                <input type="submit" class="btnsOnIzmeni" value="SAČUVAJ" onclick="return confirm('Molimo vas potvrdite izmenu korisnika')" />
                 <input type="submit" class="btnsOnIzmeni" value="ODUSTANI" onclick="return confirm('Da li želite da odustanete od izmena?')" />
             </div>
 

@@ -51,7 +51,7 @@
                 <label for="customDropdown" class="cdlLabele"> Odaberite smer: </label>
                 @Html.DropDownListFor(m => m.Korisnik.SmerId, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
             </div>
-            <div class="noviKorisnikDD">
+            <div class="noviKorisnikDD" name="SelektUloga">
 
                 <label for="customDropdown" class="cdlLabele"> Odaberite ulogu: </label>
                 @Html.DropDownListFor(m => m.Korisnik.Uloga, new SelectList(Model.Uloge, "Name", "Name"), new { @class = "customDropdown", @selected = "selected" })
