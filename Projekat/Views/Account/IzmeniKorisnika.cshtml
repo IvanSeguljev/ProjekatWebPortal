@@ -7,7 +7,7 @@
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
-    <h2 style="text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;">@ViewBag.Title</h2>
+    <h2>@ViewBag.Title</h2>
 
 
     <div style="margin-top: 75px;">
@@ -48,24 +48,27 @@
 
                 <div class="noviKorisnikDD">
 
-                    <label for="customDropdown" style="text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite smer: </label>
-                    @Html.DropDownListFor(m => m.Korisnik.SmerId, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
-                </div>
-                <div class="noviKorisnikDD" name="SelektUloga">
+                <label for="customDropdown" class="cdlLabele"> Odaberite smer: </label>
+                @Html.DropDownListFor(m => m.Korisnik.SmerId, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
+            </div>
+            <div class="noviKorisnikDD" name="SelektUloga">
 
-                    <label for="customDropdown" style="text-align: left; margin-right: 32%; font-family: 'roboto-regular'; font-weight: lighter;"> Odaberite ulogu: </label>
-                    @Html.DropDownListFor(m => m.Korisnik.Uloga, new SelectList(Model.Uloge, "Name", "Name"), new { @class = "customDropdown", @selected = "selected" })
-                </div>
-                <div class="noviKorisnikDD">
+                <label for="customDropdown" class="cdlLabele"> Odaberite ulogu: </label>
+                @Html.DropDownListFor(m => m.Korisnik.Uloga, new SelectList(Model.Uloge, "Name", "Name"), new { @class = "customDropdown", @selected = "selected" })
+            </div>
+            <div class="noviKorisnikDD">
 
-                    <label for="customDropdown" style="text-align: left; margin-right: 32%; font-family: 'roboto-regular' ; font-weight: lighter;"> Odaberite skolu: </label>
-                    @Html.DropDownListFor(m => m.Korisnik.SkolaId, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), new { @class = "customDropdown", @selected = "selected" })
-                </div>
+                <label for="customDropdown" class="cdlLabele"> Odaberite skolu: </label>
+                @Html.DropDownListFor(m => m.Korisnik.SkolaId, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), new { @class = "customDropdown", @selected = "selected" })
+            </div>
 
-                <input type="file" name="Fajl" id="file" class="inputfile" />
-                <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
-                <input type="submit" id="btn-register" class="register" value="Sačuvaj izmene..." onclick="return confirm('Molimo vas potvrdite izmenu korisnika')" />
-
+            <input type="file" name="Fajl" id="file" class="inputfile" />
+            <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
+            
+            <div class="izmene">
+                <input type="submit" class="btnsOnIzmeni" value="SAČUVAJ IZMENE" onclick="return confirm('Molimo vas potvrdite izmenu korisnika')" />
+                <input type="submit" class="btnsOnIzmeni" value="ODUSTANI" onclick="return confirm('Da li želite da odustanete od izmena?')" />
+            </div>
 
                 }
             </div>
