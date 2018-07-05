@@ -96,6 +96,7 @@ namespace Projekat
              "~/Scripts/datatables.min.js",
              "~/Scripts/Korisnik/listaKorisnika.js",
              "~/Scripts/UI/labeli.js",
+             "~/Scripts/UI/select2.min.js",
              "~/Scripts/customDropdown.js"
 
 
