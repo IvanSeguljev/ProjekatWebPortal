@@ -62,21 +62,21 @@
                     {
                         <div>
                             <label for="customDropdown" class="labela"> Odaberite smer: </label>
-                            @Html.DropDownListFor(m => m.FilterSmerID, new SelectList(Model.Smerovi, "smerId", "smerNaziv"),"Nista", new { @class = "customDropdown" })
+                            @Html.DropDownListFor(m => m.FilterSmerID, new SelectList(Model.Smerovi, "smerId", "smerNaziv"),"Ništa", new { @class = "customDropdown" })
                         </div>
                         <div>
                             <label for="customDropdown" class="labela"> Odaberite ulogu: </label>
-                            @Html.DropDownListFor(m => m.FilterUloga, new SelectList(Model.Uloge, "Name", "Name"), "Nista", new { @class = "customDropdown", @selected = "selected" })
+                            @Html.DropDownListFor(m => m.FilterUloga, new SelectList(Model.Uloge, "Name", "Name"), "Ništa", new { @class = "customDropdown", @selected = "selected" })
                         </div>
                         <div>
-                            <label for="customDropdown" class="labela"> Odaberite skolu: </label>
-                            @Html.DropDownListFor(m => m.FilterSkolaID, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), "Nista", new { @class = "customDropdown", @selected = "selected" })
+                            <label for="customDropdown" class="labela"> Odaberite školu: </label>
+                            @Html.DropDownListFor(m => m.FilterSkolaID, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), "Ništa", new { @class = "customDropdown", @selected = "selected" })
                         </div>
-                        <input type="submit" name="button" class="btnDetalji" value="Pretrazi" />
+                        <input type="submit" name="button" class="btnPretrazi" value="Pretraži" />
                     }
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
+                    
                 </div>
             </div>
 
@@ -103,6 +103,8 @@
 </div>
 
 @section Scripts {
+
+    @Scripts.Render("~/bundles/Content/css")
 
     @Scripts.Render("~/Scripts/datatables.min.js")
 
