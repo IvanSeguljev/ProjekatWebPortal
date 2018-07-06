@@ -66,3 +66,12 @@ label{
         color:white;
         background-color:#ef474d;
     }
+.matDesignLabel .fokusiraniMatDesignLabel{
+    color: red !important;
+}
+.matDesignLabel{
+    padding-left: 590px !important;
+    margin-bottom: 5px !important;
+    position: relative;
+    float: left;
+}
