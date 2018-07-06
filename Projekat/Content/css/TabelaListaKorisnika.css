@@ -39,4 +39,27 @@ label{
     background-color: #fafafa !important;
     background-image: none;
 }
-    
+#Filter {
+    float: right;
+    border-bottom: none;
+    text-align: center;
+    border-right: none;
+    background-color: transparent;
+    font-family: 'roboto-regular';
+    font-size: 13px;
+    color: #e21b22;
+    height: auto;
+    padding: 5px;
+    display: block;
+    clear: both;
+}
+
+    #Filter:hover{
+          transition: 0.3s;
+        background-color: indianred;
+        color:white;
+        background-color:#ef474d;
+    }
+    input[type="search"]{
+        float: right;
+    }
