@@ -41,9 +41,7 @@ label{
 }
 #Filter {
     float: right;
-    border-bottom: none;
     text-align: center;
-    border-right: none;
     background-color: transparent;
     font-family: 'roboto-regular';
     font-size: 13px;
@@ -52,6 +50,8 @@ label{
     padding: 5px;
     display: block;
     clear: both;
+    border:none;
+    
 }
 
     #Filter:hover{
