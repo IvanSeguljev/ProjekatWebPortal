@@ -39,26 +39,22 @@ label{
     background-color: #fafafa !important;
     background-image: none;
 }
-    #Filter{
-        float: left;
-    
-    border-bottom: none;
+#Filter {
+    float: right;
     text-align: center;
-   border-right:none;
-    background-color:transparent;
+    background-color: transparent;
     font-family: 'roboto-regular';
-    font-size:13px;
+    font-size: 13px;
     color: #e21b22;
-  
     height: auto;
-
-        padding:5px;
-        margin-left:662px;
-        margin-top:20px;
-        margin-bottom:20px;
-        display:block;
-        position:relative;
-    }
+    padding: 5px;
+    display: block;
+    clear: both;
+    margin-top:10px;
+    margin-bottom:10px;
+    border:none;
+    
+}
 
     #Filter:hover{
           transition: 0.3s;
@@ -75,3 +71,7 @@ label{
     position: relative;
     float: left;
 }
+    }
+    input[type="search"]{
+        float: right;
+    }
