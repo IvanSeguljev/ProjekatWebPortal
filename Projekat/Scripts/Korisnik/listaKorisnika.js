@@ -8,6 +8,12 @@ $(function () {
     var input = document.getElementById("listaKorisnika_filter").getElementsByTagName("label")[0].getElementsByTagName("input")[0];
     var div = document.getElementById("listaKorisnika_filter");
     labela.removeChild(input);
-    div.insertAdjacentElement("beforeend", input);
+    div.insertAdjacentHTML("afterbegin", '<div id="divPretraga"></div>');
+    var novidiv = document.getElementById("divPretraga");
+    novidiv.insertAdjacentElement("beforeend", labela);
+    novidiv.insertAdjacentElement("beforeend", input);
+    
+    
     document.getElementById("listaKorisnika_filter").insertAdjacentHTML('beforeend', filter);
+
 });

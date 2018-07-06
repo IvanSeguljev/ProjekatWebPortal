@@ -65,13 +65,14 @@ label{
 .matDesignLabel .fokusiraniMatDesignLabel{
     color: red !important;
 }
-.matDesignLabel{
-    padding-left: 590px !important;
-    margin-bottom: 5px !important;
-    position: relative;
-    float: left;
+.matDesignLabel {
+    padding-left: 0px !important;
+    padding-bottom: 5px !important;
+    margin-left: 15px !important;
 }
-    }
-    input[type="search"]{
-        float: right;
-    }
+#divPretraga{
+    width: 180px;
+    height: 70px;
+    position: relative;
+    float: right;
+}
