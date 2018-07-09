@@ -46,7 +46,8 @@ label{
     font-family: 'roboto-regular';
     font-size: 13px;
     color: #e21b22;
-    height: auto;
+    width:25% !important;
+    height:auto;
     padding: 5px;
     display: block;
     clear: both;
@@ -54,13 +55,15 @@ label{
     margin-bottom:10px;
     border:none;
     
+    border-radius:4px;
 }
 
     #Filter:hover{
-          transition: 0.3s;
+        transition: 0.3s;
         background-color: indianred;
         color:white;
         background-color:#ef474d;
+        
     }
 .matDesignLabel .fokusiraniMatDesignLabel{
     color: red !important;
@@ -76,3 +79,7 @@ label{
     position: relative;
     float: right;
 }
+
+    input[type="search"]{
+        float: right;
+    }
