@@ -212,6 +212,7 @@ namespace Projekat.Controllers
                     }
                     if (Fajl != null)
                     {
+                        user.Slika = new byte[Fajl.ContentLength];
                         Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
                     }
                     if (user.Slika != postojeci.Slika)

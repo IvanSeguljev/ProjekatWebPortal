@@ -71,9 +71,9 @@
         </div>
 
 
-
-        <input type="file" name="Fajl" id="file" class="inputfile" />
-        <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
+        <img id="blah"  style="width:100%; height:400px; padding-top:50px;" />
+        <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])"/>
+        <label for="file" id="izaberi-materijal" > <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
          <div class="izmene">
                 <input type="submit" class="btnsOnIzmeni" value="SAČUVAJ" onclick="return confirm('Molimo vas potvrdite izmenu korisnika')" />
                 <input type="submit" class="btnsOnIzmeni" value="ODUSTANI" onclick="return confirm('Da li želite da odustanete od izmena?')" />
