@@ -8,11 +8,11 @@
 
 <div id="sredina" name="sredina">
     <h2>Lista Korisnika</h2>
-    
+
     <link rel="stylesheet" type="text/css" href="~/Content/css/TabelaListaKorisnika.css">
 
     <link href="~/Content/css/ModalnaSredjivanje.css" rel="stylesheet" />
-   
+
     <table id="listaKorisnika" class="display">
         <thead>
             <tr>
@@ -27,7 +27,7 @@
         <tbody>
             @foreach (var item in Model.Korisnici)
             {
-                
+
                 <tr>
                     <td style="border-right: 1px solid lightgray">@item.UserName</td>
                     <td style="padding-left: 25px">@item.Prezime</td>
@@ -62,7 +62,7 @@
                     {
                         <div>
                             <label for="customDropdown" class="labela"> Odaberite smer: </label>
-                            @Html.DropDownListFor(m => m.FilterSmerID, new SelectList(Model.Smerovi, "smerId", "smerNaziv"),"Ništa", new { @class = "customDropdown" })
+                            @Html.DropDownListFor(m => m.FilterSmerID, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), "Ništa", new { @class = "customDropdown" })
                         </div>
                         <div>
                             <label for="customDropdown" class="labela"> Odaberite ulogu: </label>
@@ -76,7 +76,7 @@
                     }
                 </div>
                 <div class="modal-footer">
-                    
+
                 </div>
             </div>
 
@@ -103,8 +103,8 @@
 </div>
 
 @section Scripts {
-
+    @Scripts.Render("~/Scripts/UI/labeli.js")
     @Scripts.Render("~/bundles/lista_korisnika")
-    @Scripts.Render("~/bundles/Content/css")
-   
+    @Scripts.Render("~/bundles/Content/css") 
+
 }   

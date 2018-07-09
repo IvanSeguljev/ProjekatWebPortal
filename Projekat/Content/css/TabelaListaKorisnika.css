@@ -41,9 +41,7 @@ label{
 }
 #Filter {
     float: right;
-    border-bottom: none;
     text-align: center;
-    border-right: none;
     background-color: transparent;
     font-family: 'roboto-regular';
     font-size: 13px;
@@ -55,6 +53,8 @@ label{
     clear: both;
     margin-top:10px;
     margin-bottom:10px;
+    border:none;
+    
     border-radius:4px;
 }
 
@@ -65,6 +65,20 @@ label{
         background-color:#ef474d;
         
     }
+.matDesignLabel .fokusiraniMatDesignLabel{
+    color: red !important;
+}
+.matDesignLabel {
+    padding-left: 0px !important;
+    padding-bottom: 5px !important;
+    margin-left: 15px !important;
+}
+#divPretraga{
+    width: 180px;
+    height: 70px;
+    position: relative;
+    float: right;
+}
 
     input[type="search"]{
         float: right;

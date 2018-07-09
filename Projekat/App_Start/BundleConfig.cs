@@ -94,12 +94,14 @@ namespace Projekat
            ));
             
             bundles.Add(new ScriptBundle("~/bundles/lista_korisnika").Include(
+             
              "~/Scripts/datatables.min.js",
+             
              "~/Scripts/Korisnik/listaKorisnika.js",
-             "~/Scripts/UI/labeli.js",
              "~/Scripts/UI/select2.min.js",
-             "~/Scripts/customDropdown.js"
+             "~/Scripts/customDropdown.js",
 
+             "~/Scripts/UI/labeli.js"
 
             ));
 
