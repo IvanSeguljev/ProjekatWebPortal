@@ -48,20 +48,24 @@ label{
     font-family: 'roboto-regular';
     font-size: 13px;
     color: #e21b22;
-    height: auto;
+    width:25% !important;
+    height:auto;
     padding: 5px;
     display: block;
     clear: both;
     margin-top:10px;
     margin-bottom:10px;
+    border-radius:4px;
 }
 
     #Filter:hover{
-          transition: 0.3s;
+        transition: 0.3s;
         background-color: indianred;
         color:white;
         background-color:#ef474d;
+        
     }
+
     input[type="search"]{
         float: right;
     }
