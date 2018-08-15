@@ -212,7 +212,7 @@ p#uloga1{
 
 .ListaNav li:first-child{
   margin-top: 13px;
-  margin-left: 40px;
+  
   list-style-type: none;
   display: block;
 }
@@ -358,20 +358,57 @@ ul.aktivanBlok {
 
 
 div#gornjaNavigacija{
-  height:65px;
-  width:calc(100% - 338px);
-  background-color:#e21b22;
+  height:85px;
+  width: 100%;
+  background-color:#c42b2b;
   color:#fff;
   /*display:inline-block;*/
   /*float:right;*/
-  margin-left:338px;
-  /*PRIVREMENO RESENJE SA OVERFLOWOM*/
-  overflow:hidden;
-  transform: translate(0, 0);
-  z-index:99;
-  /*transition: .3s ease-in-out;*/
+ padding-left: 20px;
+ position: sticky !important;
+
+ 
+ }
+p#ulogovan{
+    padding-top: 6px;
+    font-family: 'roboto-light' !important;
+    font-size: 25px !important;
+
+}
+.navbar-dugmici{
+    float: right;
+    display: inline-block;
+    width: 200px;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    
+    font-family: 'roboto-light';
+    font-size:20px;
+    color: #fff;
+    height: 100%;
 }
 
+.navbar-dugmici:hover{
+    border-bottom: #fff solid 3px;
+    transition: .2s;
+}
+.dropdown-nvb{
+    
+    position: relative;
+    display: inline-block;
+
+}
+.dd-content {
+    display: none;
+    position: absolute;
+    background-color: #c42b2b;
+    width: 200px;
+    color:#fff;
+    font-family: 'roboto-light';
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
 
 div#gornjaNavigacija a#nazad{
   display:inline-block;
@@ -409,7 +446,7 @@ div#gornjaNavigacija img#gornjeOpcije{
 
 div#sredina{
   padding: 45px 0 0 69px;
-  width: calc(100% - 338px);
+  width: 100%;
   float:right;
   display:inline-block;
   background-color:#f6f6f6;
