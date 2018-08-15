@@ -378,7 +378,6 @@
     <Content Include="Scripts\Predmet\editPredmeta.js" />
     <Content Include="Scripts\Smer\editSmera.js" />
     <Content Include="Scripts\Materijal\filterMaterijal.js" />
-    <Content Include="Scripts\UI\hamburger.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
