@@ -1,6 +1,12 @@
 ﻿<div id="sredina" class="sredina-upload-mat" style="width: calc(100% - 338px)">
 
+    <style>
+        @@media screen and (max-width: 600px) {
+           
+        }
 
+        <!-- Responsive design -->
+    </style>
     @model Projekat.Models.IzmeniKorisnikaViewModel
     @{
         ViewBag.Title = "Izmeni Korisnika";
@@ -11,13 +17,14 @@
 
 
     <div style="margin-top: 75px;">
-        @using (Html.BeginForm("IzmeniKorisnika", "Account", FormMethod.Post, new { @id = "noviKorisnik", @class = "form-horizontal", role = "form", @enctype = "multipart/form-data" }))
+        
+        @using (Html.BeginForm("IzmeniKorisnika", "Account", FormMethod.Post, new { @id = "noviKorisnik", @class = "form-horizontal smanji", role = "form", @enctype = "multipart/form-data" }))
         {
 
 
             @Html.AntiForgeryToken()
             <h4>Izmenite korisnika</h4>
-            <img id="slika" src="data:image;base64,@System.Convert.ToBase64String(Model.Korisnik.Slika)" class="slika"/>
+            <img id="slika" src="data:image;base64,@System.Convert.ToBase64String(Model.Korisnik.Slika)" class="slika" />
 
 
             @*@Html.ValidationSummary()*@
@@ -42,11 +49,11 @@
                 @Html.LabelFor(m => m.Korisnik.GodinaUpisa, new { @class = "matDesignLabel" })
                 @Html.TextBoxFor(m => m.Korisnik.GodinaUpisa, new { @class = "korisnikTB" })
             </div>
-                @Html.HiddenFor(m => m.Korisnik.UserName)
-                @Html.HiddenFor(m => m.Korisnik.Slika)
+            @Html.HiddenFor(m => m.Korisnik.UserName)
+            @Html.HiddenFor(m => m.Korisnik.Slika)
 
 
-                <div class="noviKorisnikDD">
+            <div class="noviKorisnikDD">
 
                 <label for="customDropdown" class="cdlLabele"> Odaberite smer: </label>
                 @Html.DropDownListFor(m => m.Korisnik.SmerId, new SelectList(Model.Smerovi, "smerId", "smerNaziv"), new { @class = "customDropdown" })
@@ -62,16 +69,16 @@
                 @Html.DropDownListFor(m => m.Korisnik.SkolaId, new SelectList(Model.Skole, "IdSkole", "NazivSkole"), new { @class = "customDropdown", @selected = "selected" })
             </div>
 
-            <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('slika').src = window.URL.createObjectURL(this.files[0])"/>
+            <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('slika').src = window.URL.createObjectURL(this.files[0])" />
             <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
-            
+
             <div class="izmene">
                 <input type="submit" class="btnsOnIzmeni" value="SAČUVAJ IZMENE" onclick="return confirm('Molimo vas potvrdite izmenu korisnika')" />
                 <input type="submit" class="btnsOnIzmeni" value="ODUSTANI" onclick="return confirm('Da li želite da odustanete od izmena?')" />
             </div>
 
-                }
-            </div>
+        }
+    </div>
 
 </div>
 

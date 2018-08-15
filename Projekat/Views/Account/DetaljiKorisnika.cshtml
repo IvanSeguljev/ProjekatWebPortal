@@ -4,12 +4,32 @@
         ViewBag.Title = "Detalji Korisnika";
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
+    <style>
+        @@media screen and (max-width: 600px) {
+            .smanji{
+                width:100%;
+            }
+            .btnsOnDetalji {
+                width: 100%;
+                clear: both;
+                float: left;
+                text-align:center;
+             }
 
+            .btnReset {
+                width: 100%;
+                clear: both;
+                float: left;
+            }
+            }
+
+                                    <!-- Responsive design -->
+    </style>
     <h2>@ViewBag.Title</h2>
 
     <div class="form-detalji" role="form">
 
-        
+
         <h4>Detalji korisnika: @Model.Korisnik.UserName</h4>
 
 
@@ -25,7 +45,7 @@
 
             <tr> <td class="kategorija"><label class="labele">Broj telefona: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.PhoneNumber</label> </td> </tr>
 
-            
+
 
             <tr> <td class="kategorija"><label class="labele">Uloga: &nbsp</label>    </td> <td>    <label class="labelaIzBaze">@Model.Korisnik.Uloga</label></td> </tr>
             @{ if (Model.Korisnik.Uloga == "Ucenik")
@@ -40,11 +60,11 @@
                 {
                     <tr> <td class="kategorija"><label class="labele">Skola: &nbsp</label>   </td> <td>      <label class="labelaIzBaze">@Model.SelektovanaSkola</label></td> </tr>
                 }
-                 }
-           
+            }
 
-                 
-                   
+
+
+
         </table>
         <p>
 

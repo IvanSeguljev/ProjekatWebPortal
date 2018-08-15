@@ -5,11 +5,17 @@
 
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    @@media screen and (max-width: 600px) {
+        .nestaje {
+            display: none;
+        }
+    }
+</style>
 <a id="novi-materijal" href="@Url.Action("UploadMaterijal", "Materijal")">
     <img src="~/Content/img/upload.png" alt="Novi materijal">
 </a>
-<div id="sredina">
+<div id="sredina" class="nestaje">
 
     <img id="banana" src="~/Content/img/potvrdaBrisanjaGIFGOTOV.gif" />
 
