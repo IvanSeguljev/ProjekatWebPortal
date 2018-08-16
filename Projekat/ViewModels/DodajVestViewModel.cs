@@ -7,7 +7,7 @@ namespace Projekat.ViewModels
 {
     public class DodajVestViewModel
     {
-        public string Naziv { get; set; }
+        public string Naslov { get; set; }
         public string Vest { get; set; }
         
     }
