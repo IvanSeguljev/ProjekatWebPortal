@@ -9,11 +9,11 @@
     
     @using (Html.BeginForm("SnimiVest", "Vesti", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
-        @Html.LabelFor(m => m.Naziv, new { @class = "matDesignLabel" })
-        @Html.TextBoxFor(m => m.Naziv, new { @class = "korisnikTB" })
+        @Html.LabelFor(m => m.Naslov, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Naslov, new { @class = "korisnikTB" })
         <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
         <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
-        <img id="blah" style="width:400px; height:300px; padding:50px;" />
+        <img id="blah" style="max-width:400px; max-height:300px; padding:50px;" />
         
 
         @Html.TextAreaFor(m=>m.Vest, new { @id = "editor",@class="editor" })
