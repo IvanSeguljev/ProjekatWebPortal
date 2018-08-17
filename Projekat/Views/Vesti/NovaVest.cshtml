@@ -6,22 +6,24 @@
                    
 <script src="~/CK_i_Roxy/ckeditor/ckeditor.js"></script>
 <div id="sredina" name="sredina" class="sredina-upload-mat">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
         <h1>Unos nove vesti</h1>
 
         @using (Html.BeginForm("SnimiVest", "Vesti", FormMethod.Post, new { @enctype = "multipart/form-data" }))
-        {       
-                    @Html.LabelFor(m => m.Naslov, new { @class = "matDesignLabel" })
-                    @Html.TextBoxFor(m => m.Naslov, new { @class = "korisnikTB" })
-                
-            <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
-            <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite glavnu sliku vesti</span></span> </label>
-            <img id="blah" style="max-width:400px; max-height:300px; padding:50px;" />
+        {<div class="vesti">
+                @Html.LabelFor(m => m.Naslov, new { @class = "matDesignLabel" })
+                @Html.TextBoxFor(m => m.Naslov, new { @class = "vestiTB" })
+                <div class="ubaciSliku">
+                    <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
+                    <label for="file" id="izaberi-materijal" style="padding: 0; margin: 0; height: 46px; background-color: #D23232"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite naslovnu sliku vesti</span></span> </label>
+                    <img id="blah" style="max-width:400px; max-height:300px; padding:50px;" />
+                </div>
+            </div>
 
-
-            @Html.TextAreaFor(m => m.Vest, new { @id = "editor", @class = "editor" })
-            <script>
-                var roxyFileman = '../CK_i_Roxy/fileman/index.html';
+            <div class="editor">
+                @Html.TextAreaFor(m => m.Vest, new { @id = "editor", @class = "editor" })
+                <script>
+                    var roxyFileman = '../CK_i_Roxy/fileman/index.html';
 
                 CKEDITOR.replace('editor', {
                     filebrowserBrowseUrl: roxyFileman,
@@ -29,12 +31,9 @@
                     removeDialogTabs: 'link:upload;image:upload'
                 });
 
-            </script>
-            <br /><br />
-            <input type="submit" class="btnsOnIzmeni" value="POSTAVI VEST" onclick="return confirm('Molimo potvrdite postavljanje')" />
-            <br />
-        }
+                </script>
+                <input type="submit" class="btnDodajVest" value="POSTAVI VEST" onclick="return confirm('Molimo potvrdite postavljanje')" />
+            </div>
+        }</div>
     </div>
-</div>
-
 @Scripts.Render("~/bundles/Content/css")
