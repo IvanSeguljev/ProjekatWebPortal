@@ -256,6 +256,11 @@
       <DependentUpon>201805250932435_JosNekaSredjivanja.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\MaterijalContext\MaterijalConfiguration.cs" />
+    <Compile Include="Migrations\VestiContext\201808170921538_Dodavanje_Vesti_U_Bazu.cs" />
+    <Compile Include="Migrations\VestiContext\201808170921538_Dodavanje_Vesti_U_Bazu.Designer.cs">
+      <DependentUpon>201808170921538_Dodavanje_Vesti_U_Bazu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\VestiContext\VestiConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IMaterijalContext.cs" />
@@ -272,6 +277,8 @@
     <Compile Include="Models\SmerModel.cs" />
     <Compile Include="Models\StrucnaSpremaModel.cs" />
     <Compile Include="Models\TipMaterijalModel.cs" />
+    <Compile Include="Models\VestiContext.cs" />
+    <Compile Include="Models\VestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DodajPremetViewModel.cs" />
@@ -1219,6 +1226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MaterijalContext\201805250932435_JosNekaSredjivanja.resx">
       <DependentUpon>201805250932435_JosNekaSredjivanja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\VestiContext\201808170921538_Dodavanje_Vesti_U_Bazu.resx">
+      <DependentUpon>201808170921538_Dodavanje_Vesti_U_Bazu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
