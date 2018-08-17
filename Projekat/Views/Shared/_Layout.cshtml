@@ -15,51 +15,51 @@
     
 </head>
 <body>
-    
+
     <div id="gornjaNavigacija" style="position: fixed !important; z-index: 1000;">
         <p id="ulogovan"> Jovana Nikolic, administrator </p>
         <div class="dropdaun" style="float:right !important;height:100%; position:relative">
-           
-                <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VESTI </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#fff;width:100%;">
-                    
-                    <ul class="ListaNav" id="n3">
-                        <li class="blok">
-                            <div class="slikaLi">
-                                <img src="~/Content/img/novine-svetlije.png" alt="slika1" />
-                            </div>
-                            <p id="l5" style="font-size: 17px; font-family: 'roboto-light'">Pregled vesti</p>
-                        </li>
-                        <li class="blok">
-                            <a href="@Url.Action("NovaVest","Vesti")">
-                                <div class="slikaLi">
-                                    <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
-                                </div>
-                                <p id="l6" style="font-size: 17px; font-family: 'roboto-light'">Nova vest</p>
-                            </a>
-                        </li>
-                        <li class="blok">
-                            <div class="slikaLi">
-                                <img id="zvono" src="~/Content/img/zvono.png" alt="slika1" />
-                            </div>
-                            <p id="l7" style="font-size: 17px; font-family: 'roboto-light'">Pregled obaveštenja</p>
-                        </li>
-                        <li class="blok">
-                            <div class="slikaLi">
-                                <img src="~/Content/img/zvono-plus.png" alt="slika1" />
-                            </div>
-                            <p id="l8" style="font-size: 17px; font-family: 'roboto-light'">Novo obaveštenje</p>
-                        </li>
-                    </ul>
-                </div>
 
+            <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VESTI </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#fff;width:100%;">
+
+                <ul class="ListaNav" id="n3">
+                    <li class="blok">
+                        <div class="slikaLi">
+                            <img src="~/Content/img/novine-svetlije.png" alt="slika1" />
+                        </div>
+                        <p id="l5" style="font-size: 17px; font-family: 'roboto-light'">Pregled vesti</p>
+                    </li>
+                    <li class="blok">
+                        <a href="@Url.Action("NovaVest","Vesti")">
+                            <div class="slikaLi">
+                                <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
+                            </div>
+                            <p id="l6" style="font-size: 17px; font-family: 'roboto-light'">Nova vest</p>
+                        </a>
+                    </li>
+                    <li class="blok">
+                        <div class="slikaLi">
+                            <img id="zvono" src="~/Content/img/zvono.png" alt="slika1" />
+                        </div>
+                        <p id="l7" style="font-size: 17px; font-family: 'roboto-light'">Pregled obaveštenja</p>
+                    </li>
+                    <li class="blok">
+                        <div class="slikaLi">
+                            <img src="~/Content/img/zvono-plus.png" alt="slika1" />
+                        </div>
+                        <p id="l8" style="font-size: 17px; font-family: 'roboto-light'">Novo obaveštenje</p>
+                    </li>
+                </ul>
             </div>
-        
+
+        </div>
+
         <div class="dropdaun" style="float:right !important;height:100%; position:relative">
 
             <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KORISNICI </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#fff;width:100%;">
-                
+
                 <ul class="ListaNav" id="n1">
 
                     <li class="blok">
@@ -83,48 +83,50 @@
 
         </div><div class="dropdaun" style="float:right !important;height:100%; position:relative">
 
-    <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MATERIJALI </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#fff;width:100%;">
-       
-        <ul class="ListaNav" id="n2">
+            <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MATERIJALI </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#fff;width:100%;">
 
-            <li class="blok">
+                <ul class="ListaNav" id="n2">
 
-                <a href="@Url.Action("UploadMaterijal","Materijal")">
-                    <div class="slikaLi">
-                        <img src="~/Content/img/novimaterijal.png" height=28 width="27" alt="slika1" />
-                    </div>
-                    <p id="l9" style="font-size: 17px; font-family: 'roboto-light'">Novi materijal</p>
-                </a>
-            </li>
+                    <li class="blok">
 
-            <li class="blok">
+                        <a href="@Url.Action("UploadMaterijal","Materijal")">
+                            <div class="slikaLi">
+                                <img src="~/Content/img/novimaterijal.png" height=28 width="27" alt="slika1" />
+                            </div>
+                            <p id="l9" style="font-size: 17px; font-family: 'roboto-light'">Novi materijal</p>
+                        </a>
+                    </li>
 
-                <a href="@Url.RouteUrl("MaterijaliZaProf")">
-                    <div class="slikaLi">
-                        <img src="~/Content/img/profesor.png" alt="slika1" />
-                    </div>
-                    <p id="l3" style="font-size: 17px; font-family: 'roboto-light'">Obuka profesora</p>
-                </a>
-            </li>
+                    <li class="blok">
 
-            <li class="blok">
-                <a href="@Url.Action("SmeroviPrikaz", "Smer")">
-                    <div class="slikaLi">
-                        <img src="~/Content/img/ucenik.png" alt="slika1" />
-                    </div>
-                    <p id="l4" style="font-size: 17px; font-family: 'roboto-light'">Nastavni materijal</p>
-                </a>
-            </li>
-        </ul>
+                        <a href="@Url.RouteUrl("MaterijaliZaProf")">
+                            <div class="slikaLi">
+                                <img src="~/Content/img/profesor.png" alt="slika1" />
+                            </div>
+                            <p id="l3" style="font-size: 17px; font-family: 'roboto-light'">Obuka profesora</p>
+                        </a>
+                    </li>
+
+                    <li class="blok">
+                        <a href="@Url.Action("SmeroviPrikaz", "Smer")">
+                            <div class="slikaLi">
+                                <img src="~/Content/img/ucenik.png" alt="slika1" />
+                            </div>
+                            <p id="l4" style="font-size: 17px; font-family: 'roboto-light'">Nastavni materijal</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div style="height: 100px">
+
     </div>
 
-</div>
-
-
-    </div>
-    
-    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/UI/select2.min.js")
