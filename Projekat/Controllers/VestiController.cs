@@ -21,8 +21,19 @@ namespace Projekat.Controllers
         [HttpPost]
         public ActionResult SnimiVest(HttpPostedFileBase Fajl,DodajVestViewModel vm)
         {
-            
-            return View();
+            VestiContext context = new VestiContext();
+            VestModel Vest = new VestModel();
+            Vest.Naslov = vm.Naslov;
+            Vest.Vest = vm.Vest;
+
+            if (Fajl != null)
+            {
+                Vest.Thumbnail = new byte[Fajl.ContentLength];
+                Fajl.InputStream.Read(Vest.Thumbnail, 0, Fajl.ContentLength);
+            }
+            context.Vesti.Add(Vest);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
