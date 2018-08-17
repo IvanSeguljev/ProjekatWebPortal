@@ -12,16 +12,52 @@
 
 
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>@*CDN za simplebar*@
+    
 </head>
 <body>
     
-    <div id="gornjaNavigacija" style="position: fixed !important; z-index: 1000;"> 
+    <div id="gornjaNavigacija" style="position: fixed !important; z-index: 1000;">
         <p id="ulogovan"> Jovana Nikolic, administrator </p>
+        <div class="dropdaun" style="float:right !important;height:100%; position:relative">
+           
+                <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VESTI </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:lavender;width:100%;">
+                    <ul>
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
         
-        <button class="navbar-dugmici"  data-toggle="modal" data-target="#vestiModalna"> VESTI </button>
-        <button class="navbar-dugmici"  data-toggle="modal" data-target="#materijalModalna"> MATERIJALI</button>
-        <button class="navbar-dugmici"  data-toggle="modal" data-target="#korisniciModalna"> KORISNICI </button>
-        
+        <div class="dropdaun" style="float:right !important;height:100%; position:relative">
+
+            <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KORISNICI </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:lavender;width:100%;">
+                <ul>
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+
+            </div>
+
+        </div><div class="dropdaun" style="float:right !important;height:100%; position:relative">
+
+    <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MATERIJALI </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:lavender;width:100%;">
+        <ul>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
 
     </div>
     
@@ -45,10 +81,12 @@
                                 <p id="l5" style="top: 8.5px">Pregled vesti</p>
                             </li>
                             <li class="blok">
-                                <div class="slikaLi">
-                                    <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
-                                </div>
-                                <p id="l6" style="top: 8.5px">Nova vest</p>
+                                <a href="@Url.Action("NovaVest","Vesti")">
+                                    <div class="slikaLi">
+                                        <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
+                                    </div>
+                                    <p id="l6" style="top: 8.5px">Nova vest</p>
+                                    </a>
                             </li>
                             <li class="blok">
                                 <div class="slikaLi">

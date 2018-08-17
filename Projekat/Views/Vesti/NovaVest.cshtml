@@ -1,0 +1,33 @@
+﻿@model Projekat.ViewModels.DodajVestViewModel
+@{
+    ViewBag.Title = "NovaVest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/CK_i_Roxy/ckeditor/ckeditor.js"></script>
+<div id="sredina" name="sredina" class="sredina-upload-mat">
+    <h1>Unos nove vesti</h1>
+    
+    @using (Html.BeginForm("SnimiVest", "Vesti", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.LabelFor(m => m.Naziv, new { @class = "matDesignLabel" })
+        @Html.TextBoxFor(m => m.Naziv, new { @class = "korisnikTB" })
+        <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
+        <label for="file" id="izaberi-materijal"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite sliku...</span></span> </label>
+        <img id="blah" style="width:400px; height:300px; padding:50px;" />
+        
+
+        @Html.TextAreaFor(m=>m.Vest, new { @id = "editor",@class="editor" })
+            <script>
+                var roxyFileman = '../CK_i_Roxy/fileman/index.html';
+
+                    CKEDITOR.replace('editor', {
+                        filebrowserBrowseUrl: roxyFileman,
+                        filebrowserImageBrowseUrl: roxyFileman + '?type=image',
+                        removeDialogTabs: 'link:upload;image:upload'
+                    });
+
+            </script>
+            <input type="submit" class="btnsOnIzmeni" value="POSTAVI VEST" onclick="return confirm('Molimo potvrdite postavljanje')" />
+    }
+</div>
+@Scripts.Render("~/bundles/Content/css")
