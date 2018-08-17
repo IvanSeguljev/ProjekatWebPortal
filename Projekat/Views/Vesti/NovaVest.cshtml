@@ -3,6 +3,7 @@
     ViewBag.Title = "NovaVest";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+                   
 <script src="~/CK_i_Roxy/ckeditor/ckeditor.js"></script>
 <div id="sredina" name="sredina" class="sredina-upload-mat">
     <div class="col-md-10 col-md-offset-1">
@@ -24,11 +25,11 @@
                 <script>
                     var roxyFileman = '../CK_i_Roxy/fileman/index.html';
 
-                    CKEDITOR.replace('editor', {
-                        filebrowserBrowseUrl: roxyFileman,
-                        filebrowserImageBrowseUrl: roxyFileman + '?type=image',
-                        removeDialogTabs: 'link:upload;image:upload'
-                    });
+                CKEDITOR.replace('editor', {
+                    filebrowserBrowseUrl: roxyFileman,
+                    filebrowserImageBrowseUrl: roxyFileman + '?type=image',
+                    removeDialogTabs: 'link:upload;image:upload'
+                });
 
                 </script>
                 <input type="submit" class="btnDodajVest" value="POSTAVI VEST" onclick="return confirm('Molimo potvrdite postavljanje')" />
