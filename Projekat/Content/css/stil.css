@@ -366,6 +366,7 @@ div#gornjaNavigacija{
   /*float:right;*/
  padding-left: 20px;
  position: sticky !important;
+ box-shadow: 0 3px 10px gray;
 
  
  }
