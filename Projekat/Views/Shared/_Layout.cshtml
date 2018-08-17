@@ -12,156 +12,119 @@
 
 
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>@*CDN za simplebar*@
+    
 </head>
 <body>
     
-    <div id="gornjaNavigacija" style="position: fixed !important; z-index: 1000;"> 
+    <div id="gornjaNavigacija" style="position: fixed !important; z-index: 1000;">
         <p id="ulogovan"> Jovana Nikolic, administrator </p>
+        <div class="dropdaun" style="float:right !important;height:100%; position:relative">
+           
+                <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VESTI </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#fff;width:100%;">
+                    
+                    <ul class="ListaNav" id="n3">
+                        <li class="blok">
+                            <div class="slikaLi">
+                                <img src="~/Content/img/novine-svetlije.png" alt="slika1" />
+                            </div>
+                            <p id="l5" style="font-size: 17px; font-family: 'roboto-light'">Pregled vesti</p>
+                        </li>
+                        <li class="blok">
+                            <a href="@Url.Action("NovaVest","Vesti")">
+                                <div class="slikaLi">
+                                    <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
+                                </div>
+                                <p id="l6" style="font-size: 17px; font-family: 'roboto-light'">Nova vest</p>
+                            </a>
+                        </li>
+                        <li class="blok">
+                            <div class="slikaLi">
+                                <img id="zvono" src="~/Content/img/zvono.png" alt="slika1" />
+                            </div>
+                            <p id="l7" style="font-size: 17px; font-family: 'roboto-light'">Pregled obaveštenja</p>
+                        </li>
+                        <li class="blok">
+                            <div class="slikaLi">
+                                <img src="~/Content/img/zvono-plus.png" alt="slika1" />
+                            </div>
+                            <p id="l8" style="font-size: 17px; font-family: 'roboto-light'">Novo obaveštenje</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
         
-        <button class="navbar-dugmici"  data-toggle="modal" data-target="#vestiModalna"> VESTI </button>
-        <button class="navbar-dugmici"  data-toggle="modal" data-target="#materijalModalna"> MATERIJALI</button>
-        <button class="navbar-dugmici"  data-toggle="modal" data-target="#korisniciModalna"> KORISNICI </button>
-        
+        <div class="dropdaun" style="float:right !important;height:100%; position:relative">
+
+            <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KORISNICI </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#fff;width:100%;">
+                
+                <ul class="ListaNav" id="n1">
+
+                    <li class="blok">
+                        <a href="@Url.Action("Register", "Account")">
+                            <div class="slikaLi">
+                                <img src="~/Content/img/plusSivi.png" alt="slika1" style="width: 24px; height: 24px;" />
+                            </div>
+                            <p id="l1" style="font-size: 17px; font-family: 'roboto-light'">Novi korisnik</p>
+                        </a>
+                    </li>
+                    <li class="blok">
+                        <a href="@Url.Action("ListaKorisnika", "Account")">
+                            <div class="slikaLi">
+                                <img src="~/Content/img/lupa.png" alt="slika1" />
+                            </div>
+                            <p id="l2" style="font-size: 17px; font-family: 'roboto-light'">Pretraga korisnika</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div><div class="dropdaun" style="float:right !important;height:100%; position:relative">
+
+    <button class="navbar-dugmici dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MATERIJALI </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#fff;width:100%;">
+       
+        <ul class="ListaNav" id="n2">
+
+            <li class="blok">
+
+                <a href="@Url.Action("UploadMaterijal","Materijal")">
+                    <div class="slikaLi">
+                        <img src="~/Content/img/novimaterijal.png" height=28 width="27" alt="slika1" />
+                    </div>
+                    <p id="l9" style="font-size: 17px; font-family: 'roboto-light'">Novi materijal</p>
+                </a>
+            </li>
+
+            <li class="blok">
+
+                <a href="@Url.RouteUrl("MaterijaliZaProf")">
+                    <div class="slikaLi">
+                        <img src="~/Content/img/profesor.png" alt="slika1" />
+                    </div>
+                    <p id="l3" style="font-size: 17px; font-family: 'roboto-light'">Obuka profesora</p>
+                </a>
+            </li>
+
+            <li class="blok">
+                <a href="@Url.Action("SmeroviPrikaz", "Smer")">
+                    <div class="slikaLi">
+                        <img src="~/Content/img/ucenik.png" alt="slika1" />
+                    </div>
+                    <p id="l4" style="font-size: 17px; font-family: 'roboto-light'">Nastavni materijal</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
 
     </div>
     
-    <div>
-        <div style="padding-top: 85px;"></div>
-        <div id="vestiModalna" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">VESTI I OBAVESTENJA</h4>
-                    </div><hr />
-                    <div class="modal-body">
-                        <ul class="ListaNav" id="n3">
-                            <li class="blok">
-                                <div class="slikaLi">
-                                    <img src="~/Content/img/novine-svetlije.png" alt="slika1" />
-                                </div>
-                                <p id="l5" style="top: 8.5px">Pregled vesti</p>
-                            </li>
-                            <li class="blok">
-                                <a href="@Url.Action("NovaVest","Vesti")">
-                                    <div class="slikaLi">
-                                        <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
-                                    </div>
-                                    <p id="l6" style="top: 8.5px">Nova vest</p>
-                                    </a>
-                            </li>
-                            <li class="blok">
-                                <div class="slikaLi">
-                                    <img id="zvono" src="~/Content/img/zvono.png" alt="slika1" />
-                                </div>
-                                <p id="l7" style="top: 8.5px">Pregled obaveštenja</p>
-                            </li>
-                            <li class="blok">
-                                <div class="slikaLi">
-                                    <img src="~/Content/img/zvono-plus.png" alt="slika1" />
-                                </div>
-                                <p id="l8" style="top: 8.5px">Novo obaveštenje</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div id="materijalModalna" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">MATERIJALI</h4>
-                        <hr />
-                    </div>
-                    <div class="modal-body">
-                        <ul class="ListaNav" id="n2">
-                           
-                            <li class="blok">
-
-                                <a href="@Url.Action("UploadMaterijal","Materijal")">
-                                    <div class="slikaLi">
-                                        <img src="~/Content/img/novimaterijal.png" height=28 width="27" alt="slika1" />
-                                    </div>
-                                    <p id="l9" style="top: 8.5px">Novi materijal</p>
-                                </a>
-                            </li>
-
-                            <li class="blok">
-
-                                <a href="@Url.RouteUrl("MaterijaliZaProf")">
-                                    <div class="slikaLi">
-                                        <img src="~/Content/img/profesor.png" alt="slika1" />
-                                    </div>
-                                    <p id="l3" style="top: 8.5px">Obuka profesora</p>
-                                </a>
-                            </li>
-
-                            <li class="blok">
-                                <a href="@Url.Action("SmeroviPrikaz", "Smer")">
-                                    <div class="slikaLi">
-                                        <img src="~/Content/img/ucenik.png" alt="slika1" />
-                                    </div>
-                                    <p id="l4" style="top: 8.5px">Nastavni materijal</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div id="korisniciModalna" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">KORISNICI</h4>
-                        <hr />
-                    </div>
-                    <div class="modal-body">
-                        <ul class="ListaNav" id="n1">
-                            
-                            <li class="blok">
-                                <a href="@Url.Action("Register", "Account")">
-                                    <div class="slikaLi">
-                                        <img src="~/Content/img/plusSivi.png" alt="slika1" style="width: 24px; height: 24px;" />
-                                    </div>
-                                    <p id="l1" style="top: 8.5px">Novi korisnik</p>
-                                </a>
-                            </li>
-                            <li class="blok">
-                                <a href="@Url.Action("ListaKorisnika", "Account")">
-                                    <div class="slikaLi">
-                                        <img src="~/Content/img/lupa.png" alt="slika1" />
-                                    </div>
-                                    <p id="l2" style="top: 8.5px">Pretraga korisnika</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/UI/select2.min.js")
