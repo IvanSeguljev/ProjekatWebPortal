@@ -91,14 +91,18 @@ h2 {
     border-bottom: none;
     text-align: center;
     background-image: none;
-    padding-left: 25px;
     font-family: 'roboto-regular';
     font-size: 20px;
     color: #e21b22;
-    margin-left: 3px;
+    margin-left: 0px;
     height: auto;
     background-color: transparent;
 }
+    .btnDodajVest:hover {
+        background-color: #c21b22;
+        color: #fff;
+        transition: .4s;
+    }
 
 .vesti{
     display: inline !important;
