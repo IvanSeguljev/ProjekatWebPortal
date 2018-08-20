@@ -84,7 +84,6 @@ div.LeftBar div.simplebar-track{
    margin: 0 auto;
    -webkit-transition: all .2s ease;
    -moz-transition: all .2s ease;
-   -ms-transition: all .2s ease;
    -o-transition: all .2s ease;
    transition: all .2s ease;
 
@@ -104,7 +103,6 @@ div.LeftBar div.simplebar-track{
  .bar {
    -webkit-transition: all .2s ease;
    -moz-transition: all .2s ease;
-   -ms-transition: all .2s ease;
    -o-transition: all .2s ease;
    transition: all .2s ease;
  }
@@ -721,7 +719,7 @@ a#novi-materijal:hover{
         display: inline-block;
         /*max-width:400px;*/
         color: #fff;
-        background-color: #e21b22;
+        background-color: #c42b2b;
         white-space: nowrap;
         overflow: hidden;
         /*text-overflow: ellipsis;*/
@@ -961,9 +959,9 @@ button#postavi {
     height: 45px;
     font-family: 'roboto-regular';
     color: #fff;
-    background-color: #e21b22;
+    background-color: #c42b2b;
     border-radius: 2px;
-    border: 1px solid #e21b22;
+    border: 1px solid #c42b2b;
     font-size: 15px;
     font-family: 'roboto-bold';
     /*   float: left;
@@ -1198,15 +1196,15 @@ a.naziv-smera-na-kartici{
     margin: 35px auto 45px auto;
 }
 
-.btn{
+.btn {
     height: 45px;
     color: #fff;
-    background-color: #e45459;
+    background-color: #c42b2b;
     border-radius: 2px;
     border: 1px solid #e45459;
     font-size: 15px;
     font-family: 'roboto-bold';
-    text-transform:uppercase;
+    text-transform: uppercase;
     -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);

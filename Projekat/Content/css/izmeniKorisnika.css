@@ -31,9 +31,8 @@
     font-weight: normal;
     font-size: 1.25em;
     display: inline-block;
-    
     color: #fff;
-    background-color: #e21b22;
+    background-color: #c42b2b;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -80,8 +79,8 @@ h2 {
     background-image: none;
     padding-left: 25px;
     font-family: 'roboto-regular';
-    font-size:20px;
-    color: #e21b22;
+    font-size: 20px;
+    color: #c42b2b;
     margin-left: 3px;
     height: auto;
 }
@@ -93,13 +92,13 @@ h2 {
     background-image: none;
     font-family: 'roboto-regular';
     font-size: 20px;
-    color: #e21b22;
+    color: #c42b2b;
     margin-left: 0px;
     height: auto;
     background-color: transparent;
 }
     .btnDodajVest:hover {
-        background-color: #c21b22;
+        background-color: #c42b2b;
         color: #fff;
         transition: .4s;
     }
