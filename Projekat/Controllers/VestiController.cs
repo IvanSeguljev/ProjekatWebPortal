@@ -38,9 +38,14 @@ namespace Projekat.Controllers
 
         public ActionResult PrikazVesti()
         {
-            VestiContext Context = new VestiContext();
-            List<VestModel> lista = Context.Vesti.Take(12).ToList();
-            return View(lista);
+            return View();
+        }
+        public ActionResult PosaljiVesti(int pageindex, int pagesize)
+        {
+            VestiContext context = new VestiContext();
+            List<VestModel> vesti = context.Vesti.OrderBy(m=>m.Id).Skip(pageindex * pagesize).Take(pagesize).ToList();
+            return Json(vesti.ToList(), JsonRequestBehavior.AllowGet);
+
         }
     }
 }
