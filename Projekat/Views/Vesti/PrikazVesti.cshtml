@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "PrikazVesti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Pregled vesti</h2>
+<div class="card-columns">
+    <div id="container"></div>
+    <div id="progress" style="display:none">
+        <h4>Loading...</h4>
+    </div>
+    <script>
+    var pageSize = 15;
+    var pageIndex = 0;
+
+    $(document).ready(function () {
+
+        GetData();
+        $(window).scroll(function () {
+            if ($(window).scrollTop() ==
+                $(document).height() - $(window).height() && !_incallback) {
+                GetData();
+            }
+        });
+    });
+    function GetData() {
+        _incallback = true;
+        console.log("pozvana funkcija");
+        $.ajax({
+            type: 'GET',
+            url: '/Vesti/PosaljiVesti',
+            data: { "pageindex": pageIndex, "pagesize": pageSize },
+            dataType: 'json',
+            success: function (data) {
+                if (data != null) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#container").append("<h1>" +
+                            data[i].Naslov + "</h1>");
+                    }
+                    pageIndex++;
+                }
+            },
+            beforeSend: function () {
+                $("#progress").show();
+            },
+            complete: function () {
+                $("#progress").hide();
+                _incallback = false;
+            },
+            error: function () {
+                alert("Error while retrieving data!");
+                _incallback = false;
+            }
+        });
+
+    }
+    </script>
+</div>

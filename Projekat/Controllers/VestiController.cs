@@ -35,5 +35,17 @@ namespace Projekat.Controllers
             context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult PrikazVesti()
+        {
+            return View();
+        }
+        public ActionResult PosaljiVesti(int pageindex, int pagesize)
+        {
+            VestiContext context = new VestiContext();
+            List<VestModel> vesti = context.Vesti.OrderBy(m=>m.Id).Skip(pageindex * pagesize).Take(pagesize).ToList();
+            return Json(vesti.ToList(), JsonRequestBehavior.AllowGet);
+
+        }
     }
 }
