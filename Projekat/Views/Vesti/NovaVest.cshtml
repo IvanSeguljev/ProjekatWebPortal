@@ -19,14 +19,14 @@
         {<div class="vesti">
                 @Html.LabelFor(m => m.Naslov, new { @class = "matDesignLabel" })
                 @Html.TextBoxFor(m => m.Naslov, new { @class = "vestiTB" })
-                <div class="ubaciSliku">
+                <div class="ubaciSliku" style="height:auto">
                     <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
-                    <label for="file" id="izaberi-materijal" style="padding: 0; margin: 0; height: 46px; background-color: #D23232"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite naslovnu sliku vesti</span></span> </label>
-                    <img id="blah" style="max-width:400px; max-height:300px; padding:50px;" />
+                    <label for="file" id="izaberi-materijal" style="padding: 0;height:47px; margin: 0; background-color: #D23232"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite naslovnu sliku vesti</span></span> </label>
+                    <img id="blah" style="max-width:400px; max-height:300px; padding:   0px;" />
                 </div>
             </div>
 
-            <div class="editor">
+            <div class="editor" style="clear:both">
               @Html.TextAreaFor(m => m.Vest,new { @id = "summernote",name = "editor"})
           
                
@@ -37,6 +37,8 @@
             tabsize: 2,
             height: 100
         });
+       
+
        
                 </script>
                

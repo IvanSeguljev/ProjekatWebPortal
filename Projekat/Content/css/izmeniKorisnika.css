@@ -113,7 +113,7 @@ h2 {
     float: right;
     bottom: 60px !important;
     margin-top: 0 !important;
-    height: 46px !important;
+    height: auto;
 }
 .izmene {
     padding-top: 10px;
