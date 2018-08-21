@@ -711,3 +711,7 @@
                 background-color: #428bca;
                 outline: 0
             }
+
+            .panel{
+                margin-bottom: 0px !important;
+            }
