@@ -35,5 +35,12 @@ namespace Projekat.Controllers
             context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult PrikazVesti()
+        {
+            VestiContext Context = new VestiContext();
+            List<VestModel> lista = Context.Vesti.Take(12).ToList();
+            return View(lista);
+        }
     }
 }
