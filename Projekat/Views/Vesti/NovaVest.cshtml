@@ -16,7 +16,7 @@
         <h1>Unos nove vesti</h1>
 
         @using (Html.BeginForm("SnimiVest", "Vesti", FormMethod.Post, new { @enctype = "multipart/form-data" }))
-        {<div class="vesti">
+        {<div class="vesti"  >
                 @Html.LabelFor(m => m.Naslov, new { @class = "matDesignLabel" })
                 @Html.TextBoxFor(m => m.Naslov, new { @class = "vestiTB" })
                 <div class="ubaciSliku" style="height:auto">
@@ -25,7 +25,9 @@
                     <img id="blah" style="max-width:400px; max-height:300px; padding:   0px;" />
                 </div>
             </div>
-
+            <hr />
+            @Html.TextAreaFor(m=>m.KratakOpis,new {@placeholder = "Kratak opis vesti",@class = "KratakOpis",@style = "height:100px; margin-top:50px;" })
+            <br />
             <div class="editor" style="clear:both">
               @Html.TextAreaFor(m => m.Vest,new { @id = "summernote",name = "editor"})
           
