@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Projekat.Models;
 using Projekat.ViewModels;
+using System.IO;
 
 namespace Projekat.Controllers
 {
@@ -28,8 +29,12 @@ namespace Projekat.Controllers
 
             if (Fajl != null)
             {
-                Vest.Thumbnail = new byte[Fajl.ContentLength];
-                Fajl.InputStream.Read(Vest.Thumbnail, 0, Fajl.ContentLength);
+                string ekstenzija = Fajl.FileName.Remove(0, Fajl.FileName.LastIndexOf('.'));
+                string fileId = Guid.NewGuid().ToString().Replace("-", "");
+                string path = Path.Combine(Server.MapPath("~/Content/uploads/Thumbnails/"), fileId+ekstenzija);
+                string pathzaserver = "/Content/uploads/Thumbnails/" + fileId + ekstenzija;
+                Fajl.SaveAs(path);
+                Vest.Thumbnail = pathzaserver;
             }
             context.Vesti.Add(Vest);
             context.SaveChanges();
@@ -43,7 +48,7 @@ namespace Projekat.Controllers
         public ActionResult PosaljiVesti(int pageindex, int pagesize)
         {
             VestiContext context = new VestiContext();
-            List<VestModel> vesti = context.Vesti.OrderBy(m=>m.Id).Skip(pageindex * pagesize).Take(pagesize).ToList();
+            List<VestModel> vesti = context.Vesti.OrderByDescending(m=>m.DatumPostavljanja).Skip(pageindex * pagesize).Take(pagesize).ToList();
             return Json(vesti.ToList(), JsonRequestBehavior.AllowGet);
 
         }

@@ -262,6 +262,10 @@
     <Compile Include="Migrations\VestiContext\201808170921538_Dodavanje_Vesti_U_Bazu.Designer.cs">
       <DependentUpon>201808170921538_Dodavanje_Vesti_U_Bazu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\VestiContext\201808220807445_DodavanjeDatumaICuvaSePutDoSlike.cs" />
+    <Compile Include="Migrations\VestiContext\201808220807445_DodavanjeDatumaICuvaSePutDoSlike.Designer.cs">
+      <DependentUpon>201808220807445_DodavanjeDatumaICuvaSePutDoSlike.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\VestiContext\VestiConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1290,7 +1294,7 @@
     <Folder Include="CK_i_Roxy\fileman\tmp\" />
     <Folder Include="CK_i_Roxy\fileman\Uploads\Documents\" />
     <Folder Include="CK_i_Roxy\fileman\Uploads\FLV\" />
-    <Folder Include="Content\uploads\" />
+    <Folder Include="Content\uploads\Thumbnails\" />
     <Folder Include="Scripts\Shared\" />
     <Folder Include="Views\Shared\Editor templates\" />
   </ItemGroup>
@@ -1333,6 +1337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\VestiContext\201808170921538_Dodavanje_Vesti_U_Bazu.resx">
       <DependentUpon>201808170921538_Dodavanje_Vesti_U_Bazu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\VestiContext\201808220807445_DodavanjeDatumaICuvaSePutDoSlike.resx">
+      <DependentUpon>201808220807445_DodavanjeDatumaICuvaSePutDoSlike.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

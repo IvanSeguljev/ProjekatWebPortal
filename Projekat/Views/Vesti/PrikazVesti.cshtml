@@ -7,8 +7,8 @@
 
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <h2>Pregled vesti</h2>
-<div class="card-columns">
-    <div id="container"></div>
+
+    <div id="container" class="row"></div>
     <div id="progress" style="display:none">
         <h4>Loading...</h4>
     </div>
@@ -37,8 +37,12 @@
             success: function (data) {
                 if (data != null) {
                     for (var i = 0; i < data.length; i++) {
-                        $("#container").append("<h1>" +
-                            data[i].Naslov + "</h1>");
+                        $("#container").append("<div class=\"card\" style=\"width: 18rem;\">"+
+  "<img class=\"card-img-top\" src=\"" +data[i].Thumbnail+ "\" alt=\"Card image cap\">"+
+  "<div class=\"card-body\">"+
+    "<p class=\"card-text\">"+data[i].Naslov+"</p>"+
+  "</div>"+
+"</div>");
                     }
                     pageIndex++;
                 }
@@ -58,4 +62,3 @@
 
     }
     </script>
-</div>
