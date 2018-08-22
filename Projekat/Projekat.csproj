@@ -1294,7 +1294,7 @@
     <Folder Include="CK_i_Roxy\fileman\tmp\" />
     <Folder Include="CK_i_Roxy\fileman\Uploads\Documents\" />
     <Folder Include="CK_i_Roxy\fileman\Uploads\FLV\" />
-    <Folder Include="Content\uploads\Thumbnails\" />
+    <Folder Include="Content\uploads\" />
     <Folder Include="Scripts\Shared\" />
     <Folder Include="Views\Shared\Editor templates\" />
   </ItemGroup>

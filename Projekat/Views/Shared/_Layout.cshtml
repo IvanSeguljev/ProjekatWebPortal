@@ -28,13 +28,15 @@
 
                 <ul class="ListaNav" id="n3">
                     <li class="blok" style="width:100%;">
-                        <div class="slikaLi">
-                            <img src="~/Content/img/novine-svetlije.png" alt="slika1" />
-                        </div>
-                        <p id="l5" style="font-size: 17px; font-family: 'roboto-light'">Pregled vesti</p>
+                        <a href="@Url.Action("PrikazVesti","Vesti")">
+                            <div class="slikaLi">
+                                <img src="~/Content/img/novine-svetlije.png" alt="slika1" />
+                            </div>
+                            <p id="l5" style="font-size: 17px; font-family: 'roboto-light'">Pregled vesti</p>
+                        </a>
                     </li>
                     <li class="blok" style="width:100%;">
-                        <a href="@Url.Action("NovaVest","Vesti")">
+                        <a href="@Url.Action("NovaVest", "Vesti")">
                             <div class="slikaLi">
                                 <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
                             </div>
