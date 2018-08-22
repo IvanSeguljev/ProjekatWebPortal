@@ -266,6 +266,10 @@
     <Compile Include="Migrations\VestiContext\201808220807445_DodavanjeDatumaICuvaSePutDoSlike.Designer.cs">
       <DependentUpon>201808220807445_DodavanjeDatumaICuvaSePutDoSlike.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\VestiContext\201808221110015_DodavanjeKratkogOpisa.cs" />
+    <Compile Include="Migrations\VestiContext\201808221110015_DodavanjeKratkogOpisa.Designer.cs">
+      <DependentUpon>201808221110015_DodavanjeKratkogOpisa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\VestiContext\VestiConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1340,6 +1344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\VestiContext\201808220807445_DodavanjeDatumaICuvaSePutDoSlike.resx">
       <DependentUpon>201808220807445_DodavanjeDatumaICuvaSePutDoSlike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\VestiContext\201808221110015_DodavanjeKratkogOpisa.resx">
+      <DependentUpon>201808221110015_DodavanjeKratkogOpisa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

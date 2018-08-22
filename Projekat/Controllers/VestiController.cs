@@ -26,7 +26,7 @@ namespace Projekat.Controllers
             VestModel Vest = new VestModel();
             Vest.Naslov = vm.Naslov;
             Vest.Vest = vm.Vest;
-
+            Vest.KratakOpis = vm.KratakOpis;
             if (Fajl != null)
             {
                 string ekstenzija = Fajl.FileName.Remove(0, Fajl.FileName.LastIndexOf('.'));
