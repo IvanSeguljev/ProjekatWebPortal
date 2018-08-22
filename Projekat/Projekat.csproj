@@ -1161,6 +1161,7 @@
     <Content Include="Scripts\Smer\validacijaNovogSmera.js" />
     <Content Include="Scripts\UI\sideBarSections.js" />
     <Content Include="Scripts\UI\VracanjeID.js" />
+    <Content Include="Scripts\umdPopper.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
