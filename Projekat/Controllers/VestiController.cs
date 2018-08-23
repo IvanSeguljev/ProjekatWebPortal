@@ -7,10 +7,53 @@ using Projekat.Models;
 using Projekat.ViewModels;
 using System.IO;
 
+
 namespace Projekat.Controllers
 {
     public class VestiController : Controller
     {
+        private VestModel VratiGlavnuVest()
+        {
+            VestiContext context = new VestiContext();
+            string Path = Server.MapPath("~/Content/Konfiguracija/GlavnaVest.txt");
+            if (!System.IO.File.Exists(Path))
+            {
+                return context.Vesti.OrderByDescending(m=>m.DatumPostavljanja).FirstOrDefault();
+            }
+            else
+            {
+                int ID;
+                
+                TextReader tr = new StreamReader(Path);
+                string config = tr.ReadLine();
+                tr.Close();
+                DateTime datum = Convert.ToDateTime(config.Remove(0,config.IndexOf('|')+1));
+                if (int.TryParse(config.Remove(config.IndexOf('|')), out ID) && DateTime.Today.Date<=datum.Date)
+                {
+                    VestModel Vest = context.Vesti.FirstOrDefault(m => m.Id == ID);
+                    return Vest;
+                }
+                else
+                {
+                    return context.Vesti.OrderByDescending(m => m.DatumPostavljanja).FirstOrDefault();
+                }
+            }
+        }
+
+        private void SnimiGlavnuVest(int ID,DateTime DatDo)
+        {
+            string Path = Server.MapPath("~/Content/Konfiguracija/GlavnaVest.txt");
+            if(!System.IO.File.Exists(Path))
+            {
+                System.IO.File.Create(Path).Close();
+                
+            }
+            TextWriter tw = new StreamWriter(Path);
+            string Config = ID + "|" + DatDo.ToShortDateString();
+            tw.Write(Config);
+            tw.Close();
+        }
+
         [HttpGet]
         public ActionResult NovaVest()
         {
