@@ -37,9 +37,9 @@
                 success: function (data) {
                     if (data != null) {
                         for (var i = 0; i < data.length; i++) {
-                            $("#container").append("<div class=\"col-md-4\"><div class=\"card\">" +
+                            $("#container").append("<div class=\"col-md-4 smanjen\"><div class=\"card cardresp\">" +
       "<div class=\"slikaNaslov\"><img class=\"card-img-top\" src=\"" + data[i].Thumbnail + "\" alt=\"Card image cap\"> <div class=\"naslov\"><p class=\"card-text\">" + data[i].Naslov + "</p></div></div>" +
-      "<div class=\"card-body\"><div class=\"preveiw\"></div> <hr/> <div class=\"izmene\">"+
+      "<div class=\"card-body\"><div class=\"preveiw\"> <p class=\"prvText\">" + data[i].KratakOpis + "</p></div> <hr/> <div class=\"prikazi\">" +
                 "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"SAZNAJ VIŠE\" onclick=\"return confirm('Molimo vas potvrdite izmenu korisnika')\" />"+
                 "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"OBRIŠI\" onclick=\"return confirm('Da li želite da obrišete vest?')\"/>"+
             "</div>" +

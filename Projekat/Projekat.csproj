@@ -1035,6 +1035,16 @@
     <Content Include="Content\img\ZIPicon.png" />
     <Content Include="Content\img\zvono-plus.png" />
     <Content Include="Content\img\zvono.png" />
+    <Content Include="Content\uploads\Thumbnails\1dd1c9fa95994e2f856a12bdd6c9540f.jpg" />
+    <Content Include="Content\uploads\Thumbnails\29270ce92866499fa979357988dacfac.jpg" />
+    <Content Include="Content\uploads\Thumbnails\2ea80a312ac34c2695dc0a2b2f7fd013.png" />
+    <Content Include="Content\uploads\Thumbnails\3a2e5bc3026f4d1b907a91327508e6b3.jpg" />
+    <Content Include="Content\uploads\Thumbnails\3c2e1c0963be44628665a681d3fc5cd9.jpg" />
+    <Content Include="Content\uploads\Thumbnails\4d36b201040c4705a6b391b919b9114c.jpg" />
+    <Content Include="Content\uploads\Thumbnails\624508c8dc64428d86a65a984490f1ee.jpg" />
+    <Content Include="Content\uploads\Thumbnails\8f616ac7814c493dae0768030320bc70.jpg" />
+    <Content Include="Content\uploads\Thumbnails\a.png" />
+    <Content Include="Content\uploads\Thumbnails\db1f1594df4e464c8bc6083e7bb63c00.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\Site.css" />
@@ -1058,6 +1068,7 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Content\uploads\Thumbnails\250a6408d31f46a889155fcb70e68b75" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -1298,7 +1309,6 @@
     <Folder Include="CK_i_Roxy\fileman\tmp\" />
     <Folder Include="CK_i_Roxy\fileman\Uploads\Documents\" />
     <Folder Include="CK_i_Roxy\fileman\Uploads\FLV\" />
-    <Folder Include="Content\uploads\" />
     <Folder Include="Scripts\Shared\" />
     <Folder Include="Views\Shared\Editor templates\" />
   </ItemGroup>

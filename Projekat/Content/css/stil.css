@@ -1832,8 +1832,8 @@ div#opisModal .modal-dialog {
 /*PRIKAZ VESTI*/
 
 .card{
-    width:86%;
-    height: 350px;
+    width:80%;
+    height: auto;
     margin-bottom: 50px;
     margin-left: 12%;
 
@@ -1845,7 +1845,7 @@ div#opisModal .modal-dialog {
 }
 .naslov{
     position: absolute;
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(0,0,0,0.20);
     bottom: 0;
     left: 0;
     color: #fff;
@@ -1870,9 +1870,13 @@ div#opisModal .modal-dialog {
 .card-body{
     width: 100%;
     padding: 0 !important;
+    overflow: hidden;
 }
 .preview{
    height: 150px;
+  
+   margin-left: 20px;
+   
 }
 .btnsVestiPrikaz{
      float: right;
@@ -1885,6 +1889,40 @@ div#opisModal .modal-dialog {
     font-size: 13px;
     color: #c42b2b;
     margin-right: 3px;
-    bottom: 7px;
+    position: relative;
     height: 50px;
+}
+.prvText{
+
+    font-family: 'roboto-light';
+    font-size: 17px;
+    padding: 20px;
+    border: none;
+    height: 50px;
+    padding-right: 40px;
+    overflow-x: scroll;
+    overflow:  auto;
+    width: 420px;
+   box-sizing: content-box;
+    
+}
+.prvText::-webkit-scrollbar{
+    display: none;
+    width: 0px;
+    background-color: transparent;
+}
+.prikazi{
+    height: 50px !important;
+}
+@media screen and (max-width:685px){
+
+    .smanjen{
+        width: 680px !important;
+        float: left !important;
+}
+    .cardresp{
+        width: 100% !important;
+        float: left !important;
+             }
+    
 }
