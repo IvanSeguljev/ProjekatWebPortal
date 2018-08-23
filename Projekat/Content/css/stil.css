@@ -1803,3 +1803,64 @@ div#opisModal .modal-dialog {
         margin-top: 15vh;
     }
 }
+
+
+/*PRIKAZ VESTI*/
+
+.card{
+    width:86%;
+    height: 350px;
+    margin-bottom: 50px;
+    margin-left: 12%;
+
+}
+
+.card-img-top{
+    width: 100%;
+    height: 270px;
+}
+.naslov{
+    position: absolute;
+    background-color: rgba(0,0,0,0.15);
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 100%;
+  
+}
+
+.card-text{
+    font-family: 'roboto-light';
+    font-size: 24px;
+    margin-left: 15px;
+    
+    
+}
+.slikaNaslov{
+    position: relative;
+    height: 270px;
+    }
+.card-body{
+    width: 100%;
+    padding: 0 !important;
+}
+.preview{
+   height: 150px;
+}
+.btnsVestiPrikaz{
+     float: right;
+    width: 20%;
+    border-bottom: none;
+    text-align: center;
+    background-image: none;
+    padding-left: 10px;
+    font-family: 'roboto-regular';
+    font-size: 13px;
+    color: #c42b2b;
+    margin-right: 3px;
+    bottom: 7px;
+    height: 50px;
+}

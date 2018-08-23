@@ -9,6 +9,7 @@ namespace Projekat.ViewModels
     {
         public string Naslov { get; set; }
         public string Vest { get; set; }
-        
+        public string KratakOpis { get; set; }
+
     }
 }
