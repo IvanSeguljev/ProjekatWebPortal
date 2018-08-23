@@ -1142,6 +1142,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\UI\hamburger.js" />
     <Content Include="Scripts\UI\kontroleRespMaterijaliPrikaz.js" />
     <Content Include="Scripts\UI\labeli.js" />
     <Content Include="Scripts\UI\labeliEditPredmeta.js" />
