@@ -1,6 +1,6 @@
 ﻿@model Projekat.ViewModels.ListaNaprednaPretragaViewModel
 <style>
-    @@media screen and (max-width: 600px) {
+    @@media screen and (max-width: 820px) {
         .modalnamala{
             width:100%;
         }
@@ -12,6 +12,9 @@
         .dugmence{
            width:auto;
            padding:0;
+        }
+        .nestaje{
+            display:none;
         }
 
         
@@ -52,7 +55,7 @@
                     <td class="nestaje">@item.Smer</td>
                     <td class="nestaje">@item.BrojTelefona</td>
 
-                    <td class="ostaje">
+                    <td>
                         @using (Html.BeginForm("DetaljiKorisnika", "Account", new { Username = item.UserName }, FormMethod.Post))
                         {
 
