@@ -14,7 +14,7 @@ namespace Projekat.Controllers
     {
         private VestModel VratiGlavnuVest()
         {
-            VestiContext context = new VestiContext();
+            VestiContext context = new VestiContext();            
             string Path = Server.MapPath("~/Content/Konfiguracija/GlavnaVest.txt");
             if (!System.IO.File.Exists(Path))
             {
@@ -23,12 +23,21 @@ namespace Projekat.Controllers
             else
             {
                 int ID;
-                
+                DateTime datum;
                 TextReader tr = new StreamReader(Path);
                 string config = tr.ReadLine();
                 tr.Close();
-                DateTime datum = Convert.ToDateTime(config.Remove(0,config.IndexOf('|')+1));
-                if (int.TryParse(config.Remove(config.IndexOf('|')), out ID) && DateTime.Today.Date<=datum.Date)
+                
+                try                   
+                {
+                    ID = int.Parse(config.Remove(config.IndexOf('|')));
+                    datum = Convert.ToDateTime(config.Remove(0, config.IndexOf('|') + 1));
+                }
+                catch(Exception)
+                {
+                    return context.Vesti.OrderByDescending(m => m.DatumPostavljanja).FirstOrDefault();
+                }
+                if ( DateTime.Today.Date<=datum.Date)
                 {
                     VestModel Vest = context.Vesti.FirstOrDefault(m => m.Id == ID);
                     return Vest;
