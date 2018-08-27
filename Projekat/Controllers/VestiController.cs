@@ -90,14 +90,15 @@ namespace Projekat.Controllers
             }
             context.Vesti.Add(Vest);
             context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("PrikazVesti", "Vesti");
         }
-
+        [HttpGet]
         public ActionResult PrikazVesti()
         {
             VestModel GlavnaVest = VratiGlavnuVest();
             return View(GlavnaVest);
         }
+        [HttpGet]
         public ActionResult PosaljiVesti(int pageindex, int pagesize,int idGlavne)
         {
             VestiContext context = new VestiContext();
