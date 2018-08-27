@@ -107,7 +107,26 @@
     }
     navPoStorageu();
 
+    var resp = window.matchMedia("(max-width: 700px)")
+    zatvaranjeR(resp)
+    resp.addListener(zatvaranjeR)
+    function zatvaranjeR(resp) {
+        if (resp.matches) {
+            $('.hamburger-menu-toggle-otvoren').removeClass('hamburger-menu-toggle-otvoren');
+            //$('#gornjaNavigacija').css({ 'transition': '.3s', 'margin-left': "0px", 'width': "100%" });
+            $('#gornjaNavigacija').css({ 'margin-left': "0px", 'width': "100%" });
+            //$('#sredina').css({ 'width': "100%" });
+            $('.LeftBar:first').css({ 'width': "0" });
+            console.log("promenio sam sirinu sredine");
+            $('div#gornjaNavigacija a#nazad').css({ 'margin-left': "70px" });
+            $('.LeftBar:first').addClass('notActive');
+            $('div#sredina').css("width", "100%");
+            sessionStorage.setItem("hamburgerState", "zatvoren");
+        }
 
+    }
+
+   
 
     $('#hamburger-menu-toggle').unbind('click');
     $('#hamburger-menu-toggle').bind('click', function () {
