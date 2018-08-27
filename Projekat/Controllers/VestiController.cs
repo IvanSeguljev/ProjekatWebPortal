@@ -86,12 +86,13 @@ namespace Projekat.Controllers
 
         public ActionResult PrikazVesti()
         {
-            return View();
+            VestModel GlavnaVest = VratiGlavnuVest();
+            return View(GlavnaVest);
         }
-        public ActionResult PosaljiVesti(int pageindex, int pagesize)
+        public ActionResult PosaljiVesti(int pageindex, int pagesize,int idGlavne)
         {
             VestiContext context = new VestiContext();
-            List<VestModel> vesti = context.Vesti.OrderByDescending(m=>m.DatumPostavljanja).Skip(pageindex * pagesize).Take(pagesize).ToList();
+            List<VestModel> vesti = context.Vesti.OrderByDescending(m=>m.DatumPostavljanja).Where(m=>m.Id != idGlavne).Skip(pageindex * pagesize).Take(pagesize).ToList();
             return Json(vesti.ToList(), JsonRequestBehavior.AllowGet);
 
         }

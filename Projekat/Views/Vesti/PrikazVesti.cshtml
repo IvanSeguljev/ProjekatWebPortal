@@ -1,4 +1,4 @@
-﻿
+﻿@model Projekat.Models.VestModel
 @{
     ViewBag.Title = "PrikazVesti";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,15 +7,24 @@
 <div id="sredina" name="sredina" class="sredina-upload-mat">
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
    
-
-    <div id="container" class="row"></div>
+    
+    <div class="row"></div>
+    <div class="col-md-8">
+        <img style="height:390px;" class="card-img" src="@Model.Thumbnail" alt="Card image">
+        <div class="card-img-overlay">
+            <h5 class="card-title">@Model.Naslov</h5>
+            <p class="card-text">@Model.KratakOpis</p>
+            <p class="card-text">Last updated 3 mins ago</p>
+        </div>
+    </div>
+    <div id="container"></div>
     <div id="progress" style="display:none">
         <h4>Loading...</h4>
     </div>
     <script>
         var pageSize = 15;
         var pageIndex = 0;
-
+        var idGlavne = @Model.Id;
         $(document).ready(function () {
 
             GetData();
@@ -32,7 +41,7 @@
             $.ajax({
                 type: 'GET',
                 url: '/Vesti/PosaljiVesti',
-                data: { "pageindex": pageIndex, "pagesize": pageSize },
+                data: { "pageindex": pageIndex, "pagesize": pageSize,"idGlavne":idGlavne },
                 dataType: 'json',
                 success: function (data) {
                     if (data != null) {
