@@ -17,18 +17,29 @@
 
         @using (Html.BeginForm("SnimiVest", "Vesti", FormMethod.Post, new { @enctype = "multipart/form-data" }))
         {<div class="vesti"  >
-                @Html.LabelFor(m => m.Naslov, new { @class = "matDesignLabel" })
-                @Html.TextBoxFor(m => m.Naslov, new { @class = "vestiTB" })
-                <div class="ubaciSliku" style="height:auto">
-                    <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
-                    <label for="file" id="izaberi-materijal" style="padding: 0;height:47px; margin: 0; background-color: #D23232"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite naslovnu sliku vesti</span></span> </label>
-                    <img id="blah" style="max-width:400px; max-height:300px; padding:   0px;" />
-                </div>
+             <div class="col-md-6">
+                 <div class="levo">
+                     @Html.LabelFor(m => m.Naslov, new { @class = "matDesignLabel" })
+                     @Html.TextBoxFor(m => m.Naslov, new { @class = "vestiTB naslovTB" })
+                     <br />
+                     @Html.TextAreaFor(m => m.KratakOpis, new { @placeholder = "Kratak opis vesti", @class = "KratakOpis", @style = "height:100px; margin-top:50px;" })
+                 </div>
+             </div>
+             <div class="col-md-6">
+                 <div class="ubaciSliku" style="height:auto; float: right">
+                     <input type="file" name="Fajl" id="file" class="inputfile" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" />
+                     <label for="file" id="izaberi-materijal" style="padding: 0;height:47px; margin: 0; background-color: #D23232"> <span id="filename"> <span> <img src="~/Content/img/upload2.png" alt="Izaberite Sliku"> Izaberite naslovnu sliku vesti</span></span> </label>
+                     <img id="blah" style="max-width:400px; max-height:300px; padding:   0px;" />
+                 </div>
+             </div>
             </div>
-            <hr />
-            @Html.TextAreaFor(m=>m.KratakOpis,new {@placeholder = "Kratak opis vesti",@class = "KratakOpis",@style = "height:100px; margin-top:50px;" })
-            <br />
+
+            
             <div class="editor" style="clear:both">
+                
+                <br />
+                <hr />
+
               @Html.TextAreaFor(m => m.Vest,new { @id = "summernote",name = "editor"})
           
                
