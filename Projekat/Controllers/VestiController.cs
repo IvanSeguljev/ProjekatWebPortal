@@ -93,6 +93,7 @@ namespace Projekat.Controllers
             context.SaveChanges();
             Telo.TeloVesti = vm.Vest;
             Telo.VestId = Vest.Id;
+            context.TelaVesti.Add(Telo);
             context.SaveChanges();
             return RedirectToAction("PrikazVesti", "Vesti");
         }
