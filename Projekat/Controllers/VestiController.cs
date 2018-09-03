@@ -76,8 +76,9 @@ namespace Projekat.Controllers
         {
             VestiContext context = new VestiContext();
             VestModel Vest = new VestModel();
+            TeloVestiModel Telo = new TeloVestiModel();
             Vest.Naslov = vm.Naslov;
-            Vest.Vest = vm.Vest;
+            
             Vest.KratakOpis = vm.KratakOpis;
             if (Fajl != null)
             {
@@ -89,6 +90,9 @@ namespace Projekat.Controllers
                 Vest.Thumbnail = pathzaserver;
             }
             context.Vesti.Add(Vest);
+            context.SaveChanges();
+            Telo.TeloVesti = vm.Vest;
+            Telo.VestId = Vest.Id;
             context.SaveChanges();
             return RedirectToAction("PrikazVesti", "Vesti");
         }

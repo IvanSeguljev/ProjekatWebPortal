@@ -9,5 +9,6 @@ namespace Projekat.Models
     public class VestiContext:ApplicationDbContext
     {
         public DbSet<VestModel> Vesti { get; set; }
+        public DbSet<TeloVestiModel> TelaVesti { get; set; }
     }
 }

@@ -270,6 +270,10 @@
     <Compile Include="Migrations\VestiContext\201808221110015_DodavanjeKratkogOpisa.Designer.cs">
       <DependentUpon>201808221110015_DodavanjeKratkogOpisa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\VestiContext\201809031124163_TeloVestiZasebnaTabela.cs" />
+    <Compile Include="Migrations\VestiContext\201809031124163_TeloVestiZasebnaTabela.Designer.cs">
+      <DependentUpon>201809031124163_TeloVestiZasebnaTabela.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\VestiContext\VestiConfiguration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -286,6 +290,7 @@
     <Compile Include="Models\SkolaModel.cs" />
     <Compile Include="Models\SmerModel.cs" />
     <Compile Include="Models\StrucnaSpremaModel.cs" />
+    <Compile Include="Models\TeloVestiModel.cs" />
     <Compile Include="Models\TipMaterijalModel.cs" />
     <Compile Include="Models\VestiContext.cs" />
     <Compile Include="Models\VestModel.cs" />
@@ -596,7 +601,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Konfiguracija\" />
-    <Folder Include="Content\uploads\" />
     <Folder Include="Scripts\Shared\" />
     <Folder Include="Views\Shared\Editor templates\" />
   </ItemGroup>
@@ -645,6 +649,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\VestiContext\201808221110015_DodavanjeKratkogOpisa.resx">
       <DependentUpon>201808221110015_DodavanjeKratkogOpisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\VestiContext\201809031124163_TeloVestiZasebnaTabela.resx">
+      <DependentUpon>201809031124163_TeloVestiZasebnaTabela.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

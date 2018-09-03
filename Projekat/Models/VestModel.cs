@@ -17,7 +17,7 @@ namespace Projekat.Models
         public int Id { get; set; }
         public string Naslov { get; set; }
         public string Thumbnail { get; set; }
-        public string Vest { get; set; }
+       
         public string KratakOpis { get; set; }
         public DateTime DatumPostavljanja { get; set; }
     }
