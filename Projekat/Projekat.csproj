@@ -481,6 +481,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\Vesti\prikazVesti.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Summernote\font\summernote.eot" />
     <Content Include="Summernote\font\summernote.ttf" />

@@ -12,6 +12,7 @@ namespace Projekat.Controllers
 {
     public class VestiController : Controller
     {
+
         private VestModel VratiGlavnuVest()
         {
             VestiContext context = new VestiContext();            
@@ -110,6 +111,13 @@ namespace Projekat.Controllers
             List<VestModel> vesti = context.Vesti.OrderByDescending(m=>m.DatumPostavljanja).Where(m=>m.Id != idGlavne).Skip(pageindex * pagesize).Take(pagesize).ToList();
             return Json(vesti.ToList(), JsonRequestBehavior.AllowGet);
 
+        }
+        [HttpGet]
+        public ActionResult PretragaPoNaslovu(string kveri)
+        {
+            VestiContext context = new VestiContext();
+            List<VestModel> RezultatPretrage = context.Vesti.Where(x => x.Naslov.ToLower().Contains(kveri.ToLower())).Take(10).ToList();
+            return Json(RezultatPretrage, JsonRequestBehavior.AllowGet);
         }
     }
 }

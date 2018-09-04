@@ -1,0 +1,92 @@
+﻿
+$(document).ready(function () {
+
+    GetData();
+    $(window).scroll(function () {
+        if ($(window).scrollTop() ==
+            $(document).height() - $(window).height() && !_incallback) {
+            GetData();
+        }
+    });
+});
+function GetData() {
+    _incallback = true;
+    console.log("pozvana funkcija");
+    $.ajax({
+        type: 'GET',
+        url: '/Vesti/PosaljiVesti',
+        data: { "pageindex": pageIndex, "pagesize": pageSize,"idGlavne":idGlavne },
+        dataType: 'json',
+        success: function (data) {
+            if (data != null) {
+                for (var i = 0; i < data.length; i++) {
+                    $("#container").append("<div class=\"col-md-4 smanjen\"><div class=\"card cardresp\">" +
+"<div class=\"slikaNaslov\"><img class=\"card-img-top\" src=\"" + data[i].Thumbnail + "\" alt=\"Card image cap\"> <div class=\"naslovVesti\"><p class=\"card-text\">" + data[i].Naslov + "</p></div></div>" +
+"<div class=\"card-body\"><div class=\"preveiw\"> <p class=\"prvText\">" + data[i].KratakOpis + "</p></div> <hr/> <div class=\"prikazi\">" +
+        "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"SAZNAJ VIŠE\" />"+
+        "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"OBRIŠI\" onclick=\"return confirm('Da li želite da obrišete vest?')\"/>"+
+    "</div>" +
+"</div>" +
+"</div></div>");
+                }
+                pageIndex++;
+            }
+        },
+        beforeSend: function () {
+            $("#progress").show();
+        },
+        complete: function () {
+            $("#progress").hide();
+            _incallback = false;
+        },
+        error: function () {
+            alert("Error while retrieving data!");
+            _incallback = false;
+        }
+    });
+
+}
+
+function PretragaVesti() {
+    var kveri = document.getElementById("PretragaVesti").value;
+    var date;
+    var rezpret = document.getElementById("RezultatiPretrage");
+    while (rezpret.firstChild) {
+        rezpret.removeChild(rezpret.firstChild);
+    }
+    if (kveri.length > 3) {
+       
+   
+    
+    _incallback = true;
+    console.log("pozvana funkcija pretrage");
+    $.ajax({
+        type: 'GET',
+        url: '/Vesti/PretragaPoNaslovu',
+        data: { "kveri": kveri },
+        dataType: 'json',
+        success: function (data) {
+            if (data != null) {
+                for (var i = 0; i < data.length; i++) {
+                    var jsDate = new Date(parseInt(data[i].DatumPostavljanja.replace(/[^0-9 +]/g, '')));
+                    $("#RezultatiPretrage").append("<li class=\"rezultatPretrage\"><a href=\"#\">" + data[i].Naslov + "</a>" + "Datum postavljanja:" + jsDate.toLocaleDateString()+ "</li>");
+                }
+                pageIndex++;
+            }
+        },
+        beforeSend: function () {
+            $("#progress").show();
+        },
+        complete: function () {
+            $("#progress").hide();
+            _incallback = false;
+        },
+        error: function () {
+            alert("Error while retrieving data!");
+            _incallback = false;
+        }
+    });
+    }
+    
+}
+

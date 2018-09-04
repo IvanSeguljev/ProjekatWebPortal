@@ -5,6 +5,13 @@
 }
 
 <div id="sredina" name="sredina" class="sredina-upload-mat">
+    <div id="naprednaPretraga">
+        <input type="text" id="PretragaVesti" onkeyup="PretragaVesti()"  placeholder="Pretraga po naslovu vesti...">
+        <ul id="RezultatiPretrage" >
+            
+        </ul>
+
+    </div>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
    
     
@@ -23,56 +30,16 @@
     <div id="progress" style="display:none">
         <h4>Loading...</h4>
     </div>
-    <script>
+
+
+    <script>        
         var pageSize = 15;
         var pageIndex = 0;
         var idGlavne = @Model.Id;
-        $(document).ready(function () {
-
-            GetData();
-            $(window).scroll(function () {
-                if ($(window).scrollTop() ==
-                    $(document).height() - $(window).height() && !_incallback) {
-                    GetData();
-                }
-            });
-        });
-        function GetData() {
-            _incallback = true;
-            console.log("pozvana funkcija");
-            $.ajax({
-                type: 'GET',
-                url: '/Vesti/PosaljiVesti',
-                data: { "pageindex": pageIndex, "pagesize": pageSize,"idGlavne":idGlavne },
-                dataType: 'json',
-                success: function (data) {
-                    if (data != null) {
-                        for (var i = 0; i < data.length; i++) {
-                            $("#container").append("<div class=\"col-md-4 smanjen\"><div class=\"card cardresp\">" +
-      "<div class=\"slikaNaslov\"><img class=\"card-img-top\" src=\"" + data[i].Thumbnail + "\" alt=\"Card image cap\"> <div class=\"naslovVesti\"><p class=\"card-text\">" + data[i].Naslov + "</p></div></div>" +
-      "<div class=\"card-body\"><div class=\"preveiw\"> <p class=\"prvText\">" + data[i].KratakOpis + "</p></div> <hr/> <div class=\"prikazi\">" +
-                "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"SAZNAJ VIŠE\" />"+
-                "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"OBRIŠI\" onclick=\"return confirm('Da li želite da obrišete vest?')\"/>"+
-            "</div>" +
-      "</div>" +
-    "</div></div>");
-                        }
-                        pageIndex++;
-                    }
-                },
-                beforeSend: function () {
-                    $("#progress").show();
-                },
-                complete: function () {
-                    $("#progress").hide();
-                    _incallback = false;
-                },
-                error: function () {
-                    alert("Error while retrieving data!");
-                    _incallback = false;
-                }
-            });
-
-        }
     </script>
+    <script src="~/Scripts/Vesti/prikazVesti.js"></script>
+    <script src="~/Scripts/Materijal/filterMaterijal.js"></script>
+
+    <script src="~/Scripts/customDropdown.js"></script>
+    
 </div>
