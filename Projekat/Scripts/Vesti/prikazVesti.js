@@ -71,16 +71,13 @@ function PretragaVesti() {
                     var jsDate = new Date(parseInt(data[i].DatumPostavljanja.replace(/[^0-9 +]/g, '')));
                     $("#RezultatiPretrage").append("<li class=\"rezultatPretrage\"><a href=\"#\">" + data[i].Naslov + "</a>" + "Datum postavljanja:" + jsDate.toLocaleDateString()+ "</li>");
                 }
-                pageIndex++;
+                if(data.length === 0)
+                {
+                    $("#RezultatiPretrage").append("<li>Na zalost, nema rezultata pretrage</li>");
+                }
             }
         },
-        beforeSend: function () {
-            $("#progress").show();
-        },
-        complete: function () {
-            $("#progress").hide();
-            _incallback = false;
-        },
+        
         error: function () {
             alert("Error while retrieving data!");
             _incallback = false;
