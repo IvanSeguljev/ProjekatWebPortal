@@ -91,18 +91,9 @@ namespace Projekat.Models
         public string Ime { get; set; }
         [Required(ErrorMessage = "Morate uneti prezime!")]
         public string Prezime { get; set; }
-        public byte[] Slika { get; set; }
+        
 
-        [Required(ErrorMessage = "Morate uneti Lozinku!")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Lozinka")]
-        public string Password { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Potvrda lozinke")]
-        [Compare("Password", ErrorMessage = "Unete lozinke se ne poklapaju")]
-        public string ConfirmPassword { get; set; }
+        
         
     }
 

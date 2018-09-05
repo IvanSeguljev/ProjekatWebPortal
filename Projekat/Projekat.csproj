@@ -333,6 +333,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\back-strelica.png" />
     <Content Include="Content\img\cikica.png" />
+    <Content Include="Content\img\Default.png" />
     <Content Include="Content\img\GIFicon.png" />
     <Content Include="Content\img\JPGicon.png" />
     <Content Include="Content\img\kantaPotvrdaBrisanjaModal.png" />

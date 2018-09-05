@@ -263,7 +263,7 @@ namespace Projekat.Controllers
                     Email = model.Email,
                     Ime = model.Ime,
                     Prezime = model.Prezime,
-                    Slika = new byte[Fajl.ContentLength],
+                   
                     SkolaId = model.SelektovanaSkola,
                    
                     SmerId = model.selektovaniSmer,
@@ -286,12 +286,17 @@ namespace Projekat.Controllers
                 
                 if (Fajl != null)
                 {
+                    user.Slika  = new byte[Fajl.ContentLength];
                     Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
                 }
-               
-               
+                else
+                {
+                    user.Slika = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/img/Default.png"));
+                }
+                
 
-                var result = await UserManager.CreateAsync(user, model.Password);
+
+                var result = await UserManager.CreateAsync(user, System.Web.Security.Membership.GeneratePassword(8, 1));
 
                
                 if (result.Succeeded)
@@ -302,7 +307,7 @@ namespace Projekat.Controllers
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                   // await UserManager.SendEmailAsync(user.Id, "Login informacije", "Vase korisnicko ime za ulaz u web portal je " + user.UserName + " , a vasa lozinka je:  " + model.Password+"  Lozinku mozete promeniti.");
 
                     return RedirectToAction("Index", "Home");
                 }

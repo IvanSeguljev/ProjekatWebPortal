@@ -16,22 +16,14 @@
                 email: true
                 //mailRegex: /^[A-z0-9]+\@[a-z](2,6)\.[a-y](2,4)$/
             },
-            Password: {
-                required: true,
-                minlength: 6
-            },
+          
             GodinaUpisa: {
                 required: false,
                 godinaRegex: /^([0-9]{4,4})?$/,
                 minlength: 4
 
-            },
-            Fajl: {
-                required: true,
-
-                extension: "jpeg|png|jpg"
-              
             }
+            
         },
         messages: {
             Ime: {
@@ -46,28 +38,13 @@
                 required: 'Polje email je obavezno.',
                 email: "Unesite ispravan format email adrese."
             },
-            Password: {
-                required: 'Polje password je obavezno.',
-                minlength: "Password mora sadržati minimum 6 karaktera."
-            },
+            
             GodinaUpisa: {
                 minlength: "Godina mora sadržati minimum 4 karaktera."
-            },
-            Fajl: {
-                required: "Morate odabrati fajl.",
-                extension: "Pogrešan format fajla.",
-                maxFileSize: "Fajl ne sme biti veći od 5MB.",
-                minFileSize: "Fajl ne sme biti manji od 1KB."
             }
-        },
-        errorPlacement: function (error, element) {
-            if (element.attr("name") == "Fajl") {
-                error.insertAfter(element.next());
-            }
-            else {
-                error.insertAfter(element);
-            }
+           
         }
+       
     });
     $.validator.addMethod("slovaRegex", function (value, element, regexpr) {
         // allow any non-whitespace characters as the host part
