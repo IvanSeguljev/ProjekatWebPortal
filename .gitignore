@@ -241,3 +241,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Projekat/Content/uploads/Thumbnails
+/Projekat/Content/Konfiguracija/GlavnaVest.txt

@@ -101,6 +101,8 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult PrikazVesti()
         {
+            
+            
             VestModel GlavnaVest = VratiGlavnuVest();
             return View(GlavnaVest);
         }

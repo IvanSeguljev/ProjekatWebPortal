@@ -48,6 +48,8 @@ function GetData() {
 }
 
 function PretragaVesti() {
+    if (!_incallback) {
+        
     var kveri = document.getElementById("PretragaVesti").value;
     var date;
     var rezpret = document.getElementById("RezultatiPretrage");
@@ -56,13 +58,13 @@ function PretragaVesti() {
     }
     if (kveri.length > 3) {
        
-   
+        _incallback = true;
     
-    _incallback = true;
+    
     console.log("pozvana funkcija pretrage");
     $.ajax({
         type: 'GET',
-        url: '/Vesti/PretragaPoNaslovu',
+        url: '/Vesti/PretragaPoNaslovu/',
         data: { "kveri": kveri },
         dataType: 'json',
         success: function (data) {
@@ -77,13 +79,17 @@ function PretragaVesti() {
                 }
             }
         },
-        
+        complete: function () {
+           
+            _incallback = false;
+        },
         error: function () {
             alert("Error while retrieving data!");
             _incallback = false;
         }
     });
     }
-    
+        
+    }
 }
 
