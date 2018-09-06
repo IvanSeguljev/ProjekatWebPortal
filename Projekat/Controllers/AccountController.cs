@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using Projekat.Models;
 using System.Collections.Generic;
 using Projekat.ViewModels;
+using System.Security.Cryptography;
+
 
 namespace Projekat.Controllers
 {
@@ -246,6 +248,38 @@ namespace Projekat.Controllers
             return RedirectToAction("ListaKorisnika");
         }
 
+        public static string GetRandomPassword(int length)
+        {
+            const string alphanumericCharacters =
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+                "abcdefghijklmnopqrstuvwxyz" +
+                "0123456789";
+            return GetRandomString(length, alphanumericCharacters);
+        }
+
+        public static string GetRandomString(int length, IEnumerable<char> characterSet)
+        {
+            if (length < 0)
+                throw new ArgumentException("length must not be negative", "length");
+            if (length > int.MaxValue / 8) 
+                throw new ArgumentException("length is too big", "length");
+            if (characterSet == null)
+                throw new ArgumentNullException("characterSet");
+            var characterArray = characterSet.Distinct().ToArray();
+            if (characterArray.Length == 0)
+                throw new ArgumentException("characterSet must not be empty", "characterSet");
+
+            var bytes = new byte[length * 8];
+            new RNGCryptoServiceProvider().GetBytes(bytes);
+            var result = new char[length];
+            for (int i = 0; i < length; i++)
+            {
+                ulong value = BitConverter.ToUInt64(bytes, i * 8);
+                result[i] = characterArray[value % (uint)characterArray.Length];
+            }
+            return new string(result);
+        }
+
         //
         // POST: /Account/Register
         [HttpPost]
@@ -293,10 +327,9 @@ namespace Projekat.Controllers
                 {
                     user.Slika = System.IO.File.ReadAllBytes(Server.MapPath("~/Content/img/Default.png"));
                 }
-                
 
-
-                var result = await UserManager.CreateAsync(user, System.Web.Security.Membership.GeneratePassword(8, 1));
+                string password = GetRandomPassword(10);
+                var result = await UserManager.CreateAsync(user, password);
 
                
                 if (result.Succeeded)
@@ -307,7 +340,7 @@ namespace Projekat.Controllers
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                   // await UserManager.SendEmailAsync(user.Id, "Login informacije", "Vase korisnicko ime za ulaz u web portal je " + user.UserName + " , a vasa lozinka je:  " + model.Password+"  Lozinku mozete promeniti.");
+                   await UserManager.SendEmailAsync(user.Id, "Login informacije", "Vase korisnicko ime za ulaz u web portal je " + user.UserName + " , a vasa lozinka je:  " + password+"  Lozinku mozete promeniti.");
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -689,6 +722,10 @@ namespace Projekat.Controllers
         [AllowAnonymous]
         public ActionResult DetaljiKorisnika(string Username)
         {
+            if(Username == null)
+            {
+                return RedirectToAction("ListaKorisnika", "Account");
+            }
             MaterijalContext matCon = new MaterijalContext();
             DetaljiKorisnikaViewModel viewmodel = new DetaljiKorisnikaViewModel();
             
