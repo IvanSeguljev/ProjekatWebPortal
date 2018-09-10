@@ -41,7 +41,10 @@ namespace Projekat.Controllers
                 if ( DateTime.Today.Date<=datum.Date)
                 {
                     VestModel Vest = context.Vesti.FirstOrDefault(m => m.Id == ID);
-                    return Vest;
+                    if(Vest != null)
+                        return Vest;
+                    else
+                        return context.Vesti.OrderByDescending(m => m.DatumPostavljanja).FirstOrDefault();
                 }
                 else
                 {
@@ -100,9 +103,7 @@ namespace Projekat.Controllers
         }
         [HttpGet]
         public ActionResult PrikazVesti()
-        {
-            
-            
+        {           
             VestModel GlavnaVest = VratiGlavnuVest();
             return View(GlavnaVest);
         }
@@ -120,6 +121,36 @@ namespace Projekat.Controllers
             VestiContext context = new VestiContext();
             List<VestModel> RezultatPretrage = context.Vesti.Where(x => x.Naslov.ToLower().Contains(kveri.ToLower())).Take(10).ToList();
             return Json(RezultatPretrage, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult BrisanjeVesti(int Id,bool glavna = false)
+        {
+            VestiContext context = new VestiContext();
+            VestModel ZaBrisanje = context.Vesti.FirstOrDefault(x => x.Id == Id);
+            if(glavna)
+            {
+                string Path = Server.MapPath("~/Content/Konfiguracija/GlavnaVest.txt");
+                if(System.IO.File.Exists(Path))
+                {
+                   System.IO.File.Delete(Path);
+                }
+            }
+            if(ZaBrisanje != null)
+            {
+                string Thumbnail = Server.MapPath(ZaBrisanje.Thumbnail);
+                if (System.IO.File.Exists(Thumbnail))
+                {
+                   System.IO.File.Delete(Thumbnail);
+                }
+                TeloVestiModel telo = context.TelaVesti.FirstOrDefault(x => x.VestId == Id);
+                if (telo != null)
+                    context.TelaVesti.Remove(telo);
+                context.Vesti.Remove(ZaBrisanje);
+               
+               
+               context.SaveChanges();
+            }
+            return RedirectToAction("PrikazVesti");
         }
     }
 }
