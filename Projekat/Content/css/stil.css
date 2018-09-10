@@ -1831,6 +1831,7 @@ div#opisModal .modal-dialog {
     padding-top: 10px;
     width: 100%;
     max-height: 50%;
+    text-align: left;
     overflow: hidden;
   
 }
@@ -1891,14 +1892,16 @@ div#opisModal .modal-dialog {
 .prvText {
     font-family: 'roboto-light';
     font-size: 17px;
+    text-align: left;
     padding: 20px;
     border: none;
     height: 50px;
     padding-right: 40px;
     overflow-x: scroll;
     overflow: auto;
-    width: 327px;
+    width: 412px;
     box-sizing: content-box;
+    color: #000;
 }
 .prvText::-webkit-scrollbar{
     display: none;
