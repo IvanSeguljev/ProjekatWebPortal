@@ -1913,10 +1913,7 @@ div#opisModal .modal-dialog {
         width: 500px !important;
         float: left !important;
 }
-    .cardresp{
-        width: 370px !important;
-        float: left !important;
-             }
+    
     
 }
 .rezultatPretrage{
@@ -1929,4 +1926,21 @@ div#opisModal .modal-dialog {
 }
 .spandatum{
     color:lightgrey;
+}
+
+.flex-container{
+    display: flex;
+  align-items: stretch;
+   flex-wrap: wrap;
+}
+.flex-container > .card {
+  
+  color: white;
+  width: 30%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  min-width:440px;
+  max-width:440px;
 }
