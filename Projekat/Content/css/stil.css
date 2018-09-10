@@ -1921,5 +1921,12 @@ div#opisModal .modal-dialog {
 }
 .rezultatPretrage{
     border-bottom:1px groove lightgrey;
+       padding:13px; 
     
+}
+.rezultatPretrage a{
+    font-size:larger;
+}
+.spandatum{
+    color:lightgrey;
 }
