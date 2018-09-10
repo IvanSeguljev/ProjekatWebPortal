@@ -412,6 +412,7 @@ div#sredina {
     transition: all .3s ease-in-out;
     z-index: -1;
     padding-right: 5%;
+    height: 100% !important;
 }
 
 
@@ -1871,8 +1872,23 @@ div#opisModal .modal-dialog {
     position: relative;
     height: 50px;
 }
-.prvText{
-
+.btnGlavnaVest {
+    float: right;
+    width: 30%;
+    border-bottom: none;
+    text-align: center;
+    background-image: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'roboto-regular';
+    font-size: 13px;
+    color: #c42b2b;
+    margin-right: 3px;
+    position: relative;
+    height: 50px;
+    background-color: transparent;
+}
+.prvText {
     font-family: 'roboto-light';
     font-size: 17px;
     padding: 20px;
@@ -1880,10 +1896,9 @@ div#opisModal .modal-dialog {
     height: 50px;
     padding-right: 40px;
     overflow-x: scroll;
-    overflow:  auto;
+    overflow: auto;
     width: 327px;
-   box-sizing: content-box;
-    
+    box-sizing: content-box;
 }
 .prvText::-webkit-scrollbar{
     display: none;
@@ -1895,8 +1910,9 @@ div#opisModal .modal-dialog {
 }
 .glavnaVest{
     height:350px !important;
-     width: 850px !important;
-     margin-left: 70px; 
+     width: 900px !important;
+     margin-left: 10px;
+     
 }
 .KratakOpis{
     width: 100%;
@@ -1932,6 +1948,9 @@ div#opisModal .modal-dialog {
     display: flex;
   align-items: stretch;
    flex-wrap: wrap;
+   position: relative;
+  
+
 }
 .flex-container > .card {
   

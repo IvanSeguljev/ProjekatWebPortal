@@ -18,7 +18,7 @@
 
 
     <!--
-       
+
     -->
 
 
@@ -36,28 +36,30 @@
                 <form action="/Vesti/BrisanjeVesti" method="post">
                     <input type="hidden" value="@Model.Id" name="Id" />
                     <input type="hidden" value="true" name="glavna" />
-                    <input type="submit" class="btnsVestiPrikaz" value="OBRIŠI" onclick="return confirm('Da li želite da obrišete vest?')" />                    
+                    <input type="submit" class="btnGlavnaVest" value="OBRIŠI" onclick="return confirm('Da li želite da obrišete vest?')" />
                 </form>
-                
+
                 <p class="card-header" style="border:none">Last updated few mins ago</p>
             </div>
         </div>
-    
-    
-    
-    <div id="progress" style="display:none">
-        <h4>Loading...</h4>
-    </div>
 
 
-    <script>        
+
+        <div id="progress" style="display:none">
+            <h4>Loading...</h4>
+        </div>
+
+
+        <script>
+
         var pageSize = 15;
         var pageIndex = 0;
         var idGlavne = @Model.Id;
-    </script>
-    <script src="~/Scripts/Vesti/prikazVesti.js"></script>
-    <script src="~/Scripts/Materijal/filterMaterijal.js"></script>
+        </script>
+        <script src="~/Scripts/Vesti/prikazVesti.js"></script>
+        <script src="~/Scripts/Materijal/filterMaterijal.js"></script>
 
-    <script src="~/Scripts/customDropdown.js"></script>
-    
+        <script src="~/Scripts/customDropdown.js"></script>
+
+    </div>
 </div>
