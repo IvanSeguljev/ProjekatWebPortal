@@ -23,8 +23,11 @@ function GetData() {
                     $("#container").append("<div class=\"col-md-4 smanjen\"><div class=\"card cardresp\">" +
 "<div class=\"slikaNaslov\"><img class=\"card-img-top\" src=\"" + data[i].Thumbnail + "\" alt=\"Card image cap\"> <div class=\"naslovVesti\"><p class=\"card-text\">" + data[i].Naslov + "</p></div></div>" +
 "<div class=\"card-body\"><div class=\"preveiw\"> <p class=\"prvText\">" + data[i].KratakOpis + "</p></div> <hr/> <div class=\"prikazi\">" +
-        "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"SAZNAJ VIŠE\" />"+
-        "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"OBRIŠI\" onclick=\"return confirm('Da li želite da obrišete vest?')\"/>"+
+        "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"SAZNAJ VIŠE\" />" +
+        "<form action=\"/Vesti/BrisanjeVesti\" method=\"post\">" +
+        "<input type=\"hidden\" value =\"" + data[i].Id + "\" name=\"Id\"/>" +
+        "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"OBRIŠI\" onclick=\"return confirm('Da li želite da obrišete vest?')\"/>" +
+        "</form>"+
     "</div>" +
 "</div>" +
 "</div></div>");

@@ -296,10 +296,8 @@ namespace Projekat.Controllers
                     UserName = model.Ime,
                     Email = model.Email,
                     Ime = model.Ime,
-                    Prezime = model.Prezime,
-                   
-                    SkolaId = model.SelektovanaSkola,
-                   
+                    Prezime = model.Prezime,                   
+                    SkolaId = model.SelektovanaSkola,                   
                     SmerId = model.selektovaniSmer,
                     Uloga = model.selektovanaUloga,
                     PhoneNumber = model.phoneNumber
