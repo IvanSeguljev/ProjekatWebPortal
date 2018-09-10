@@ -105,7 +105,10 @@ namespace Projekat.Controllers
         public ActionResult PrikazVesti()
         {           
             VestModel GlavnaVest = VratiGlavnuVest();
-            return View(GlavnaVest);
+            if (GlavnaVest != null)
+                return View(GlavnaVest);
+            else
+                return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public ActionResult PosaljiVesti(int pageindex, int pagesize,int idGlavne)
