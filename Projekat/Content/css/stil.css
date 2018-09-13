@@ -1853,8 +1853,8 @@ div#opisModal .modal-dialog {
     overflow: hidden;
 }
 .preview{
-   height: 150px;
   
+    padding: 0 !important;  
    margin-left: 20px;
    
 }
@@ -1872,18 +1872,19 @@ div#opisModal .modal-dialog {
     margin-right: 3px;
     position: relative;
     height: 50px;
+    padding-top: 0px !important;
 }
 .btnGlavnaVest {
     float: right;
-    width: 30%;
+    width: 5%;
     border-bottom: none;
-    text-align: center;
+    text-align: right;
     background-image: none;
     padding-left: 10px;
     padding-right: 10px;
     font-family: 'roboto-regular';
-    font-size: 13px;
-    color: #c42b2b;
+    font-size: 20px;
+    color: #fff;
     margin-right: 3px;
     position: relative;
     height: 50px;
@@ -1903,6 +1904,7 @@ div#opisModal .modal-dialog {
     box-sizing: content-box;
     color: #000;
 }
+
 .prvText::-webkit-scrollbar{
     display: none;
     width: 0px;
@@ -1915,7 +1917,8 @@ div#opisModal .modal-dialog {
     height:350px !important;
      width: 900px !important;
      margin-left: 10px;
-     
+    
+     margin-top: 12px;
 }
 .KratakOpis{
     width: 100%;
@@ -1923,6 +1926,11 @@ div#opisModal .modal-dialog {
 }
 .naslovTB{
     width: 100% !important;
+}
+.card-header{
+    margin: 0 !important;
+    height: 50px !important;
+    background-color: transparent !important;
 }
 
 /*resp vesti*/
@@ -1961,7 +1969,7 @@ div#opisModal .modal-dialog {
   width: 30%;
   margin: 10px;
   text-align: center;
-  line-height: 75px;
+  line-height: 30px;
   font-size: 30px;
   min-width:440px;
   max-width:440px;
