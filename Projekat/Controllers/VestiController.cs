@@ -34,7 +34,7 @@ namespace Projekat.Controllers
                     ID = int.Parse(config.Remove(config.IndexOf('|')));
                     datum = Convert.ToDateTime(config.Remove(0, config.IndexOf('|') + 1));
                 }
-                catch(Exception)
+                catch
                 {
                     return context.Vesti.OrderByDescending(m => m.DatumPostavljanja).FirstOrDefault();
                 }
@@ -103,12 +103,11 @@ namespace Projekat.Controllers
         }
         [HttpGet]
         public ActionResult PrikazVesti()
-        {           
+        {
             VestModel GlavnaVest = VratiGlavnuVest();
-            if (GlavnaVest != null)
+           
                 return View(GlavnaVest);
-            else
-                return RedirectToAction("Index", "Home");
+          
         }
         [HttpGet]
         public ActionResult PosaljiVesti(int pageindex, int pagesize,int idGlavne)
