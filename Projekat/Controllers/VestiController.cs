@@ -6,7 +6,8 @@ using System.Web.Mvc;
 using Projekat.Models;
 using Projekat.ViewModels;
 using System.IO;
-
+using System.Xml.Linq;
+using System.Xml;
 
 namespace Projekat.Controllers
 {
@@ -15,24 +16,17 @@ namespace Projekat.Controllers
 
         private VestModel VratiGlavnuVest()
         {
-            VestiContext context = new VestiContext();            
-            string Path = Server.MapPath("~/Content/Konfiguracija/GlavnaVest.txt");
-            if (!System.IO.File.Exists(Path))
-            {
-                return context.Vesti.OrderByDescending(m=>m.DatumPostavljanja).FirstOrDefault();
-            }
-            else
-            {
+            VestiContext context = new VestiContext();
+            XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija.xml"));
+
+            
                 int ID;
                 DateTime datum;
-                TextReader tr = new StreamReader(Path);
-                string config = tr.ReadLine();
-                tr.Close();
-                
+                var Konfiguracija = xmlFajl.Descendants("glavnaVest").FirstOrDefault();
                 try                   
                 {
-                    ID = int.Parse(config.Remove(config.IndexOf('|')));
-                    datum = Convert.ToDateTime(config.Remove(0, config.IndexOf('|') + 1));
+                    ID = (int)Konfiguracija.Attribute("idGlavne");
+                    datum = (DateTime)Konfiguracija.Attribute("datumIsteka");
                 }
                 catch
                 {
@@ -50,21 +44,16 @@ namespace Projekat.Controllers
                 {
                     return context.Vesti.OrderByDescending(m => m.DatumPostavljanja).FirstOrDefault();
                 }
-            }
-        }
+          }
+        
 
         private void SnimiGlavnuVest(int ID,DateTime DatDo)
         {
-            string Path = Server.MapPath("~/Content/Konfiguracija/GlavnaVest.txt");
-            if(!System.IO.File.Exists(Path))
-            {
-                System.IO.File.Create(Path).Close();
-                
-            }
-            TextWriter tw = new StreamWriter(Path);
-            string Config = ID + "|" + DatDo.ToShortDateString();
-            tw.Write(Config);
-            tw.Close();
+            XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija.xml"));
+            var Konfiguracija = xmlFajl.Descendants("glavnaVest").FirstOrDefault();
+            Konfiguracija.Attribute("datumIsteka").SetValue(DatDo.ToShortDateString());
+            Konfiguracija.Attribute("idGlavne").SetValue(ID.ToString());
+            xmlFajl.Save(Server.MapPath("~/MojaKonfiguracija.xml"));
         }
 
         [HttpGet]
@@ -104,6 +93,7 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult PrikazVesti()
         {
+            
             VestModel GlavnaVest = VratiGlavnuVest();
            
                 return View(GlavnaVest);
@@ -131,11 +121,11 @@ namespace Projekat.Controllers
             VestModel ZaBrisanje = context.Vesti.FirstOrDefault(x => x.Id == Id);
             if(glavna)
             {
-                string Path = Server.MapPath("~/Content/Konfiguracija/GlavnaVest.txt");
-                if(System.IO.File.Exists(Path))
-                {
-                   System.IO.File.Delete(Path);
-                }
+                XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija.xml"));
+                var Konfiguracija = xmlFajl.Descendants("glavnaVest").FirstOrDefault();
+                Konfiguracija.Attribute("datumIsteka").SetValue("");
+                Konfiguracija.Attribute("idGlavne").SetValue("");
+                xmlFajl.Save(Server.MapPath("~/MojaKonfiguracija.xml"));
             }
             if(ZaBrisanje != null)
             {
