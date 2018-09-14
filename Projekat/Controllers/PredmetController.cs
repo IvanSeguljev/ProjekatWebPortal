@@ -8,16 +8,28 @@ using Projekat.ViewModels;
 
 namespace Projekat.Controllers
 {
+    /// <summary>
+    /// Predmet Kontroler
+    /// </summary>
+    /// <seealso cref="System.Web.Mvc.Controller" />
     public class PredmetController : Controller
     {
         private IMaterijalContext context;
         // GET: Predmet
+        /// <summary>
+        /// Index akcija
+        /// </summary>
+        /// <returns>IndexView</returns>
         public ActionResult Index()
         {
             return View();
         }
 
 
+        /// <summary>
+        /// Vraca stranicu sa formom za dodavanje predmeta
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult DodajPredmet()
         {
@@ -31,6 +43,11 @@ namespace Projekat.Controllers
             return View("DodajPredmet", viewModel);
         }
 
+        /// <summary>
+        /// Dodaje predmet u bazu i dodaje smerove na kojima je predmet u tabelu PredmetPoSmeru
+        /// </summary>
+        /// <param name="viewModel">The view model.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult DodajPredmet(DodajPremetViewModel viewModel)
         {
@@ -66,6 +83,15 @@ namespace Projekat.Controllers
             return RedirectToAction("DodajPredmet", "Predmet");
         }
 
+        /// <summary>
+        /// Menja Predmet u bazi
+        /// </summary>
+        /// <param name="smerId">The smer identifier.</param>
+        /// <param name="smeroviId">Lista smerova na kojima je predmet.</param>
+        /// <param name="predmetNaziv">Novi naziv predmeta.</param>
+        /// <param name="predmetOpis">Novi opis predmeta.</param>
+        /// <param name="predmetId">Id predmeta koji treba promeniti.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Edit(int smerId, List<int> smeroviId, string predmetNaziv, string predmetOpis, int predmetId)
         {
@@ -99,21 +125,21 @@ namespace Projekat.Controllers
                 if (!smeroviId.Contains(smerID))
                 {
 
-                    
+
                     List<PredmetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).ToList();
                     foreach (PredmetPoSmeru predmet in lista)
                     {
                         context.Delete(predmet);
                     }
                 }
-                    
+
 
 
             }
 
             foreach (int smerID in smeroviIdIzBaze)
             {
-                if(!smeroviId.Contains(smerID) )
+                if (!smeroviId.Contains(smerID))
                 {
                     List<PredmetPoSmeru> lista = context.predmetiPoSmeru.Where(m => m.predmetId == predmetId).ToList();
                     foreach (PredmetPoSmeru predmetPoSmeru in lista)
@@ -135,6 +161,11 @@ namespace Projekat.Controllers
 
         }
 
+        /// <summary>
+        /// Vratis the smerove.
+        /// </summary>
+        /// <param name="id">Id predmeta.</param>
+        /// <returns>Json sa smerovima</returns>
         [HttpGet]
         public ActionResult VratiSmerove(int id)
         {
@@ -156,6 +187,11 @@ namespace Projekat.Controllers
 
 
         //GET: /Predmet/PredmetiPrikaz
+        /// <summary>
+        /// Prikazuje predmete na odredjenom smeru
+        /// </summary>
+        /// <param name="id">Id smera za koji zelimo da prikazemo predmete.</param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult PredmetiPrikaz(int id)
         {

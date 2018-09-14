@@ -7,26 +7,45 @@ using Projekat.Models;
 
 namespace Projekat.Controllers
 {
+    /// <summary>
+    /// Smer Kontroler
+    /// </summary>
+    /// <seealso cref="System.Web.Mvc.Controller" />
     public class SmerController : Controller
     {
         private IMaterijalContext context;
 
+        /// <summary>
+        /// Kreira novu instancu <see cref="SmerController" /> klase.
+        /// </summary>
         public SmerController()
         {
             context = new MaterijalContext();
         }
 
+        /// <summary>
+        /// Kreira novu instancu <see cref="SmerController"/> klase.
+        /// </summary>
+        /// <param name="Context">ImaterijalContext.</param>
         public SmerController(IMaterijalContext Context)
         {
             context = Context;
         }
 
         // GET: Smer
+        /// <summary>
+        /// Index akcija
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Vraca prikaz svih smerova.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult SmeroviPrikaz()
         {
@@ -38,13 +57,22 @@ namespace Projekat.Controllers
             return View("SmeroviPrikaz", smer);
         }
 
+        /// <summary>
+        /// Vraca View na kome je forma za dodavanje smera
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult DodajSmer()
         {
-            
+
             return View();
         }
 
+        /// <summary>
+        /// Dodaje prosledjeni smer u bazu ili menja postojeci smer u bazi
+        /// </summary>
+        /// <param name="smer">Smer za dodavanje</param>
+        /// <returns></returns>
         [HttpPost]
 
         public ActionResult DodajSmer(SmerModel smer)

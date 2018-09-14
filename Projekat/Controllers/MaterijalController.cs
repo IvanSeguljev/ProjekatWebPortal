@@ -12,6 +12,10 @@ using System.Web.Helpers;
 
 namespace Projekat.Controllers
 {
+    /// <summary>
+    /// Materijal kontroler
+    /// </summary>
+    /// <seealso cref="System.Web.Mvc.Controller" />
     public class MaterijalController : Controller
     {
         private IMaterijalContext context;
@@ -27,6 +31,10 @@ namespace Projekat.Controllers
         }
 
         // GET: Materijal
+        /// <summary>
+        /// Index akcija
+        /// </summary>
+        /// <returns>Index view</returns>
         public ActionResult Index()
         {
             return View();
@@ -36,6 +44,15 @@ namespace Projekat.Controllers
         //VIDETI KAKO CE DA SE HENDLUJE SAMA NAMENA MATERIJALA I POJAVLJIVANJE NA STRANANMA
         //
 
+        /// <summary>
+        /// Prikaz materijala sa sortiranjem
+        /// </summary>
+        /// <param name="sort">String po kome se sortiraju materijali.</param>
+        /// <param name="formati">Lista formata za prikaz.</param>
+        /// <param name="tipovi">Lista tipova materijala za prikaz.</param>
+        /// <param name="number">The number.</param>
+        /// <param name="id">Id predmeta za koji su materijali, ako je id = null, predpostavlja se da je dati materijal za profesore</param>
+        /// <returns>Parcijalni pregled karticw</returns>
         [HttpGet]
 
         public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int? id = null)
@@ -95,6 +112,11 @@ namespace Projekat.Controllers
             return View("MaterijaliPrikaz", vm);
         }
         //kod ove akcije treba dodati punjenje tabele namena materijala
+        /// <summary>
+        /// Vraca view na kome je forma za dodavanje predmeta
+        /// </summary>
+        /// <param name="smerId">Id smera za koji je predmet koji se dodaje.</param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult UploadMaterijal(int? smerId)
         {
@@ -130,6 +152,13 @@ namespace Projekat.Controllers
 
 
         //kod ove akcije treba dodati punjenje tabele namena materijala
+        /// <summary>
+        /// Dodaje materijal u bazu
+        /// </summary>
+        /// <param name="materijal">Materijal model.</param>
+        /// <param name="file">Uploadovani fajl.</param>
+        /// <param name="predmet">Predmet za koji je materijal.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult UploadMaterijal(MaterijalModel materijal, HttpPostedFileBase file, PredmetPoSmeru predmet/*, string hiddenPredmet*/)
         {
@@ -154,7 +183,7 @@ namespace Projekat.Controllers
                     materijal.materijalEkstenzija = Path.GetExtension(nazivFajla);
                     materijal.materijalOpis = materijal.materijalOpis;
                     materijal.materijalNaslov = materijal.materijalNaslov;
-                    
+
                     context.Add<MaterijalModel>(materijal);
                     context.SaveChanges();
                 }
@@ -173,6 +202,11 @@ namespace Projekat.Controllers
             }
         }
 
+        /// <summary>
+        /// Skida selektovani materijal
+        /// </summary>
+        /// <param name="id">Id materijala za download.</param>
+        /// <returns></returns>
         public FileContentResult DownloadMaterijal(int id)
         {
             MaterijalModel materijal = context.pronadjiMaterijalPoId(id);
@@ -196,6 +230,11 @@ namespace Projekat.Controllers
             return View("Delete", materijal);
         }
 
+        /// <summary>
+        /// Brise materijal
+        /// </summary>
+        /// <param name="id">Id materijala za brisanje</param>
+        /// <returns></returns>
         [HttpPost]
         //[ActionName("Delete")]
         //[Route("UploadMaterijal/DeleteConfirmed/{id:int}")]
@@ -228,6 +267,12 @@ namespace Projekat.Controllers
 
         //}
 
+        /// <summary>
+        /// Filtrira materijal po formatu i tipu materijala.
+        /// </summary>
+        /// <param name="ekstenzija">Zeljena ekstenzija po kojoj se filtrira.</param>
+        /// <param name="id">Id tipa materijala po kome se filtrira.</param>
+        /// <param name="materijali">Lista materijala za filtriranje.</param>
         public void FiltrirajPoFormatuMaterijala(string ekstenzija, int id, ref List<MaterijalModel> materijali) //Refaktorisati naziv akcije kasnije jer se ffiltrira i tip materijala ne samo format
         {
 
