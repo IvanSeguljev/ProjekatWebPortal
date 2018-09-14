@@ -3,6 +3,12 @@
     ViewBag.Title = "PrikazVesti";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+
+</style>
+
+
+
 
 <div id="sredina" name="sredina" class="sredina-upload-mat">
     <div id="naprednaPretraga" style="width:100%;margin-left:0px;z-index:2;">
@@ -29,7 +35,7 @@
         {
         <div class="glavna">
 
-            <img style="height:350px; width: 900px; margin-left:11px;margin-right:8px; margin-top: 12px" class="card-img" src="@Model.Thumbnail" alt="Card image">
+            <img style="height:350px; width: 820px; margin-left:11px;margin-right:8px; margin-top: 12px" class="card-img" src="@Model.Thumbnail" alt="Card image">
             <div class="card-img-overlay glavnaVest">
                 <div class="naslovVesti">
                     <p class="card-text"> @Model.Naslov </p>
@@ -71,3 +77,14 @@
 
     </div>
 </div>
+
+<script>
+
+    
+        
+   
+</script>
+@section Scripts{
+    @Scripts.Render("~/Scripts/UI/hamburger.js");
+    
+    }

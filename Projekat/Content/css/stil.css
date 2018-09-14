@@ -1915,7 +1915,7 @@ div#opisModal .modal-dialog {
 }
 .glavnaVest{
     height:350px !important;
-     width: 900px !important;
+     width: 820px !important;
      margin-left: 10px;
     
      margin-top: 12px;
@@ -1965,12 +1965,12 @@ div#opisModal .modal-dialog {
 }
 .flex-container > .card {
   
-  color: white;
-  width: 30%;
-  margin: 10px;
-  text-align: center;
-  line-height: 30px;
-  font-size: 30px;
-  min-width:440px;
-  max-width:440px;
+      color: white;
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 30px;
+    max-width: 400px;
+
 }
