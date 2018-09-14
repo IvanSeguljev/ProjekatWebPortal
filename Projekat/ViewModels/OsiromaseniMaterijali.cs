@@ -5,12 +5,45 @@ using System.Web;
 
 namespace Projekat.ViewModels
 {
+    /// <summary>
+    /// osiromaseni materijali
+    /// </summary>
     public class OsiromaseniMaterijali
     {
+        /// <summary>
+        /// Gets or sets the namena identifier.
+        /// </summary>
+        /// <value>
+        /// The namena identifier.
+        /// </value>
         public int namenaID { get; set; }
+        /// <summary>
+        /// Gets or sets the materijal identifier.
+        /// </summary>
+        /// <value>
+        /// The materijal identifier.
+        /// </value>
         public int materijalId { get; set; }
+        /// <summary>
+        /// Gets or sets the materijal naslov.
+        /// </summary>
+        /// <value>
+        /// The materijal naslov.
+        /// </value>
         public string materijalNaslov { get; set; }
+        /// <summary>
+        /// Gets or sets the materijal opis.
+        /// </summary>
+        /// <value>
+        /// The materijal opis.
+        /// </value>
         public string materijalOpis{ get; set; }
+        /// <summary>
+        /// Gets the img path.
+        /// </summary>
+        /// <value>
+        /// The img path.
+        /// </value>
         public string ImgPath
         {
             get
@@ -37,9 +70,27 @@ namespace Projekat.ViewModels
                 else return "Err";
             }
         }
+        /// <summary>
+        /// Gets or sets the ekstenzija.
+        /// </summary>
+        /// <value>
+        /// The ekstenzija.
+        /// </value>
         public string ekstenzija { get; set; }
+        /// <summary>
+        /// Gets or sets the tip materijala identifier.
+        /// </summary>
+        /// <value>
+        /// The tip materijala identifier.
+        /// </value>
         public int tipMaterijalaId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the predmet identifier.
+        /// </summary>
+        /// <value>
+        /// The predmet identifier.
+        /// </value>
         public int? predmetId { get; set; }
 
     }

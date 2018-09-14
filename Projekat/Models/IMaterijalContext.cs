@@ -8,7 +8,7 @@ using Projekat.ViewModels;
 namespace Projekat.Models
 {
     /// <summary>
-    /// ImaterijalContext interface
+    /// ImaterijalContext interfejs
     /// </summary>
     public interface IMaterijalContext
     {
