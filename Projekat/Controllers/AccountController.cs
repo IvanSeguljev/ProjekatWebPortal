@@ -16,6 +16,10 @@ using System.Security.Cryptography;
 
 namespace Projekat.Controllers
 {
+    /// <summary>
+    /// Account kontroler
+    /// </summary>
+    /// <seealso cref="System.Web.Mvc.Controller" />
     [Authorize]
     public class AccountController : Controller
     {
@@ -26,7 +30,7 @@ namespace Projekat.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -38,9 +42,9 @@ namespace Projekat.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -124,7 +128,7 @@ namespace Projekat.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -150,29 +154,34 @@ namespace Projekat.Controllers
             ViewModel.Smerovi = matcont.smerovi.ToList();
             ViewModel.Uloge = matcont.Roles.ToList();
             return View(ViewModel);
-            
+
         }
+        /// <summary>
+        /// Vraca view sa formom za izmenu korisnika
+        /// </summary>
+        /// <param name="ID">Id korisnika kog zelimo da izmenimo.</param>
+        /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
         public ActionResult IzmeniKorisnika(string ID)
         {
-            if(ID != null)
-            { 
-            IzmeniKorisnikaViewModel ViewModel = new IzmeniKorisnikaViewModel();
+            if (ID != null)
+            {
+                IzmeniKorisnikaViewModel ViewModel = new IzmeniKorisnikaViewModel();
 
-            MaterijalContext matcon = new MaterijalContext();
+                MaterijalContext matcon = new MaterijalContext();
 
-            ViewModel.Uloge = matcon.Roles.ToList();
-            ViewModel.Skole = matcon.Skole.ToList();
-            ViewModel.Smerovi = matcon.smerovi.ToList();
-            
-            ApplicationUser Korisnik = matcon.Users.FirstOrDefault(x => x.Id ==ID);
-            if(Korisnik != null)
-            { 
-                ViewModel.Korisnik = Korisnik;
-                return View(ViewModel);
-            }
-            else
+                ViewModel.Uloge = matcon.Roles.ToList();
+                ViewModel.Skole = matcon.Skole.ToList();
+                ViewModel.Smerovi = matcon.smerovi.ToList();
+
+                ApplicationUser Korisnik = matcon.Users.FirstOrDefault(x => x.Id == ID);
+                if (Korisnik != null)
+                {
+                    ViewModel.Korisnik = Korisnik;
+                    return View(ViewModel);
+                }
+                else
                 {
                     return RedirectToAction("ListaKorisnika");
                 }
@@ -182,14 +191,20 @@ namespace Projekat.Controllers
                 return RedirectToAction("ListaKorisnika");
             }
         }
+        /// <summary>
+        /// Vrsi izmenu korisnika.
+        /// </summary>
+        /// <param name="model">Model u kome se drze novi podaci o korisniku. <seealso cref="IzmeniKorisnikaViewModel"/></param>
+        /// <param name="Fajl">Nova slika korisnika. Ukoliko se prosledi null, ostaje stara slika</param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult IzmeniKorisnika(IzmeniKorisnikaViewModel model,HttpPostedFileBase Fajl)
+        public ActionResult IzmeniKorisnika(IzmeniKorisnikaViewModel model, HttpPostedFileBase Fajl)
         {
-            
+
             if (ModelState.IsValid)
             {
-               
+
                 MaterijalContext context = new MaterijalContext();
                 ApplicationUser user;
                 user = model.Korisnik;
@@ -202,7 +217,7 @@ namespace Projekat.Controllers
                         GenerisiUsername(user);
                         postojeci.UserName = user.UserName;
                     }
-                    else if((postojeci.Ime != user.Ime  || postojeci.SkolaId != user.SkolaId || postojeci.Prezime!=user.Prezime))
+                    else if ((postojeci.Ime != user.Ime || postojeci.SkolaId != user.SkolaId || postojeci.Prezime != user.Prezime))
                     {
                         GenerisiUsername(user);
                         postojeci.UserName = user.UserName;
@@ -221,7 +236,7 @@ namespace Projekat.Controllers
                     {
                         postojeci.Slika = user.Slika;
                     }
-                    if(user.Uloga == "Ucenik")
+                    if (user.Uloga == "Ucenik")
                     {
                         postojeci.GodinaUpisa = user.GodinaUpisa;
                     }
@@ -235,7 +250,7 @@ namespace Projekat.Controllers
                     postojeci.Prezime = user.Prezime;
 
                     postojeci.SkolaId = user.SkolaId;
-                    
+
                     postojeci.SmerId = user.SmerId;
                     postojeci.Uloga = user.Uloga;
                     postojeci.PhoneNumber = user.PhoneNumber;
@@ -248,6 +263,11 @@ namespace Projekat.Controllers
             return RedirectToAction("ListaKorisnika");
         }
 
+        /// <summary>
+        /// Vraca nasumicnu sifru
+        /// </summary>
+        /// <param name="length">Duzina sifre koju funkcija generise.</param>
+        /// <returns>string koji sadrzi random sifu <seealso cref="GetRandomString(int, IEnumerable{char})"/></returns>
         public static string GetRandomPassword(int length)
         {
             const string alphanumericCharacters =
@@ -257,11 +277,25 @@ namespace Projekat.Controllers
             return GetRandomString(length, alphanumericCharacters);
         }
 
+        /// <summary>
+        /// Vraca nasumicni string
+        /// </summary>
+        /// <param name="length">Duzina stringa za generisanje.</param>
+        /// <param name="characterSet">Slova, brojevi i specijalni karakteri koji se mogu naci u generisanom stringu.</param>
+        /// <returns>String zeljene duzine sastavljen od nasumicno odabranih karaktera iz prosledjene kolekcije</returns>
+        /// <exception cref="System.ArgumentException">
+        /// length must not be negative - length
+        /// or
+        /// length is too big - length
+        /// or
+        /// characterSet must not be empty - characterSet
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">characterSet</exception>
         public static string GetRandomString(int length, IEnumerable<char> characterSet)
         {
             if (length < 0)
                 throw new ArgumentException("length must not be negative", "length");
-            if (length > int.MaxValue / 8) 
+            if (length > int.MaxValue / 8)
                 throw new ArgumentException("length is too big", "length");
             if (characterSet == null)
                 throw new ArgumentNullException("characterSet");
@@ -282,29 +316,36 @@ namespace Projekat.Controllers
 
         //
         // POST: /Account/Register
+        /// <summary>
+        /// Registruje novog korisnika i salje mejl sa login informacijama korisnika.
+        /// </summary>
+        /// <param name="model">Model sa podacima korisnika kog zelimo da dodamo. <seealso cref="RegisterViewModel"/></param>
+        /// <param name="Fajl">Slika korisnika. Ako je null, korisniku se dodeljuje default slika.</param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase Fajl)
         {
-            
+
             if (ModelState.IsValid)
             {
                 ApplicationUser user;
-                
-                user = new ApplicationUser {
+
+                user = new ApplicationUser
+                {
                     UserName = model.Ime,
                     Email = model.Email,
                     Ime = model.Ime,
-                    Prezime = model.Prezime,                   
-                    SkolaId = model.SelektovanaSkola,                   
+                    Prezime = model.Prezime,
+                    SkolaId = model.SelektovanaSkola,
                     SmerId = model.selektovaniSmer,
                     Uloga = model.selektovanaUloga,
                     PhoneNumber = model.phoneNumber
-                    
-                    
-                    
-            };
+
+
+
+                };
                 if (model.selektovanaUloga == "Ucenik")
                 {
                     user.GodinaUpisa = model.GodinaUpisa;
@@ -315,10 +356,10 @@ namespace Projekat.Controllers
                 }
 
                 GenerisiUsername(user);
-                
+
                 if (Fajl != null)
                 {
-                    user.Slika  = new byte[Fajl.ContentLength];
+                    user.Slika = new byte[Fajl.ContentLength];
                     Fajl.InputStream.Read(user.Slika, 0, Fajl.ContentLength);
                 }
                 else
@@ -329,24 +370,24 @@ namespace Projekat.Controllers
                 string password = GetRandomPassword(10);
                 var result = await UserManager.CreateAsync(user, password);
 
-               
+
                 if (result.Succeeded)
                 {
-                     UserManager.AddToRole(user.Id, model.selektovanaUloga);
-                    
+                    UserManager.AddToRole(user.Id, model.selektovanaUloga);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                   await UserManager.SendEmailAsync(user.Id, "Login informacije", "Vase korisnicko ime za ulaz u web portal je " + user.UserName + " , a vasa lozinka je:  " + password+"  Lozinku mozete promeniti.");
+                    await UserManager.SendEmailAsync(user.Id, "Login informacije", "Vase korisnicko ime za ulaz u web portal je " + user.UserName + " , a vasa lozinka je:  " + password + "  Lozinku mozete promeniti.");
 
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
-          
+
             MaterijalContext matcont = new MaterijalContext();
-           
+
             model.Skole = matcont.Skole.ToList();
             model.Smerovi = matcont.smerovi.ToList();
             model.Uloge = matcont.Roles.ToList();
@@ -354,30 +395,34 @@ namespace Projekat.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Geenerise username za prosledjenok korisnika
+        /// </summary>
+        /// <param name="user">Korisnik za koga zelimo da generisemo username</param>
         private void GenerisiUsername(ApplicationUser user)
         {
             ApplicationUser duplikat = null;
             MaterijalContext context = new MaterijalContext();
             string username = "";
-        if (user.Uloga == "Ucenik")
-        {
-            username += user.Ime;
-            username += context.Skole.Where(x => x.IdSkole == user.SkolaId).First().Skraceno;
-            username += user.GodinaUpisa.ToString().Remove(0, 2);
-            username += context.smerovi.Where(x => x.smerId == user.SmerId).First().smerSkraceno;
-            int id = 1;
-            string usernamesaID;
-            do
+            if (user.Uloga == "Ucenik")
             {
-                 usernamesaID = username + id.ToString();
-                duplikat = UserManager.FindByName(usernamesaID);
-                id++;
+                username += user.Ime;
+                username += context.Skole.Where(x => x.IdSkole == user.SkolaId).First().Skraceno;
+                username += user.GodinaUpisa.ToString().Remove(0, 2);
+                username += context.smerovi.Where(x => x.smerId == user.SmerId).First().smerSkraceno;
+                int id = 1;
+                string usernamesaID;
+                do
+                {
+                    usernamesaID = username + id.ToString();
+                    duplikat = UserManager.FindByName(usernamesaID);
+                    id++;
 
+                }
+                while (duplikat != null);
+                user.UserName = usernamesaID;
             }
-            while (duplikat != null);
-            user.UserName = usernamesaID;
-            }
-         else
+            else
             {
                 username += user.Ime;
                 username += user.Prezime;
@@ -397,7 +442,7 @@ namespace Projekat.Controllers
         }
 
         //
-        // GET: /Account/ConfirmEmail
+       
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
@@ -411,6 +456,10 @@ namespace Projekat.Controllers
 
         //
         // GET: /Account/ForgotPassword
+        /// <summary>
+        /// Akcija koja se poziva ako je korisnik zaboravio password.
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
@@ -419,6 +468,11 @@ namespace Projekat.Controllers
 
         //
         // POST: /Account/ForgotPassword
+        /// <summary>
+        /// Salje korisniku mail sa odgovarajucim tookenom za rest passworda.
+        /// </summary>
+        /// <param name="model"><see cref="ForgotPasswordViewModel"/></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -436,7 +490,7 @@ namespace Projekat.Controllers
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
@@ -463,6 +517,11 @@ namespace Projekat.Controllers
 
         //
         // POST: /Account/ResetPassword
+        /// <summary>
+        /// Resetuje password korisnika.
+        /// </summary>
+        /// <param name="model">Model. <see cref="ResetPasswordViewModel"/></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -646,6 +705,11 @@ namespace Projekat.Controllers
 
             base.Dispose(disposing);
         }
+        /// <summary>
+        /// Vraca listu korisnika, sa mogucnoscu pretrage
+        /// </summary>
+        /// <param name="vm">Model u kome se nalaze detalji po kojima se vrsi pretraga. <seealso cref="ListaNaprednaPretragaViewModel"/></param>
+        /// <returns></returns>
         [AllowAnonymous]
         public ActionResult ListaKorisnika(ListaNaprednaPretragaViewModel vm)
         {
@@ -653,27 +717,27 @@ namespace Projekat.Controllers
             ListaNaprednaPretragaViewModel ViewModel = new ListaNaprednaPretragaViewModel();
             List<SkolaModel> skole = context.Skole.ToList();
             List<SmerModel> smerovi = context.smerovi.ToList();
-            ViewModel.Skole = skole.ToList();            
+            ViewModel.Skole = skole.ToList();
             ViewModel.Smerovi = smerovi.ToList();
             ViewModel.Uloge = context.Roles.ToList();
             ViewModel.Korisnici = new List<ListaKorisnikaViewModel>();
             List<ListaKorisnikaViewModel> lista = new List<ListaKorisnikaViewModel>();
             List<ApplicationUser> useri;
-          
-                useri = context.Users.ToList();
-                if(vm.FilterSkolaID != 0)
-                {
-                    useri = useri.Where(x => x.SkolaId == vm.FilterSkolaID).ToList();
-                }
-                if(vm.FilterSmerID != 0)
-                {
-                    useri = useri.Where(x => x.SmerId == vm.FilterSmerID).ToList();
-                }
-                if(vm.FilterUloga != null)
-                {
-                    useri = useri.Where(x => x.Uloga == vm.FilterUloga).ToList();
-                }
-            
+
+            useri = context.Users.ToList();
+            if (vm.FilterSkolaID != 0)
+            {
+                useri = useri.Where(x => x.SkolaId == vm.FilterSkolaID).ToList();
+            }
+            if (vm.FilterSmerID != 0)
+            {
+                useri = useri.Where(x => x.SmerId == vm.FilterSmerID).ToList();
+            }
+            if (vm.FilterUloga != null)
+            {
+                useri = useri.Where(x => x.Uloga == vm.FilterUloga).ToList();
+            }
+
             #region dodavanje
             foreach (ApplicationUser a in useri)
             {
@@ -713,22 +777,27 @@ namespace Projekat.Controllers
 
             }
             #endregion
-           
+
 
             return View(ViewModel);
         }
+        /// <summary>
+        /// Vraca view sa detaljima korisnika
+        /// </summary>
+        /// <param name="Username">Username korisnika za koga zelimo da prikazemo detalje</param>
+        /// <returns></returns>
         [AllowAnonymous]
         public ActionResult DetaljiKorisnika(string Username)
         {
-            if(Username == null)
+            if (Username == null)
             {
                 return RedirectToAction("ListaKorisnika", "Account");
             }
             MaterijalContext matCon = new MaterijalContext();
             DetaljiKorisnikaViewModel viewmodel = new DetaljiKorisnikaViewModel();
-            
+
             viewmodel.Korisnik = UserManager.FindByName(Username);
-            
+
             if (viewmodel.Korisnik != null)
             {
                 viewmodel.SelektovanaSkola = matCon.Skole.FirstOrDefault(x => x.IdSkole == viewmodel.Korisnik.SkolaId).NazivSkole;
@@ -740,20 +809,25 @@ namespace Projekat.Controllers
                 return RedirectToAction("ListaKorisnika", "Account");
 
         }
+        /// <summary>
+        /// Brise korisnika
+        /// </summary>
+        /// <param name="ID">Id korisnika kog zelimo da obrisemo.</param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost]
         public ActionResult ObrisiKorisnika(string ID)
         {
             MaterijalContext matcon = new MaterijalContext();
 
-            ApplicationUser Korisnik = UserManager.FindById(ID); 
-            
-            if(Korisnik != null)
+            ApplicationUser Korisnik = UserManager.FindById(ID);
+
+            if (Korisnik != null)
             {
-                
+
                 UserManager.Delete(Korisnik);
             }
-            
+
 
 
             return RedirectToAction("ListaKorisnika");
