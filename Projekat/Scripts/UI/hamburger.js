@@ -107,7 +107,7 @@
     }
     navPoStorageu();
 
-    var resp = window.matchMedia("(max-width: 700px)")
+    var resp = window.matchMedia("(max-width: 930px)")
     zatvaranjeR(resp)
     resp.addListener(zatvaranjeR)
     function zatvaranjeR(resp) {
