@@ -1787,7 +1787,7 @@ div#opisModal .modal-dialog {
     }
 
     div#sredina {
-        padding: 12px 12px 0 12px;
+        padding: 0 0 0 0;
     }
 
     div.kartica-smer {
@@ -1900,7 +1900,7 @@ div#opisModal .modal-dialog {
     padding-right: 40px;
     overflow-x: scroll;
     overflow: auto;
-    width: 412px;
+    width: 370px;
     box-sizing: content-box;
     color: #000;
 }
