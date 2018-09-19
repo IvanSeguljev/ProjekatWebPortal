@@ -3,10 +3,33 @@
     ViewBag.Title = "PrikaziVest";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="sredina" name="sredina" class="sredina-upload-mat">
+    
+    <div class="celaVest" id="clVest">
+        <h2>@Model.Naslov</h2>
+        <div class="teloVesti">
+            <p class="datPost">Vest postavljena: @Model.DatumPostavljanja</p>
+            @Html.Raw(Model.TeloVesti)
+        </div>
+    </div>
 
-<h2>@Model.Naslov</h2>
-<h4>@Model.KratakOpis</h4>
-@Html.Raw(Model.TeloVesti)
 
-<p>Vest postavljena: @Model.DatumPostavljanja</p>
+</div>
+<script>
+    $(window).resize(function () {
 
+        if ($(window).width() < 500) {
+            $("#sredina").removeClass("sredina-upload-mat");
+            $("#clVest").removeClass("celaVest");
+            $("#clVest").addClass("celaVestResp");
+        }
+        else {
+            $("#sredina").addClass("sredina-upload-mat");
+            $("#clVest").addClass("celaVest");
+            $("#clVest").removeClass("celaVestResp");
+        }
+
+    });
+
+
+</script>

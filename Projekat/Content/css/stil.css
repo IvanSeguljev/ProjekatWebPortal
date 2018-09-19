@@ -1974,3 +1974,41 @@ div#opisModal .modal-dialog {
     max-width: 400px;
 
 }
+
+/* prikaz tela vesti*/
+
+.datPost{
+    font-family: 'roboto-light';
+    font-size: 15px;
+    font-style: italic;
+}
+.celaVest{
+    
+    width: 60%;
+    margin-left: 30%;
+    margin-right: 40%;
+}
+    .celaVest .responsive-image__img{
+        width: 100%;
+        height: 90%;
+        padding-top: 20px;
+
+    }
+
+.celaVestResp{
+    width: 100%;
+    padding: 10px;
+}
+.celaVestResp .teloVesti{
+    width: 100%;
+}
+    .celaVestResp .responsive-image__img {
+        width: 100%;
+        height: 90%;
+        padding-top: 20px;
+    }
+
+.teloVesti {
+        align-self: center;
+        width: 70%;
+    }
