@@ -17,6 +17,12 @@ namespace Projekat.Controllers
     /// <seealso cref="System.Web.Mvc.Controller" />
     public class VestiController : Controller
     {
+        VestiContext context;
+
+        public VestiController()
+        {
+            context = new VestiContext();
+        }
 
         /// <summary>
         /// Vraca glavnu vest ako je ima u konfiguraciji. Ako ne, vraca najnoviju vest.
@@ -24,7 +30,7 @@ namespace Projekat.Controllers
         /// <returns><see cref="VestModel"/></returns>
         private VestModel VratiGlavnuVest()
         {
-            VestiContext context = new VestiContext();
+          
             XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija.xml"));
 
             
@@ -90,7 +96,7 @@ namespace Projekat.Controllers
         [HttpPost]
         public ActionResult SnimiVest(HttpPostedFileBase Fajl, DodajVestViewModel vm)
         {
-            VestiContext context = new VestiContext();
+           
             VestModel Vest = new VestModel();
             TeloVestiModel Telo = new TeloVestiModel();
             Vest.Naslov = vm.Naslov;
@@ -138,7 +144,7 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult PosaljiVesti(int pageindex, int pagesize, int idGlavne)
         {
-            VestiContext context = new VestiContext();
+            
             List<VestModel> vesti = context.Vesti.OrderByDescending(m => m.DatumPostavljanja).Where(m => m.Id != idGlavne).Skip(pageindex * pagesize).Take(pagesize).ToList();
             return Json(vesti.ToList(), JsonRequestBehavior.AllowGet);
 
@@ -152,7 +158,7 @@ namespace Projekat.Controllers
         [HttpGet]
         public ActionResult PretragaPoNaslovu(string kveri)
         {
-            VestiContext context = new VestiContext();
+           
             List<VestModel> RezultatPretrage = context.Vesti.Where(x => x.Naslov.ToLower().Contains(kveri.ToLower())).Take(10).ToList();
             return Json(RezultatPretrage, JsonRequestBehavior.AllowGet);
         }
@@ -166,7 +172,7 @@ namespace Projekat.Controllers
         [HttpPost]
         public ActionResult BrisanjeVesti(int Id, bool glavna = false)
         {
-            VestiContext context = new VestiContext();
+           
             VestModel ZaBrisanje = context.Vesti.FirstOrDefault(x => x.Id == Id);
             if (glavna)
             {
@@ -192,6 +198,36 @@ namespace Projekat.Controllers
                 context.SaveChanges();
             }
             return RedirectToAction("PrikazVesti");
+        }
+
+        public ActionResult PrikaziVest(string Naslov, string Datum)
+        {
+            string datum;
+            try
+            {
+                 datum = Convert.ToDateTime(Datum).ToShortDateString();
+            }
+            catch
+            {
+                return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
+            }
+            VestModel VestZaPrikaz = context.Vesti.FirstOrDefault(x => x.Naslov == Naslov);
+            if(VestZaPrikaz == null)
+            {
+                return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
+            }
+            if (VestZaPrikaz.DatumPostavljanja.ToShortDateString() == datum)
+            {
+                PrikazVestiViewModel vm = new PrikazVestiViewModel
+                {
+                    Naslov = VestZaPrikaz.Naslov,
+                    KratakOpis = VestZaPrikaz.KratakOpis,
+                    DatumPostavljanja = datum,
+                    TeloVesti = context.TelaVesti.FirstOrDefault(x=>x.VestId == VestZaPrikaz.Id).TeloVesti
+                };
+                return View(vm);
+            }
+            else return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
         }
     }
 }

@@ -20,10 +20,15 @@ function GetData() {
         success: function (data) {
             if (data != null) {
                 for (var i = 0; i < data.length; i++) {
+                    var jsDate = new Date(parseInt(data[i].DatumPostavljanja.replace(/[^0-9 +]/g, '')));
                     $("#container").append("<div class=\"card\">" +
 "<div class=\"slikaNaslov\"><img class=\"card-img-top\" src=\"" + data[i].Thumbnail + "\" alt=\"Card image cap\"> <div class=\"naslovVesti\"><p class=\"card-text\">" + data[i].Naslov + "</p></div></div>" +
 "<div class=\"card-body\"><div class=\"preveiw\"> <p class=\"prvText\">" + data[i].KratakOpis + "</p></div> <hr/> <div class=\"prikazi\">" +
+        "<form action=\"/Vesti/PrikaziVest\" method=\"get\">" +
+        "<input type=\"hidden\" name=\"Naslov\" value=\"" + data[i].Naslov + "\" />" +
+        "<input type=\"hidden\"  name=\"Datum\" value=\"" + jsDate.toLocaleDateString() + "\" />" +
         "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"SAZNAJ VIŠE\" />" +
+        "</form>"+
         "<form action=\"/Vesti/BrisanjeVesti\" method=\"post\">" +
         "<input type=\"hidden\" value =\"" + data[i].Id + "\" name=\"Id\"/>" +
         "<input type=\"submit\" class=\"btnsVestiPrikaz\" value=\"OBRIŠI\" onclick=\"return confirm('Da li želite da obrišete vest?')\"/>" +

@@ -1,0 +1,12 @@
+﻿@model Projekat.ViewModels.PrikazVestiViewModel
+@{
+    ViewBag.Title = "PrikaziVest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Naslov</h2>
+<h4>@Model.KratakOpis</h4>
+@Html.Raw(Model.TeloVesti)
+
+<p>Vest postavljena: @Model.DatumPostavljanja</p>
+
