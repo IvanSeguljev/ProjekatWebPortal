@@ -1809,10 +1809,11 @@ div#opisModal .modal-dialog {
 /*PRIKAZ VESTI*/
 
 .card{
-    width:36rem;
+    width:398px;
+    min-width:398px !important;
     height: auto;
-    margin-bottom: 50px;
-    margin-left: 12%;
+    margin-bottom: 20px !important;
+    margin: 0 auto;
 
 }
 
