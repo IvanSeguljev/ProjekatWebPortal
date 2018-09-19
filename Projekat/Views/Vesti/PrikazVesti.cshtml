@@ -33,23 +33,25 @@
     
         @if (Model != null)
         {
-        <div class="glavna">
+            <a href="@Url.Action("PrikaziVest","Vesti",new { Naslov = Model.Naslov,Datum = Model.DatumPostavljanja.ToShortDateString() })">
+                <div class="glavna">
 
-            <img style="height:350px; width: 820px; margin-left:11px;margin-right:8px; margin-top: 12px" class="card-img" src="@Model.Thumbnail" alt="Card image">
-            <div class="card-img-overlay glavnaVest">
-                <div class="naslovVesti">
-                    <p class="card-text"> @Model.Naslov </p>
-                    <p class="card-text" style="font-size:medium">@Model.KratakOpis</p>
+                    <img style="height:350px; width: 820px; margin-left:11px;margin-right:8px; margin-top: 12px" class="card-img" src="@Model.Thumbnail" alt="Card image">
+                    <div class="card-img-overlay glavnaVest">
+                        <div class="naslovVesti">
+                            <p class="card-text"> @Model.Naslov </p>
+                            <p class="card-text" style="font-size:medium">@Model.KratakOpis</p>
+                        </div>
+                        <form action="/Vesti/BrisanjeVesti" method="post">
+                            <input type="hidden" value="@Model.Id" name="Id" />
+                            <input type="hidden" value="true" name="glavna" />
+                            <input type="submit" class="btnGlavnaVest" value="&times" onclick="return confirm('Da li želite da obrišete vest?')" />
+                        </form>
+
+                        <p class="card-header" style="border:none">Last updated few mins ago</p>
+                    </div>
                 </div>
-                <form action="/Vesti/BrisanjeVesti" method="post">
-                    <input type="hidden" value="@Model.Id" name="Id" />
-                    <input type="hidden" value="true" name="glavna" />
-                    <input type="submit" class="btnGlavnaVest" value="&times" onclick="return confirm('Da li želite da obrišete vest?')" />
-                </form>
-
-                <p class="card-header" style="border:none">Last updated few mins ago</p>
-            </div>
-        </div>
+            </a>
         }
         else
         {
