@@ -79,7 +79,7 @@ function PretragaVesti() {
             if (data != null) {
                 for (var i = 0; i < data.length; i++) {
                     var jsDate = new Date(parseInt(data[i].DatumPostavljanja.replace(/[^0-9 +]/g, '')));
-                    $("#RezultatiPretrage").append("<li class=\"rezultatPretrage\"><a href=\"#\">" + data[i].Naslov + "</a>" + "  <span class=\"spandatum\">" + jsDate.toLocaleDateString() + "</span></li>");
+                    $("#RezultatiPretrage").append("<li class=\"rezultatPretrage\"><a href=\"/Vesti/PrikaziVest?Naslov=" + data[i].Naslov + "&Datum=" + jsDate.toLocaleDateString() + "\">" + data[i].Naslov + "</a>" + "  <span class=\"spandatum\">" + jsDate.toLocaleDateString() + "</span></li>");
                 }
                 if(data.length === 0)
                 {
