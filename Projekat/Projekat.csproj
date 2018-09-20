@@ -419,6 +419,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\prikaziLupicuPretraga.js" />
     <Content Include="Scripts\UI\asc-desc-strelica.js" />
     <Content Include="Scripts\UI\AutoHeightTextarea.js" />
     <Content Include="Scripts\bootbox.js" />
