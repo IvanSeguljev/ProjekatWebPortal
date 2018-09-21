@@ -36,7 +36,7 @@
            
                 
         <div class="glavna" id="glavna">
-            <a href="@Url.Action("PrikaziVest","Vesti",new { Naslov = Model.Naslov,Datum = Model.DatumPostavljanja.ToShortDateString() })">
+            <a href= "@string.Format( Url.Action("PrikaziVest","Vesti") + "?Naslov=" + Url.Encode(Model.Naslov) + "&Datum=" + Url.Encode(Model.DatumPostavljanja.ToShortDateString()))">
                 <img style="height:350px; width: 820px; margin-left:11px;margin-right:8px; margin-top: 12px" class="card-img" src="@Model.Thumbnail" alt="Card image">
                 <div class="card-img-overlay glavnaVest">
                     <div class="naslovVesti">

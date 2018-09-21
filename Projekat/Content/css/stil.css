@@ -2017,3 +2017,7 @@ div#opisModal .modal-dialog {
         align-self: center;
         width: 70%;
     }
+.fade{
+    background-color:rgba(0,0,0,0.5) !important;
+    opacity:1 !important;
+}

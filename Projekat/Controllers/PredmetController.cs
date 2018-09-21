@@ -193,9 +193,20 @@ namespace Projekat.Controllers
         /// <param name="id">Id smera za koji zelimo da prikazemo predmete.</param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult PredmetiPrikaz(int id)
+        public ActionResult PredmetiPrikaz(string Smer)
         {
+            int id;
             context = new MaterijalContext();
+            try
+            {
+                id = context.smerovi.FirstOrDefault(x => x.smerNaziv == Smer).smerId;
+            }
+            catch
+            {
+
+                return new HttpNotFoundResult("Smer nije nadjen");
+            }
+            
             List<PredmetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
             List<PredmetModel> model = new List<PredmetModel>();
             List<PredmetModel> tempPredmet = context.predmeti.ToList();
