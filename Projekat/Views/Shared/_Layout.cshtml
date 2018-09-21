@@ -147,9 +147,11 @@
         </ul>
     </div>
     <div id="gornjaNavigacija">
-        <a id="nazad" href="#">
-            <img src="~/Content/img/back-strelica.png" alt="nazad">
-        </a>
+       
+         @if (Request.UrlReferrer != null)
+        {
+            <a id="nazad" onclick="history.go(-1); return false;" href="#"><img src="~/Content/img/back-strelica.png" alt="nazad"></a><br />
+        }
         <p>
             Materijali
         </p>
