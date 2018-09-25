@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Projekat.Models;
 using Projekat.ViewModels;
+using MvcSiteMapProvider.Web.Mvc.Filters;
 
 namespace Projekat.Controllers
 {
@@ -193,6 +194,7 @@ namespace Projekat.Controllers
         /// <param name="id">Id smera za koji zelimo da prikazemo predmete.</param>
         /// <returns></returns>
         [HttpGet]
+        
         public ActionResult PredmetiPrikaz(string Smer)
         {
             int id;

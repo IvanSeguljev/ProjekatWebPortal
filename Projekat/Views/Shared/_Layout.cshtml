@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -152,17 +153,12 @@
         {
             <a id="nazad" onclick="history.go(-1); return false;" href="#"><img src="~/Content/img/back-strelica.png" alt="nazad"></a><br />
         }
-        <p>
-            Materijali
-        </p>
-        <img class="breadcrumbsTrougao" src="~/Content/img/trougao-breadcrumbs.png" alt="/">
-        <p>
-            Nastavni materijal
-        </p>
-        <img class="breadcrumbsTrougao" src="~/Content/img/trougao-breadcrumbs.png" alt="/">
-        <p>
-            Novi materijal
-        </p>
+        <div>
+
+            @Html.MvcSiteMap().SiteMapPath()
+        </div>
+
+       
 
         <img id="gornjeOpcije" src="~/Content/img/tri-tacke.png" alt="opcije">
 
