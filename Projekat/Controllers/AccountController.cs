@@ -797,11 +797,15 @@ namespace Projekat.Controllers
             DetaljiKorisnikaViewModel viewmodel = new DetaljiKorisnikaViewModel();
 
             viewmodel.Korisnik = UserManager.FindByName(Username);
+            SkolaModel SelektovanaSkola;
+            SmerModel SelektovaniSmer;
 
             if (viewmodel.Korisnik != null)
             {
-                viewmodel.SelektovanaSkola = matCon.Skole.FirstOrDefault(x => x.IdSkole == viewmodel.Korisnik.SkolaId).NazivSkole;
-                viewmodel.SelektovaniSmer = matCon.smerovi.FirstOrDefault(x => x.smerId == viewmodel.Korisnik.SmerId).smerNaziv;
+                SelektovanaSkola = matCon.Skole.FirstOrDefault(x => x.IdSkole == viewmodel.Korisnik.SkolaId);
+                SelektovaniSmer = matCon.smerovi.FirstOrDefault(x => x.smerId == viewmodel.Korisnik.SmerId);
+                viewmodel.SelektovanaSkola = (SelektovanaSkola == null) ? "NemaSelektovaneSkole" : (SelektovanaSkola.NazivSkole);
+                viewmodel.SelektovaniSmer = (SelektovaniSmer == null) ? "NemaSelektovanogSmera" : (SelektovaniSmer.smerNaziv);
                 return View(viewmodel);
 
             }
