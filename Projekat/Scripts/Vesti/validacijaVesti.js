@@ -4,11 +4,11 @@
         rules: {
             Naslov: {
                 required: true,
-                naslovReg: /^[A-za-z0-9\.\,\:\;\!\@\s\'\"\#\$\%\^\&\*\(\)\_\-\+\=\{\}\[\]\|\<\>\?\/\č\š\ć\ž\đ]{0,60}$/
+                naslovReg: /^[A-za-z0-9\.\,\:\;\!\@\s\'\"\#\$\%\^\&\*\(\)\_\-\+\=\{\}\[\]\|\<\>\?\/\č\š\ć\ž\đ\£]{0,80}$/
             },
             KratakOpis: {
                 required: true,
-                opisReg: /^[A-za-z0-9\.\,\:\;\!\@\s\'\"\#\$\%\^\&\*\(\)\_\-\+\=\{\}\[\]\|\<\>\?\/\č\š\ć\ž\đ]{0,150}$/
+                opisReg: /^[A-za-z0-9\.\,\:\;\!\@\s\'\"\#\$\%\^\&\*\(\)\_\-\+\=\{\}\[\]\|\<\>\?\/\č\š\ć\ž\đ\£]{0,150}$/
             },
             Fajl: {
                 required: true,
@@ -44,7 +44,7 @@
     $.validator.addMethod("naslovReg", function (value, element, regexpr) {
         // allow any non-whitespace characters as the host part
         return regexpr.test(value);
-    }, 'Polje moze sadrzati maksimum 60 karaktera');
+    }, 'Polje moze sadrzati maksimum 80 karaktera');
 
 
 $.validator.addMethod("opisReg", function (value, element, regexpr) {
