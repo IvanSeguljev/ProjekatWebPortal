@@ -374,19 +374,20 @@ div#gornjaNavigacija {
         float: left;
         margin: 20px 51px 0 29px;
         transition: .3s ease-in-out;
+        position: relative;
     }
 
     div#gornjaNavigacija p {
         display: inline-block;
         font-family: 'roboto-regular';
         font-size: 21px;
-        margin: 18px 0;
+        margin: 0;
         float: left;
     }
 
 img.breadcrumbsTrougao {
     display: inline-block;
-    margin: 28px 29px 28px 29px;
+    margin: 10px 29px 28px 29px;
     float: left;
 }
 
@@ -398,7 +399,7 @@ img.breadcrumbsTrougao {
 
 div#gornjaNavigacija img#gornjeOpcije {
     float: right;
-    padding: 24px 28px 23px 14px;
+    padding: 5px 28px 23px 14px;
     cursor: pointer;
 }
 
