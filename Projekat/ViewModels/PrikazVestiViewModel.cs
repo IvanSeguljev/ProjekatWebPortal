@@ -9,7 +9,7 @@ namespace Projekat.ViewModels
     {
         public string Naslov { get; set; }
         public string KratakOpis { get; set; }
-        public string DatumPostavljanja { get; set; }
+        public DateTime DatumPostavljanja { get; set; }
         public string TeloVesti { get; set; }
     }
 }

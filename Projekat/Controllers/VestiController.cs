@@ -211,23 +211,56 @@ namespace Projekat.Controllers
             {
                 return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
             }
-            VestModel VestZaPrikaz = context.Vesti.FirstOrDefault(x => x.Naslov == Naslov);
-            if(VestZaPrikaz == null)
+            List<VestModel> VestiZaPrikaz = context.Vesti.Where(x => x.Naslov == Naslov).ToList() ;
+            if(VestiZaPrikaz == null)
             {
                 return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
             }
-            if (VestZaPrikaz.DatumPostavljanja.ToShortDateString() == datum)
+
+            for (int i = 0; i < VestiZaPrikaz.Count; i++)
+            { 
+            if (VestiZaPrikaz[i].DatumPostavljanja.ToShortDateString() == datum)
             {
+                    int id = VestiZaPrikaz[i].Id;
                 PrikazVestiViewModel vm = new PrikazVestiViewModel
                 {
-                    Naslov = VestZaPrikaz.Naslov,
-                    KratakOpis = VestZaPrikaz.KratakOpis,
-                    DatumPostavljanja = datum,
-                    TeloVesti = context.TelaVesti.FirstOrDefault(x=>x.VestId == VestZaPrikaz.Id).TeloVesti
+                    Naslov = VestiZaPrikaz[i].Naslov,
+                    KratakOpis = VestiZaPrikaz[i].KratakOpis,
+                    DatumPostavljanja = Convert.ToDateTime(datum),
+                    TeloVesti = context.TelaVesti.FirstOrDefault(x=>x.VestId == id).TeloVesti
                 };
                 return View(vm);
             }
-            else return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
+            }
+           return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult PostaviGlavnuVest(DateTime datum,string naslov,DateTime novDatum)
+        {
+            if(datum!= null && naslov != null && novDatum != null)
+            {
+                int id;
+                List<VestModel> Vesti = context.Vesti.Where(x => x.Naslov == naslov).ToList();
+                if (Vesti == null)
+                {
+                    return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
+                }
+                for (int i = 0; i < Vesti.Count; i++)
+                {
+                    if (Vesti[i].DatumPostavljanja.ToShortDateString() == datum.ToShortDateString())
+                    {
+                        id = Vesti[i].Id;
+                        SnimiGlavnuVest(id, novDatum);
+                        return RedirectToAction("PrikazVesti", "Vesti");
+                    }
+                }
+
+                return new HttpNotFoundResult("Vest nije mogla biti postavljena kao glavna, pokusajte ponovo, ako se ova greska i dalje pojavljuje, kontaktirajte administratora");
+
+            }
+            else return new HttpNotFoundResult("Vest nije mogla biti postavljena kao glavna, pokusajte ponovo, ako se ova greska i dalje pojavljuje, kontaktirajte administratora");
         }
     }
 }
