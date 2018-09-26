@@ -31,7 +31,7 @@ namespace Projekat.Controllers
         private VestModel VratiGlavnuVest()
         {
           
-            XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija.xml"));
+            XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija/MojaKonfiguracija.xml"));
 
             
                 int ID;
@@ -68,11 +68,11 @@ namespace Projekat.Controllers
         /// <param name="DatDo">Datum do kada ce se vest gledati kao glavna vest.</param>
         private void SnimiGlavnuVest(int ID,DateTime DatDo)
         {
-            XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija.xml"));
+            XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija/MojaKonfiguracija.xml"));
             var Konfiguracija = xmlFajl.Descendants("glavnaVest").FirstOrDefault();
             Konfiguracija.Attribute("datumIsteka").SetValue(DatDo.ToShortDateString());
             Konfiguracija.Attribute("idGlavne").SetValue(ID.ToString());
-            xmlFajl.Save(Server.MapPath("~/MojaKonfiguracija.xml"));
+            xmlFajl.Save(Server.MapPath("~/MojaKonfiguracija/MojaKonfiguracija.xml"));
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace Projekat.Controllers
             VestModel ZaBrisanje = context.Vesti.FirstOrDefault(x => x.Id == Id);
             if (glavna)
             {
-                XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija.xml"));
+                XDocument xmlFajl = XDocument.Load(Server.MapPath("~/MojaKonfiguracija/MojaKonfiguracija.xml"));
                 var Konfiguracija = xmlFajl.Descendants("glavnaVest").FirstOrDefault();
                 Konfiguracija.Attribute("datumIsteka").SetValue("");
                 Konfiguracija.Attribute("idGlavne").SetValue("");
