@@ -30,11 +30,20 @@ namespace Projekat.Controllers
         /// <returns><see cref="VestModel"/></returns>
         private VestModel VratiGlavnuVest()
         {
-          
-            XDocument xmlFajl = XDocument.Load(Server.MapPath("~/Content/Konfiguracija/MojaKonfiguracija.xml"));
+            XDocument xmlFajl = null;
+          try { 
+            xmlFajl = XDocument.Load(Server.MapPath("~/Content/Konfiguracija/MojaKonfiguracija.xml"));
+            }
+            catch(FileNotFoundException)
+            {
+                xmlFajl = new XDocument(new XElement("konfigurcija",new XElement("glavnaVest",new List<XAttribute>{ new XAttribute("idGlavne",0), new XAttribute("datumIsteka", 0) } )));
+                xmlFajl.Save(Server.MapPath("~/Content/Konfiguracija/MojaKonfiguracija.xml"));
+
+            }
 
             
-                int ID;
+
+                   int ID;
                 DateTime datum;
                 var Konfiguracija = xmlFajl.Descendants("glavnaVest").FirstOrDefault();
                 try                   
