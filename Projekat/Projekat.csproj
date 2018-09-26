@@ -416,7 +416,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Content\uploads\Thumbnails\250a6408d31f46a889155fcb70e68b75" />
-    <Content Include="MojaKonfiguracija\MojaKonfiguracija.xml" />
+    <Content Include="Content\Konfiguracija\MojaKonfiguracija.xml" />
     <Content Include="Mvc.sitemap">
       <SubType>Designer</SubType>
     </Content>
@@ -634,7 +634,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Konfiguracija\" />
     <Folder Include="Scripts\Shared\" />
     <Folder Include="Views\Shared\Editor templates\" />
   </ItemGroup>

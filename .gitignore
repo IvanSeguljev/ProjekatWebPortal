@@ -240,6 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-/Projekat/MojaKonfiguracija
+/Projekat/Content/Konfiguracija
 /Projekat/Content/uploads/Thumbnails
+
 
