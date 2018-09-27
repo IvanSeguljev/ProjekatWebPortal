@@ -175,7 +175,7 @@ namespace Projekat.Controllers
                 ViewModel.Skole = matcon.Skole.ToList();
                 ViewModel.Smerovi = matcon.smerovi.ToList();
 
-                ApplicationUser Korisnik = matcon.Users.FirstOrDefault(x => x.Id == ID);
+                ApplicationUser Korisnik = UserManager.FindById(ID);
                 if (Korisnik != null)
                 {
                     ViewModel.Korisnik = Korisnik;

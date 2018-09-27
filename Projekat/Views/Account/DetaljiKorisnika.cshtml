@@ -71,19 +71,19 @@
             @using (Html.BeginForm("IzmeniKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Get))
             {
 
-                <input type="submit" name="button" class="btnsOnDetalji" value="IZMENI" />
+                <input type="submit" class="btnsOnDetalji" value="IZMENI" />
             }
 
             @using (Html.BeginForm("ObrisiKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Post))
             {
 
-                <input type="button" name="button" class="btnsOnDetalji brisi" value="OBRISI" data-toggle="modal" data-target="#myModal" />
+                <input type="button"class="btnsOnDetalji brisi" value="OBRISI" data-toggle="modal" data-target="#myModal" />
             }
 
             @using (Html.BeginForm("DetaljiKorisnika", "Account", new { ID = Model.Korisnik.Id }, FormMethod.Post))
             {
 
-                <input type="submit" name="button" class="btnReset" value="RESETUJ PASSWORD" onclick="return confirm('Molimo vas potvrdite resetovanje sifre')" />
+                <input type="submit"class="btnReset" value="RESETUJ PASSWORD" onclick="return confirm('Molimo vas potvrdite resetovanje sifre')" />
             }
 
         </p>

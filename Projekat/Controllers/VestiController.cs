@@ -220,7 +220,7 @@ namespace Projekat.Controllers
             {
                 return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
             }
-            List<VestModel> VestiZaPrikaz = context.Vesti.Where(x => x.Naslov == Naslov).ToList() ;
+            List<VestModel> VestiZaPrikaz = context.Vesti.Where(x => x.Naslov == Naslov).ToList();
             if(VestiZaPrikaz == null)
             {
                 return new HttpNotFoundResult("Na zalost vest koju trazite nije nadjena");
