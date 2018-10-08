@@ -366,6 +366,7 @@ div#gornjaNavigacija {
     transform: translate(0, 0);
     z-index: 99;
     /*transition: .3s ease-in-out;*/
+    position: relative;
 }
 
 
@@ -2021,4 +2022,39 @@ div#opisModal .modal-dialog {
 .fade{
     background-color:rgba(0,0,0,0.5) !important;
     opacity:1 !important;
+}
+.btnPostaviGV {
+    float: left;
+    width: auto;
+    border-bottom: none;
+    border-right: none;
+    text-align: right;
+    background-image: none;
+    padding-left: 0px;
+    font-family: 'roboto-regular';
+    color: #e21b22;
+    margin-left: 0px;
+    background-color: transparent;
+}
+
+/* Mapiranje */
+.divMapiranje {
+    position: absolute;
+    margin-left: 70px !important;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    font-family: 'roboto-light';
+    font-size: 20px;
+    color: ghostwhite;
+    text-transform: uppercase;
+    letter-spacing: 2.1px;
+    padding-top: 1.3px;
+    white-space: nowrap;
+    top: 0 !important;
+}
+.divMapiranje a:hover{
+    color: whitesmoke;
+}
+.divMapiranje a{
+    color: whitesmoke;
 }
