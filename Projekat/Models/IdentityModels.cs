@@ -32,7 +32,7 @@ namespace Projekat.Models
             ApplicationUser user = await context.Users.FirstOrDefaultAsync(x => x.UserName == username);
             if (user == null)
                 return null;
-            string smer = (await context.smerovi.FirstOrDefaultAsync(x => x.smerId == user.SmerId)).smerNaziv;
+            string smer = (await context.smerovi.FirstOrDefaultAsync(x => x.smerId == user.SmerId))?.smerNaziv;
             return smer;
             
         }
