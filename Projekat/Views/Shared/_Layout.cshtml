@@ -50,7 +50,11 @@
         <p id="uloga1">
             administrator
         </p>
+        <!-- Ovde su one levo sto stoje u listi ovo stoji ovde samo da bi mogo da nadjem de pocinje, zato je ovako dugacko -->
+        @if (this.User.IsInRole("Administrator"))
+        {
         <ul class="ListaNav" id="n1">
+          
             <li class="naslov">
                 <div id="Cikica" class="slikaOdNaslova">
                     <img src="~/Content/img/cikica.png" alt="slika1" />
@@ -74,6 +78,7 @@
                 </a>
             </li>
         </ul>
+            }
         <ul class="ListaNav" id="n2">
             <li class="naslov">
                 <div id="Materijali" class="slikaOdNaslova">
@@ -81,8 +86,11 @@
                 </div>
                 <p>Materijali</p>
             </li>
-            <li class="blok">
-
+            @if (this.User.IsInRole("Administrator") || this.User.IsInRole("Urednik") || this.User.IsInRole("Profesor"))
+            {
+                if (!this.User.IsInRole("Profesor"))
+                {
+            <li class="blok">                
                 <a href="@Url.Action("UploadMaterijal","Materijal")">
                     <div class="slikaLi">
                         <img src="~/Content/img/novimaterijal.png" height=28 width="27" alt="slika1" />
@@ -90,6 +98,7 @@
                     <p id="l9">Novi materijal</p>
                 </a>
             </li>
+                }
 
             <li class="blok">
 
@@ -100,6 +109,7 @@
                     <p id="l3">Obuka profesora</p>
                 </a>
             </li>
+            }
 
             <li class="blok">
                 <a href="@Url.Action("SmeroviPrikaz", "Smer")">
@@ -125,6 +135,8 @@
                 <p id="l5">Pregled vesti</p>
                 </a>
             </li>
+            @if(this.User.IsInRole("Urednik")|| this.User.IsInRole("Administrator"))
+            { 
             <li class="blok">
                 <a href="@Url.Action("NovaVest","Vesti")">
                     <div class="slikaLi">
@@ -133,6 +145,7 @@
                     <p id="l6">Nova vest</p>
                 </a>
             </li>
+            }
             <li class="blok">
                 <div class="slikaLi">
                     <img id="zvono" src="~/Content/img/zvono.png" alt="slika1" />

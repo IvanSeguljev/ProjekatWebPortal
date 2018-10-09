@@ -5,7 +5,8 @@
 }
 
 <div id="sredina">
-
+@if (this.User.IsInRole("Administrator") || this.User.IsInRole("Urednik"))
+{
     <a id="novi-materijal" href="/Predmet/DodajPredmet">
         <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
             <g>
@@ -22,7 +23,7 @@
             </g>
         </svg>
     </a>
-
+}
     <span id="smerId" hidden>@Model.smerId</span>
 
     @foreach (var predmet in Model.predmeti)
@@ -30,13 +31,17 @@
         <div class="kartica-predmet clear-fix" id="@predmet.predmetId">
             <a class="naziv-predmeta-na-kartici" href="#">@predmet.predmetNaziv</a>
             <div class="kontrole clear-fix">
+                @if(this.User.IsInRole("Administrator") || this.User.IsInRole("Urednik"))
+                { 
                 <a href="#" class="kontrola-ikonica edit" data-toggle="modal" data-target="@("#editModal"+ predmet.predmetId)"><img src="~/Content/img/uredi.png" alt="uredi" /></a>
+                }
                 <a class="predmet-kontrole opis" href="#" data-toggle="modal" data-target="#opisModal">OPIS</a>
                 @Html.ActionLink("MATERIJALI", "MaterijaliPrikaz", "Materijal", new { id = predmet.predmetId }, new { @class = "predmet-kontrole getMaterijali", tabindex = predmet.predmetId })
             </div>
             <div class="opisPredmeta" style="display:none"><p>@predmet.predmetOpis</p></div>
         </div>
-
+        if (this.User.IsInRole("Administrator") || this.User.IsInRole("Urednik"))
+        {
         <div class="modal modal-edit fade editModalPredmeta" id="@("editModal"+ predmet.predmetId)" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -44,6 +49,8 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Uređivanje predmeta <span>   </span></h4>
                     </div>
+                   
+                    
                     <div class="modal-body">
                         @using (Html.BeginForm("Edit", "Predmet", FormMethod.Post, new { @id = "editPredmeta" }))
                         {
@@ -67,11 +74,13 @@
                             </button>
                         }
                     </div>
+                    
                     <div class="modal-footer">
                     </div>
                 </div>
             </div>
         </div>
+        }
     }
 
     <div class="modal fade" id="opisModal" role="dialog">

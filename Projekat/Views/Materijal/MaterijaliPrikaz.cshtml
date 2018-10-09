@@ -12,9 +12,12 @@
         }
     }
 </style>
+@if (this.User.IsInRole("Administrator") || this.User.IsInRole("Urednik"))
+{
 <a id="novi-materijal" href="@Url.Action("UploadMaterijal", "Materijal")">
     <img src="~/Content/img/upload.png" alt="Novi materijal">
 </a>
+}
 <div id="sredina" class="nestaje">
 
     <img id="banana" src="~/Content/img/potvrdaBrisanjaGIFGOTOV.gif" />
