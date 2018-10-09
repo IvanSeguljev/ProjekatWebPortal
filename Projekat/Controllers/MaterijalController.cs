@@ -8,7 +8,7 @@ using Projekat.Models;
 using Projekat.ViewModels;
 using System.Data.Entity;
 using System.Web.Helpers;
-
+using System.Threading.Tasks;
 
 namespace Projekat.Controllers
 {
@@ -56,7 +56,7 @@ namespace Projekat.Controllers
         /// <returns>Parcijalni pregled karticw</returns>
         [HttpGet]
 
-        public ActionResult MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int? id = null)
+        public async Task<ActionResult> MaterijaliPrikaz(string sort, List<string> formati, List<int> tipovi, int number = 0, int? id = null)
         {
             List<OsiromaseniMaterijali> materijali;
 
@@ -64,9 +64,24 @@ namespace Projekat.Controllers
             int namenaID = 1;
             if (id == null)
             {
+                if (User.IsInRole("Ucenik"))
+                {
+                    return new HttpStatusCodeResult(403);
+                }
                 namenaID = 2;
             }
-
+            if(this.User.IsInRole("Ucenik"))
+            {
+               int? smer =  await ApplicationUser.VratiSmerId(this.User.Identity.Name);
+                if(smer != null)
+                {
+                    PredmetPoSmeru pos = context.predmetiPoSmeru.FirstOrDefault(x => x.predmetId == id && x.smerId == smer);
+                    if(pos == null)
+                    {
+                        return new HttpStatusCodeResult(403);
+                    }
+                }
+            }
             materijali = context.naprednaPretraga(formati, tipovi, id, namenaID).ToList();
 
             if (sort == "opadajuce")
@@ -119,6 +134,7 @@ namespace Projekat.Controllers
         /// <param name="smerId">Id smera za koji je predmet koji se dodaje.</param>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Roles ="Administrator,Urednik")]
         public ActionResult UploadMaterijal(int? smerId)
         {
             context = new MaterijalContext();
@@ -161,6 +177,7 @@ namespace Projekat.Controllers
         /// <param name="predmet">Predmet za koji je materijal.</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrator,Urednik")]
         public ActionResult UploadMaterijal(MaterijalModel materijal, HttpPostedFileBase file, PredmetPoSmeru predmet/*, string hiddenPredmet*/)
         {
 
@@ -237,6 +254,7 @@ namespace Projekat.Controllers
         /// <param name="id">Id materijala za brisanje</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrator,Urednik")]
         //[ActionName("Delete")]
         //[Route("UploadMaterijal/DeleteConfirmed/{id:int}")]
         public ActionResult DeleteConfirmed(int id)

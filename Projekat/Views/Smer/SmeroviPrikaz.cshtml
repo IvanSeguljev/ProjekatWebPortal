@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div id="sredina">
-
+@if (this.User.IsInRole("Administrator") || this.User.IsInRole("Urednik"))
+{
     <a id="novi-materijal" href="../Smer/DodajSmer">
         <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
             <g>
@@ -22,13 +23,16 @@
             </g>
         </svg>
     </a>
-
+}
     @foreach (var smer in Model.smerovi)
     {
         <div class="kartica-smer clear-fix"  id=@smer.smerId>
             <a class="naziv-smera-na-kartici" href="#">@smer.smerNaziv</a>
             <div class="kontrole clear-fix">
+            @if (this.User.IsInRole("Administrator") || this.User.IsInRole("Urednik"))
+            {
                 <a href="#" class="kontrola-ikonica edit" data-toggle="modal" data-target="#editModal"><img src="~/Content/img/uredi.png" alt="uredi" /></a>
+            }
                 <a class="predmet-kontrole opis" href="#" data-toggle="modal" data-target="#opisModal">OPIS</a>
                 <a href="@string.Format( Url.Action("PredmetiPrikaz","Predmet") + "?Smer=" + Url.Encode(smer.smerNaziv))" class="predmet-kontrole">PREDMETI</a>
             </div>
@@ -54,7 +58,8 @@
             </div>
         </div>
     </div>
-
+@if (this.User.IsInRole("Administrator") || this.User.IsInRole("Urednik"))
+{
     <div class="modal modal-edit fade" id="editModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -65,7 +70,7 @@
                 <div class="modal-body">
                     @using (Html.BeginForm("DodajSmer", "Smer", FormMethod.Post, new { @id = "editSmera" }))
                     {
-                        @Html.HiddenFor(s=>s.smerId, new { @id = @"smerId", @name = "smerId" })
+                        @Html.HiddenFor(s => s.smerId, new { @id = @"smerId", @name = "smerId" })
                         <label class= "matDesignLabel">Naziv smera</label>
                         @Html.TextBoxFor(s => s.smerNaziv, new { @id = @"smerNazivEdit", @name = "smerNaziv" })
 
@@ -86,7 +91,7 @@
             </div>
         </div>
     </div>
-
+}
     <div id="snackbar"><span>Smer uspešno izmenjen!</span> <button type="button">UNDO</button></div>
 </div>
 @Scripts.Render("~/bundles/smer_prikaz")

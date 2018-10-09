@@ -2,7 +2,7 @@
 <mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
-
+  
   <mvcSiteMapNode title="Početna" controller="Home" action="Index">
     <mvcSiteMapNode title="Vesti" controller="Vesti" action="PrikazVesti">
       <mvcSiteMapNode title="Vest" controller="Vesti" action="PrikaziVest"/>
@@ -19,7 +19,7 @@
         </mvcSiteMapNode>
       </mvcSiteMapNode>
     </mvcSiteMapNode>
-    
+    <mvcSiteMapNode title="Login" controller="Account" action="Login"/>
   </mvcSiteMapNode>
 
 </mvcSiteMap>

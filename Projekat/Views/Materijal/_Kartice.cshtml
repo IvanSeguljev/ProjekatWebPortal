@@ -11,9 +11,7 @@
             <h2>
                 @osiromaseni.materijalNaslov
             </h2>
-            <p class="postavio">
-                Jovana Nikolić / Administrator / 4 Komentara
-            </p>
+            
             <p class="opis">
             @osiromaseni.materijalOpis
             </p>
@@ -26,18 +24,15 @@
                         <a class="dropdownOpcija" href="#">Komentariši</a>
                     </div>
                 </div>
+                @if(this.User.IsInRole("Administrator")|| this.User.IsInRole("Urednik"))
+                {
                 <a class="delete" href="#" data-toggle="modal" data-target="#myModal">
                     @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>*@
                     @*@Url.Action("Delete", "UploadMaterijal", new { id = materijal.materijalId })*@
                     <img class="brisi" src="~/Content/img/obrisi.png" alt="obrisi">
                 </a>
-                <a class="uredi" href="#">
-                    <img src="~/Content/img/uredi.png" alt="uredi">
-                </a>
-                <a class="komentarisi" href="#">
-                    <img src="~/Content/img/komentarisi.png" alt="komentarisi">
-                </a>
-                <a class="datumPostavljanja" href="#">28.06.2017.</a>
+                
+                }
                 <a class="preuzmi" href="@Url.Action("DownloadMaterijal", "Materijal", new { id = osiromaseni.materijalId })">preuzmi</a>
             </div>
         </div>

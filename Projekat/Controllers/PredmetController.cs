@@ -33,6 +33,7 @@ namespace Projekat.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Roles = "Administrator,Urednik")]
         public ActionResult DodajPredmet()
         {
 
@@ -51,6 +52,7 @@ namespace Projekat.Controllers
         /// <param name="viewModel">The view model.</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrator,Urednik")]
         public ActionResult DodajPredmet(DodajPremetViewModel viewModel)
         {
 
@@ -95,6 +97,7 @@ namespace Projekat.Controllers
         /// <param name="predmetId">Id predmeta koji treba promeniti.</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrator,Urednik")]
         public ActionResult Edit(int smerId, List<int> smeroviId, string predmetNaziv, string predmetOpis, int predmetId)
         {
             context = new MaterijalContext();
@@ -155,11 +158,11 @@ namespace Projekat.Controllers
 
             context.SaveChanges();
 
+            string smernaziv = context.smerovi.FirstOrDefault(x => x.smerId == smerId).smerNaziv;
 
 
 
-
-            return RedirectToAction("PredmetiPrikaz", new { id = smerId });
+            return RedirectToAction("PredmetiPrikaz", new { smer = smernaziv });
 
         }
 
