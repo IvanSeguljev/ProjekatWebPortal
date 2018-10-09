@@ -15,6 +15,7 @@ namespace Projekat.Controllers
     /// Kontroler koji upravlja vestima
     /// </summary>
     /// <seealso cref="System.Web.Mvc.Controller" />
+    [Authorize]
     public class VestiController : Controller
     {
         VestiContext context;

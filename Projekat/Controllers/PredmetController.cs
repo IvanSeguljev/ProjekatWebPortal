@@ -13,6 +13,7 @@ namespace Projekat.Controllers
     /// Predmet Kontroler
     /// </summary>
     /// <seealso cref="System.Web.Mvc.Controller" />
+    [Authorize]
     public class PredmetController : Controller
     {
         private IMaterijalContext context;
@@ -191,12 +192,13 @@ namespace Projekat.Controllers
         /// <summary>
         /// Prikazuje predmete na odredjenom smeru
         /// </summary>
-        /// <param name="id">Id smera za koji zelimo da prikazemo predmete.</param>
+        /// <param name="Smer">Naziv smera za koji zelimo da prikazemo predmete.</param>
         /// <returns></returns>
         [HttpGet]
         
         public ActionResult PredmetiPrikaz(string Smer)
         {
+
             int id;
             context = new MaterijalContext();
             try

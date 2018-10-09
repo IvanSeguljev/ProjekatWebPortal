@@ -20,10 +20,16 @@ namespace Projekat
                 defaults: new { controller = "Account", action = "DetaljiKorisnika" }
             );
             routes.MapRoute(
+            name: "MaterijaliZaUcenike",
+            url: "Materijali/ZaUcenike/{id}",
+            defaults: new { controller = "Materijal", action = "MaterijaliPrikaz" }
+        );
+            routes.MapRoute(
               name: "MaterijaliZaProf",
               url: "Materijali/ZaProfesore",
               defaults: new { controller = "Materijal", action = "MaterijaliPrikaz" }
           );
+          
 
             routes.MapRoute(
                 name: "Default",

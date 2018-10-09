@@ -20,7 +20,7 @@ namespace Projekat.Controllers
     /// Account kontroler
     /// </summary>
     /// <seealso cref="System.Web.Mvc.Controller" />
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -144,7 +144,7 @@ namespace Projekat.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        
         public ActionResult Register()
         {
             RegisterViewModel ViewModel = new RegisterViewModel();
@@ -162,7 +162,7 @@ namespace Projekat.Controllers
         /// <param name="ID">Id korisnika kog zelimo da izmenimo.</param>
         /// <returns></returns>
         [HttpGet]
-        [AllowAnonymous]
+        
         public ActionResult IzmeniKorisnika(string ID)
         {
             if (ID != null)
@@ -198,7 +198,7 @@ namespace Projekat.Controllers
         /// <param name="Fajl">Nova slika korisnika. Ukoliko se prosledi null, ostaje stara slika</param>
         /// <returns></returns>
         [HttpPost]
-        [AllowAnonymous]
+        
         public ActionResult IzmeniKorisnika(IzmeniKorisnikaViewModel model, HttpPostedFileBase Fajl)
         {
 
@@ -710,7 +710,7 @@ namespace Projekat.Controllers
         /// </summary>
         /// <param name="vm">Model u kome se nalaze detalji po kojima se vrsi pretraga. <seealso cref="ListaNaprednaPretragaViewModel"/></param>
         /// <returns></returns>
-        [AllowAnonymous]
+        
         public ActionResult ListaKorisnika(ListaNaprednaPretragaViewModel vm)
         {
             MaterijalContext context = new MaterijalContext();
@@ -786,7 +786,6 @@ namespace Projekat.Controllers
         /// </summary>
         /// <param name="Username">Username korisnika za koga zelimo da prikazemo detalje</param>
         /// <returns></returns>
-        [AllowAnonymous]
         public ActionResult DetaljiKorisnika(string Username)
         {
             if (Username == null)

@@ -16,6 +16,7 @@ namespace Projekat.Controllers
     /// Materijal kontroler
     /// </summary>
     /// <seealso cref="System.Web.Mvc.Controller" />
+    [Authorize]
     public class MaterijalController : Controller
     {
         private IMaterijalContext context;

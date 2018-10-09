@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Projekat.Models;
+using Microsoft.AspNet.Identity;
+using System.Threading.Tasks;
 
 namespace Projekat.Controllers
 {
@@ -11,8 +13,10 @@ namespace Projekat.Controllers
     /// Smer Kontroler
     /// </summary>
     /// <seealso cref="System.Web.Mvc.Controller" />
+    [Authorize]
     public class SmerController : Controller
     {
+        
         private IMaterijalContext context;
 
         /// <summary>
@@ -47,8 +51,16 @@ namespace Projekat.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult SmeroviPrikaz()
+        public async Task<ActionResult> SmeroviPrikaz()
         {
+            if(this.User.IsInRole("Ucenik"))
+            {
+                string smerID = await ApplicationUser.VratiSmer(User.Identity.Name);
+                if (smerID != null)
+                    return RedirectToAction("PredmetiPrikaz", "Predmet", new { smer = smerID});
+                else
+                    return new HttpNotFoundResult("Smer nije nadjen");
+            }
             List<SmerModel> smeroviInDb;
             smeroviInDb = context.smerovi.ToList();
             SmerModel smer = new SmerModel();

@@ -10,12 +10,14 @@ namespace Projekat.Controllers
     /// Home Kontroler
     /// </summary>
     /// <seealso cref="System.Web.Mvc.Controller" />
+    [Authorize]
     public class HomeController : Controller
     {
         /// <summary>
         /// Index Akcija.
         /// </summary>
         /// <returns></returns>
+        
         public ActionResult Index()
         {
             return View();
