@@ -2058,3 +2058,13 @@ div#opisModal .modal-dialog {
 .divMapiranje a{
     color: whitesmoke;
 }
+.rememberMe{
+    font-family: 'roboto-light';
+    letter-spacing: 1.1px;
+}
+.rememberMeCb{
+    width:10px;
+}
+#lozinka{
+    margin-left:10%;
+}
