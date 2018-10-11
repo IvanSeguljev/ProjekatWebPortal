@@ -2068,3 +2068,20 @@ div#opisModal .modal-dialog {
 #lozinka{
     margin-left:10%;
 }
+
+.wrapper #pozadina{
+    -webkit-filter: blur(27px); /* Safari 6.0 - 9.0 */
+    filter: blur(27px);
+    position:absolute; top: 0px; left: 0px; z-index: -10000;
+}
+.wrapper #404{
+     
+     position:absolute;
+     z-index: 3;
+     margin-left: 25%;
+     margin-top:20%;
+}
+
+.wrapper{
+    position:relative;
+}

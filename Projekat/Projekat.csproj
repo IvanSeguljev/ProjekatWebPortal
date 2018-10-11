@@ -217,6 +217,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MaterijalController.cs" />
@@ -345,6 +346,7 @@
     <Content Include="Content\css\stil.css" />
     <Content Include="Content\css\TabelaListaKorisnika.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\404.png" />
     <Content Include="Content\img\back-strelica.png" />
     <Content Include="Content\img\cikica.png" />
     <Content Include="Content\img\Default.png" />
@@ -368,6 +370,7 @@
     <Content Include="Content\img\plusSivi.png" />
     <Content Include="Content\img\PNGicon.png" />
     <Content Include="Content\img\potvrdaBrisanjaGIFGOTOV.gif" />
+    <Content Include="Content\img\pozadina.JPG" />
     <Content Include="Content\img\PRIMER.png" />
     <Content Include="Content\img\prof-slika.png" />
     <Content Include="Content\img\profesor.png" />
@@ -632,10 +635,12 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Shared\FileNotFound2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Konfiguracija\" />
     <Folder Include="Scripts\Shared\" />
+    <Folder Include="Views\Error\" />
     <Folder Include="Views\Shared\Editor templates\" />
   </ItemGroup>
   <ItemGroup>
