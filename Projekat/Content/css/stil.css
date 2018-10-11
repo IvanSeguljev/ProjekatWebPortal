@@ -2082,6 +2082,18 @@ div#opisModal .modal-dialog {
      margin-top:20%;
 }
 
-.wrapper{
-    position:relative;
+.wrapper {
+    position: relative;
+}
+
+#dropdaun{
+    background-color:royalblue;
+    float:right;
+    width:190px;
+    right:0;
+    min-width:190px;
+    position:absolute;
+    
+   
+    
 }

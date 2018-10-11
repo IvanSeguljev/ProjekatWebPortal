@@ -15,6 +15,7 @@
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>@*CDN za simplebar*@
 </head>
 <body>
+   
     @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -177,7 +178,7 @@
             @Html.MvcSiteMap().SiteMapPath()
         </div>
 
-        <img id="gornjeOpcije" src="~/Content/img/tri-tacke.png" alt="opcije">
+        <img id="gornjeOpcije" src="~/Content/img/tri-tacke.png" alt="opcije" onclick="drop()">
 
         
 
@@ -188,6 +189,28 @@
         </div>
 
     </div>
+    <div id="dropdaun" style="display:none;">
+        <ul>
+            <li class="blok">Log</li>
+            <li class="blok">My account</li>
+
+        </ul>
+    </div>
+    <script>
+        var x = document.getElementById("dropdaun");
+        function drop() {
+            if (x.style.display === "none")
+            {
+                x.style.display = "inline-block";
+            }
+                
+            else
+            {
+                x.style.display = "none";
+            }
+                
+        }
+    </script>
     <script src="~/Scripts/umdPopper.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
