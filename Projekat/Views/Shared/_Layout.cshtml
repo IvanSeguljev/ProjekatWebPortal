@@ -152,15 +152,21 @@
          @if (Request.UrlReferrer != null)
         {
             <a id="nazad" onclick="history.go(-1); return false;" href="#"><img src="~/Content/img/back-strelica.png" alt="nazad"></a><br />
-        }
+         }
+         else
+         {
+            <a id="nazad" href="#"> </a><br/>
+         }
+
+
         <div class="divMapiranje">
 
             @Html.MvcSiteMap().SiteMapPath()
         </div>
 
-       
-
         <img id="gornjeOpcije" src="~/Content/img/tri-tacke.png" alt="opcije">
+
+        
 
         @*<img class="gornjiNavIkonice" id="lupaPretragaToggle" src="~/Content/img/lupaPretraga.png" alt="pretraga" />*@
 
