@@ -2040,7 +2040,8 @@ div#opisModal .modal-dialog {
 /* Mapiranje */
 .divMapiranje {
     position: absolute;
-    margin-left: 70px !important;
+    display:inline-block;
+    margin-left:70px;
     margin-top: 18px;
     margin-bottom: 18px;
     font-family: 'roboto-light';
