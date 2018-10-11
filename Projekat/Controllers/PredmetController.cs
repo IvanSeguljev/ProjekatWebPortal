@@ -211,7 +211,7 @@ namespace Projekat.Controllers
             catch
             {
 
-                return new HttpNotFoundResult("Smer nije nadjen");
+                return View("FileNotFound"); ;
             }
             
             List<PredmetPoSmeru> poSmeru = context.predmetiPoSmeru.Where(m => m.smerId == id).ToList();
