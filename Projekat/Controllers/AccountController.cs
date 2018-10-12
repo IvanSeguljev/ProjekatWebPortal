@@ -20,7 +20,7 @@ namespace Projekat.Controllers
     /// Account kontroler
     /// </summary>
     /// <seealso cref="System.Web.Mvc.Controller" />
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -144,7 +144,7 @@ namespace Projekat.Controllers
 
         //
         // GET: /Account/Register
-        
+        [Authorize(Roles = "Administrator")]
         public ActionResult Register()
         {
             RegisterViewModel ViewModel = new RegisterViewModel();
@@ -162,7 +162,7 @@ namespace Projekat.Controllers
         /// <param name="ID">Id korisnika kog zelimo da izmenimo.</param>
         /// <returns></returns>
         [HttpGet]
-        
+        [Authorize(Roles = "Administrator")]
         public ActionResult IzmeniKorisnika(string ID)
         {
             if (ID != null)
@@ -198,7 +198,7 @@ namespace Projekat.Controllers
         /// <param name="Fajl">Nova slika korisnika. Ukoliko se prosledi null, ostaje stara slika</param>
         /// <returns></returns>
         [HttpPost]
-        
+        [Authorize(Roles = "Administrator")]
         public ActionResult IzmeniKorisnika(IzmeniKorisnikaViewModel model, HttpPostedFileBase Fajl)
         {
 
@@ -268,7 +268,7 @@ namespace Projekat.Controllers
         /// </summary>
         /// <param name="length">Duzina sifre koju funkcija generise.</param>
         /// <returns>string koji sadrzi random sifu <seealso cref="GetRandomString(int, IEnumerable{char})"/></returns>
-        public static string GetRandomPassword(int length)
+        private static string GetRandomPassword(int length)
         {
             const string alphanumericCharacters =
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
@@ -291,7 +291,7 @@ namespace Projekat.Controllers
         /// characterSet must not be empty - characterSet
         /// </exception>
         /// <exception cref="System.ArgumentNullException">characterSet</exception>
-        public static string GetRandomString(int length, IEnumerable<char> characterSet)
+        private static string GetRandomString(int length, IEnumerable<char> characterSet)
         {
             if (length < 0)
                 throw new ArgumentException("length must not be negative", "length");
@@ -710,7 +710,7 @@ namespace Projekat.Controllers
         /// </summary>
         /// <param name="vm">Model u kome se nalaze detalji po kojima se vrsi pretraga. <seealso cref="ListaNaprednaPretragaViewModel"/></param>
         /// <returns></returns>
-        
+        [Authorize(Roles = "Administrator")]
         public ActionResult ListaKorisnika(ListaNaprednaPretragaViewModel vm)
         {
             MaterijalContext context = new MaterijalContext();
@@ -786,6 +786,7 @@ namespace Projekat.Controllers
         /// </summary>
         /// <param name="Username">Username korisnika za koga zelimo da prikazemo detalje</param>
         /// <returns></returns>
+        [Authorize(Roles = "Administrator")]
         public ActionResult DetaljiKorisnika(string Username)
         {
             if (Username == null)
@@ -817,7 +818,7 @@ namespace Projekat.Controllers
         /// </summary>
         /// <param name="ID">Id korisnika kog zelimo da obrisemo.</param>
         /// <returns></returns>
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult ObrisiKorisnika(string ID)
         {

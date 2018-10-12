@@ -36,13 +36,18 @@
                 </div>
             </div>
         </div>*@
+
+@if (User.Identity.IsAuthenticated)
+{
     <div id="hamburger-menu-toggle" class="hamburger-menu-toggle-otvoren">
         <div class="bar bar-top"></div>
         <div class="bar bar-middle"></div>
         <div class="bar bar-bottom"></div>
     </div>
+   
     <div data-simplebar class="LeftBar">
-        <div id="CrveniFiksni"></div>
+       
+         <div id="CrveniFiksni"></div>
         <div id="Crveni">
             <img src="~/Content/img/prof-slika.png" alt="profilna slika" />
         </div>
@@ -51,6 +56,8 @@
         <p id="uloga1">
             administrator
         </p>
+        
+
         <!-- Ovde su one levo sto stoje u listi ovo stoji ovde samo da bi mogo da nadjem de pocinje, zato je ovako dugacko -->
         @if (this.User.IsInRole("Administrator"))
         {
@@ -79,7 +86,7 @@
                 </a>
             </li>
         </ul>
-            }
+        }
         <ul class="ListaNav" id="n2">
             <li class="naslov">
                 <div id="Materijali" class="slikaOdNaslova">
@@ -92,7 +99,7 @@
                 if (!this.User.IsInRole("Profesor"))
                 {
             <li class="blok">                
-                <a href="@Url.Action("UploadMaterijal","Materijal")">
+                <a href="@Url.Action("UploadMaterijal", "Materijal")">
                     <div class="slikaLi">
                         <img src="~/Content/img/novimaterijal.png" height=28 width="27" alt="slika1" />
                     </div>
@@ -129,17 +136,17 @@
                 <p id="vestiP">Vesti i obavestenja</p>
             </li>
             <li class="blok">
-                <a href="@Url.Action("PrikazVesti","Vesti")">
+                <a href="@Url.Action("PrikazVesti", "Vesti")">
                 <div class="slikaLi">
                     <img src="~/Content/img/novine-svetlije.png" alt="slika1" />
                 </div>
                 <p id="l5">Pregled vesti</p>
                 </a>
             </li>
-            @if(this.User.IsInRole("Urednik")|| this.User.IsInRole("Administrator"))
-            { 
+            @if (this.User.IsInRole("Urednik") || this.User.IsInRole("Administrator"))
+            {
             <li class="blok">
-                <a href="@Url.Action("NovaVest","Vesti")">
+                <a href="@Url.Action("NovaVest", "Vesti")">
                     <div class="slikaLi">
                         <img id="nova-vest" src="~/Content/img/novavest.png" alt="slika1" />
                     </div>
@@ -161,6 +168,16 @@
             </li>
         </ul>
     </div>
+}
+else
+{
+    <style>
+        #gornjaNavigacija{
+            width:100% !important;
+            margin-left:0px !important;
+        }
+    </style>
+}
     <div id="gornjaNavigacija">
        
          @if (Request.UrlReferrer != null)
@@ -191,8 +208,14 @@
     </div>
     <div id="dropdaun" style="display:none;">
         <ul class="dd-lista">
-            <li class="dd">Log</li>
-            <li class="dd">My account</li>
+            
+            <li class="dd">Moj Nalog</li>
+            <li class="dd">
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Log Out" />
+            }</li>
 
         </ul>
     </div>
