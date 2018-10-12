@@ -7,7 +7,10 @@
     
     <div class="celaVest" id="clVest">
         <h2>@Model.Naslov</h2>
+        @if (User.IsInRole("Administrator") || User.IsInRole("Urednik"))
+        {
         <button type="button" class="btnPostaviGV" data-toggle="modal" data-target="#myModal"><!--<span>slika pin</span>-->POSTAVI KAO GLAVNU VEST </button>
+        }
         <br /><br />
 
         <div class="teloVesti">
@@ -20,7 +23,8 @@
 </div>
 
 
-
+@if(User.IsInRole("Administrator")||User.IsInRole("Urednik"))
+{ 
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -50,9 +54,9 @@
 
     </div>
 </div>
+}
 <script>
     $(window).resize(function () {
-
         if ($(window).width() < 500) {
             $("#sredina").removeClass("sredina-upload-mat");
             $("#clVest").removeClass("celaVest");

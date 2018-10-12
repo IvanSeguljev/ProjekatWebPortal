@@ -90,6 +90,7 @@ namespace Projekat.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Roles ="Administrator,Urednik")]
         public ActionResult NovaVest()
         {
             DodajVestViewModel vm = new DodajVestViewModel();
@@ -104,6 +105,7 @@ namespace Projekat.Controllers
         /// <returns></returns>
         [ValidateInput(false)]
         [HttpPost]
+        [Authorize(Roles = "Administrator,Urednik")]
         public ActionResult SnimiVest(HttpPostedFileBase Fajl, DodajVestViewModel vm)
         {
            
@@ -180,6 +182,7 @@ namespace Projekat.Controllers
         /// <param name="glavna">Da li je vest glavna vest, ako jeste, brise se i iz konfiguracije.</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrator,Urednik")]
         public ActionResult BrisanjeVesti(int Id, bool glavna = false)
         {
            
@@ -247,6 +250,7 @@ namespace Projekat.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize(Roles = "Administrator,Urednik")]
         public ActionResult PostaviGlavnuVest(DateTime datum,string naslov,DateTime novDatum)
         {
             if(datum!= null && naslov != null && novDatum != null)
